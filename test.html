@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Submit to SharePoint List</title>
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+</head>
+<body>
+  <h2>Submit a New Item</h2>
+  <form id="sharepointForm">
+    <label for="title">Title:</label>
+    <input type="text" id="title" name="title" required><br><br>
+
+    <label for="description">Description:</label>
+    <input type="text" id="description" name="description"><br><br>
+
+    <button type="submit">Submit</button>
+  </form>
+
+  <script>
+    $(document).ready(function () {
+      $('#sharepointForm').on('submit', function (e) {
+        e.preventDefault();
+
+        var title = $('#title').val();
+        var description = $('#description').val();
+
+        var item = {
+          '__metadata': { 'type': 'SP.Data.YourListNameListItem' },
+          'Title': title,
+          'Description': description
+        };
+
+        $.ajax({
+          url: _spPageContextInfo.webAbsoluteUrl + "/_api/web/lists/getbytitle('Healthy Families Referrals')/items",
+          type: "POST",
+          contentType: "application/json;odata=verbose",
+          data: JSON.stringify(item),
+          headers: {
+            "Accept": "application/json;odata=verbose",
+            "X-RequestDigest": $("#__REQUESTDIGEST").val()
+          },
+          success: function (data) {
+            alert("Item added successfully!");
+            $('#sharepointForm')[0].reset();
+          },
+          error: function (error) {
+            console.error("Error adding item: ", error);
+            alert("Error adding item.");
+          }
+        });
+      });
+    });
+  </script>
+</body>
+</html>
