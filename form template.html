@@ -15,13 +15,13 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
 
-    <title>Form Template</title>
+    <title>Consent to Photograph</title>
     <link rel="icon" href="static/img/favicon.png" type="image/x-icon">
     <style>
       #signature-pad {
       border: 1px solid #ccc;
       width: 100%;
-      height: 200px;
+      height: 55px;
       touch-action: none;
       }
     </style>
@@ -29,39 +29,47 @@
   <body style="background: #7867AE">
 	<div class="container mt-3 mb-3 pb-2 rounded-3 bg-light">
 			<form id="form-container" method="post" action="/submit">
-				<div class="mb-3">
-					<label for="name" class="form-label">Name</label>
-					<input type="name" class="form-control" id="name" aria-describedby="nameHelp">
-					<div id="nameHelp" class="form-text">First and last name.</div>
+				<div>
+					<img src="static/img/Iris logo.png" alt="Logo" class="img-fluid mx-auto d-block mb-3" style="max-width: 200px;">
+					<h1 class="text-center">Consent to Photograph</h1>
 				</div>
-				<div class="mb-3">
-					<label for="email" class="form-label">Email</label>
-					<input type="email" class="form-control" id="email" aria-describedby="emailHelp">
+
+				<div>
+					<p>
+						Consent must be completed with each instance where photographs are requested by a referral agency coordinator and/or staff in accordance with the purposes of the referral.
+					</p>
+					<p class="d-flex align-items-center">
+						This consent is valid on this date:&nbsp;<input type="date" class="form-control d-inline-block" id="date" placeholder="Date" style="width: auto;">
+					</p>
+
+					<p>
+						I give permission to my Iris Family Support Center worker to take photographs as needed to document the condition of my home and/or family. I understand that these photographs may be used to:
+						<ul>
+							<li>Document current conditions and any improvements over time.</li>
+							<li>Support the services provided through my referral.</li>
+							<li>Be used for training purposes within Iris Family Support Center.</li>
+						</ul>
+						Photographs will be taken only as necessary, based on the specific needs outlined in the referral. They will not include any identifying features of my home or family members that could reveal our identity to anyone outside of Iris Family Support Center and the referral agency.
+					</p>
 				</div>
-				<div class="mb-3 form-check">
-					<input type="checkbox" class="form-check-input" id="exampleCheck1">
-					<label class="form-check-label" for="exampleCheck1">Check me out</label>
-				</div>
-				<button type="submit" class="btn btn-primary">Submit</button>
-				<button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#signatureModal">Sign</button>
-				<div class="modal fade" id="signatureModal" tabindex="-1" aria-labelledby="signatureModalLabel" aria-hidden="true">
-					<div class="modal-dialog">
-						<div class="modal-content">
-							<div class="modal-header">
-								<h1 class="modal-title fs-5" id="signatureModalLabel">signature</h1>
-								<button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="close"></button>
-							</div>
-							<!-- Signature Canvas -->
-							<div class="modal-body">
-								<canvas id="signature-pad"></canvas>
-							</div>
-							<div class="modal-footer">
-								<button type="button" class="btn btn-secondary" onclick="clearPad()">Clear</button>
-								<button type="button" class="btn btn-primary" onclick="saveAsPDF()">Save as PDF</button>
-							</div>
+				
+				<div class ="container-fluid">
+					<div class="row align-items-start">
+						<div class="form-floating mb-3 col">
+							<input type="text" class="form-control" id="name" placeholder="First and last name">
+							<label for="name">Client Name</label>
+						</div>
+						<div class="form-floating mb-3 col">
+							<canvas id="signature-pad"></canvas>
+							<label for="email">Client Signature</label>
+						</div>
+						<div class="form-floating mb-3 col">
+							Signed on:&nbsp;<input type="date" class="form-control d-inline-block" id="signatureDate" placeholder="Date" style="width: auto;">
 						</div>
 					</div>
 				</div>
+				<button type="button" class="btn btn-primary" onclick="saveAsPDF()">Save as PDF</button>
+				<button type="button" class="btn btn-secondary" onclick="clearPad()">Clear</button>
 			</form>
 	</div>
 
@@ -114,25 +122,42 @@
       }
     </script>
   	<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
-	<script>
-		async function saveAsPDF() {
-		const { jsPDF } = window.jspdf;
+<script>
+  async function saveAsPDF() {
+    const { jsPDF } = window.jspdf;
+    const form = document.getElementById('form-container');
 
-		const pdf = new jsPDF();
+    // Capture the form as an image
+    const canvas = await html2canvas(form, { scale: 2 });
+    const imgData = canvas.toDataURL('image/png');
 
-		// Add form text (example)
-		pdf.setFontSize(12);
-		pdf.text("Name: " + document.getElementById('name').value, 10, 20);
-		pdf.text("Email: " + document.getElementById('email').value, 10, 40);
+    // Create PDF
+    const pdf = new jsPDF({
+      orientation: 'portrait',
+      unit: 'pt',
+      format: [canvas.width, canvas.height]
+    });
 
-		// Add signature image
-		const signatureCanvas = document.getElementById('signature-pad');
-		const signatureDataURL = signatureCanvas.toDataURL('image/png');
-		pdf.addImage(signatureDataURL, 'PNG', 10, 60, 180, 60); // x, y, width, height
+    pdf.addImage(imgData, 'PNG', 0, 0, canvas.width, canvas.height);
+    pdf.save('signature-form.pdf');
+  }
+</script>
 
-		pdf.save('form-with-signature.pdf');
-		}
-	</script>
+	
+<script>
+ // Set the input's value to today's date in YYYY-MM-DD format
+	document.addEventListener("DOMContentLoaded", function () { const today = new Date().toISOString().split('T')[0];
+	document.getElementById('date').value = today;
+	});
+</script>
+
+<script>
+ document.addEventListener("DOMContentLoaded", function () {
+ 	const today = new Date().toISOString().split('T')[0];
+ 	document.getElementById('signatureDate').value = today;
+ });
+</script>
+
   
 </body>
 </html>
