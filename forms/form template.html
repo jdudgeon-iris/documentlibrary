@@ -24,13 +24,21 @@
       height: 55px;
       touch-action: none;
       }
+	  #form-container {
+	  max-width: 800px;
+	  margin: 0 auto;
+	  padding: 20px;
+	  background-color: #fff;
+	  border-radius: 8px;
+	  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+	}
     </style>
   </head>
   <body style="background: #7867AE">
 	<div class="container mt-3 mb-3 pb-2 rounded-3 bg-light">
 			<form id="form-container" method="post" action="/submit">
 				<div>
-					<img src="static/img/Iris logo.png" alt="Logo" class="img-fluid mx-auto d-block mb-3" style="max-width: 200px;">
+					<img src="/static/img/Iris Logo.png" alt="Logo" class="img-fluid mx-auto d-block mb-3" style="max-width: 200px;">
 					<h1 class="text-center">Consent to Photograph</h1>
 				</div>
 
@@ -55,51 +63,53 @@
 				
 				<div class ="container-fluid">
 					<div class="row align-items-start">
-						<div class="form-floating mb-3 col">
-							<input type="text" class="form-control" id="name" placeholder="First and last name">
-							<label for="name">Client Name</label>
+						<div class="mb-3 col">
+							<input type="text" class="form-control" id="name">
+							<label class="form-text" for="name">Client Name</label>
 						</div>
-						<div class="form-floating mb-3 col">
+						<div class="mb-3 col">
 							<canvas class="signature-pad" id="signature-pad"></canvas>
-							<label for="email">Client Signature</label>
+							<label class="form-text" for="email">Client Signature</label>
 						</div>
-						<div class="form-floating mb-3 col">
-							Signed on:&nbsp;<input type="date" class="form-control d-inline-block" id="signatureDate" placeholder="Date" style="width: auto;">
+						<div class="mb-3 col">
+							<input type="date" class="form-control" id="staffSigned" style="width: auto;">
+							<label class="form-text" for="staffSigned">Date Signed</label>
 						</div>
 					</div>
 				</div>
 								<div class ="container-fluid">
 					<div class="row align-items-start">
-						<div class="form-floating mb-3 col">
-							<input type="text" class="form-control" id="name" placeholder="First and last name">
-							<label for="name">Client Name</label>
+						<div class=" mb-3 col">
+							<input type="text" class="form-control" id="name" >
+							<label class="form-text" for="name">Client Name</label>
 						</div>
-						<div class="form-floating mb-3 col">
+						<div class=" mb-3 col">
 							<canvas class="signature-pad" id="signature-pad"></canvas>
-							<label for="email">Client Signature</label>
+							<label class="form-text" for="email">Client Signature</label>
 						</div>
-						<div class="form-floating mb-3 col">
-							Signed on:&nbsp;<input type="date" class="form-control d-inline-block" id="signatureDate" placeholder="Date" style="width: auto;">
+						<div class="mb-3 col">
+							<input type="date" class="form-control" id="staffSigned" style="width: auto;">
+							<label class="form-text" for="staffSigned">Date Signed</label>
 						</div>
 					</div>
 				</div>
-								<div class ="container-fluid">
+					<div class ="container-fluid">
 					<div class="row align-items-start">
-						<div class="form-floating mb-3 col">
-							<input type="text" class="form-control" id="name" placeholder="First and last name">
-							<label for="name">Client Name</label>
+						<div class="mb-3 col">
+							<input type="text" class="form-control" id="name" >
+							<label class="form-text" for="name">Staff Name</label>
 						</div>
-						<div class="form-floating mb-3 col">
+						<div class="mb-3 col">
 							<canvas class="signature-pad" id="signature-pad"></canvas>
-							<label for="email">Client Signature</label>
+							<label class="form-text" for="email">Client Signature</label>
 						</div>
-						<div class="form-floating mb-3 col">
-							Signed on:&nbsp;<input type="date" class="form-control d-inline-block" id="signatureDate" placeholder="Date" style="width: auto;">
+						<div class="mb-3 col">
+							<input type="date" class="form-control" id="staffSigned" style="width: auto;">
+							<label class="form-text" for="staffSigned">Date Signed</label>
 						</div>
 					</div>
 				</div>
 				<button type="button" class="btn btn-primary" onclick="saveAsPDF()">Save as PDF</button>
-				<button type="button" class="btn btn-secondary" onclick="clearPad()">Clear</button>
 			</form>
 	</div>
 
