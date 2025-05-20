@@ -18,7 +18,7 @@
     <title>Consent to Photograph</title>
     <link rel="icon" href="static/img/favicon.png" type="image/x-icon">
     <style>
-      #signature-pad {
+    #signature-pad {
       border: 1px solid #ccc;
       width: 100%;
       height: 55px;
@@ -60,7 +60,37 @@
 							<label for="name">Client Name</label>
 						</div>
 						<div class="form-floating mb-3 col">
-							<canvas id="signature-pad"></canvas>
+							<canvas class="signature-pad" id="signature-pad"></canvas>
+							<label for="email">Client Signature</label>
+						</div>
+						<div class="form-floating mb-3 col">
+							Signed on:&nbsp;<input type="date" class="form-control d-inline-block" id="signatureDate" placeholder="Date" style="width: auto;">
+						</div>
+					</div>
+				</div>
+								<div class ="container-fluid">
+					<div class="row align-items-start">
+						<div class="form-floating mb-3 col">
+							<input type="text" class="form-control" id="name" placeholder="First and last name">
+							<label for="name">Client Name</label>
+						</div>
+						<div class="form-floating mb-3 col">
+							<canvas class="signature-pad" id="signature-pad"></canvas>
+							<label for="email">Client Signature</label>
+						</div>
+						<div class="form-floating mb-3 col">
+							Signed on:&nbsp;<input type="date" class="form-control d-inline-block" id="signatureDate" placeholder="Date" style="width: auto;">
+						</div>
+					</div>
+				</div>
+								<div class ="container-fluid">
+					<div class="row align-items-start">
+						<div class="form-floating mb-3 col">
+							<input type="text" class="form-control" id="name" placeholder="First and last name">
+							<label for="name">Client Name</label>
+						</div>
+						<div class="form-floating mb-3 col">
+							<canvas class="signature-pad" id="signature-pad"></canvas>
 							<label for="email">Client Signature</label>
 						</div>
 						<div class="form-floating mb-3 col">
@@ -74,74 +104,10 @@
 	</div>
 
 
-    <script>
-      const canvas = document.getElementById('signature-pad');
-      const ctx = canvas.getContext('2d');
-  let drawing = false;
-
-  function getMousePos(canvas, evt) {
-    const rect = canvas.getBoundingClientRect();
-    return {
-      x: (evt.clientX - rect.left) * (canvas.width / rect.width),
-      y: (evt.clientY - rect.top) * (canvas.height / rect.height)
-    };
-  }
-
-  canvas.addEventListener('mousedown', (e) => {
-    drawing = true;
-    const pos = getMousePos(canvas, e);
-    ctx.beginPath();
-    ctx.moveTo(pos.x, pos.y);
-  });
-
-  canvas.addEventListener('mousemove', (e) => {
-    if (!drawing) return;
-    const pos = getMousePos(canvas, e);
-    ctx.lineTo(pos.x, pos.y);
-    ctx.stroke();
-  });
-
-  canvas.addEventListener('mouseup', () => {
-    drawing = false;
-  });
-
-  canvas.addEventListener('mouseout', () => {
-    drawing = false;
-  });
-
-
-      function clearPad() {
-        ctx.clearRect(0, 0, canvas.width, canvas.height);
-        ctx.beginPath();
-      }
-
-      function saveSignature() {
-        const dataURL = canvas.toDataURL();
-        document.getElementById('signature-input').value = dataURL;
-        document.getElementById('signature-form').submit();
-      }
-    </script>
-  	<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
-<script>
-  async function saveAsPDF() {
-    const { jsPDF } = window.jspdf;
-    const form = document.getElementById('form-container');
-
-    // Capture the form as an image
-    const canvas = await html2canvas(form, { scale: 2 });
-    const imgData = canvas.toDataURL('image/png');
-
-    // Create PDF
-    const pdf = new jsPDF({
-      orientation: 'portrait',
-      unit: 'pt',
-      format: [canvas.width, canvas.height]
-    });
-
-    pdf.addImage(imgData, 'PNG', 0, 0, canvas.width, canvas.height);
-    pdf.save('signature-form.pdf');
-  }
-</script>
+    
+  	
+	
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
 
 	
 <script>
@@ -158,7 +124,9 @@
  });
 </script>
 
-  
+<script src="js/signature-pad.js"></script>
+<script src="js/savepdf.js"></script>
+
 </body>
 </html>
 
