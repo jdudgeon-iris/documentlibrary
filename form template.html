@@ -13,6 +13,8 @@
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+	<script src="https://cdn.jsdelivr.net/npm/signature_pad@4.0.0/dist/signature_pad.umd.min.js"></script>
+
 
     <title>Consent to Photograph</title>
     <link rel="icon" href="static/img/favicon.png" type="image/x-icon">
@@ -69,6 +71,7 @@
 						<div class="mb-3 col">
 							<canvas class="signature-pad" id="signature-pad"></canvas>
 							<label class="form-text" for="email">Client Signature</label>
+							<button onclick="signaturePad.clear()">Clear</button>
 						</div>
 						<div class="mb-3 col">
 							<input type="date" class="form-control" id="staffSigned" style="width: auto;">
@@ -85,6 +88,7 @@
 						<div class=" mb-3 col">
 							<canvas class="signature-pad" id="signature-pad"></canvas>
 							<label class="form-text" for="email">Client Signature</label>
+							<button onclick="signaturePad.clear()">Clear</button>
 						</div>
 						<div class="mb-3 col">
 							<input type="date" class="form-control" id="staffSigned" style="width: auto;">
@@ -101,6 +105,9 @@
 						<div class="mb-3 col">
 							<canvas class="signature-pad" id="signature-pad"></canvas>
 							<label class="form-text" for="email">Client Signature</label>
+							<button onclick="saveSignature()">Save</button>
+							<button onclick="signaturePad.clear()">Clear</button>
+
 						</div>
 						<div class="mb-3 col">
 							<input type="date" class="form-control" id="staffSigned" style="width: auto;">
@@ -108,8 +115,11 @@
 						</div>
 					</div>
 				</div>
-				<button type="button" class="btn btn-primary" onclick="saveAsPDF()">Save as PDF</button>
+				
+<canvas id="signature-pad" width="300" height="150" style="border:1px solid #000;"></canvas>
+
 			</form>
+			<button type="button" class="btn btn-primary" onclick="saveAsPDF()">Save as PDF</button>
 	</div>
 
 
@@ -128,6 +138,24 @@
 
 <script src="forms/js/signature-pad.js"></script>
 <script src="forms/js/savepdf.js"></script>
+
+
+<script>
+  const canvas = document.getElementById('signature-pad');
+  const signaturePad = new SignaturePad(canvas);
+</script>
+
+<script>
+  function saveSignature() {
+    if (signaturePad.isEmpty()) {
+      alert("Please provide a signature first.");
+    } else {
+      const dataURL = signaturePad.toDataURL();
+      console.log(dataURL); // You can send this to your server or store it
+    }
+  }
+</script>
+
 
 </body>
 </html>
