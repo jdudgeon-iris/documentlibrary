@@ -22,7 +22,7 @@
     .signature-pad {
       border: 1px solid #ccc;
       width: 100%;
-      height: 55px;
+      height: 110px;
       touch-action: none;
       }
 	  #form-container {
@@ -70,17 +70,14 @@
 								<label class="form-text" for="client1name">Client Name</label>
 							</div>
 							<div class="mb-3 col">
-								
 								<div class="mb-3 col">
-								<img id="client1signature-image" src="" alt="Client Signature" style="border:1px solid #000; width: 300px; height: 55px; display: none;">
-								<button type="button" class="btn btn-outline-secondary btn-sm mt-2" data-bs-toggle="modal" data-bs-target="#signatureModal">Sign Here</button>
+									<img id="client1signature-image" src="" alt="Client Signature" style="border:1px solid #000; width: 300px; height: 55px; display: none;">
+									<button id="client1signbutton" type="button" class="btn btn-outline-secondary btn-sm mt-2" data-bs-toggle="modal" data-bs-target="#client1signatureModal">Sign Here</button>
 								</div>
-
 								<div class="mb-3 row align-items-start">
 									<label class="form-text col" for="client1signature-pad">Client Signature</label>
-									<a href="#" onclick="clearSignature('client1signature-image'); return false;" class="form-text col">Clear Signature</a>
+									<a href="#" onclick="clearSignatureImage('client1signature-image'); return false;" class="form-text col">Clear Signature</a>
 								</div>
-
 							</div>
 							<div class="mb-3 col">
 								<input type="date" class="form-control" id="client1Signed" style="width: auto;">
@@ -95,10 +92,13 @@
 								<label class="form-text" for="client2name">Client Name</label>
 							</div>
 							<div class=" mb-3 col">
-								<canvas class="signature-pad" id="client2signature-pad"></canvas>
+								<div class="mb-3 col">
+									<img id="client2signature-image" src="" alt="Client Signature" style="border:1px solid #000; width: 300px; height: 55px; display: none;">
+									<button id="client2signbutton" type="button" class="btn btn-outline-secondary btn-sm mt-2" data-bs-toggle="modal" data-bs-target="#client2signatureModal">Sign Here</button>
+								</div>
 								<div class="mb-3 row align-items-start">
-									<label class="form-text col" for="client1signature-pad">Client Signature</label>
-									<a href="#" onclick="clearSignature('client2signature-pad'); return false;" class="form-text col">Clear Signature</a>
+									<label class="form-text col" for="client2signature-pad">Client Signature</label>
+									<a href="#" onclick="clearSignatureImage('client2signature-image'); return false;" class="form-text col">Clear Signature</a>
 								</div>
 							</div>
 							<div class="mb-3 col">
@@ -114,10 +114,13 @@
 								<label class="form-text" for="staffname">Staff Name</label>
 							</div>
 							<div class="mb-3 col">
-								<canvas class="signature-pad" id="staffsignature-pad"></canvas>
+								<div class="mb-3 col">
+									<img id="staffsignature-image" src="" alt="Staff Signature" style="border:1px solid #000; width: 300px; height: 55px; display: none;">
+									<button id="staffsignbutton" type="button" class="btn btn-outline-secondary btn-sm mt-2" data-bs-toggle="modal" data-bs-target="#staffsignatureModal">Sign Here</button>
+								</div>
 								<div class="mb-3 row align-items-start">
-									<label class="form-text col" for="client1signature-pad">Staff Signature</label>
-									<a href="#" onclick="clearSignature('staffsignature-pad'); return false;" class="form-text col">Clear Signature</a>
+									<label class="form-text col" for="staffsignature-pad">Staff Signature</label>
+									<a href="#" onclick="clearSignatureImage('staffsignature-image'); return false;" class="form-text col">Clear Signature</a>
 								</div>
 							</div>
 							<div class="mb-3 col">
@@ -133,22 +136,56 @@
 		</div>
 
 
-<div class="modal fade" id="signatureModal" tabindex="-1" aria-labelledby="signatureModalLabel" aria-hidden="true">
-  <div class="modal-dialog modal-dialog-centered">
-    <div class="modal-content">
-      <div class="modal-header">
-        <h5 class="modal-title" id="signatureModalLabel">Sign Below</h5>
-        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-      </div>
-      <div class="modal-body text-center">
-        <canvas class="signature-pad" id="client1signature-pad"></canvas>
-        <div class="mt-2">
-          <button class="btn btn-sm btn-secondary" onclick="clearSignature('client1signature-pad')">Clear</button>
-          <button class="btn btn-sm btn-primary" onclick="saveSignatureToImage()">Save</button>
-        </div>
-      </div>
-    </div>
-  </div>
+<div class="modal fade" id="client1signatureModal" tabindex="-1" aria-labelledby="client1signatureModalLabel" aria-hidden="true">
+	<div class="modal-dialog modal-dialog-centered">
+		<div class="modal-content">
+			<div class="modal-header">
+				<h5 class="modal-title" id="client1signatureModalLabel">Client Signature</h5>
+				<button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+			</div>
+			<div class="modal-body text-center">
+			<canvas class="signature-pad" id="client1signature-pad"></canvas>
+				<div class="mt-2">
+					<button class="btn btn-sm btn-secondary" onclick="clearSignature('client1signature-pad')">Clear</button>
+					<button class="btn btn-sm btn-primary" onclick="saveSignatureToImage('client1')">Save</button>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+<div class="modal fade" id="client2signatureModal" tabindex="-1" aria-labelledby="client2signatureModalLabel" aria-hidden="true">
+	<div class="modal-dialog modal-dialog-centered">
+		<div class="modal-content">
+			<div class="modal-header">
+				<h5 class="modal-title" id="client2signatureModalLabel">Client Signature</h5>
+				<button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+			</div>
+			<div class="modal-body text-center">
+			<canvas class="signature-pad" id="client2signature-pad"></canvas>
+				<div class="mt-2">
+					<button class="btn btn-sm btn-secondary" onclick="clearSignature('client2signature-pad')">Clear</button>
+					<button class="btn btn-sm btn-primary" onclick="saveSignatureToImage('client2')">Save</button>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+<div class="modal fade" id="staffsignatureModal" tabindex="-1" aria-labelledby="signatureModalLabel" aria-hidden="true">
+	<div class="modal-dialog modal-dialog-centered">
+		<div class="modal-content">
+			<div class="modal-header">
+				<h5 class="modal-title" id="signatureModalLabel">Staff Signature</h5>
+				<button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+			</div>
+			<div class="modal-body text-center">
+			<canvas class="signature-pad" id="staffsignature-pad"></canvas>
+				<div class="mt-2">
+					<button class="btn btn-sm btn-secondary" onclick="clearSignature('staffsignature-pad')">Clear</button>
+					<button class="btn btn-sm btn-primary" onclick="saveSignatureToImage('staff')">Save Signature</button>
+				</div>
+			</div>
+		</div>
+	</div>
 </div>
 
 

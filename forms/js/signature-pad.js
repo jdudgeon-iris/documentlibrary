@@ -60,28 +60,34 @@ document.querySelectorAll('.signature-pad').forEach((canvas, index) => {
 });
 
 
-function clearSignature(canvasId) {
- const canvas = document.getElementById(canvasId);
- const ctx = canvas.getContext('2d');
- ctx.clearRect(0, 0, canvas.width, canvas.height);
- ctx.beginPath();
+
+function saveSignatureToImage(who) {
+  const canvas = document.getElementById(`${who}signature-pad`);
+  const img = document.getElementById(`${who}signature-image`);
+  const modalElement = document.getElementById(`${who}signatureModal`);
+  const button = document.getElementById(`${who}signbutton`);
+
+  if (canvas && img) {
+    const dataURL = canvas.toDataURL('image/png');
+    img.src = dataURL;
+    img.style.display = 'block';
+  }
+
+  const modal = bootstrap.Modal.getInstance(modalElement);
+  if (modal) modal.hide();
+
+  // Hide the button
+  if (button) button.style.display = 'none';
 }
 
 
-function saveSignatureToImage() {
- const canvas = document.getElementById('client1signature-pad');
- const dataURL = canvas.toDataURL('image/png');
-
- 
-
- const img = document.getElementById('client1signature-image');
- img.src = dataURL;
- img.style.display = 'block';
 
 
-
- const modal = bootstrap.Modal.getInstance(document.getElementById('signatureModal'));
- modal.hide();
-
-
+function clearSignatureImage(imageId) {
+ const img = document.getElementById(imageId);
+ if (img) {
+ img.src = '';
+ img.style.display = 'none';
+ }
 }
+
