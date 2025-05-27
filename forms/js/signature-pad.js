@@ -84,10 +84,18 @@ function saveSignatureToImage(who) {
 
 
 function clearSignatureImage(imageId) {
- const img = document.getElementById(imageId);
- if (img) {
- img.src = '';
- img.style.display = 'none';
- }
+  const img = document.getElementById(imageId);
+  if (img) {
+    img.src = '';
+    img.style.display = 'none';
+  }
+
+  // Reconstruct the button ID from the image ID
+  const who = imageId.replace('signature-image', '');
+  const button = document.getElementById(`${who}signbutton`);
+  if (button) {
+    button.style.display = 'inline-block'; // or 'block' depending on layout
+  }
 }
+
 
