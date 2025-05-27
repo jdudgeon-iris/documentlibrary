@@ -16,8 +16,8 @@
 	<script src="https://cdn.jsdelivr.net/npm/signature_pad@4.0.0/dist/signature_pad.umd.min.js"></script>
 
 
-    <title>Consent to Photograph</title>
-    <link rel="icon" href="static/img/favicon.png" type="image/x-icon">
+    <title>Consent to Release & Request Information</title>
+    <link rel="icon" href="/static/img/favicon.png" type="image/x-icon">
     <style>
     .signature-pad {
       border: 1px solid #ccc;
@@ -40,29 +40,34 @@
 			<br>
 			<form id="form-container" class="container mt-3 mb-3 pb-2" method="post" action="/submit">
 				<div>
-					<img src="static/img/Iris Logo.png" alt="Logo" class="img-fluid mx-auto d-block mb-3" style="max-width: 200px;">
-					<h1 class="text-center">Consent to Photograph</h1>
+					<img src="/static/img/Iris Logo.png" alt="Logo" class="img-fluid mx-auto d-block mb-3" style="max-width: 200px;">
+					<h1 class="text-center">Consent to Release & Request Information</h1>
 				</div>
-
+				<!-- Content -->
 				<div>
 					<p>
-						Consent must be completed with each instance where photographs are requested by a referral agency coordinator and/or staff in accordance with the purposes of the referral.
+						Concerning:&nbsp;<input type="text" class="form-control d-inline-block" id="clientName" style="width: auto;">
+						<label class="form-text" for="clientName">Client Name</label>
 					</p>
-					<p class="d-flex align-items-center">
-						This consent is valid on this date:&nbsp;<input type="date" class="form-control d-inline-block" id="date" placeholder="Date" style="width: auto;">
+					<p>
+						Address:&nbsp;<input type="text" class="form-control d-inline-block" id="clientAddress" style="width: auto;">
+						<label class="form-text" for="clientAddress">Client Address</label>
 					</p>
 
 					<p>
-						I give permission to my Iris Family Support Center worker to take photographs as needed to document the condition of my home and/or family. I understand that these photographs may be used to:
-						<ul>
-							<li>Document current conditions and any improvements over time.</li>
-							<li>Support the services provided through my referral.</li>
-							<li>Be used for training purposes within Iris Family Support Center.</li>
-						</ul>
-						Photographs will be taken only as necessary, based on the specific needs outlined in the referral. They will not include any identifying features of my home or family members that could reveal our identity to anyone outside of Iris Family Support Center and the referral agency.
+						I hereby authorize Iris Family Support Center to release information to and/or request information from:
+						(i.e. DCS, Mustard Seed, GAL, CASA, housing, Township Trustee, Neighborhood Health Clinic, Etc.)
 					</p>
+
+					<div>
+						<input type="text" class="form-control" id="releaseInfo">
+						<label class="form-text" for="releaseInfo">Name of Agency/Person</label>
+					</div>
+
 				</div>
 
+
+				<!-- Signature Section -->
 				<hr>
                 <div id="signature section">
 					<div class ="container-fluid">
@@ -136,7 +141,7 @@
 			<button type="button" class="btn btn-primary" onclick="saveAsPDF()">Save as PDF</button>
 		</div>
 
-
+<!-- Signature Modals -->
 <div class="modal fade" id="client1signatureModal" tabindex="-1" aria-labelledby="client1signatureModalLabel" aria-hidden="true">
 	<div class="modal-dialog modal-dialog-centered">
 		<div class="modal-content">
@@ -195,9 +200,9 @@
 
 
 		<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
-		<script src="forms/js/setdates.js"></script>
-		<script src="forms/js/signature-pad.js"></script>
-		<script src="forms/js/savepdf.js"></script>
+		<script src="js/setdates.js"></script>
+		<script src="js/signature-pad.js"></script>
+		<script src="js/savepdf.js"></script>
 	</body>
 </html>
 
