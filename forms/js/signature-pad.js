@@ -58,3 +58,30 @@ document.querySelectorAll('.signature-pad').forEach((canvas, index) => {
 
     canvas.ctx = ctx;
 });
+
+
+function clearSignature(canvasId) {
+ const canvas = document.getElementById(canvasId);
+ const ctx = canvas.getContext('2d');
+ ctx.clearRect(0, 0, canvas.width, canvas.height);
+ ctx.beginPath();
+}
+
+
+function saveSignatureToImage() {
+ const canvas = document.getElementById('client1signature-pad');
+ const dataURL = canvas.toDataURL('image/png');
+
+ 
+
+ const img = document.getElementById('client1signature-image');
+ img.src = dataURL;
+ img.style.display = 'block';
+
+
+
+ const modal = bootstrap.Modal.getInstance(document.getElementById('signatureModal'));
+ modal.hide();
+
+
+}

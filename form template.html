@@ -62,7 +62,7 @@
 						Photographs will be taken only as necessary, based on the specific needs outlined in the referral. They will not include any identifying features of my home or family members that could reveal our identity to anyone outside of Iris Family Support Center and the referral agency.
 					</p>
 				</div>
-				<div id="signature section">
+                <div id="signature section">
 					<div class ="container-fluid">
 						<div class="row align-items-start">
 							<div class="mb-3 col">
@@ -70,8 +70,16 @@
 								<label class="form-text" for="client1name">Client Name</label>
 							</div>
 							<div class="mb-3 col">
-								<canvas class="signature-pad" id="client1signature-pad"></canvas>
-								<label class="form-text" for="client1signature-pad">Client Signature</label>
+								
+								<div class="mb-3 col">
+								<img id="client1signature-image" src="" alt="Client Signature" style="border:1px solid #000; width: 300px; height: 55px; display: none;">
+								<button type="button" class="btn btn-outline-secondary btn-sm mt-2" data-bs-toggle="modal" data-bs-target="#signatureModal">Sign Here</button>
+								</div>
+
+								<div class="mb-3 row align-items-start">
+									<label class="form-text col" for="client1signature-pad">Client Signature</label>
+									<a href="#" onclick="clearSignature('client1signature-image'); return false;" class="form-text col">Clear Signature</a>
+								</div>
 
 							</div>
 							<div class="mb-3 col">
@@ -88,8 +96,10 @@
 							</div>
 							<div class=" mb-3 col">
 								<canvas class="signature-pad" id="client2signature-pad"></canvas>
-								<label class="form-text" for="client2signature-pad">Client Signature</label>
-
+								<div class="mb-3 row align-items-start">
+									<label class="form-text col" for="client1signature-pad">Client Signature</label>
+									<a href="#" onclick="clearSignature('client2signature-pad'); return false;" class="form-text col">Clear Signature</a>
+								</div>
 							</div>
 							<div class="mb-3 col">
 								<input type="date" class="form-control" id="client2Signed" name="client2Signed" style="width: auto;">
@@ -105,7 +115,10 @@
 							</div>
 							<div class="mb-3 col">
 								<canvas class="signature-pad" id="staffsignature-pad"></canvas>
-								<label class="form-text" for="staffsignature-pad">Client Signature</label>
+								<div class="mb-3 row align-items-start">
+									<label class="form-text col" for="client1signature-pad">Staff Signature</label>
+									<a href="#" onclick="clearSignature('staffsignature-pad'); return false;" class="form-text col">Clear Signature</a>
+								</div>
 							</div>
 							<div class="mb-3 col">
 								<input type="date" class="form-control" id="staffSigned" style="width: auto;">
@@ -118,6 +131,31 @@
 			</form>
 			<button type="button" class="btn btn-primary" onclick="saveAsPDF()">Save as PDF</button>
 		</div>
+
+
+<div class="modal fade" id="signatureModal" tabindex="-1" aria-labelledby="signatureModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="signatureModalLabel">Sign Below</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body text-center">
+        <canvas class="signature-pad" id="client1signature-pad"></canvas>
+        <div class="mt-2">
+          <button class="btn btn-sm btn-secondary" onclick="clearSignature('client1signature-pad')">Clear</button>
+          <button class="btn btn-sm btn-primary" onclick="saveSignatureToImage()">Save</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+
+
+
+
 		<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
 		<script src="forms/js/setdates.js"></script>
 		<script src="forms/js/signature-pad.js"></script>

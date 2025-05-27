@@ -1,4 +1,4 @@
-                <div id="signature section">
+<div id="signature section">
 					<div class ="container-fluid">
 						<div class="row align-items-start">
 							<div class="mb-3 col">
@@ -7,7 +7,10 @@
 							</div>
 							<div class="mb-3 col">
 								<canvas class="signature-pad" id="client1signature-pad"></canvas>
-								<label class="form-text" for="client1signature-pad">Client Signature</label>
+								<div class="mb-3 row align-items-start">
+									<label class="form-text col" for="client1signature-pad">Client Signature</label>
+									<a href="#" onclick="clearSignature('client1signature-pad'); return false;" class="form-text col">Clear Signature</a>
+								</div>
 
 							</div>
 							<div class="mb-3 col">
@@ -24,8 +27,10 @@
 							</div>
 							<div class=" mb-3 col">
 								<canvas class="signature-pad" id="client2signature-pad"></canvas>
-								<label class="form-text" for="client2signature-pad">Client Signature</label>
-
+								<div class="mb-3 row align-items-start">
+									<label class="form-text col" for="client1signature-pad">Client Signature</label>
+									<a href="#" onclick="clearSignature('client2signature-pad'); return false;" class="form-text col">Clear Signature</a>
+								</div>
 							</div>
 							<div class="mb-3 col">
 								<input type="date" class="form-control" id="client2Signed" name="client2Signed" style="width: auto;">
@@ -41,7 +46,10 @@
 							</div>
 							<div class="mb-3 col">
 								<canvas class="signature-pad" id="staffsignature-pad"></canvas>
-								<label class="form-text" for="staffsignature-pad">Client Signature</label>
+								<div class="mb-3 row align-items-start">
+									<label class="form-text col" for="client1signature-pad">Staff Signature</label>
+									<a href="#" onclick="clearSignature('staffsignature-pad'); return false;" class="form-text col">Clear Signature</a>
+								</div>
 							</div>
 							<div class="mb-3 col">
 								<input type="date" class="form-control" id="staffSigned" style="width: auto;">
