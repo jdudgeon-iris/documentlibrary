@@ -2,50 +2,59 @@ document.querySelectorAll('.signature-pad').forEach((canvas, index) => {
     const ctx = canvas.getContext('2d');
     let drawing = false;
 
-    function getMousePos(evt) {
+    function getPos(evt) {
         const rect = canvas.getBoundingClientRect();
-        return {
-            x: (evt.clientX - rect.left) * (canvas.width / rect.width),
-            y: (evt.clientY - rect.top) * (canvas.height / rect.height)
-        };
+        let x, y;
+
+        if (evt.touches) {
+            x = (evt.touches[0].clientX - rect.left) * (canvas.width / rect.width);
+            y = (evt.touches[0].clientY - rect.top) * (canvas.height / rect.height);
+        } else {
+            x = (evt.clientX - rect.left) * (canvas.width / rect.width);
+            y = (evt.clientY - rect.top) * (canvas.height / rect.height);
+        }
+
+        return { x, y };
     }
 
-    canvas.addEventListener('mousedown', (e) => {
+    function startDrawing(e) {
         drawing = true;
-        const pos = getMousePos(e);
+        const pos = getPos(e);
         ctx.beginPath();
         ctx.moveTo(pos.x, pos.y);
-    });
+        e.preventDefault();
+    }
 
-    canvas.addEventListener('mousemove', (e) => {
+    function draw(e) {
         if (!drawing) return;
-        const pos = getMousePos(e);
+        const pos = getPos(e);
         ctx.lineTo(pos.x, pos.y);
         ctx.stroke();
-    });
+        e.preventDefault();
+    }
 
-    canvas.addEventListener('mouseup', () => drawing = false);
-    canvas.addEventListener('mouseout', () => drawing = false);
+    function stopDrawing(e) {
+        drawing = false;
+        e.preventDefault();
+    }
 
-    // Optional: Add clear button logic per pad if needed
+    // Mouse events
+    canvas.addEventListener('mousedown', startDrawing);
+    canvas.addEventListener('mousemove', draw);
+    canvas.addEventListener('mouseup', stopDrawing);
+    canvas.addEventListener('mouseout', stopDrawing);
+
+    // Touch events
+    canvas.addEventListener('touchstart', startDrawing);
+    canvas.addEventListener('touchmove', draw);
+    canvas.addEventListener('touchend', stopDrawing);
+    canvas.addEventListener('touchcancel', stopDrawing);
+
+    // Optional: Clear function
     canvas.clear = () => {
         ctx.clearRect(0, 0, canvas.width, canvas.height);
         ctx.beginPath();
     };
 
-    // Store context and canvas for later use
     canvas.ctx = ctx;
 });
-
-// Save all signatures
-function saveAllSignatures() {
-    const canvases = document.querySelectorAll('.signature-pad');
-    const inputs = document.querySelectorAll('.signature-input');
-
-    canvases.forEach((canvas, i) => {
-        const dataURL = canvas.toDataURL();
-        inputs[i].value = dataURL;
-    });
-
-    document.getElementById('signature-form').submit();
-}
