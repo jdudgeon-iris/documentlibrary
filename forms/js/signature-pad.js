@@ -99,3 +99,15 @@ function clearSignatureImage(imageId) {
 }
 
 
+function clearSignature(padId) {
+ const canvas = document.getElementById(padId);
+ if (canvas && canvas.clear) {
+ canvas.clear(); // clear the canvas
+ }
+
+ // Derive the base ID (e.g., 'client2') from the padId
+ const who = padId.replace('signature-pad', '');
+ clearSignatureImage(`${who}signature-image`);
+}
+
+
