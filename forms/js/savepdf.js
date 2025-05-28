@@ -44,9 +44,9 @@ async function saveAsPDF() {
     }
 
 
-    const today = new Date().toISOString().split('T')[0];
-    const title = document.title.replace(/[\\/:*?"<>|]/g, ''); // sanitize for file systems
-    pdf.save(`${title}_${today}.pdf`);
+  const today = new Date().toISOString().split('T')[0];
+  const title = document.title.replace(/[\\/:*?"<>|]/g, ''); // sanitize for file systems
+  pdf.save(`${title}_${today}.pdf`);
 
   } catch (error) {
     alert('An error occurred while generating the PDF. Check the console for details.');
