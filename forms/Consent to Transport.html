@@ -15,7 +15,7 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
 	<script src="https://cdn.jsdelivr.net/npm/signature_pad@4.0.0/dist/signature_pad.umd.min.js"></script>
 
-    <title>Consent to Photograph</title>
+    <title>Consent to Transport</title>
     <link rel="icon" href="/static/img/favicon.png" type="image/x-icon">
 	<link rel="stylesheet" href="styles.css">
   </head>
@@ -27,25 +27,30 @@
 					<div>
 						<img src="/static/img/Iris Logo.png" alt="Logo" class="img-fluid mx-auto d-block mb-3" style="max-width: 200px;">
 						<hr>
-						<h1 class="text-center">Consent to Photograph</h1>
+						<h1 class="text-center">Consent to Transport</h1>
 					</div>
 
 					<div>
 						<p>
-							Consent must be completed with each instance where photographs are requested by a referral agency coordinator and/or staff in accordance with the purposes of the referral.
+							I/we give permission for Iris Family Support Center staff to transport the individuals named below, as needed, for as long as we participate in programming at Iris Family Support Center. 
 						</p>
-						<p class="d-flex align-items-center">
-							This consent is valid on this date:&nbsp;<input type="date" class="form-control d-inline-block" id="date" placeholder="Date" style="width: auto;">
+						<p>
+							I/we also agree to release Iris Family Support Center and its participating agencies and staff from any liability while transporting the individual named below. 
 						</p>
 
+
+    <div id="input-container">
+      <div class="input-group">
+        <input type="text" class="form-control" id="transport-1" placeholder="Transport 1">
+      </div>
+    </div>
+    <button class="btn btn-primary" onclick="addInput()">Add Input</button>
+    <button class="btn btn-danger" onclick="removeInput()">Remove Input</button>
+  </div>
+
+						<br>
 						<p>
-							I give permission to my Iris Family Support Center worker to take photographs as needed to document the condition of my home and/or family. I understand that these photographs may be used to:
-							<ul>
-								<li>Document current conditions and any improvements over time.</li>
-								<li>Support the services provided through my referral.</li>
-								<li>Be used for training purposes within Iris Family Support Center.</li>
-							</ul>
-							Photographs will be taken only as necessary, based on the specific needs outlined in the referral. They will not include any identifying features of my home or family members that could reveal our identity to anyone outside of Iris Family Support Center and the referral agency.
+							<strong><u>When transporting children in car seats, only car seats provided by Iris Family Support Center may be used, unless the child has a medically required car seat prescribed by a professional.</u></strong>
 						</p>
 					</div>
 				</div>
@@ -177,6 +182,34 @@
 
 
 
+
+ <script>
+    let inputCount = 1;
+    const maxInputs = 10;
+
+    function addInput() {
+      if (inputCount >= maxInputs) {
+        alert("Maximum number of inputs reached.");
+        return;
+      }
+      inputCount++;
+      const container = document.getElementById("input-container");
+      const newInput = document.createElement("div");
+      newInput.className = "input-group";
+      newInput.innerHTML = `<input type="text" class="form-control" id="transport-${inputCount}" placeholder="Transport ${inputCount}">`;
+      container.appendChild(newInput);
+    }
+
+    function removeInput() {
+      if (inputCount <= 1) {
+        alert("At least one input must remain.");
+        return;
+      }
+      const container = document.getElementById("input-container");
+      container.removeChild(container.lastElementChild);
+      inputCount--;
+    }
+  </script>
 
 
 
