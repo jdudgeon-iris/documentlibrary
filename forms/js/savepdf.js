@@ -1,9 +1,13 @@
 <script>
   async function saveAsPDF() {
-    const { jsPDF } = window.jspdf;
+    const jsPDF = window.jspdf?.jsPDF || window.jspdf?.jsPDF;
     const form = document.getElementById('form-container');
 
-    // Show loading indicator
+    if (!jsPDF || !form) {
+      alert('Required libraries or form element not found.');
+      return;
+    }
+
     const loading = document.createElement('div');
     loading.innerText = 'Generating PDF... Please wait.';
     loading.style.position = 'fixed';
@@ -18,15 +22,13 @@
     document.body.appendChild(loading);
 
     try {
-      // Capture the form as an image
       const canvas = await html2canvas(form, { scale: 2 });
       const imgData = canvas.toDataURL('image/png');
 
-      // PDF setup
       const pdf = new jsPDF({
         orientation: 'portrait',
         unit: 'pt',
-        format: 'letter' // 8.5 x 11 inches
+        format: 'letter'
       });
 
       const pdfWidth = pdf.internal.pageSize.getWidth();
@@ -38,7 +40,6 @@
 
       let position = 0;
 
-      // Add pages if content overflows
       while (position < imgHeight) {
         pdf.addImage(
           imgData,
@@ -56,14 +57,12 @@
         }
       }
 
-      // Generate filename with today's date
       const today = new Date().toISOString().split('T')[0];
       pdf.save(`Consent_to_Photograph_${today}.pdf`);
     } catch (error) {
-      alert('An error occurred while generating the PDF. Please try again.');
+      alert('An error occurred while generating the PDF. Check the console for details.');
       console.error(error);
     } finally {
-      // Remove loading indicator
       document.body.removeChild(loading);
     }
   }
