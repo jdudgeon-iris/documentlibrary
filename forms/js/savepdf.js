@@ -43,8 +43,11 @@ async function saveAsPDF() {
       pdf.addImage(imgData, 'PNG', margin, margin, imgWidth, imgHeight);
     }
 
+
     const today = new Date().toISOString().split('T')[0];
-    pdf.save(`Consent_to_Photograph_${today}.pdf`);
+    const title = document.title.replace(/[\\/:*?"<>|]/g, ''); // sanitize for file systems
+    pdf.save(`${title}_${today}.pdf`);
+
   } catch (error) {
     alert('An error occurred while generating the PDF. Check the console for details.');
     console.error(error);
