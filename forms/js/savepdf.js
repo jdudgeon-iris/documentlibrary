@@ -1,4 +1,4 @@
-<script>
+
   async function saveAsPDF() {
     const jsPDF = window.jspdf?.jsPDF || window.jspdf?.jsPDF;
     const form = document.getElementById('form-container');
@@ -66,4 +66,4 @@
       document.body.removeChild(loading);
     }
   }
-</script>
+
