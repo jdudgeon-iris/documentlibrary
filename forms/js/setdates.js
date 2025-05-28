@@ -9,3 +9,28 @@ element.value = today;
 }
 });
 });
+
+
+
+  function setExpiresOnLabel() {
+    const label = document.getElementById('ExpiresOn');
+    if (label) {
+      const nextYear = new Date();
+      nextYear.setFullYear(nextYear.getFullYear() + 1);
+
+      const formattedDate = nextYear.toLocaleDateString('en-US', {
+        year: 'numeric',
+        month: 'long',
+        day: 'numeric'
+      });
+
+      label.textContent = formattedDate;
+    }
+  }
+
+  // Run the function when the page loads
+  document.addEventListener("DOMContentLoaded", setExpiresOnLabel);
+
+
+
+

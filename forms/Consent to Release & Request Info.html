@@ -47,14 +47,14 @@
 				</div>
 				<!-- Content -->
 				<div>
-					<p>
-						Concerning:&nbsp;<input type="text" class="form-control d-inline-block" id="clientName" style="width: auto;">
+					<div>
+						<input type="text" class="form-control" id="clientName">
 						<label class="form-text" for="clientName">Client Name</label>
-					</p>
-					<p>
-						Address:&nbsp;<input type="text" class="form-control d-inline-block" id="clientAddress" style="width: auto;">
+					</div>
+					<div>
+						<input type="text" class="form-control" id="clientAddress">
 						<label class="form-text" for="clientAddress">Client Address</label>
-					</p>
+					</div>
 
 					<p>
 						I hereby authorize Iris Family Support Center to release information to and/or request information from:
@@ -62,9 +62,44 @@
 					</p>
 
 					<div>
-						<input type="text" class="form-control" id="releaseInfo">
-						<label class="form-text" for="releaseInfo">Name of Agency/Person</label>
+						<input type="text" class="form-control" id="releaseTo">
+						<label class="form-text" for="releaseTo">Name of Agency/Person</label>
 					</div>
+
+					<div>
+						<input type="text" class="form-control" id="address">
+						<label class="form-text" for="address">Address</label>
+					</div>
+					<div>
+						<input type="text" class="form-control" id="phone">
+						<label class="form-text" for="phone">Phone Number</label>
+					</div>
+					<div>
+						<textarea class="form-control" id="infotorelease" rows="3"></textarea>
+						<label class="form-text" for="infotorelease">Specify the information to be released</label>
+					</div>
+					<div>
+						<textarea class="form-control" id="purpose" rows="3"></textarea>
+						<label class="form-text" for="purpose">Purpose of release of information (please be specific)</label>
+					</div>
+
+					<p>
+						I understand that I may revoke this release in writing at any time except when information has already been released because of this release. 
+						Unless revoked, this release will remain in effect until the expiration time I have indicated and initialed below. 
+						I understand I have a right to privacy as protected under HIPAA regulations except where the laws of the state of Indiana regarding child abuse and neglect 
+						and the federal laws supersede this right. 
+					</p>
+
+					<div>
+						<p>
+							Release is valid for no longer than 12 months. Expires on: <strong><label id="ExpiresOn"></label></strong>
+						</p>
+					</div>
+
+
+
+
+
 
 				</div>
 
