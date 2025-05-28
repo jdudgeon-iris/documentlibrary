@@ -40,20 +40,22 @@
 
 
 						<div id="input-container">
+							<label class="form-text" for="transport-1">Name of Individuals</label>
 							<div class="input-group">
-								<input type="text" class="form-control" id="transport-1">
+								<input type="text" class="form-control mb-1" id="transport-1">
 							</div>
 						</div>
-						<button class="btn btn-primary" onclick="addInput()">Add Input</button>
-						<button class="btn btn-danger" onclick="removeInput()">Remove Input</button>
-				</div>
+						<br>
+							<button type="button" class="btn btn-primary" onclick="addInput()">Add Row</button>
+							<button type="button" class="btn btn-danger" onclick="removeInput()">Remove Row</button>
+						</div>
 
 						<br>
 						<p>
 							<strong><u>When transporting children in car seats, only car seats provided by Iris Family Support Center may be used, unless the child has a medically required car seat prescribed by a professional.</u></strong>
 						</p>
 					</div>
-				</div>
+
 				<hr>
                 <div id="signature section" class="pdf-section">
 					<div class ="container-fluid">
@@ -123,8 +125,11 @@
 						</div>
 					</div>
 				</div>
+			
+
 			</form>
-			<button type="button" class="btn btn-primary" onclick="saveAsPDF()">Save as PDF</button>
+				<button type="button" class="btn btn-primary" onclick="saveAsPDF()">Save as PDF</button>
+			</div>
 		</div>
 
 
@@ -184,32 +189,32 @@
 
 
  <script>
-    let inputCount = 1;
-    const maxInputs = 10;
+	let inputCount = 1;
+	const maxInputs = 10;
 
-    function addInput() {
-      if (inputCount >= maxInputs) {
-        alert("Maximum number of inputs reached.");
-        return;
-      }
-      inputCount++;
-      const container = document.getElementById("input-container");
-      const newInput = document.createElement("div");
-      newInput.className = "input-group";
-      newInput.innerHTML = `<input type="text" class="form-control" id="transport-${inputCount}" placeholder="Transport ${inputCount}">`;
-      container.appendChild(newInput);
-    }
+	function addInput() {
+		if (inputCount >= maxInputs) {
+			alert("Maximum number of inputs reached.");
+			return;
+		}
+		inputCount++;
+		const container = document.getElementById("input-container");
+		const newInput = document.createElement("div");
+		newInput.className = "input-group";
+		newInput.innerHTML = `<input type="text" class="form-control mb-1" id="transport-${inputCount}">`;
+		container.appendChild(newInput);
+	}
 
-    function removeInput() {
-      if (inputCount <= 1) {
-        alert("At least one input must remain.");
-        return;
-      }
-      const container = document.getElementById("input-container");
-      container.removeChild(container.lastElementChild);
-      inputCount--;
-    }
-  </script>
+	function removeInput() {
+		if (inputCount <= 1) {
+		alert("At least one input must remain.");
+		return;
+		}
+		const container = document.getElementById("input-container");
+		container.removeChild(container.lastElementChild);
+		inputCount--;
+	}
+</script>
 
 
 
