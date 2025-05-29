@@ -11,13 +11,13 @@
 		background-color: white !important;
 	}
 
-	.print-section,
-	.print-section * {
+	#print-section,
+	#print-section * {
 		display: block !important;
 		margin: 0 auto;
 	}
 
-	.hide-print {
+	#hide-print {
 		display: none !important;
 	}
 
