@@ -11,29 +11,50 @@
 		background-color: white !important;
 	}
 
+	#hide-print {
+		display: none !important;
+	}
+		.hide-print {
+		display: none !important;
+	}
+
 	#print-section,
 	#print-section * {
 		display: block !important;
 		margin: 0 auto;
 	}
 
-	#hide-print {
+	.print-inline-row>.col {
+		float: left;
+		width: 33.3333%;
+		box-sizing: border-box;
+	}
+
+	.print-inline-row {
+		display: block;
+		clear: both;
+	}
+
+	/* Optional: Hide buttons and links in print */
+	.print-inline-row button,
+	.print-inline-row a {
 		display: none !important;
 	}
 
-
-	.row {
-		display: flex !important;
-		flex-wrap: nowrap !important;
-	}
-
-	.col {
-		flex: 1 1 auto !important;
-		max-width: none !important;
+	/* Optional: Always show signature images in print */
+	.print-inline-row img {
+		display: block !important;
 	}
 
 }
 
 body {
 	background-color: #7867AE;
+}
+
+.signature-image {
+	border: 1px solid #000;
+	width: 300px;
+	height: 55px;
+	display: none;
 }
