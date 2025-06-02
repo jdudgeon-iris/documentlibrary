@@ -110,4 +110,3 @@ function clearSignature(padId) {
  clearSignatureImage(`${who}signature-image`);
 }
 
-

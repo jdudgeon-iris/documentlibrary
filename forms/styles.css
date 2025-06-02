@@ -5,16 +5,24 @@
 	touch-action: none;
 }
 
+
+
 @media print {
 	body * {
 		display: none !important;
 		background-color: white !important;
 	}
 
+	.print-inline-row button,
+	.print-inline-row a {
+		display: none !important;
+	}
+
 	#hide-print {
 		display: none !important;
 	}
-		.hide-print {
+
+	.hide-print {
 		display: none !important;
 	}
 
@@ -35,16 +43,7 @@
 		clear: both;
 	}
 
-	/* Optional: Hide buttons and links in print */
-	.print-inline-row button,
-	.print-inline-row a {
-		display: none !important;
-	}
 
-	/* Optional: Always show signature images in print */
-	.print-inline-row img {
-		display: block !important;
-	}
 
 }
 

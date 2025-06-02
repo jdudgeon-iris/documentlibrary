@@ -185,289 +185,240 @@
 				</p>
 			</div>
 			<hr />
+			<!-- Signatures -->
+
 			<div id="signature section">
 				<div class="container-fluid">
-					<div class="row align-items-start">
+					<div class="row align-items-start print-inline-row">
 						<div class="mb-3 col">
-							<input class="form-control" id="client1name" type="text" />
-							<label class="form-text" for="client1name">
-								Client Name
-							</label>
+							<input type="text" class="form-control" id="client1name">
+							<label class="form-text" for="client1name">Client Name</label>
 						</div>
 						<div class="mb-3 col">
 							<div class="mb-3 text-center">
-								<img alt="Client Signature" id="client1signature-image" src=""
-									style="border:1px solid #000; width: 300px; height: 55px; display: none;" />
-								<button class="btn btn-outline-primary btn-sm mt-2"
-									data-bs-target="#client1signatureModal" data-bs-toggle="modal"
-									id="client1signbutton" type="button">
-									Sign Here
-								</button>
+								<img id="client1signature-image" src="" alt=""
+									style="border:1px solid #000; width: 300px; height: 55px; display: none;">
+								<button id="client1signbutton" type="button" class="btn btn-outline-primary btn-sm mt-2"
+									data-bs-toggle="modal" data-bs-target="#client1signatureModal">Sign Here</button>
 							</div>
 							<div class="mb-3 row align-items-start">
-								<label class="form-text col" for="client1signature-pad">
-									Client Signature
-								</label>
-								<a class="form-text col" href="#"
-									onclick="clearSignatureImage('client1signature-image'); return false;">
-									Clear Signature
-								</a>
+								<label class="form-text col" for="client1signature-pad">Client Signature</label>
+								<a href="#" onclick="clearSignatureImage('client1signature-image'); return false;"
+									class="form-text col hide-print">Clear Signature</a>
 							</div>
 						</div>
 						<div class="mb-3 col">
-							<input class="form-control" id="client1Signed" style="width: auto;" type="date" />
-							<label class="form-text" for="client1Signed">
-								Date Signed
-							</label>
+							<input type="date" class="form-control" id="client1Signed" style="width: auto;">
+							<label class="form-text" for="client1Signed">Date Signed</label>
+						</div>
+					</div>
+				</div>
+
+
+				<div class="container-fluid">
+					<div class="row align-items-start print-inline-row">
+						<div class=" mb-3 col">
+							<input type="text" class="form-control" id="client2name">
+							<label class="form-text" for="client2name">Client Name</label>
+						</div>
+						<div class=" mb-3 col">
+							<div class="mb-3 text-center">
+								<img id="client2signature-image" src="" alt=""
+									style="border:1px solid #000; width: 300px; height: 55px; display: none;">
+								<button id="client2signbutton" type="button"
+									class="btn btn-outline-primary btn-sm mt-2 hide-print" data-bs-toggle="modal"
+									data-bs-target="#client2signatureModal">Sign Here</button>
+							</div>
+							<div class="mb-3 row align-items-start">
+								<label class="form-text col" for="client2signature-pad">Client Signature</label>
+								<a href="#" onclick="clearSignatureImage('client2signature-image'); return false;"
+									class="form-text col hide-print">Clear Signature</a>
+							</div>
+						</div>
+						<div class="mb-3 col">
+							<input type="date" class="form-control" id="client2Signed" name="client2Signed"
+								style="width: auto;">
+							<label class="form-text" for="client2Signed">Date Signed</label>
 						</div>
 					</div>
 				</div>
 				<div class="container-fluid">
-					<div class="row align-items-start">
+					<div class="row align-items-start print-inline-row">
 						<div class="mb-3 col">
-							<input class="form-control" id="client2name" type="text" />
-							<label class="form-text" for="client2name">
-								Client Name
-							</label>
+							<input type="text" class="form-control" id="staffname">
+							<label class="form-text" for="staffname">Staff Name</label>
 						</div>
 						<div class="mb-3 col">
 							<div class="mb-3 text-center">
-								<img alt="Client Signature" id="client2signature-image" src=""
-									style="border:1px solid #000; width: 300px; height: 55px; display: none;" />
-								<button class="btn btn-outline-primary btn-sm mt-2"
-									data-bs-target="#client2signatureModal" data-bs-toggle="modal"
-									id="client2signbutton" type="button">
-									Sign Here
-								</button>
+								<img id="staffsignature-image" src="" alt=""
+									style="border:1px solid #000; width: 300px; height: 55px; display: none;">
+								<button id="staffsignbutton" type="button" class="btn btn-outline-primary btn-sm mt-2"
+									data-bs-toggle="modal" data-bs-target="#staffsignatureModal">Sign Here</button>
 							</div>
 							<div class="mb-3 row align-items-start">
-								<label class="form-text col" for="client2signature-pad">
-									Client Signature
-								</label>
-								<a class="form-text col" href="#"
-									onclick="clearSignatureImage('client2signature-image'); return false;">
-									Clear Signature
-								</a>
+								<label class="form-text col" for="staffsignature-pad">Staff Signature</label>
+								<a href="#" onclick="clearSignatureImage('staffsignature-image'); return false;"
+									class="form-text col">Clear Signature</a>
 							</div>
 						</div>
 						<div class="mb-3 col">
-							<input class="form-control" id="client2Signed" name="client2Signed" style="width: auto;"
-								type="date" />
-							<label class="form-text" for="client2Signed">
-								Date Signed
-							</label>
+							<input type="date" class="form-control" id="staffSigned" style="width: auto;">
+							<label class="form-text" for="staffSigned">Date Signed</label>
 						</div>
 					</div>
 				</div>
-				<div class="container-fluid">
-					<div class="row align-items-start">
-						<div class="mb-3 col">
-							<input class="form-control" id="staffname" type="text" />
-							<label class="form-text" for="staffname">
-								Staff Name
-							</label>
+			</div>
+
+			<!-- Modals -->
+
+			<div class="modal fade" id="client1signatureModal" tabindex="-1"
+				aria-labelledby="client1signatureModalLabel" aria-hidden="true">
+				<div class="modal-dialog modal-dialog-centered">
+					<div class="modal-content">
+						<div class="modal-header">
+							<h5 class="modal-title" id="client1signatureModalLabel">Client Signature</h5>
+							<button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
 						</div>
-						<div class="mb-3 col">
-							<div class="mb-3 text-center">
-								<img alt="Staff Signature" id="staffsignature-image" src=""
-									style="border:1px solid #000; width: 300px; height: 55px; display: none;" />
-								<button class="btn btn-outline-primary btn-sm mt-2"
-									data-bs-target="#staffsignatureModal" data-bs-toggle="modal" id="staffsignbutton"
-									type="button">
-									Sign Here
-								</button>
-							</div>
-							<div class="mb-3 row align-items-start">
-								<label class="form-text col" for="staffsignature-pad">
-									Staff Signature
-								</label>
-								<a class="form-text col" href="#"
-									onclick="clearSignatureImage('staffsignature-image'); return false;">
-									Clear Signature
-								</a>
+						<div class="modal-body text-center">
+							<canvas class="signature-pad" id="client1signature-pad"></canvas>
+							<div class="mt-2">
+								<button type="button" class="btn btn-sm btn-secondary"
+									onclick="clearSignature('client1signature-pad')">Clear</button>
+								<button type="button" class="btn btn-sm btn-primary"
+									onclick="saveSignatureToImage('client1')">Save</button>
 							</div>
 						</div>
-						<div class="mb-3 col">
-							<input class="form-control" id="staffSigned" style="width: auto;" type="date" />
-							<label class="form-text" for="staffSigned">
-								Date Signed
-							</label>
+					</div>
+				</div>
+			</div>
+			<div class="modal fade" id="client2signatureModal" tabindex="-1"
+				aria-labelledby="client2signatureModalLabel" aria-hidden="true">
+				<div class="modal-dialog modal-dialog-centered">
+					<div class="modal-content">
+						<div class="modal-header">
+							<h5 class="modal-title" id="client2signatureModalLabel">Client Signature</h5>
+							<button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+						</div>
+						<div class="modal-body text-center">
+							<canvas class="signature-pad" id="client2signature-pad"></canvas>
+							<div class="mt-2">
+								<button type="button" class="btn btn-sm btn-secondary"
+									onclick="clearSignature('client2signature-pad')">Clear</button>
+								<button type="button" class="btn btn-sm btn-primary"
+									onclick="saveSignatureToImage('client2')">Save</button>
+							</div>
 						</div>
 					</div>
 				</div>
 			</div>
-		</form>
-		<button onclick="window.print()">
-			Print
-		</button>
-	</div>
-	<div aria-hidden="true" aria-labelledby="client1signatureModalLabel" class="modal fade" id="client1signatureModal"
-		tabindex="-1">
-		<div class="modal-dialog modal-dialog-centered">
-			<div class="modal-content">
-				<div class="modal-header">
-					<h5 class="modal-title" id="client1signatureModalLabel">
-						Client Signature
-					</h5>
-					<button aria-label="Close" class="btn-close" data-bs-dismiss="modal" type="button">
-					</button>
-				</div>
-				<div class="modal-body text-center">
-					<canvas class="signature-pad" id="client1signature-pad">
-					</canvas>
-					<div class="mt-2">
-						<button class="btn btn-sm btn-secondary" onclick="clearSignature('client1signature-pad')">
-							Clear
-						</button>
-						<button class="btn btn-sm btn-primary" onclick="saveSignatureToImage('client1')">
-							Save
-						</button>
+			<div class="modal fade" id="staffsignatureModal" tabindex="-1" aria-labelledby="signatureModalLabel"
+				aria-hidden="true">
+				<div class="modal-dialog modal-dialog-centered">
+					<div class="modal-content">
+						<div class="modal-header text-center">
+							<h5 class="modal-title" id="signatureModalLabel">Staff Signature</h5>
+							<button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+						</div>
+						<div class="modal-body text-center">
+							<canvas class="signature-pad" id="staffsignature-pad"></canvas>
+							<div class="mt-2">
+								<button type="button" class="btn btn-sm btn-secondary"
+									onclick="clearSignature('staffsignature-pad')">Clear</button>
+								<button type="button" class="btn btn-sm btn-primary"
+									onclick="saveSignatureToImage('staff')">Save
+									Signature</button>
+							</div>
+						</div>
 					</div>
 				</div>
 			</div>
-		</div>
-	</div>
-	<div aria-hidden="true" aria-labelledby="client2signatureModalLabel" class="modal fade" id="client2signatureModal"
-		tabindex="-1">
-		<div class="modal-dialog modal-dialog-centered">
-			<div class="modal-content">
-				<div class="modal-header">
-					<h5 class="modal-title" id="client2signatureModalLabel">
-						Client Signature
-					</h5>
-					<button aria-label="Close" class="btn-close" data-bs-dismiss="modal" type="button">
-					</button>
-				</div>
-				<div class="modal-body text-center">
-					<canvas class="signature-pad" id="client2signature-pad">
-					</canvas>
-					<div class="mt-2">
-						<button class="btn btn-sm btn-secondary" onclick="clearSignature('client2signature-pad')">
-							Clear
-						</button>
-						<button class="btn btn-sm btn-primary" onclick="saveSignatureToImage('client2')">
-							Save
-						</button>
-					</div>
-				</div>
-			</div>
-		</div>
-	</div>
-	<div aria-hidden="true" aria-labelledby="signatureModalLabel" class="modal fade" id="staffsignatureModal"
-		tabindex="-1">
-		<div class="modal-dialog modal-dialog-centered">
-			<div class="modal-content">
-				<div class="modal-header">
-					<h5 class="modal-title" id="signatureModalLabel">
-						Staff Signature
-					</h5>
-					<button aria-label="Close" class="btn-close" data-bs-dismiss="modal" type="button">
-					</button>
-				</div>
-				<div class="modal-body text-center">
-					<canvas class="signature-pad" id="staffsignature-pad">
-					</canvas>
-					<div class="mt-2">
-						<button class="btn btn-sm btn-secondary" onclick="clearSignature('staffsignature-pad')">
-							Clear
-						</button>
-						<button class="btn btn-sm btn-primary" onclick="saveSignatureToImage('staff')">
-							Save Signature
-						</button>
-					</div>
-				</div>
-			</div>
-		</div>
-	</div>
-	<script>
-		// Utility function to create an input element
-		function createInput(className = 'form-control', placeholder = '') {
-			const input = document.createElement('input');
-			input.type = 'text';
-			input.className = className;
-			input.placeholder = placeholder;
-			return input;
-		}
+			<script>
+				// Utility function to create an input element
+				function createInput(className = 'form-control', placeholder = '') {
+					const input = document.createElement('input');
+					input.type = 'text';
+					input.className = className;
+					input.placeholder = placeholder;
+					return input;
+				}
 
-		// Section 1: Name and Phone #
-		let namePhoneCount = 1;
-		const maxNamePhoneInputs = 10;
+				// Section 1: Name and Phone #
+				let namePhoneCount = 1;
+				const maxNamePhoneInputs = 10;
 
-		function addNamePhoneRow() {
-			if (namePhoneCount >= maxNamePhoneInputs) {
-				alert("Maximum number of inputs reached.");
-				return;
-			}
-			namePhoneCount++;
+				function addNamePhoneRow() {
+					if (namePhoneCount >= maxNamePhoneInputs) {
+						alert("Maximum number of inputs reached.");
+						return;
+					}
+					namePhoneCount++;
 
-			const container = document.getElementById("input-container");
-			const group = document.createElement("div");
-			group.className = "input-group";
+					const container = document.getElementById("input-container");
+					const group = document.createElement("div");
+					group.className = "input-group";
 
-			const label = document.createElement("span");
-			label.className = "input-group-text mb-1";
-			label.textContent = "Name and Phone #";
+					const label = document.createElement("span");
+					label.className = "input-group-text mb-1";
+					label.textContent = "Name and Phone #";
 
-			const nameInput = createInput("form-control mb-1");
-			const phoneInput = createInput("form-control mb-1");
+					const nameInput = createInput("form-control mb-1");
+					const phoneInput = createInput("form-control mb-1");
 
-			group.appendChild(label);
-			group.appendChild(nameInput);
-			group.appendChild(phoneInput);
-			container.appendChild(group);
-		}
+					group.appendChild(label);
+					group.appendChild(nameInput);
+					group.appendChild(phoneInput);
+					container.appendChild(group);
+				}
 
-		function removeNamePhoneRow() {
-			if (namePhoneCount <= 1) {
-				alert("At least one input must remain.");
-				return;
-			}
-			const container = document.getElementById("input-container");
-			container.removeChild(container.lastElementChild);
-			namePhoneCount--;
-		}
+				function removeNamePhoneRow() {
+					if (namePhoneCount <= 1) {
+						alert("At least one input must remain.");
+						return;
+					}
+					const container = document.getElementById("input-container");
+					container.removeChild(container.lastElementChild);
+					namePhoneCount--;
+				}
 
-		// Section 2: Permission to Talk To
-		let permissionCount = 1;
+				// Section 2: Permission to Talk To
+				let permissionCount = 1;
 
-		function addPermissionRow() {
-			permissionCount++;
+				function addPermissionRow() {
+					permissionCount++;
 
-			const container = document.createElement('div');
-			container.className = 'input-container input-group';
+					const container = document.createElement('div');
+					container.className = 'input-container input-group';
 
-			const label = document.createElement('span');
-			label.className = 'input-group-text mb-1';
-			label.textContent = 'Name';
+					const label = document.createElement('span');
+					label.className = 'input-group-text mb-1';
+					label.textContent = 'Name';
 
-			const input = createInput('form-control mb-1');
+					const input = createInput('form-control mb-1');
 
-			container.appendChild(label);
-			container.appendChild(input);
+					container.appendChild(label);
+					container.appendChild(input);
 
-			document.getElementById('input-container-1').appendChild(container);
-		}
+					document.getElementById('input-container-1').appendChild(container);
+				}
 
 
-		function removePermissionRow() {
-			const containers = document.querySelectorAll('#input-container-1 .input-container');
-			if (containers.length > 0) {
-				containers[containers.length - 1].remove();
-				permissionCount--;
-			} else {
-				alert("At least one input must remain.");
-			}
-		}
-	</script>
-	<script crossorigin="anonymous" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
-		src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js">
-		</script>
-	<script src="js/setdates.js">
-	</script>
-	<script src="js/signature-pad.js">
-	</script>
-	<script src="js/savepdf.js">
-	</script>
+				function removePermissionRow() {
+					const containers = document.querySelectorAll('#input-container-1 .input-container');
+					if (containers.length > 0) {
+						containers[containers.length - 1].remove();
+						permissionCount--;
+					} else {
+						alert("At least one input must remain.");
+					}
+				}
+			</script>
+			<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
+				integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
+				crossorigin="anonymous"></script>
+			<script src="js/setdates.js"></script>
+			<script src="js/signature-pad.js"></script>
+
+
 </body>
 
 </html>

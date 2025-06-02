@@ -23,58 +23,60 @@
 </head>
 
 <body style="background: #7867AE">
-	<div class="container mt-3 mb-3 pb-2 rounded-3 bg-light">
+	<div id="print-section" class="container mt-3 mb-3 pb-2 rounded-3 bg-light">
 		<br>
 		<form id="form-container" class="container mt-3 mb-3 pb-2" method="post" action="/submit">
-			<div class="pdf-section">
-				<div>
-					<img src="/static/img/Iris Logo.png" alt="Logo" class="img-fluid mx-auto d-block mb-3"
-						style="max-width: 200px;">
-					<hr>
-					<h1 class="text-center">Consent to Transport</h1>
-				</div>
-
-				<div>
-					<p>
-						I/we give permission for Iris Family Support Center staff to transport the individuals named
-						below, as needed, for as long as we participate in programming at Iris Family Support Center.
-					</p>
-					<p>
-						I/we also agree to release Iris Family Support Center and its participating agencies and staff
-						from any liability while transporting the individual named below.
-					</p>
-
-
-					<div id="input-container">
-						<label class="form-text" for="transport-1">Name of Individuals</label>
-						<div class="input-group">
-							<input type="text" class="form-control mb-1" id="transport-1">
-						</div>
-					</div>
-					<br>
-					<button type="button" class="btn btn-primary" onclick="addInput()">Add Row</button>
-					<button type="button" class="btn btn-danger" onclick="removeInput()">Remove Row</button>
-				</div>
-
-				<br>
-				<p>
-					<strong><u>When transporting children in car seats, only car seats provided by Iris Family Support
-							Center may be used, unless the child has a medically required car seat prescribed by a
-							professional.</u></strong>
-				</p>
+			>
+			<div>
+				<img src="/static/img/Iris Logo.png" alt="Logo" class="img-fluid mx-auto d-block mb-3"
+					style="max-width: 200px;">
+				<hr>
+				<h1 class="text-center">Consent to Transport</h1>
 			</div>
 
+			<div>
+				<p>
+					I give permission for Iris Family Support Center staff to transport the individuals named
+					below, as needed, for as long as we participate in programming at Iris Family Support Center.
+				</p>
+				<p>
+					I also agree to release Iris Family Support Center and its participating agencies and staff
+					from any liability while transporting the individual named below.
+				</p>
+
+
+				<div id="input-container">
+					<label class="form-text" for="transport-1">Name of Individuals</label>
+					<div class="input-group">
+						<input type="text" class="form-control mb-1" id="transport-1">
+					</div>
+				</div>
+				<br>
+				<button type="button" class="btn btn-primary" onclick="addInput()">Add Row</button>
+				<button type="button" class="btn btn-danger" onclick="removeInput()">Remove Row</button>
+			</div>
+
+			<br>
+			<p>
+				<strong><u>When transporting children in car seats, only car seats provided by Iris Family Support
+						Center may be used, unless the child has a medically required car seat prescribed by a
+						professional.</u></strong>
+			</p>
+
+
 			<hr>
-			<div id="signature section" class="pdf-section">
+			<!-- Signatures -->
+
+			<div id="signature section">
 				<div class="container-fluid">
-					<div class="row align-items-start">
+					<div class="row align-items-start print-inline-row">
 						<div class="mb-3 col">
 							<input type="text" class="form-control" id="client1name">
 							<label class="form-text" for="client1name">Client Name</label>
 						</div>
 						<div class="mb-3 col">
 							<div class="mb-3 text-center">
-								<img id="client1signature-image" src="" alt="Client Signature"
+								<img id="client1signature-image" src="" alt=""
 									style="border:1px solid #000; width: 300px; height: 55px; display: none;">
 								<button id="client1signbutton" type="button" class="btn btn-outline-primary btn-sm mt-2"
 									data-bs-toggle="modal" data-bs-target="#client1signatureModal">Sign Here</button>
@@ -82,7 +84,7 @@
 							<div class="mb-3 row align-items-start">
 								<label class="form-text col" for="client1signature-pad">Client Signature</label>
 								<a href="#" onclick="clearSignatureImage('client1signature-image'); return false;"
-									class="form-text col">Clear Signature</a>
+									class="form-text col hide-print">Clear Signature</a>
 							</div>
 						</div>
 						<div class="mb-3 col">
@@ -91,23 +93,26 @@
 						</div>
 					</div>
 				</div>
+
+
 				<div class="container-fluid">
-					<div class="row align-items-start">
+					<div class="row align-items-start print-inline-row">
 						<div class=" mb-3 col">
 							<input type="text" class="form-control" id="client2name">
 							<label class="form-text" for="client2name">Client Name</label>
 						</div>
 						<div class=" mb-3 col">
 							<div class="mb-3 text-center">
-								<img id="client2signature-image" src="" alt="Client Signature"
+								<img id="client2signature-image" src="" alt=""
 									style="border:1px solid #000; width: 300px; height: 55px; display: none;">
-								<button id="client2signbutton" type="button" class="btn btn-outline-primary btn-sm mt-2"
-									data-bs-toggle="modal" data-bs-target="#client2signatureModal">Sign Here</button>
+								<button id="client2signbutton" type="button"
+									class="btn btn-outline-primary btn-sm mt-2 hide-print" data-bs-toggle="modal"
+									data-bs-target="#client2signatureModal">Sign Here</button>
 							</div>
 							<div class="mb-3 row align-items-start">
 								<label class="form-text col" for="client2signature-pad">Client Signature</label>
 								<a href="#" onclick="clearSignatureImage('client2signature-image'); return false;"
-									class="form-text col">Clear Signature</a>
+									class="form-text col hide-print">Clear Signature</a>
 							</div>
 						</div>
 						<div class="mb-3 col">
@@ -118,14 +123,14 @@
 					</div>
 				</div>
 				<div class="container-fluid">
-					<div class="row align-items-start">
+					<div class="row align-items-start print-inline-row">
 						<div class="mb-3 col">
 							<input type="text" class="form-control" id="staffname">
 							<label class="form-text" for="staffname">Staff Name</label>
 						</div>
 						<div class="mb-3 col">
 							<div class="mb-3 text-center">
-								<img id="staffsignature-image" src="" alt="Staff Signature"
+								<img id="staffsignature-image" src="" alt=""
 									style="border:1px solid #000; width: 300px; height: 55px; display: none;">
 								<button id="staffsignbutton" type="button" class="btn btn-outline-primary btn-sm mt-2"
 									data-bs-toggle="modal" data-bs-target="#staffsignatureModal">Sign Here</button>
@@ -144,70 +149,70 @@
 				</div>
 			</div>
 
+			<!-- Modals -->
 
+			<div class="modal fade" id="client1signatureModal" tabindex="-1"
+				aria-labelledby="client1signatureModalLabel" aria-hidden="true">
+				<div class="modal-dialog modal-dialog-centered">
+					<div class="modal-content">
+						<div class="modal-header">
+							<h5 class="modal-title" id="client1signatureModalLabel">Client Signature</h5>
+							<button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+						</div>
+						<div class="modal-body text-center">
+							<canvas class="signature-pad" id="client1signature-pad"></canvas>
+							<div class="mt-2">
+								<button type="button" class="btn btn-sm btn-secondary"
+									onclick="clearSignature('client1signature-pad')">Clear</button>
+								<button type="button" class="btn btn-sm btn-primary"
+									onclick="saveSignatureToImage('client1')">Save</button>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+			<div class="modal fade" id="client2signatureModal" tabindex="-1"
+				aria-labelledby="client2signatureModalLabel" aria-hidden="true">
+				<div class="modal-dialog modal-dialog-centered">
+					<div class="modal-content">
+						<div class="modal-header">
+							<h5 class="modal-title" id="client2signatureModalLabel">Client Signature</h5>
+							<button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+						</div>
+						<div class="modal-body text-center">
+							<canvas class="signature-pad" id="client2signature-pad"></canvas>
+							<div class="mt-2">
+								<button type="button" class="btn btn-sm btn-secondary"
+									onclick="clearSignature('client2signature-pad')">Clear</button>
+								<button type="button" class="btn btn-sm btn-primary"
+									onclick="saveSignatureToImage('client2')">Save</button>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+			<div class="modal fade" id="staffsignatureModal" tabindex="-1" aria-labelledby="signatureModalLabel"
+				aria-hidden="true">
+				<div class="modal-dialog modal-dialog-centered">
+					<div class="modal-content">
+						<div class="modal-header text-center">
+							<h5 class="modal-title" id="signatureModalLabel">Staff Signature</h5>
+							<button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+						</div>
+						<div class="modal-body text-center">
+							<canvas class="signature-pad" id="staffsignature-pad"></canvas>
+							<div class="mt-2">
+								<button type="button" class="btn btn-sm btn-secondary"
+									onclick="clearSignature('staffsignature-pad')">Clear</button>
+								<button type="button" class="btn btn-sm btn-primary"
+									onclick="saveSignatureToImage('staff')">Save
+									Signature</button>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
 		</form>
-		<button type="button" class="btn btn-primary" onclick="saveAsPDF()">Save as PDF</button>
-	</div>
-	</div>
-
-
-	<div class="modal fade" id="client1signatureModal" tabindex="-1" aria-labelledby="client1signatureModalLabel"
-		aria-hidden="true">
-		<div class="modal-dialog modal-dialog-centered">
-			<div class="modal-content">
-				<div class="modal-header">
-					<h5 class="modal-title" id="client1signatureModalLabel">Client Signature</h5>
-					<button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-				</div>
-				<div class="modal-body text-center">
-					<canvas class="signature-pad" id="client1signature-pad"></canvas>
-					<div class="mt-2">
-						<button class="btn btn-sm btn-secondary"
-							onclick="clearSignature('client1signature-pad')">Clear</button>
-						<button class="btn btn-sm btn-primary" onclick="saveSignatureToImage('client1')">Save</button>
-					</div>
-				</div>
-			</div>
-		</div>
-	</div>
-	<div class="modal fade" id="client2signatureModal" tabindex="-1" aria-labelledby="client2signatureModalLabel"
-		aria-hidden="true">
-		<div class="modal-dialog modal-dialog-centered">
-			<div class="modal-content">
-				<div class="modal-header">
-					<h5 class="modal-title" id="client2signatureModalLabel">Client Signature</h5>
-					<button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-				</div>
-				<div class="modal-body text-center">
-					<canvas class="signature-pad" id="client2signature-pad"></canvas>
-					<div class="mt-2">
-						<button class="btn btn-sm btn-secondary"
-							onclick="clearSignature('client2signature-pad')">Clear</button>
-						<button class="btn btn-sm btn-primary" onclick="saveSignatureToImage('client2')">Save</button>
-					</div>
-				</div>
-			</div>
-		</div>
-	</div>
-	<div class="modal fade" id="staffsignatureModal" tabindex="-1" aria-labelledby="signatureModalLabel"
-		aria-hidden="true">
-		<div class="modal-dialog modal-dialog-centered">
-			<div class="modal-content">
-				<div class="modal-header">
-					<h5 class="modal-title" id="signatureModalLabel">Staff Signature</h5>
-					<button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-				</div>
-				<div class="modal-body text-center">
-					<canvas class="signature-pad" id="staffsignature-pad"></canvas>
-					<div class="mt-2">
-						<button class="btn btn-sm btn-secondary"
-							onclick="clearSignature('staffsignature-pad')">Clear</button>
-						<button class="btn btn-sm btn-primary" onclick="saveSignatureToImage('staff')">Save
-							Signature</button>
-					</div>
-				</div>
-			</div>
-		</div>
 	</div>
 
 
@@ -248,7 +253,8 @@
 		crossorigin="anonymous"></script>
 	<script src="js/setdates.js"></script>
 	<script src="js/signature-pad.js"></script>
-	<script src="js/savepdf.js"></script>
+
+
 </body>
 
 </html>
