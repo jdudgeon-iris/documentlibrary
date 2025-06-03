@@ -5,8 +5,6 @@
 	touch-action: none;
 }
 
-
-
 @media print {
 	body * {
 		display: none !important;
