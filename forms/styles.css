@@ -32,7 +32,7 @@
 
 	.print-inline-row>.col {
 		float: left;
-		width: 33.3333%;
+		width: 25%;
 		box-sizing: border-box;
 	}
 
@@ -40,8 +40,6 @@
 		display: block;
 		clear: both;
 	}
-
-
 
 }
 
