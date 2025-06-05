@@ -11,36 +11,53 @@
 		background-color: white !important;
 	}
 
-	.print-inline-row button,
-	.print-inline-row a {
-		display: none !important;
+	@page {
+		margin-top: 0.5 in !important;
 	}
-
-	#hide-print {
-		display: none !important;
-	}
-
-	.hide-print {
-		display: none !important;
-	}
+	
 
 	#print-section,
 	#print-section * {
 		display: block !important;
-		margin: 0 auto;
+		
 	}
 
-	.print-inline-row>.col {
+	.print-inline-row-4>.col {
 		float: left;
 		width: 25%;
 		box-sizing: border-box;
 	}
-
+	.print-inline-row-3>.col {
+		float: left;
+		width: 33.3333%;
+		box-sizing: border-box;
+	}
+	.print-inline-row-2>.col {
+		float: left;
+		width: 50%;
+		box-sizing: border-box;
+	}
+	.print-inline-row>.col {
+		float: left;
+		width: 100%;
+		box-sizing: border-box;
+	}
+	.print-inline-row-2 {
+		display: block;
+		clear: both;
+	}
+	.print-inline-row-3 {
+		display: block;
+		clear: both;
+	}
+	.print-inline-row-4 {
+		display: block;
+		clear: both;
+	}
 	.print-inline-row {
 		display: block;
 		clear: both;
 	}
-
 }
 
 body {
