@@ -260,40 +260,65 @@
 					<p class="h4">Family Composition & Background</p>
 				</div>
 			</div>
-			<div class="row print-inline-row-2 mt-2"><button class="btn" type="button">Add Significant Other</button>
-				<div class="col">
-					<label for="significantOther" class="form-label">Significant Other<ul>
-							<li>Name</li>
-							<li>Age</li>
-							<li>Marriage Date</li>
-							<li>Deaths</li>
-							<li>Divorces</li>
-							<li>Describe Relationship <ul>
-									<li>Strengths</li>
-									<li>Difficulties</li>
-								</ul>
-							</li>
-						</ul></label>
+
+			<div id="significantOtherContainer">
+				<div class="row print-inline-row-2 mt-2 significant-other-entry">
+					<div class="col-12 mb-2">
+						<button class="btn btn-primary add-btn" type="button">Add Significant Other</button>
+					</div>
+					<div class="col">
+						<label class="form-label">Significant Other
+							<ul>
+								<li>Name</li>
+								<li>Age</li>
+								<li>Marriage Date</li>
+								<li>Deaths</li>
+								<li>Divorces</li>
+								<li>Describe Relationship
+									<ul>
+										<li>Strengths</li>
+										<li>Difficulties</li>
+									</ul>
+								</li>
+							</ul>
+						</label>
+					</div>
+					<div class="col">
+						<textarea class="form-control h-100" name="significantOther"></textarea>
+					</div>
+
+					<div class="col-12 mt-2">
+						<button class="btn btn-danger remove-btn" type="button">Remove</button>
+					</div>
 
 				</div>
-				<div class="col">
-					<textarea class="form-control h-100" id="significantOther" name="significantOther"></textarea>
+			</div>
+
+			<div id="familyMemberContainer">
+				<div class="row print-inline-row-2 mt-2 family-member-entry">
+					<div class="col-12 mb-2">
+						<button class="btn btn-primary add-family-btn" type="button">Add Family Member</button>
+					</div>
+					<div class="col">
+						<label class="form-label">Family Member
+							<ul>
+								<li>Name</li>
+								<li>Age</li>
+								<li>Current Location</li>
+								<li>Death</li>
+								<li>Describe Relationship</li>
+							</ul>
+						</label>
+					</div>
+					<div class="col">
+						<textarea class="form-control h-100" name="familyMember"></textarea>
+					</div>
+					<div class="col-12 mt-2">
+						<button class="btn btn-danger remove-family-btn" type="button">Remove</button>
+					</div>
 				</div>
 			</div>
-			<div class="row print-inline-row-2 mt-2"><button class="btn" type="button">Add Family Member</button>
-				<div class="col">
-					<label for="familyMember" class="form-label">Family Member<ul>
-							<li>Name</li>
-							<li>Age</li>
-							<li>Current Location</li>
-							<li>Death</li>
-							<li>Describe Relationship</li>
-						</ul></label>
-				</div>
-				<div class="col">
-					<textarea class="form-control h-100" id="familyMember" name="familyMember"></textarea>
-				</div>
-			</div>
+
 			<div class="row print-inline-row mt-2">
 				<div class="col text-center">
 					<p class="h4">Education Background</p>
@@ -565,27 +590,36 @@
 			<div class="row print-inline-row mt-2">
 				<div class="col text-center">
 					<p class="h4">Psychological and Psychiatric Background</p>
-					<div class="row print-inline-row-2 mt-2"><button class="btn" type="button">Add Mental
-							Health</button>
+				</div>
+				<div id="mentalHealthContainer">
+					<div class="row print-inline-row-2 mt-2 mental-health-entry">
+						<div class="col-12 mb-2">
+							<button class="btn btn-primary add-mental-btn" type="button">Add Mental Health</button>
+						</div>
+						<div class="col">
+							<label class="form-label">History of mental health
+								<ul>
+									<li>What</li>
+									<li>Diagnosis by doctor or self diagnosis?</li>
+									<li>In treatment?</li>
+									<li>Symptoms</li>
+									<li>Age at which symptoms began</li>
+									<li>On medication for this?</li>
+								</ul>
+								<small class="text-body-secondary">If depression, complete Beck's Depression Scale
+									or Edinburgh PPD Scale</small>
+							</label>
+						</div>
+						<div class="col">
+							<textarea class="form-control h-100" name="mentalHealth"></textarea>
+						</div>
+						<div class="col-12 mt-2">
+							<button class="btn btn-danger remove-mental-btn" type="button">Remove</button>
+						</div>
 					</div>
 				</div>
-				<div class="row print-inline-row-2 mt-2">
-					<div class="col">
-						<label for="militaryDisability" class="form-label">History of mental health <ul>
-								<li>What</li>
-								<li>Diagnosis by doctor or self diagnosis?</li>
-								<li>In treatment?</li>
-								<li>Symptoms</li>
-								<li>Age at which symptoms began</li>
-								<li>On medication for this?</li>
-							</ul><small class="text-body-secondary">If depression, complete Beck's Depression Scale or
-								Edinburgh PPD Scale</small></label>
-					</div>
-					<div class="col">
-						<textarea class="form-control h-100" id="militaryDisability"
-							name="militaryDisability"></textarea>
-					</div>
-				</div>
+
+
 				<div class="row print-inline-row-2 mt-2">
 					<div class="col">
 						<label for="militaryDisability" class="form-label">Suicidal Ideation & Attempts <ul>
@@ -730,6 +764,9 @@
 									<li>Scores of 2+ require a follow up</li>
 								</ul></small>
 						</div>
+						<div class="row">
+							<label for="score" class="form-label">Score: <span id="uncopeScore"></span></label>
+						</div>
 					</div>
 					<div class="col">
 						<div class="row">
@@ -738,11 +775,11 @@
 								intended?</label>
 							<div class="col">
 								<div class="form-check form-check-inline">
-									<input class="form-check-input" type="checkbox" id="inlineCheckbox1" value="1">
+									<input class="form-check-input" type="checkbox" id="uncope1Yes" value="1">
 									<label class="form-check-label" for="inlineCheckbox1">Yes</label>
 								</div>
 								<div class="form-check form-check-inline">
-									<input class="form-check-input" type="checkbox" id="inlineCheckbox2" value="0">
+									<input class="form-check-input" type="checkbox" id="uncope1No" value="0">
 									<label class="form-check-label" for="inlineCheckbox2">No</label>
 								</div>
 							</div>
@@ -752,11 +789,11 @@
 								responsibilities because of using last year?</label>
 							<div class="col">
 								<div class="form-check form-check-inline">
-									<input class="form-check-input" type="checkbox" id="inlineCheckbox1" value="1">
+									<input class="form-check-input" type="checkbox" id="uncope2Yes" value="1">
 									<label class="form-check-label" for="inlineCheckbox1">Yes</label>
 								</div>
 								<div class="form-check form-check-inline">
-									<input class="form-check-input" type="checkbox" id="inlineCheckbox2" value="0">
+									<input class="form-check-input" type="checkbox" id="uncope2No" value="0">
 									<label class="form-check-label" for="inlineCheckbox2">No</label>
 								</div>
 							</div>
@@ -767,11 +804,11 @@
 								your drinkin or drug use in the last year?</label>
 							<div class="col">
 								<div class="form-check form-check-inline">
-									<input class="form-check-input" type="checkbox" id="inlineCheckbox1" value="1">
+									<input class="form-check-input" type="checkbox" id="uncope3Yes" value="1">
 									<label class="form-check-label" for="inlineCheckbox1">Yes</label>
 								</div>
 								<div class="form-check form-check-inline">
-									<input class="form-check-input" type="checkbox" id="inlineCheckbox2" value="0">
+									<input class="form-check-input" type="checkbox" id="uncope3No" value="0">
 									<label class="form-check-label" for="inlineCheckbox2">No</label>
 								</div>
 							</div>
@@ -783,11 +820,11 @@
 								alcohol use?</label>
 							<div class="col">
 								<div class="form-check form-check-inline">
-									<input class="form-check-input" type="checkbox" id="inlineCheckbox1" value="1">
+									<input class="form-check-input" type="checkbox" id="uncope4Yes" value="1">
 									<label class="form-check-label" for="inlineCheckbox1">Yes</label>
 								</div>
 								<div class="form-check form-check-inline">
-									<input class="form-check-input" type="checkbox" id="inlineCheckbox2" value="0">
+									<input class="form-check-input" type="checkbox" id="uncope4No" value="0">
 									<label class="form-check-label" for="inlineCheckbox2">No</label>
 								</div>
 							</div>
@@ -799,11 +836,11 @@
 								or drinking?</label>
 							<div class="col">
 								<div class="form-check form-check-inline">
-									<input class="form-check-input" type="checkbox" id="inlineCheckbox1" value="1">
+									<input class="form-check-input" type="checkbox" id="uncope5Yes" value="1">
 									<label class="form-check-label" for="inlineCheckbox1">Yes</label>
 								</div>
 								<div class="form-check form-check-inline">
-									<input class="form-check-input" type="checkbox" id="inlineCheckbox2" value="0">
+									<input class="form-check-input" type="checkbox" id="uncope5No" value="0">
 									<label class="form-check-label" for="inlineCheckbox2">No</label>
 								</div>
 							</div>
@@ -814,11 +851,11 @@
 								emotional discomfort such as sadness, anger, or boredom?</label>
 							<div class="col">
 								<div class="form-check form-check-inline">
-									<input class="form-check-input" type="checkbox" id="inlineCheckbox1" value="1">
+									<input class="form-check-input" type="checkbox" id="uncope6Yes" value="1">
 									<label class="form-check-label" for="inlineCheckbox1">Yes</label>
 								</div>
 								<div class="form-check form-check-inline">
-									<input class="form-check-input" type="checkbox" id="inlineCheckbox2" value="0">
+									<input class="form-check-input" type="checkbox" id="uncope6No" value="0">
 									<label class="form-check-label" for="inlineCheckbox2">No</label>
 								</div>
 							</div>
@@ -929,75 +966,75 @@
 						<div class="col text-center">
 							<p class="h4">Legal Concerns</p>
 						</div>
-					
-					<div class="row print-inline-row-2 mt-2">
-						<div class="col">
-							<label for="militaryDisability" class="form-label">Immigrant Status <ul>
-									<li>Live in fear?</li>
-									<li>Want help?</li>
-								</ul></label>
+
+						<div class="row print-inline-row-2 mt-2">
+							<div class="col">
+								<label for="militaryDisability" class="form-label">Immigrant Status <ul>
+										<li>Live in fear?</li>
+										<li>Want help?</li>
+									</ul></label>
+							</div>
+							<div class="col">
+								<textarea class="form-control h-100" id="militaryDisability"
+									name="militaryDisability"></textarea>
+							</div>
 						</div>
-						<div class="col">
-							<textarea class="form-control h-100" id="militaryDisability"
-								name="militaryDisability"></textarea>
+						<div class="row print-inline-row-2 mt-2">
+							<div class="col">
+								<label for="militaryDisability" class="form-label">Housing <ul>
+										<li>Evictions</li>
+									</ul></label>
+							</div>
+							<div class="col">
+								<textarea class="form-control h-100" id="militaryDisability"
+									name="militaryDisability"></textarea>
+							</div>
+						</div>
+						<div class="row print-inline-row-2 mt-2">
+							<div class="col">
+								<label for="militaryDisability" class="form-label">Marital <ul>
+										<li>Divorce</li>
+										<li>Child Custody</li>
+									</ul></label>
+							</div>
+							<div class="col">
+								<textarea class="form-control h-100" id="militaryDisability"
+									name="militaryDisability"></textarea>
+							</div>
+						</div>
+						<div class="row print-inline-row-2 mt-2">
+							<div class="col">
+								<label for="militaryDisability" class="form-label">Domestic Violence</label>
+							</div>
+							<div class="col">
+								<textarea class="form-control h-100" id="militaryDisability"
+									name="militaryDisability"></textarea>
+							</div>
+						</div>
+						<div class="row print-inline-row-2 mt-2">
+							<div class="col">
+								<label for="militaryDisability" class="form-label">Department of Child Services</label>
+							</div>
+							<div class="col">
+								<textarea class="form-control h-100" id="militaryDisability"
+									name="militaryDisability"></textarea>
+							</div>
+						</div>
+						<div class="row print-inline-row-2 mt-2">
+							<div class="col">
+								<label for="militaryDisability" class="form-label">Parole/Probation <ul>
+										<li>Current Charges</li>
+										<li>Felonies</li>
+										<li>Misdemeanors</li>
+										<li>Jail/Prison Experience</li>
+									</ul></label>
+							</div>
+							<div class="col">
+								<textarea class="form-control h-100" id="militaryDisability"
+									name="militaryDisability"></textarea>
+							</div>
 						</div>
 					</div>
-					<div class="row print-inline-row-2 mt-2">
-						<div class="col">
-							<label for="militaryDisability" class="form-label">Housing <ul>
-									<li>Evictions</li>
-								</ul></label>
-						</div>
-						<div class="col">
-							<textarea class="form-control h-100" id="militaryDisability"
-								name="militaryDisability"></textarea>
-						</div>
-					</div>
-					<div class="row print-inline-row-2 mt-2">
-						<div class="col">
-							<label for="militaryDisability" class="form-label">Marital <ul>
-									<li>Divorce</li>
-									<li>Child Custody</li>
-								</ul></label>
-						</div>
-						<div class="col">
-							<textarea class="form-control h-100" id="militaryDisability"
-								name="militaryDisability"></textarea>
-						</div>
-					</div>
-					<div class="row print-inline-row-2 mt-2">
-						<div class="col">
-							<label for="militaryDisability" class="form-label">Domestic Violence</label>
-						</div>
-						<div class="col">
-							<textarea class="form-control h-100" id="militaryDisability"
-								name="militaryDisability"></textarea>
-						</div>
-					</div>
-					<div class="row print-inline-row-2 mt-2">
-						<div class="col">
-							<label for="militaryDisability" class="form-label">Department of Child Services</label>
-						</div>
-						<div class="col">
-							<textarea class="form-control h-100" id="militaryDisability"
-								name="militaryDisability"></textarea>
-						</div>
-					</div>
-					<div class="row print-inline-row-2 mt-2">
-						<div class="col">
-							<label for="militaryDisability" class="form-label">Parole/Probation <ul>
-									<li>Current Charges</li>
-									<li>Felonies</li>
-									<li>Misdemeanors</li>
-									<li>Jail/Prison Experience</li>
-								</ul></label>
-						</div>
-						<div class="col">
-							<textarea class="form-control h-100" id="militaryDisability"
-								name="militaryDisability"></textarea>
-						</div>
-					</div>
-				</div>
 					<div class="row print-inline-row mt-2">
 						<div class="col text-center">
 							<p class="h4">Environmental & Psychosocial Factors</p>
@@ -1253,13 +1290,161 @@
 							<input type="text" class="form-control" id="completedBy" name="completedBy">
 						</div>
 						<div class="col">
-							<label for="dateCompleted" class="form-label">Date Completed</label>
-							<input type="date" class="form-control" id="dateCompleted" name="dateCompleted">
+							<label for="date" class="form-label">Date Completed</label>
+							<input type="date" class="form-control" id="date" name="date">
 						</div>
 					</div>
 					<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
 						integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
 						crossorigin="anonymous"></script>
+
+
+					<script>
+						document.addEventListener("DOMContentLoaded", function () {
+							const dateOfBirthInput = document.getElementById("dateOfBirth");
+							const ageLabel = document.getElementById("age");
+
+							dateOfBirthInput.addEventListener("change", function () {
+								const dob = new Date(this.value);
+								const today = new Date();
+								let age = today.getFullYear() - dob.getFullYear();
+								const monthDiff = today.getMonth() - dob.getMonth();
+								const dayDiff = today.getDate() - dob.getDate();
+
+								// Adjust age if birthday hasn't occurred yet this year
+								if (monthDiff < 0 || (monthDiff === 0 && dayDiff < 0)) {
+									age--;
+								}
+
+								if (!isNaN(age)) {
+									ageLabel.textContent = `(${age} years old)`;
+								} else {
+									ageLabel.textContent = "(Age)";
+								}
+							});
+						});
+					</script>
+					<script>
+						document.addEventListener("DOMContentLoaded", function () {
+							const totalQuestions = 6;
+							const scoreDisplay = document.getElementById("uncopeScore");
+
+							function calculateScore() {
+								let score = 0;
+								for (let i = 1; i <= totalQuestions; i++) {
+									const yesCheckbox = document.getElementById(`uncope${i}Yes`);
+									if (yesCheckbox && yesCheckbox.checked) {
+										score += 1;
+									}
+								}
+								scoreDisplay.textContent = score;
+							}
+
+							for (let i = 1; i <= totalQuestions; i++) {
+								const yesCheckbox = document.getElementById(`uncope${i}Yes`);
+								const noCheckbox = document.getElementById(`uncope${i}No`);
+
+								if (yesCheckbox && noCheckbox) {
+									yesCheckbox.addEventListener("change", function () {
+										if (this.checked) noCheckbox.checked = false;
+										calculateScore();
+									});
+
+									noCheckbox.addEventListener("change", function () {
+										if (this.checked) yesCheckbox.checked = false;
+										calculateScore();
+									});
+								}
+							}
+						});
+					</script>
+
+					<script>
+						document.addEventListener("DOMContentLoaded", function () {
+							const container = document.getElementById("significantOtherContainer");
+
+							container.addEventListener("click", function (e) {
+								if (e.target.classList.contains("add-btn")) {
+									const entry = e.target.closest(".significant-other-entry");
+									const clone = entry.cloneNode(true);
+
+									// Clear textarea
+									const textarea = clone.querySelector("textarea");
+									if (textarea) textarea.value = "";
+
+									container.appendChild(clone);
+								}
+
+								if (e.target.classList.contains("remove-btn")) {
+									const entries = container.querySelectorAll(".significant-other-entry");
+									if (entries.length > 1) {
+										e.target.closest(".significant-other-entry").remove();
+									} else {
+										alert("At least one entry must remain.");
+									}
+								}
+							});
+						});
+					</script>
+
+					<script>
+						document.addEventListener("DOMContentLoaded", function () {
+							const container = document.getElementById("mentalHealthContainer");
+
+							container.addEventListener("click", function (e) {
+								if (e.target.classList.contains("add-mental-btn")) {
+									const entry = e.target.closest(".mental-health-entry");
+									const clone = entry.cloneNode(true);
+
+									// Clear textarea
+									const textarea = clone.querySelector("textarea");
+									if (textarea) textarea.value = "";
+
+									container.appendChild(clone);
+								}
+
+								if (e.target.classList.contains("remove-mental-btn")) {
+									const entries = container.querySelectorAll(".mental-health-entry");
+									if (entries.length > 1) {
+										e.target.closest(".mental-health-entry").remove();
+									} else {
+										alert("At least one mental health entry must remain.");
+									}
+								}
+							});
+						});
+					</script>
+
+					<script>
+						document.addEventListener("DOMContentLoaded", function () {
+							const container = document.getElementById("familyMemberContainer");
+
+							container.addEventListener("click", function (e) {
+								if (e.target.classList.contains("add-family-btn")) {
+									const entry = e.target.closest(".family-member-entry");
+									const clone = entry.cloneNode(true);
+
+									// Clear textarea
+									const textarea = clone.querySelector("textarea");
+									if (textarea) textarea.value = "";
+
+									container.appendChild(clone);
+								}
+
+								if (e.target.classList.contains("remove-family-btn")) {
+									const entries = container.querySelectorAll(".family-member-entry");
+									if (entries.length > 1) {
+										e.target.closest(".family-member-entry").remove();
+									} else {
+										alert("At least one family member entry must remain.");
+									}
+								}
+							});
+						});
+					</script>
+
+
+					<script src="js/setdates.js"></script>
 
 </body>
 
