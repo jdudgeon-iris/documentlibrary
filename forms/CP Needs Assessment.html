@@ -19,10 +19,10 @@
 
 	<title>CP Needs Assessment</title>
 	<link rel="icon" href="/static/img/favicon.png" type="image/x-icon">
-	<link rel="stylesheet" href="styles.css">
+	<!--<link rel="stylesheet" href="styles.css"> -->
 </head>
 
-<body>
+<body style="background-color: #7867AE;">
 	<div id="print-section" class="container mt-3 mb-3 pb-2 rounded-3 bg-light">
 		<form id="form-container" class="container mt-3 mb-3 pb-2">
 			<div>
@@ -31,7 +31,17 @@
 				<hr>
 				<h1 class="text-center">Community Partners Needs Assessment</h1>
 			</div>
-			<div class="row">
+			<div class="row mt-2 print-inline-row-2">
+				<div class="col">
+					<label for="completedBy" class="form-label">Completed By:</label>
+					<input type="text" class="form-control" id="completedBy" name="completedBy">
+				</div>
+				<div class="col">
+					<label for="date" class="form-label">Date:</label>
+					<input type="date" class="form-control" id="date" name="date">
+				</div>
+			</div>
+			<div class="row mt-2 print-inline-row-4">
 				<div class="col">
 					<label for="clientName" class="form-label">Client Name:</label>
 					<input type="text" class="form-control" id="clientName" name="clientName">
@@ -40,16 +50,541 @@
 					<label for="clientNumber" class="form-label">Client Number:</label>
 					<input type="text" class="form-control" id="clientNumber" name="clientNumber">
 				</div>
+				<div class="col">
+					<label for="priorCPCS" class="form-label">Involved with CPCS before?:</label>
+					<select class="form-select" aria-label="Default select example">
+						<option>Select</option>
+						<option value="0">No</option>
+						<option value="1">Yes</option>
+					</select>
+				</div>
+				<div class="col">
+					<label for="county" class="form-label">County:</label>
+					<select class="form-select" aria-label="Default select example">
+						<option>Select</option>
+						<option value="0">Adams County</option>
+						<option value="1">Allen County</option>
+						<option value="2">Bartholomew County</option>
+						<option value="3">Benton County</option>
+						<option value="4">Blackford County</option>
+						<option value="5">Boone County</option>
+						<option value="6">Brown County</option>
+						<option value="7">Carroll County</option>
+						<option value="8">Cass County</option>
+						<option value="9">Clark County</option>
+						<option value="10">Clay County</option>
+						<option value="11">Clinton County</option>
+						<option value="12">Crawford County</option>
+						<option value="13">Daviess County</option>
+						<option value="14">Dearborn County</option>
+						<option value="15">Decatur County</option>
+						<option value="16">DeKalb County</option>
+						<option value="17">Delaware County</option>
+						<option value="18">Dubois County</option>
+						<option value="19">Elkhart County</option>
+						<option value="20">Fayette County</option>
+						<option value="21">Floyd County</option>
+						<option value="22">Fountain County</option>
+						<option value="23">Franklin County</option>
+						<option value="24">Fulton County</option>
+						<option value="25">Gibson County</option>
+						<option value="26">Grant County</option>
+						<option value="27">Greene County</option>
+						<option value="28">Hamilton County</option>
+						<option value="29">Hancock County</option>
+						<option value="30">Harrison County</option>
+						<option value="31">Hendricks County</option>
+						<option value="32">Henry County</option>
+						<option value="33">Howard County</option>
+						<option value="34">Huntington County</option>
+						<option value="35">Jackson County</option>
+						<option value="36">Jasper County</option>
+						<option value="37">Jay County</option>
+						<option value="38">Jefferson County</option>
+						<option value="39">Johnson County</option>
+						<option value="40">Knox County</option>
+						<option value="41">Kosciusko County</option>
+						<option value="42">Lagrange County</option>
+						<option value="43">Lake County</option>
+						<option value="44">LaPorte County</option>
+						<option value="45">Lawrence County</option>
+						<option value="46">Madison County</option>
+						<option value="47">Marion County</option>
+						<option value="48">Marshall County</option>
+						<option value="49">Martin County</option>
+						<option value="50">Miami County</option>
+						<option value="51">Monroe County</option>
+						<option value="52">Montgomery County</option>
+						<option value="53">Morgan County</option>
+						<option value="54">Newton County</option>
+						<option value="55">Noble County</option>
+						<option value="56">Ohio County</option>
+						<option value="57">Orange County</option>
+						<option value="58">Owen County</option>
+						<option value="59">Parke County</option>
+						<option value="60">Perry County</option>
+						<option value="61">Pike County</option>
+						<option value="62">Porter County</option>
+						<option value="63">Posey County</option>
+						<option value="64">Pulaski County</option>
+						<option value="65">Putnam County</option>
+						<option value="66">Randolph County</option>
+						<option value="67">Ripley County</option>
+						<option value="68">Rush County</option>
+						<option value="69">St. Joseph County</option>
+						<option value="70">Scott County</option>
+						<option value="71">Shelby County</option>
+						<option value="72">Spencer County</option>
+						<option value="73">Starke County</option>
+						<option value="74">Steuben County</option>
+						<option value="75">Sullivan County</option>
+						<option value="76">Switzerland County</option>
+						<option value="77">Tippecanoe County</option>
+						<option value="78">Tipton County</option>
+						<option value="79">Union County</option>
+						<option value="80">Vanderburgh County</option>
+						<option value="81">Vermilion County</option>
+						<option value="82">Vigo County</option>
+						<option value="83">Wabash County</option>
+						<option value="84">Warrick County</option>
+						<option value="85">Washington County</option>
+						<option value="86">Wayne County</option>
+						<option value="87">Wells County</option>
+						<option value="88">White County</option>
+						<option value="89">Whitley County</option>
+					</select>
+				</div>
 			</div>
+			<hr>
 
+
+			<table class="table table-sm table-hover mt-2">
+				<thead>
+					<tr class="print-inline-row-4">
+						<th class="text-center"></th>
+						<th class="text-center">Check if need is met over the phone or mail</th>
+						<th class="text-center">Check if home visit is needed & goal can be met in 1 month</th>
+						<th class="text-center">Check if home visit is needed & goal needs more than 1 month to be met
+						</th>
+					</tr>
+				</thead>
+				<tbody>
+					<tr>
+						<td>Need information about:
+							<ul>
+								<li><input class="form-check-input" type="checkbox" value="" id="checkDefault"> Food
+									Stamps</li>
+								<li><input class="form-check-input" type="checkbox" value="" id="checkDefault"> TANF
+								</li>
+								<li><input class="form-check-input" type="checkbox" value="" id="checkDefault"> Medicaid
+								</li>
+							</ul>
+						</td>
+						<td class="text-center"><input class="form-check-input" type="checkbox" value=""
+								id="checkDefault"></td>
+						<td class="text-center"><input class="form-check-input" type="checkbox" value=""
+								id="checkDefault"></td>
+						<td class="text-center"><input class="form-check-input" type="checkbox" value=""
+								id="checkDefault"></td>
+					</tr>
+					<tr>
+						<td>
+							Learn more about WIC?
+						</td>
+						<td class="text-center"><input class="form-check-input" type="checkbox" value=""
+								id="checkDefault"></td>
+						<td class="text-center"><input class="form-check-input" type="checkbox" value=""
+								id="checkDefault"></td>
+						<td class="text-center"><input class="form-check-input" type="checkbox" value=""
+								id="checkDefault"></td>
+					</tr>
+
+					<tr>
+						<td>
+							Pregnant/want to meet with health worker?
+						</td>
+						<td class="text-center"><input class="form-check-input" type="checkbox" value=""
+								id="checkDefault"></td>
+						<td class="text-center"><input class="form-check-input" type="checkbox" value=""
+								id="checkDefault"></td>
+						<td class="text-center"><input class="form-check-input" type="checkbox" value=""
+								id="checkDefault"></td>
+					</tr>
+					<tr>
+						<td>
+							Crisis need help with rent/utilities?
+						</td>
+						<td class="text-center"><input class="form-check-input" type="checkbox" value=""
+								id="checkDefault"></td>
+						<td class="text-center"><input class="form-check-input" type="checkbox" value=""
+								id="checkDefault"></td>
+						<td class="text-center"><input class="form-check-input" type="checkbox" value=""
+								id="checkDefault"></td>
+					</tr>
+					<tr>
+						<td>
+							Homelessness & need shelter?
+						</td>
+						<td class="text-center"><input class="form-check-input" type="checkbox" value=""
+								id="checkDefault"></td>
+						<td class="text-center"><input class="form-check-input" type="checkbox" value=""
+								id="checkDefault"></td>
+						<td class="text-center"><input class="form-check-input" type="checkbox" value=""
+								id="checkDefault"></td>
+					</tr>
+					<tr>
+						<td>
+							Apply to subsidized housing?
+						</td>
+						<td class="text-center"><input class="form-check-input" type="checkbox" value=""
+								id="checkDefault"></td>
+						<td class="text-center"><input class="form-check-input" type="checkbox" value=""
+								id="checkDefault"></td>
+						<td class="text-center"><input class="form-check-input" type="checkbox" value=""
+								id="checkDefault"></td>
+					</tr>
+					<tr>
+						<td>
+							Concern about child school attendance/performance?
+						</td>
+						<td class="text-center"><input class="form-check-input" type="checkbox" value=""
+								id="checkDefault"></td>
+						<td class="text-center"><input class="form-check-input" type="checkbox" value=""
+								id="checkDefault"></td>
+						<td class="text-center"><input class="form-check-input" type="checkbox" value=""
+								id="checkDefault"></td>
+					</tr>
+					<tr>
+						<td>
+							Information on alcohol/drug services?
+						</td>
+						<td class="text-center"><input class="form-check-input" type="checkbox" value=""
+								id="checkDefault"></td>
+						<td class="text-center"><input class="form-check-input" type="checkbox" value=""
+								id="checkDefault"></td>
+						<td class="text-center"><input class="form-check-input" type="checkbox" value=""
+								id="checkDefault"></td>
+					</tr>
+					<tr>
+						<td>
+							Concern about child's behavior?
+						</td>
+						<td class="text-center"><input class="form-check-input" type="checkbox" value=""
+								id="checkDefault"></td>
+						<td class="text-center"><input class="form-check-input" type="checkbox" value=""
+								id="checkDefault"></td>
+						<td class="text-center"><input class="form-check-input" type="checkbox" value=""
+								id="checkDefault"></td>
+					</tr>
+					<tr>
+						<td>
+							Information on disabilities services?
+						</td>
+						<td class="text-center"><input class="form-check-input" type="checkbox" value=""
+								id="checkDefault"></td>
+						<td class="text-center"><input class="form-check-input" type="checkbox" value=""
+								id="checkDefault"></td>
+						<td class="text-center"><input class="form-check-input" type="checkbox" value=""
+								id="checkDefault"></td>
+					</tr>
+					<tr>
+						<td>
+							Feelings of harming self or others?
+						</td>
+						<td class="text-center"><input class="form-check-input" type="checkbox" value=""
+								id="checkDefault"></td>
+						<td class="text-center"><input class="form-check-input" type="checkbox" value=""
+								id="checkDefault"></td>
+						<td class="text-center"><input class="form-check-input" type="checkbox" value=""
+								id="checkDefault"></td>
+					</tr>
+					<tr>
+						<td>
+							Employment, new job, job training?
+						</td>
+						<td class="text-center"><input class="form-check-input" type="checkbox" value=""
+								id="checkDefault"></td>
+						<td class="text-center"><input class="form-check-input" type="checkbox" value=""
+								id="checkDefault"></td>
+						<td class="text-center"><input class="form-check-input" type="checkbox" value=""
+								id="checkDefault"></td>
+					</tr>
+					<tr>
+						<td>
+							Medical services or no insurance?
+						</td>
+						<td class="text-center"><input class="form-check-input" type="checkbox" value=""
+								id="checkDefault"></td>
+						<td class="text-center"><input class="form-check-input" type="checkbox" value=""
+								id="checkDefault"></td>
+						<td class="text-center"><input class="form-check-input" type="checkbox" value=""
+								id="checkDefault"></td>
+					</tr>
+					<tr>
+						<td>
+							Have a child care need?
+						</td>
+						<td class="text-center"><input class="form-check-input" type="checkbox" value=""
+								id="checkDefault"></td>
+						<td class="text-center"><input class="form-check-input" type="checkbox" value=""
+								id="checkDefault"></td>
+						<td class="text-center"><input class="form-check-input" type="checkbox" value=""
+								id="checkDefault"></td>
+					</tr>
+					<tr>
+						<td>
+							Information on transportation?
+						</td>
+						<td class="text-center"><input class="form-check-input" type="checkbox" value=""
+								id="checkDefault"></td>
+						<td class="text-center"><input class="form-check-input" type="checkbox" value=""
+								id="checkDefault"></td>
+						<td class="text-center"><input class="form-check-input" type="checkbox" value=""
+								id="checkDefault"></td>
+					</tr>
+					<tr>
+						<td>
+							Emergency food assistance?
+						</td>
+						<td class="text-center"><input class="form-check-input" type="checkbox" value=""
+								id="checkDefault"></td>
+						<td class="text-center"><input class="form-check-input" type="checkbox" value=""
+								id="checkDefault"></td>
+						<td class="text-center"><input class="form-check-input" type="checkbox" value=""
+								id="checkDefault"></td>
+					</tr>
+					<tr>
+						<th colspan="4">
+							Information on how to make an appointment for:
+						</th>
+					</tr>
+					<tr>
+						<td class="text-end">
+							Immunization
+						</td>
+						<td class="text-center"><input class="form-check-input" type="checkbox" value=""
+								id="checkDefault"></td>
+						<td class="text-center"><input class="form-check-input" type="checkbox" value=""
+								id="checkDefault"></td>
+						<td class="text-center"><input class="form-check-input" type="checkbox" value=""
+								id="checkDefault"></td>
+					</tr>
+					<tr>
+						<td class="text-end">
+							Head lice check
+						</td>
+						<td class="text-center"><input class="form-check-input" type="checkbox" value=""
+								id="checkDefault"></td>
+						<td class="text-center"><input class="form-check-input" type="checkbox" value=""
+								id="checkDefault"></td>
+						<td class="text-center"><input class="form-check-input" type="checkbox" value=""
+								id="checkDefault"></td>
+					</tr>
+					<tr>
+						<td class="text-end">
+							Pregnancy test
+						</td>
+						<td class="text-center"><input class="form-check-input" type="checkbox" value=""
+								id="checkDefault"></td>
+						<td class="text-center"><input class="form-check-input" type="checkbox" value=""
+								id="checkDefault"></td>
+						<td class="text-center"><input class="form-check-input" type="checkbox" value=""
+								id="checkDefault"></td>
+					</tr>
+					<tr>
+						<td class="text-end">
+							Infant/toddler car seat
+						</td>
+						<td class="text-center"><input class="form-check-input" type="checkbox" value=""
+								id="checkDefault"></td>
+						<td class="text-center"><input class="form-check-input" type="checkbox" value=""
+								id="checkDefault"></td>
+						<td class="text-center"><input class="form-check-input" type="checkbox" value=""
+								id="checkDefault"></td>
+					</tr>
+					<tr>
+						<td class="text-end">
+							TB test
+						</td>
+						<td class="text-center"><input class="form-check-input" type="checkbox" value=""
+								id="checkDefault"></td>
+						<td class="text-center"><input class="form-check-input" type="checkbox" value=""
+								id="checkDefault"></td>
+						<td class="text-center"><input class="form-check-input" type="checkbox" value=""
+								id="checkDefault"></td>
+					</tr>
+					<tr>
+						<td class="text-end">
+							Lead test
+						</td>
+						<td class="text-center"><input class="form-check-input" type="checkbox" value=""
+								id="checkDefault"></td>
+						<td class="text-center"><input class="form-check-input" type="checkbox" value=""
+								id="checkDefault"></td>
+						<td class="text-center"><input class="form-check-input" type="checkbox" value=""
+								id="checkDefault"></td>
+					</tr>
+					<tr>
+						<td class="text-end">
+							Family planning
+						</td>
+						<td class="text-center"><input class="form-check-input" type="checkbox" value=""
+								id="checkDefault"></td>
+						<td class="text-center"><input class="form-check-input" type="checkbox" value=""
+								id="checkDefault"></td>
+						<td class="text-center"><input class="form-check-input" type="checkbox" value=""
+								id="checkDefault"></td>
+					</tr>
+					<tr>
+						<td class="text-end">
+							Adult education
+						</td>
+						<td class="text-center"><input class="form-check-input" type="checkbox" value=""
+								id="checkDefault"></td>
+						<td class="text-center"><input class="form-check-input" type="checkbox" value=""
+								id="checkDefault"></td>
+						<td class="text-center"><input class="form-check-input" type="checkbox" value=""
+								id="checkDefault"></td>
+					</tr>
+					<tr>
+						<td class="text-end">
+							Counseling
+						</td>
+						<td class="text-center"><input class="form-check-input" type="checkbox" value=""
+								id="checkDefault"></td>
+						<td class="text-center"><input class="form-check-input" type="checkbox" value=""
+								id="checkDefault"></td>
+						<td class="text-center"><input class="form-check-input" type="checkbox" value=""
+								id="checkDefault"></td>
+					</tr>
+					<tr>
+						<td class="text-end">
+							Budgeting Information
+						</td>
+						<td class="text-center"><input class="form-check-input" type="checkbox" value=""
+								id="checkDefault"></td>
+						<td class="text-center"><input class="form-check-input" type="checkbox" value=""
+								id="checkDefault"></td>
+						<td class="text-center"><input class="form-check-input" type="checkbox" value=""
+								id="checkDefault"></td>
+					</tr>
+					<tr>
+						<td class="text-end">
+							Household organization/cleaning
+						</td>
+						<td class="text-center"><input class="form-check-input" type="checkbox" value=""
+								id="checkDefault"></td>
+						<td class="text-center"><input class="form-check-input" type="checkbox" value=""
+								id="checkDefault"></td>
+						<td class="text-center"><input class="form-check-input" type="checkbox" value=""
+								id="checkDefault"></td>
+					</tr>
+
+					<tr>
+						<td colspan="2">
+							Concern for self or family's safety?
+						</td>
+						<td colspan="2" rowspan="4" class="text-center">
+							<div class="col form-floating">
+								<textarea class="form-control" style="height:200px" id="floatingTextarea"></textarea>
+								<label for="floatingTextarea">Explain</label>
+							</div>
+						</td>
+					</tr>
+
+					<tr>
+						<td class="text-end">
+							Any domestic violence in your home?
+						</td>
+						<td>
+							<select class="form-select" aria-label="Default select example">
+								<option>Select</option>
+								<option value="0">No</option>
+								<option value="1">Yes</option>
+							</select>
+						</td>
+					</tr>
+					<tr>
+						<td class="text-end">
+							Thought of or hit your child lately?
+						</td>
+						<td>
+							<select class="form-select" aria-label="Default select example">
+								<option>Select</option>
+								<option value="0">No</option>
+								<option value="1">Yes</option>
+							</select>
+						</td>
+					</tr>
+					<tr>
+						<td class="text-end">
+							Do you have a safe place to go?
+						</td>
+						<td>
+							<select class="form-select" aria-label="Default select example">
+								<option>Select</option>
+								<option value="0">No</option>
+								<option value="1">Yes</option>
+							</select>
+						</td>
+					</tr>
+
+					<tr>
+						<td colspan="2">
+							Other Needs:
+						</td>
+						<td colspan="2">
+							<div class="form-check form-check-inline">
+								<input class="form-check-input" type="checkbox" id="inlineCheckbox1" value="option1">
+								<label class="form-check-label" for="inlineCheckbox1">Emergency Medical</label>
+							</div>
+						</td>
+					</tr>
+					<tr>
+
+						<td>
+							<div class="form-check form-check-inline">
+								<input class="form-check-input" type="checkbox" id="inlineCheckbox2" value="option2">
+								<label class="form-check-label" for="inlineCheckbox2">Cloths</label>
+							</div>
+						</td>
+						<td>
+							<div class="form-check form-check-inline">
+								<input class="form-check-input" type="checkbox" id="inlineCheckbox2" value="option2">
+								<label class="form-check-label" for="inlineCheckbox2">Furniture</label>
+							</div>
+						</td>
+						<td>
+							<div class="form-check form-check-inline">
+								<input class="form-check-input" type="checkbox" id="inlineCheckbox2" value="option2">
+								<label class="form-check-label" for="inlineCheckbox2">ID Cards</label>
+							</div>
+						</td>
+						<td>
+							<div class="form-check form-check-inline">
+								<input class="form-check-input" type="checkbox" id="inlineCheckbox2" value="option2">
+								<label class="form-check-label" for="inlineCheckbox2">Pest Control</label>
+							</div>
+						</td>
+					</tr>
+					<tr>
+						<td colspan="4">
+							<div class="row mt-2">
+								<div class="col form-floating">
+									<textarea class="form-control" placeholder="Leave a comment here"
+										id="floatingTextarea"></textarea>
+									<label for="floatingTextarea">I would like more infomation about:</label>
+								</div>
+							</div>
+						</td>
+					</tr>
+				</tbody>
+			</table>
 		</form>
-	</div>
-	<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
-		integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
-		crossorigin="anonymous"></script>
-	<script src="js/setdates.js"></script>
-
-
+		<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
+			integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
+			crossorigin="anonymous"></script>
+		<script src="js/setdates.js"></script>
 </body>
 
 </html>

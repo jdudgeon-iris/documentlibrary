@@ -6,15 +6,10 @@
 }
 
 @media print {
-	body * {
-		display: none !important;
-		background-color: white !important;
-	}
-
-	@page {
-		margin-top: 0.5 in !important;
-	}
-	
+    body * {
+        display: none !important;
+        background-color: white !important;
+    }
 
 	#print-section,
 	#print-section * {
