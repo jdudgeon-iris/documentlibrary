@@ -481,13 +481,20 @@
 					</tr>
 
 					<tr>
-						<td colspan="2">
+						<td class="text-end">
 							Concern for self or family's safety?
+						</td>
+						<td>
+							<select class="form-select" aria-label="Default select example">
+								<option>Select</option>
+								<option value="0">No</option>
+								<option value="1">Yes</option>
+							</select>
 						</td>
 						<td colspan="2" rowspan="4" class="text-center">
 							<div class="col form-floating">
-								<textarea class="form-control" style="height:200px" id="floatingTextarea"></textarea>
-								<label for="floatingTextarea">Explain</label>
+								<textarea class="form-control" style="height:200px" id="floatingTextarea1"></textarea>
+								<label for="floatingTextarea1">Explain:</label>
 							</div>
 						</td>
 					</tr>
@@ -571,7 +578,7 @@
 						<td colspan="4">
 							<div class="row mt-2">
 								<div class="col form-floating">
-									<textarea class="form-control" placeholder="Leave a comment here"
+									<textarea class="form-control" 
 										id="floatingTextarea"></textarea>
 									<label for="floatingTextarea">I would like more infomation about:</label>
 								</div>
