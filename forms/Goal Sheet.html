@@ -19,10 +19,41 @@
 
 	<title>Family Goal Planning</title>
 	<link rel="icon" href="/static/img/favicon.png" type="image/x-icon">
-	<link rel="stylesheet" href="styles.css">
+	<!-- <link rel="stylesheet" href="styles.css"> -->
+	<style>
+		.signature-pad {
+			border: 1px solid #ccc;
+			width: 100%;
+			height: 110px;
+			touch-action: none;
+		}
+
+		.remove-btn {
+			margin-top: 5px;
+		}
+
+		@media print {
+			@page {
+				orientation: landscape;
+			}
+
+			#print-section {
+				width: 100%;
+			}
+
+			table {
+				width: 100%;
+			}
+
+			body {
+				font-size: 10pt;
+				font-family: calibri;
+			}
+		}
+	</style>
 </head>
 
-<body>
+<body style="background-color: #7867AE;">
 	<div id="print-section" class="container mt-3 mb-3 pb-2 rounded-3 bg-light">
 		<form id="form-container" class="container mt-3 mb-3 pb-2">
 			<div>
@@ -40,27 +71,61 @@
 				<textarea class="form-control" id="moreInfo" placeholder=""></textarea>
 				<label for="moreInfo">Goal:</label>
 			</div>
+			<div class="row mt-2">
+				<div class="col">
+					<div class="mt-2">
+						<label for="dateCreated">Date Created:</label>
+						<input type="date" class="form-control" id="dateCreated" name="dateCreated">
+					</div>
+				</div>
+				<div class="col">
+					<div class="mt-2">
+						<label for="outcome">Outcome:</label>
+						<select class="form-select" id="outcome" name="outcome">
+							<option value="">Select Outcome</option>
+							<option value="1">Completed</option>
+							<option value="2">Not Completed</option>
+							<option value="3">Discontinued</option>
+						</select>
+					</div>
+				</div>
+			</div>
 
 			<div>
 				<table class="table table-bordered table-striped mt-2">
 					<thead>
 						<tr>
-							<th scope="col">Objective</th>
-							<th scope="col">Client Will</th>
-							<th scope="col">Target Date</th>
-							<th scope="col">Interventions</th>
-							<th scope="col">Staff Will</th>
-							<th scope="col">Target Date</th>
+							<th class="align-middle text-center" scope="col">Objective </th>
+							<th class="align-middle text-center" scope="col"><button type="button"
+									class="btn btn-primary mb-4" onclick="addGoalRow()">Add Goal Row</button></th>
+							<th class="align-middle text-center" scope="col">Client Will</th>
+							<th class="align-middle text-center" scope="col">Target Date</th>
 						</tr>
 					</thead>
 					<tbody id="goalTableBody">
 						<tr>
-							<td><input type="text" class="form-control" placeholder="Objective"></td>
-							<td><input type="text" class="form-control" placeholder="Client will..."></td>
-							<td><input type="date" class="form-control"></td>
-							<td><input type="text" class="form-control" placeholder="Intervention"></td>
-							<td><input type="text" class="form-control" placeholder="Staff will..."></td>
-							<td><input type="date" class="form-control"></td>
+							<td colspan="2"><textarea class="form-control"></textarea></td>
+							<td><textarea class="form-control"></textarea></td>
+							<td class="align-middle"><input type="date" class="form-control"></td>
+						</tr>
+					</tbody>
+				</table>
+				<table class="table table-bordered table-striped mt-2">
+					<thead>
+						<tr>
+							<th class="align-middle text-center" scope="col">Interventions </th>
+							<th class="align-middle text-center" scope="col"><button type="button"
+									class="btn btn-primary" onclick="addInterventionRow()">Add Intervention Row</button>
+							</th>
+							<th class="align-middle text-center" scope="col">Staff Will</th>
+							<th class="align-middle text-center" scope="col">Target Date</th>
+						</tr>
+					</thead>
+					<tbody id="interventionsTableBody">
+						<tr>
+							<td colspan="2"><textarea class="form-control"></textarea></td>
+							<td><textarea class="form-control"></textarea></td>
+							<td class="align-middle"><input type="date" class="form-control"></td>
 						</tr>
 					</tbody>
 				</table>
@@ -216,7 +281,36 @@
 				crossorigin="anonymous"></script>
 			<script src="js/setdates.js"></script>
 			<script src="js/signature-pad.js"></script>
+			<script>
+				function addGoalRow() {
+					const tbody = document.getElementById('goalTableBody');
+					const row = document.createElement('tr');
+					row.innerHTML = `
+<td colspan="2"><textarea class="form-control"></textarea></td>
+<td><textarea class="form-control"></textarea></td>
+<td><input type="date" class="form-control"><button class="btn btn-danger btn-sm" onclick="removeRow(this)">Remove</button></td>
 
+`;
+					tbody.appendChild(row);
+				}
+
+				function addInterventionRow() {
+					const tbody = document.getElementById('interventionsTableBody');
+					const row = document.createElement('tr');
+					row.innerHTML = `
+<td colspan="2"><textarea class="form-control"></textarea></td>
+<td><textarea class="form-control"></textarea></td>
+<td><input type="date" class="form-control"><button class="btn btn-danger btn-sm" onclick="removeRow(this)">Remove</button></td>
+
+`;
+					tbody.appendChild(row);
+				}
+
+				function removeRow(button) {
+					const row = button.closest('tr');
+					row.remove();
+				}
+			</script>
 
 </body>
 
