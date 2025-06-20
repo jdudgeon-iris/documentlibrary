@@ -33,7 +33,7 @@
         <button type="button" id="resetBtn">Reset Game</button>
     </div>
     <i id="birdIcon" class="fa-solid fa-dove"
-        style="color: rgb(143, 143, 0); font-size: 30px; position: absolute; display: none;"></i>
+        style="color: rgb(219, 219, 7); font-size: 30px; position: absolute; display: none;"></i>
 
 
     <script>
@@ -65,7 +65,7 @@
         }
 
         function drawPipes() {
-            ctx.fillStyle = "tan";
+            ctx.fillStyle = "saddlebrown";
             pipes.forEach(pipe => {
                 ctx.fillRect(pipe.x, 0, pipe.width, pipe.top);
                 ctx.fillRect(pipe.x, canvas.height - pipe.bottom, pipe.width, pipe.bottom);
