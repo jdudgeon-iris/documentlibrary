@@ -5,55 +5,7 @@
 	touch-action: none;
 }
 
-@media print {
-    body * {
-        display: none !important;
-        background-color: white !important;
-    }
 
-	#print-section,
-	#print-section * {
-		display: block !important;
-		
-	}
-
-	.print-inline-row-4>.col {
-		float: left;
-		width: 25%;
-		box-sizing: border-box;
-	}
-	.print-inline-row-3>.col {
-		float: left;
-		width: 33.3333%;
-		box-sizing: border-box;
-	}
-	.print-inline-row-2>.col {
-		float: left;
-		width: 50%;
-		box-sizing: border-box;
-	}
-	.print-inline-row>.col {
-		float: left;
-		width: 100%;
-		box-sizing: border-box;
-	}
-	.print-inline-row-2 {
-		display: block;
-		clear: both;
-	}
-	.print-inline-row-3 {
-		display: block;
-		clear: both;
-	}
-	.print-inline-row-4 {
-		display: block;
-		clear: both;
-	}
-	.print-inline-row {
-		display: block;
-		clear: both;
-	}
-}
 
 body {
 	background-color: #7867AE;
