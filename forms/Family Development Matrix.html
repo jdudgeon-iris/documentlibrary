@@ -72,7 +72,8 @@
                             <td><label for="case#">Case Number</label></td>
                             <td><input type="text" class="form-control" id="caseNumber" placeholder=""></td>
                             <td>
-                                <lablel for="matrixDate">Matrix Date</lablel>
+                                <label for="matrixDate">Matrix Date</label>
+
                             </td>
                             <td><input type="date" class="form-control" id="matrixDate" placeholder=""></td>
                         </tr>
@@ -84,58 +85,58 @@
                 </table>
                 <table class="table table-bordered table-striped mt-2">
                     <tr>
-                        <td rowspan="3">Dominant Life Areas</td>
+                        <td rowspan="3">Dominant Life Areas: <label id="DominantLifeScore">0</label></td>
                         <td>A. Income</td>
-                        <td><label for="incomeScore"></label></td>
+                        <td><label id="incomeScore">0</label></td>
                     </tr>
                     <tr>
                         <td>B. Adult Education</td>
-                        <td><label for="adultEducationScore"></label></td>
+                        <td><label id="educationScore">0</label></td>
                     </tr>
                     <tr>
                         <td>C. Employment</td>
-                        <td><label for="employmentScore"></label></td>
+                        <td><label id="employmentScore">0</label></td>
                     </tr>
                     <tr>
-                        <td rowspan="6">Basic Needs</td>
+                        <td rowspan="6">Basic Needs: <label id="BasicNeedsScore">0</label></td>
                         <td>D. Housing</td>
-                        <td><label for="housingScore"></label></td>
+                        <td><label id="housingScore">0</label></td>
                     </tr>
                     <tr>
                         <td>E. Food</td>
-                        <td><label for="foodScore"></label></td>
+                        <td><label id="foodScore">0</label></td>
                     </tr>
                     <tr>
                         <td>F. Child Care</td>
-                        <td><label for="childCareScore"></label></td>
+                        <td><label id="childCareScore">0</label></td>
                     </tr>
                     <tr>
                         <td>G. Health Care</td>
-                        <td><label for="healthCareScore"></label></td>
+                        <td><label id="healthCareScore">0</label></td>
                     <tr>
                         <td>H. Transportation</td>
-                        <td><label for="transportationScore"></label></td>
+                        <td><label id="transportationScore">0</label></td>
                     </tr>
                     <tr>
                         <td>I. Utilities</td>
-                        <td><label for="utilitiesScore"></label></td>
+                        <td><label id="utilitiesScore">0</label></td>
                     </tr>
                     <tr>
-                        <td rowspan="3">Factors (poitive or negative)</td>
+                        <td rowspan="3">Factors (positive or negative): <label id="FactorsScore">0</label></td>
                         <td>J. Support Systems</td>
-                        <td><label for="supportSystemsScore"></label></td>
+                        <td><label id="supportSystemsScore">0</label></td>
                     </tr>
                     <tr>
                         <td>K. Family Interaction</td>
-                        <td><label for="familyInteractionScore"></label></td>
+                        <td><label id="familyInteractionScore">0</label></td>
                     </tr>
                     <tr>
                         <td>L. Addictions</td>
-                        <td><label for="addictionsScore"></label></td>
+                        <td><label id="addictionsScore">0</label></td>
                     </tr>
                     <tr>
                         <td colspan="2"><strong>Total</strong></td>
-                        <td><strong><label for="totalScore"></label></strong></td>
+                        <td><strong><label id="totalScore">0</label></strong></td>
                     </tr>
                 </table>
                 <p>
@@ -246,6 +247,7 @@
                                     <tr>
                                         <td class="text-center">Each additional Person</td>
                                         <td class="text-center">$458.34</td>
+                                    </tr>
                                 </tbody>
                             </table>
                         </div>
@@ -254,7 +256,7 @@
                         <table class="table table-bordered table-striped mt-2">
                             <thead>
                                 <tr class="text-center">
-                                    <th>Threshold</th>
+                                    <th colspan="2">Threshold</th>
                                     <th>Criteria</th>
                                     <th>Points</th>
                                     <th>Notes</th>
@@ -262,40 +264,34 @@
                             </thead>
                             <tbody>
                                 <tr class="text-center">
-                                    <th>Triving</th>
+                                    <td><input type="checkbox" value="14" class="incomeCheck"></td>
+                                    <th>Thriving</th>
                                     <td>+350% of OMB Poverty Level</td>
                                     <td>14</td>
                                     <td rowspan="5"><textarea class="form-control"></textarea></td>
                                 </tr>
                                 <tr class="text-center">
+                                    <td><input type="checkbox" value="11" class="incomeCheck"></td>
                                     <th>Self-Sufficient</th>
-                                    <td>220% - 349% of OMB
-                                        Poverty Level
-                                    </td>
+                                    <td>220% - 349% of OMB Poverty Level</td>
                                     <td>11</td>
-
                                 </tr>
                                 <tr class="text-center">
+                                    <td><input type="checkbox" value="8" class="incomeCheck"></td>
                                     <th>Stable</th>
-                                    <td>150% - 219% of OMB
-                                        Poverty Level
-                                    </td>
+                                    <td>150% - 219% of OMB Poverty Level</td>
                                     <td>8</td>
-
                                 </tr>
                                 <tr class="text-center">
+                                    <td><input type="checkbox" value="4" class="incomeCheck"></td>
                                     <th>Vulnerable</th>
-                                    <td>75% - 149% of OMB
-                                        Poverty Level
-                                    </td>
+                                    <td>75% - 149% of OMB Poverty Level</td>
                                     <td>4</td>
-
                                 </tr>
                                 <tr class="text-center">
+                                    <td><input type="checkbox" value="0" class="incomeCheck"></td>
                                     <th>Crisis</th>
-                                    <td>0%-74% of OMB
-                                        Poverty Level
-                                    </td>
+                                    <td>0%-74% of OMB Poverty Level</td>
                                     <td>0</td>
                                 </tr>
                             </tbody>
@@ -351,7 +347,7 @@
                         <table class="table table-bordered table-striped mt-2">
                             <thead>
                                 <tr class="text-center">
-                                    <th>Threshold</th>
+                                    <th colspan="2">Threshold</th>
                                     <th>Criteria</th>
                                     <th>Points</th>
                                     <th>Notes</th>
@@ -359,33 +355,35 @@
                             </thead>
                             <tbody>
                                 <tr class="text-center">
-                                    <th>Triving</th>
+                                    <td><input type="checkbox" value="14" class="educationCheck"></td>
+                                    <th>Thriving</th>
                                     <td>Bachelor’s or equivalent</td>
                                     <td>14</td>
                                     <td rowspan="5"><textarea class="form-control"></textarea></td>
                                 </tr>
                                 <tr class="text-center">
+                                    <td><input type="checkbox" value="11" class="educationCheck"></td>
                                     <th>Self-Sufficient</th>
                                     <td>Associate’s or equivalent
                                     </td>
                                     <td>11</td>
-
                                 </tr>
                                 <tr class="text-center">
+                                    <td><input type="checkbox" value="8" class="educationCheck"></td>
                                     <th>Stable</th>
                                     <td>HS Diploma/GED/HSE w/ some post-secondary certification
                                     </td>
                                     <td>8</td>
-
                                 </tr>
                                 <tr class="text-center">
+                                    <td><input type="checkbox" value="4" class="educationCheck"></td>
                                     <th>Vulnerable</th>
                                     <td>HS Diploma or GED/HSE
                                     </td>
                                     <td>4</td>
-
                                 </tr>
                                 <tr class="text-center">
+                                    <td><input type="checkbox" value="0" class="educationCheck"></td>
                                     <th>Crisis</th>
                                     <td>No HS Diploma or GED/HSE
                                     </td>
@@ -431,7 +429,7 @@
                     <table class="table table-bordered table-striped mt-2">
                         <thead>
                             <tr class="text-center">
-                                <th>Threshold</th>
+                                <th colspan="2">Threshold</th>
                                 <th>Criteria</th>
                                 <th>Points</th>
                                 <th>Notes</th>
@@ -439,33 +437,35 @@
                         </thead>
                         <tbody>
                             <tr class="text-center">
-                                <th>Triving</th>
+                                <td><input type="checkbox" value="14" class="employmentCheck"></td>
+                                <th>Thriving</th>
                                 <td>Degreed, Professional</td>
                                 <td>14</td>
                                 <td rowspan="5"><textarea class="form-control"></textarea></td>
                             </tr>
                             <tr class="text-center">
+                                <td><input type="checkbox" value="11" class="employmentCheck"></td>
                                 <th>Self-Sufficient</th>
                                 <td>Full-time
                                 </td>
                                 <td>11</td>
-
                             </tr>
                             <tr class="text-center">
+                                <td><input type="checkbox" value="8" class="employmentCheck"></td>
                                 <th>Stable</th>
                                 <td>Full-time, underemployed
                                 </td>
                                 <td>8</td>
-
                             </tr>
                             <tr class="text-center">
+                                <td><input type="checkbox" value="4" class="employmentCheck"></td>
                                 <th>Vulnerable</th>
                                 <td>Part-time
                                 </td>
                                 <td>4</td>
-
                             </tr>
                             <tr class="text-center">
+                                <td><input type="checkbox" value="0" class="employmentCheck"></td>
                                 <th>Crisis</th>
                                 <td>Unemployed
                                 </td>
@@ -478,16 +478,791 @@
 
                 </div>
             </div>
-            <div>
 
+            <div>
+                <h3>Housing</h3>
+                <div class="row">
+                    <div>
+                        <p>
+                        <ol>
+                            <li>Have the client describe their living arrangements. Do they rent or own? Are they living
+                                with others, such as family or friends? Are they living in a shelter?</li>
+                            <li>Is the house in which the client lives safe and secure? Do the doors and windows lock?
+                                Is the house in disrepair? Are there exposed wires? Does the family feel safe and
+                                secure?</li>
+                            <li>Does the client receive any sort of subsidy to assist with their housing payment? Does
+                                the client live in public housing? Does the client receive Housing Choice Voucher
+                                Program assistance? Is the client receiving any sort of financial assistance for their
+                                rent from any other source (trustee, church, social service agency, etc.)?</li>
+                            <li>Have the client describe the housing payment history for the past six months. Have the
+                                bills been paid on time? Is there a balance carried forward some months? Is so, what is
+                                the balance? Are there any eviction or foreclosure notices?</li>
+                        </ol>
+                        </p>
+                        <p>
+                            A family is homeless if they have no housing, particularly if they are living on the streets
+                            or in a homeless shelter. Temporary housing is living in transitional housing or with family
+                            or friends. The family is vulnerable if they are renting or own a home but are significantly
+                            behind in rent or mortgage payments or have received eviction or foreclosure notices. A
+                            family is stable if they receive some form of regular assistance with their rental payments.
+                            This is typically through public housing or the Housing Choice Voucher Program (formerly
+                            Section 8), but also includes any assistance from other organizations that is depended on a
+                            regular basis.
+                        </p>
+                    </div>
+
+                </div>
+                <div class="row">
+                    <table class="table table-bordered table-striped mt-2">
+                        <thead>
+                            <tr class="text-center">
+                                <th colspan="2">Threshold</th>
+                                <th>Criteria</th>
+                                <th>Points</th>
+                                <th>Notes</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr class="text-center">
+                                <td><input type="checkbox" value="8" class="housingCheck"></td>
+                                <th rowspan="2" style="vertical-align: middle;">Thriving</th>
+                                <td>Owns+Safe/Secure</td>
+                                <td>8</td>
+                                <td rowspan="5"><textarea class="form-control"></textarea></td>
+                            </tr>
+                            <tr class="text-center">
+                                <td><input type="checkbox" value="7" class="housingCheck"></td>
+                                <td>Owns</td>
+                                <td>7</td>
+                            </tr>
+                            <tr class="text-center">
+                                <td><input type="checkbox" value="11" class="housingCheck"></td>
+                                <th>Self-Sufficient</th>
+                                <td>Renting - unsubsidized
+                                </td>
+                                <td>11</td>
+                            </tr>
+                            <tr class="text-center">
+                                <td><input type="checkbox" value="6" class="housingCheck"></td>
+                                <th>Stable</th>
+                                <td>Renting - subsidized
+                                </td>
+                                <td>6</td>
+                            </tr>
+                            <tr class="text-center">
+                                <td><input type="checkbox" value="2" class="housingCheck"></td>
+                                <th>Vulnerable</th>
+                                <td>Temp. Housing or in danger of eviction/foreclosure
+                                </td>
+                                <td>2</td>
+                            </tr>
+                            <tr class="text-center">
+                                <td><input type="checkbox" value="0" class="housingCheck"></td>
+                                <th>Crisis</th>
+                                <td>Homeless
+                                </td>
+                                <td>0</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+
+            <div>
+                <h3>Food</h3>
+                <div class="row">
+                    <div>
+                        <p>
+                        <ol>
+                            <li>Have the client describe their eating habits. How many meals do they eat per day? Do
+                                they ever go hungry? Do they eat snacks?</li>
+                            <li>Discuss with the client any food subsidies that they may receive. Do they receive food
+                                stamps? If not, are they eligible? Do the children receive free or reduced breakfast or
+                                lunch at school? If not, are they eligible? Do they receive WIC? If not, are they
+                                eligible? Has the family used a food pantry or soup kitchen recently? If so, how many
+                                times or how often?</li>
+                            <li>Does the client have a refrigerator and stove? If so, do they work? Does the client have
+                                pots, pans, cooking utensils, and eating utensils? Does the client have a microwave?
+                            </li>
+                        </ol>
+                        </p>
+                        <p>
+                            Food pantries/soup kitchens refer to places a family can go to receive free food to take
+                            home or prepared meals. Food subsidies are forms of public assistance for nutritional
+                            purposes. These include food stamps, the free and reduced breakfast and lunch program, and
+                            WIC (Women, Infants, and Children) program. A family moves to stable if food subsidies and
+                            their own income meet the needs of the family (i.e. they don't need to use food pantries or
+                            soup kitchens in addition). The family moves to self-sufficient if they do not need food
+                            subsidies to meet their needs. A family is thriving if they can typically shop for food of
+                            types and brands to their taste, meet basic nutritional requirements, and they have all the
+                            cooking utensils they need to prepare meals.
+                        </p>
+                    </div>
+
+                </div>
+                <div class="row">
+                    <table class="table table-bordered table-striped mt-2">
+                        <thead>
+                            <tr class="text-center">
+                                <th colspan="2">Threshold</th>
+                                <th>Criteria</th>
+                                <th>Points</th>
+                                <th>Notes</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr class="text-center">
+                                <td><input type="checkbox" value="8" class="foodCheck"></td>
+                                <th>Thriving</th>
+                                <td>Food of choice, nutrition needs are met, all utensils present</td>
+                                <td>8</td>
+                                <td rowspan="5"><textarea class="form-control"></textarea></td>
+                            </tr>
+                            <tr class="text-center">
+                                <td><input type="checkbox" value="6" class="foodCheck"></td>
+                                <th>Self-Sufficient</th>
+                                <td>Food needs are met
+                                </td>
+                                <td>6</td>
+                            </tr>
+                            <tr class="text-center">
+                                <td><input type="checkbox" value="4" class="foodCheck"></td>
+                                <th>Stable</th>
+                                <td>Food subsidies and budget meets the needs
+                                </td>
+                                <td>4</td>
+                            </tr>
+                            <tr class="text-center">
+                                <td><input type="checkbox" value="2" class="foodCheck"></td>
+                                <th>Vulnerable</th>
+                                <td>Receives food subsidies, occasionally needs to use food pantries/soup kitchens</td>
+                                <td>2</td>
+                            </tr>
+                            <tr class="text-center">
+                                <td><input type="checkbox" value="0" class="foodCheck"></td>
+                                <th>Crisis</th>
+                                <td>Needs food pantries/soup kitchens to meet monthly needs, lacks utensils</td>
+                                <td>0</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+
+            <div>
+                <h3>Child Care</h3>
+                <div class="row">
+                    <div>
+                        <p>
+                        <ol>
+                            <li>Do the client's children attend childcare (Child Care is defined as school, day care,
+                                preschool, or home care)? If so, how often do they attend? Is the childcare regular and
+                                consistent? If the children do not attend childcare or not every day, why?</li>
+                            <li>Is it the childcare the client wants their children to attend? Is the childcare safe?
+                            </li>
+                            <li>Is the childcare affordable and accessible? Is the client receiving any assistance to
+                                help with the cost of childcare? Is the childcare geographically located in an area that
+                                is relatively easy for the family to access?</li>
+                        </ol>
+                        </p>
+                        <p>
+                            Childcare refers to any type of care given to children of the family, which includes school.
+                            The family is in crisis if children are left unsupervised or in unsafe care. Childcare is
+                            irregular or inconsistent if a family cannot rely on it on a regular basis. A family is
+                            stable if they have reliable care but receives financial assistance for the cost of it
+                            (school is not considered subsidized care). A family is self-sufficient if they pay for the
+                            care on their own but may not be able to afford the care of their choosing.
+                        </p>
+                    </div>
+
+                </div>
+                <div class="row">
+                    <table class="table table-bordered table-striped mt-2">
+                        <thead>
+                            <tr class="text-center">
+                                <th colspan="2">Threshold</th>
+                                <th>Criteria</th>
+                                <th>Points</th>
+                                <th>Notes</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr class="text-center">
+                                <td><input type="checkbox" value="8" class="childCareCheck"></td>
+                                <th>Thriving</th>
+                                <td>Childcare of choice or no
+                                    children in the household</td>
+                                <td>8</td>
+                                <td rowspan="5"><textarea class="form-control"></textarea></td>
+                            </tr>
+                            <tr class="text-center">
+                                <td><input type="checkbox" value="6" class="childCareCheck"></td>
+                                <th>Self-Sufficient</th>
+                                <td>Can pay for own, choices limited
+                                </td>
+                                <td>6</td>
+                            </tr>
+                            <tr class="text-center">
+                                <td><input type="checkbox" value="4" class="childCareCheck"></td>
+                                <th>Stable</th>
+                                <td>Subsidized care
+                                </td>
+                                <td>4</td>
+                            </tr>
+                            <tr class="text-center">
+                                <td><input type="checkbox" value="2" class="childCareCheck"></td>
+                                <th>Vulnerable</th>
+                                <td>Unsubsidized care, but
+                                    irregular or inconsistent care</td>
+                                <td>2</td>
+                            </tr>
+                            <tr class="text-center">
+                                <td><input type="checkbox" value="0" class="childCareCheck"></td>
+                                <th>Crisis</th>
+                                <td>Unsupervised or unsafe</td>
+                                <td>0</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+            <div>
+                <h3>Health Care</h3>
+                <div class="row">
+                    <div>
+                        <p>
+                        <ol class="list-group-numbered">
+                            <li class="list-group-item">What type of health insurance does the client have, if any? Who
+                                in the household is covered?</li>
+                            <li class="list-group-item">If some in the household are covered by public health insurance,
+                                what type is it</li>
+                            <ol class="list-group-lettered">
+                                <li class="list-group-item"><strong>Examples:</strong> Medicaid, Medicare, Hoosier
+                                    Healthwise, Children's Health Insurance Program (CHIP))</li>
+                            </ol>
+                            <li class="list-group-item">Discuss the family's health care providers. Do they have a
+                                primary care physician? Is the client satisfied with the care that they receive? If not,
+                                what would they change? Is access to care convenient?</li>
+                        </ol>
+                        </p>
+                        <p>
+                            Public Insurance refers to any health insurance that is publicly provided, such as Medicaid,
+                            Medicare, Hoosier Healthwise, CHIP, etc. A primary care physician is a first point of
+                            contact for health care and is usually a general or family practitioner. Private insurance
+                            is any health insurance not publicly provided, like employee health insurance.
+                        </p>
+                    </div>
+                </div>
+                <div class="row">
+                    <table class="table table-bordered table-striped mt-2">
+                        <thead>
+                            <tr class="text-center">
+                                <th colspan="2">Threshold</th>
+                                <th>Criteria</th>
+                                <th>Points</th>
+                                <th>Notes</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr class="text-center">
+                                <td><input type="checkbox" value="8" class="healthCareCheck"></td>
+                                <th>Thriving</th>
+                                <td>Private insurance, doctor of choice</td>
+                                <td>8</td>
+                                <td rowspan="5"><textarea class="form-control"></textarea></td>
+                            </tr>
+                            <tr class="text-center">
+                                <td><input type="checkbox" value="6" class="healthCareCheck"></td>
+                                <th>Self-Sufficient</th>
+                                <td>Private insurance, choice limited
+                                </td>
+                                <td>6</td>
+                            </tr>
+                            <tr class="text-center">
+                                <td><input type="checkbox" value="4" class="healthCareCheck"></td>
+                                <th>Stable</th>
+                                <td>Public insurance, primary care physician
+                                </td>
+                                <td>4</td>
+                            </tr>
+                            <tr class="text-center">
+                                <td><input type="checkbox" value="2" class="healthCareCheck"></td>
+                                <th>Vulnerable</th>
+                                <td>Public Insurance, no primary care physician</td>
+                                <td>2</td>
+                            </tr>
+                            <tr class="text-center">
+                                <td><input type="checkbox" value="0" class="healthCareCheck"></td>
+                                <th>Crisis</th>
+                                <td>No insurance</td>
+                                <td>0</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+            <div>
+                <h3>Transportation</h3>
+                <div class="row">
+                    <div>
+                        <p>
+                        <ol class="list-group-numbered">
+                            <li class="list-group-item">Does the client have a vehicle?</li>
+                            <ol>
+                                <li class="list-group-item">If so, is it reliable? Do they ever have problems with it?
+                                </li>
+                                <li class="list-group-item">Do they have a driver's license? Is it current? What is the
+                                    client's driving history? Are there many accidents
+                                    and traffic violations? Does the client have car insurance? Is it registered with
+                                    current plates?
+                                </li>
+                                <li class="list-group-item">
+                                    Is there a loan on the car? If so, are the payments current?
+                                </li>
+                            </ol>
+                            <li class="list-group-item">Is public transportation available to the client? If so, does it
+                                generally meet their needs? Is access to public
+                                transportation generally convenient (i.e., the timing and routes to work, child care,
+                                etc.)</li>
+                        </ol>
+                        </p>
+                        <p>
+                            A family is vulnerable if they rely on public transportation or other means of
+                            transportation (walking, riding with
+                            others, etc.) but it significantly limits their choices in other life areas. This might
+                            include a lack of employment
+                            opportunities or lack of adequate child care because they can't get to areas where these are
+                            available, or they can't
+                            get to them conveniently enough. A family is stable if they have a car but it is in danger
+                            of breaking down or is in
+                            danger of being repossessed, or if they are in danger of losing the ability to drive it
+                            legally
+                        </p>
+                    </div>
+
+                </div>
+                <div class="row">
+                    <table class="table table-bordered table-striped mt-2">
+                        <thead>
+                            <tr class="text-center">
+                                <th colspan="2">Threshold</th>
+                                <th>Criteria</th>
+                                <th>Points</th>
+                                <th>Notes</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr class="text-center">
+                                <td><input type="checkbox" value="8" class="transportationCheck"></td>
+                                <th>Thriving</th>
+                                <td>Has reliable car, drivers license, adequate insurance, etc</td>
+                                <td>8</td>
+                                <td rowspan="5"><textarea class="form-control"></textarea></td>
+                            </tr>
+                            <tr class="text-center">
+                                <td><input type="checkbox" value="6" class="transportationCheck"></td>
+                                <th>Self-Sufficient</th>
+                                <td>Access to public transportation or other means that generally meets needs
+                                </td>
+                                <td>6</td>
+
+                            </tr>
+                            <tr class="text-center">
+                                <td><input type="checkbox" value="4" class="transportationCheck"></td>
+                                <th>Stable</th>
+                                <td>Unreliable car or threat of loss, poor driving history, poor insurance coverage
+                                </td>
+                                <td>4</td>
+
+                            </tr>
+                            <tr class="text-center">
+                                <td><input type="checkbox" value="2" class="transportationCheck"></td>
+                                <th>Vulnerable</th>
+                                <td>No car, uses public transportation or other means but it limits choices</td>
+                                <td>2</td>
+
+                            </tr>
+                            <tr class="text-center">
+                                <td><input type="checkbox" value="0" class="transportationCheck"></td>
+                                <th>Crisis</th>
+                                <td>No access at all, no license, no driving skills</td>
+                                <td>0</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+            <div>
+                <h3>Utilities</h3>
+                <div class="row">
+                    <div>
+                        <p>
+                        <ol class="list-group-numbered">
+                            <li class="list-group-item">Are the client's utilities on? Are the lights on? Is the water
+                                on? Is the furnace/air conditioning on?</li>
+
+                            <li class="list-group-item">Have the client describe their payment history for their
+                                utilities over the past six months. Have the bills been
+                                paid on time? Have the bills been paid in full? Is there a balance carried forward some
+                                months? If so, what is the
+                                balance? Are disconnect notices received? Is there a current disconnect notice? Are the
+                                utilities in someone
+                                else's name (outside the household)?</li>
+                            <li class="list-group-item">Is the client's home weatherized? Has insulation been installed?
+                                Has the furnace been looked at to determine
+                                if it is operating safely and efficiently? Have the registers been looked at to
+                                determine if they are leaky? Is the
+                                water heater insulated?</li>
+                        </ol>
+                        </p>
+                        <p>
+                            A family is in crisis if any of their utilities (heating, electricity, water) are
+                            disconnected. A family is self-sufficient if
+                            they pay their bills consistently but the home is inefficient, thereby increasing their
+                            utility burden. This might include
+                            lack of insulation, poor air sealing in the home, or inefficient furnaces, water heaters,
+                            etc.
+                        </p>
+                    </div>
+
+                </div>
+                <div class="row">
+                    <table class="table table-bordered table-striped mt-2">
+                        <thead>
+                            <tr class="text-center">
+                                <th colspan="2">Threshold</th>
+                                <th>Criteria</th>
+                                <th>Points</th>
+                                <th>Notes</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr class="text-center">
+                                <td><input type="checkbox" value="8" class="utilitiesCheck"></td>
+                                <th>Thriving</th>
+                                <td>Bills consistently paid on time, each month, home is efficient</td>
+                                <td>8</td>
+                                <td rowspan="5"><textarea class="form-control"></textarea></td>
+                            </tr>
+                            <tr class="text-center">
+                                <td><input type="checkbox" value="6" class="utilitiesCheck"></td>
+                                <th>Self-Sufficient</th>
+                                <td>Bills consistently paid, home inefficient
+                                </td>
+                                <td>6</td>
+
+                            </tr>
+                            <tr class="text-center">
+                                <td><input type="checkbox" value="4" class="utilitiesCheck"></td>
+                                <th>Stable</th>
+                                <td>No more than one month behind, bills paid to avoid disconnect
+                                </td>
+                                <td>4</td>
+
+                            </tr>
+                            <tr class="text-center">
+                                <td><input type="checkbox" value="2" class="utilitiesCheck"></td>
+                                <th>Vulnerable</th>
+                                <td>Due for disconnect or utilities in someone else's name</td>
+                                <td>2</td>
+
+                            </tr>
+                            <tr class="text-center">
+                                <td><input type="checkbox" value="0" class="utilitiesCheck"></td>
+                                <th>Crisis</th>
+                                <td>Utilities disconnected</td>
+                                <td>0</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+            <div>
+                <h3>Support Systems</h3>
+                <div class="row">
+                    <div>
+                        <p>
+                        <ol class="list-group-numbered">
+                            <li class="list-group-item"> Does the client feel they can rely on family or friends for
+                                support when they need it? Does the client receive
+                                support from sources outside their family or friends? If so, from whom does the client
+                                receive support? Is the
+                                support the family receives positive?</li>
+
+                            <li class="list-group-item">Discuss with the family their social service needs. What type of
+                                needs does the client have? Does the client
+                                access services as needed?</li>
+                            <li class="list-group-item">Is the family involved with Child Protective Services, the
+                                Division of Family and Children, or the court system?</li>
+                            <li class="list-group-item">What type of volunteering, if any, do family members do (i.e.,
+                                public service, at children's school, social service,
+                                etc.)? Are they involved with social groups (i.e., religious organizations, clubs,
+                                professional organizations, etc.)?</li>
+                        </ol>
+                        </p>
+                        <p>
+                            A family is in crisis if they are isolated from family or community, or if the supportive
+                            systems in place have a
+                            negative impact on the family (like "friends"that provide access to drugs, or extended
+                            family
+                            members that borrow
+                            money all the time). A family is vulnerable if involved with CPS, DFC, or the court system.
+                            These supportive
+                            systems, while often viewed as negative and certainly indicative of family issues, do have a
+                            positive impact on
+                            some element of the family unit. Case managementsupport issupport received by individuals
+                            working closely with
+                            the family to alleviate needs and accomplish goals. They are typically from social service
+                            or faith-based
+                            organizations. A family is thriving if they give support outside the family unit, which
+                            usually indicates that the
+                            family's supportive needs have been fully met and have the ability to provide the same to
+                            others.
+                        </p>
+                    </div>
+
+                </div>
+                <div class="row">
+                    <table class="table table-bordered table-striped mt-2">
+                        <thead>
+                            <tr class="text-center">
+                                <th colspan="2">Threshold</th>
+                                <th>Criteria</th>
+                                <th>Points</th>
+                                <th>Notes</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr class="text-center">
+                                <td><input type="checkbox" value="5" class="supportSystemsCheck"></td>
+                                <th>Thriving</th>
+                                <td>Family has ability to give support and actively does so (outside to the community)
+                                </td>
+                                <td>5</td>
+                                <td rowspan="5"><textarea class="form-control"></textarea></td>
+                            </tr>
+                            <tr class="text-center">
+                                <td><input type="checkbox" value="4" class="supportSystemsCheck"></td>
+                                <th>Self-Sufficient</th>
+                                <td>Access to family, friends, and community support systems
+                                </td>
+                                <td>4</td>
+
+                            </tr>
+                            <tr class="text-center">
+                                <td><input type="checkbox" value="3" class="supportSystemsCheck"></td>
+                                <th>Stable</th>
+                                <td>Case management type support
+                                </td>
+                                <td>3</td>
+
+                            </tr>
+                            <tr class="text-center">
+                                <td><input type="checkbox" value="1" class="supportSystemsCheck"></td>
+                                <th>Vulnerable</th>
+                                <td>Involved with CPS, DFC, or court system, no other support</td>
+                                <td>1</td>
+
+                            </tr>
+                            <tr class="text-center">
+                                <td><input type="checkbox" value="0" class="supportSystemsCheck"></td>
+                                <th>Crisis</th>
+                                <td>Total isolation or negative support</td>
+                                <td>0</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
             </div>
 
 
+            <div>
+                <h3>Family Interaction</h3>
+                <div class="row">
+                    <div>
+                        <p>
+                        <ol class="list-group-numbered">
+                            <li class="list-group-item">Has the client or anyone in the household ever experienced
+                                domestic violence or child abuse and neglect? If so,
+                                to whom did the abuse/neglect occur and when? Was the perpetrator ever identified? Have
+                                they been removed
+                                from the household?</li>
+
+                            <li class="list-group-item">Are there any issues relating to domestic violence or child
+                                abuse/neglect currently happening in the client's
+                                family? If so, discuss the situation. Is anyone receiving counseling?</li>
+                            <li class="list-group-item">Discuss the family situation with the client. Is the interaction
+                                generally positive? Do family members generally
+                                support and respect one another? Is there a lot of fighting or arguing? Has the makeup
+                                of the family generally
+                                been stable? Are there family members absent from the household? Do family members come
+                                and go?</li>
+                        </ol>
+                        </p>
+                        <p>
+                            A family isin crisisif domestic abuse (in whatever form, violence, verbal,sexual, etc.) or
+                            neglectis currently present
+                            in the home. A family is vulnerable if there is little to no interaction between members, or
+                            if there is excessive
+                            negative interaction. "Stability" refers to the stableness of the family unit in the home or
+                            family, i.e., the degree to
+                            which all family members are present on a regular basis. (Divorce, especially immediately
+                            following, constitutes a
+                            lack of stability in the home.) Positive interaction is a caring environment, open
+                            communication, positive support
+                            for all members, etc. A family is thriving if it has a full history of positive interaction
+                            and includes a full history of
+                            stability in the household (in most cases divorce, domestic abuse, or neglect has a negative
+                            impact on the family
+                            unit that remains with that unit forever).
+                        </p>
+                    </div>
+
+                </div>
+                <div class="row">
+                    <table class="table table-bordered table-striped mt-2">
+                        <thead>
+                            <tr class="text-center">
+                                <th colspan="2">Threshold</th>
+                                <th>Criteria</th>
+                                <th>Points</th>
+                                <th>Notes</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr class="text-center">
+                                <td><input type="checkbox" value="5" class="familyInteractionCheck"></td>
+                                <th>Thriving</th>
+                                <td>Full history of positive interaction, stability in both home and family</td>
+                                <td>5</td>
+                                <td rowspan="5"><textarea class="form-control"></textarea></td>
+                            </tr>
+                            <tr class="text-center">
+                                <td><input type="checkbox" value="4" class="familyInteractionCheck"></td>
+                                <th>Self-Sufficient</th>
+                                <td>Positive interaction and stability
+                                </td>
+                                <td>4</td>
+
+                            </tr>
+                            <tr class="text-center">
+                                <td><input type="checkbox" value="3" class="familyInteractionCheck"></td>
+                                <th>Stable</th>
+                                <td>Interaction and stability in the home or family
+                                </td>
+                                <td>3</td>
+
+                            </tr>
+                            <tr class="text-center">
+                                <td><input type="checkbox" value="1" class="familyInteractionCheck"></td>
+                                <th>Vulnerable</th>
+                                <td>No interaction or negative interaction, no stabilty</td>
+                                <td>1</td>
+
+                            </tr>
+                            <tr class="text-center">
+                                <td><input type="checkbox" value="0" class="familyInteractionCheck"></td>
+                                <th>Crisis</th>
+                                <td>Domestic abuse or neglect present in the home</td>
+                                <td>0</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
 
 
+            <div>
+                <h3>Addictions</h3>
+                <div class="row">
+                    <div>
+                        <p>
+                        <ol class="list-group-numbered">
+                            <li class="list-group-item">Has anyone in the household ever been involved in substance
+                                abuse? If yes, explain? Are they currently in a
+                                recovery program? Did they complete a recovery program? How long has it been since the
+                                abuse stopped?</li>
 
+                            <li class="list-group-item"> Does anyone in this household use illegal drugs? Do you feel
+                                anyone in your family uses alcohol or legal drugs
+                                in excess? Has anyone in the household ever lost a job, or not gotten a job, because of
+                                substance use? Has
+                                anyone in the household ever been arrested because of substance use? Has anyone in the
+                                household ever had
+                                any problems because of substance use? If yes, describe</li>
+                            <li class="list-group-item">Has anyone in the household ever been involved in other
+                                addictive behaviors that negatively impact the family
+                                (like gambling, sexual addictions, eating disorders, etc.)? If yes, explain. Are they
+                                currently in a recovery
+                                program? Did they complete a recovery program? How long has it been since the abuse
+                                stopped?</li>
+                        </ol>
+                        </p>
+                        <p>
+                            This life area is primarily a yes or no answer, but the thresholds beyond crisis refer to
+                            the likelihood that the addictive behavior will return. In general, the more treatment a
+                            person receives and the
+                            more time that passes since the addictive behavior, it is less likely there will be a
+                            relapse. If a person has ever been
+                            "addicted" to something, regardless of how much time since, they are more likely to relapse
+                            than someone who has
+                            never suffered from the addiction. Thus, only families with no history of abuse can truly be
+                            thriving
+                        </p>
+                    </div>
 
+                </div>
+                <div class="row">
+                    <table class="table table-bordered table-striped mt-2">
+                        <thead>
+                            <tr class="text-center">
+                                <th colspan="2">Threshold</th>
+                                <th>Criteria</th>
+                                <th>Points</th>
+                                <th>Notes</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr class="text-center">
+                                <td><input type="checkbox" value="0" class="addictionsCheck"></td>
+                                <th>Thriving</th>
+                                <td>No history of abuse</td>
+                                <td>0</td>
+                                <td rowspan="5"><textarea class="form-control"></textarea></td>
+                            </tr>
+                            <tr class="text-center">
+                                <td><input type="checkbox" value="-2" class="addictionsCheck"></td>
+                                <th>Self-Sufficient</th>
+                                <td>Support or counseling as needed, 2 or more years removed from abuse
+                                </td>
+                                <td>-2</td>
 
+                            </tr>
+                            <tr class="text-center">
+                                <td><input type="checkbox" value="-6" class="addictionsCheck"></td>
+                                <th>Stable</th>
+                                <td>Clean and in counseling, 12 months to 2 years removed from abuse
+                                </td>
+                                <td>-6</td>
+
+                            </tr>
+                            <tr class="text-center">
+                                <td><input type="checkbox" value="-10" class="addictionsCheck"></td>
+                                <th>Vulnerable</th>
+                                <td>In treatment, less than 12 months removed from abuse</td>
+                                <td>-10</td>
+
+                            </tr>
+                            <tr class="text-center">
+                                <td><input type="checkbox" value="-15" class="addictionsCheck"></td>
+                                <th>Crisis</th>
+                                <td>Current abuse</td>
+                                <td>-15</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
             <hr>
 
             <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
@@ -497,5 +1272,72 @@
 
 
 </body>
+
+<script>
+    function setupCheckboxGroup(checkboxClass, labelId) {
+        const checkboxes = document.querySelectorAll("." + checkboxClass);
+        const label = document.getElementById(labelId);
+
+        checkboxes.forEach(cb => {
+            cb.addEventListener("change", function () {
+                // only one checkbox per group
+                checkboxes.forEach(box => {
+                    if (box !== this) box.checked = false;
+                });
+
+                label.textContent = this.checked ? this.value : "0";
+                updateAllScores();
+            });
+        });
+    }
+
+    function updateAllScores() {
+        // Score categories
+        const dominantLifeLabels = ["incomeScore", "educationScore", "employmentScore"];
+        const basicNeedsLabels = ["housingScore", "foodScore", "childCareScore", "healthCareScore", "transportationScore", "utilitiesScore"];
+        const factorLabels = ["supportSystemsScore", "familyInteractionScore", "addictionsScore"];
+
+        // Helper to sum a list of labels
+        function sumLabels(ids) {
+            return ids.reduce((sum, id) => {
+                const el = document.getElementById(id);
+                if (el && el.textContent.trim() !== "") {
+                    sum += parseInt(el.textContent, 10) || 0;
+                }
+                return sum;
+            }, 0);
+        }
+
+        // Calculate category scores
+        const dominantLifeTotal = sumLabels(dominantLifeLabels);
+        const basicNeedsTotal = sumLabels(basicNeedsLabels);
+        const factorsTotal = sumLabels(factorLabels);
+
+        // Update category labels
+        document.getElementById("DominantLifeScore").textContent = dominantLifeTotal;
+        document.getElementById("BasicNeedsScore").textContent = basicNeedsTotal;
+        document.getElementById("FactorsScore").textContent = factorsTotal;
+
+        // Update grand total
+        const grandTotal = dominantLifeTotal + basicNeedsTotal + factorsTotal;
+        document.getElementById("totalScore").textContent = grandTotal;
+    }
+
+    // Attach groups
+    setupCheckboxGroup("incomeCheck", "incomeScore");
+    setupCheckboxGroup("educationCheck", "educationScore");
+    setupCheckboxGroup("employmentCheck", "employmentScore");
+    setupCheckboxGroup("housingCheck", "housingScore");
+    setupCheckboxGroup("foodCheck", "foodScore");
+    setupCheckboxGroup("childCareCheck", "childCareScore");
+    setupCheckboxGroup("healthCareCheck", "healthCareScore");
+    setupCheckboxGroup("transportationCheck", "transportationScore");
+    setupCheckboxGroup("utilitiesCheck", "utilitiesScore");
+    setupCheckboxGroup("supportSystemsCheck", "supportSystemsScore");
+    setupCheckboxGroup("familyInteractionCheck", "familyInteractionScore");
+    setupCheckboxGroup("addictionsCheck", "addictionsScore");
+</script>
+
+
 
 </html>
