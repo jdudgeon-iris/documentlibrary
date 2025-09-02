@@ -30,27 +30,36 @@
 		}
 
 		@media print {
-			@page {
-				orientation: landscape;
-				margin:0;
-			}
+  @page {
+    size: landscape;
+    margin: 0.25in; /* small margin so nothing gets cut off */
+  }
 
-			#print-section {
-				width: 100%;
-			}
+  body {
+    margin: 0;
+    padding: 0;
+    font-size: 10pt;
+    font-family: Calibri, sans-serif;
+  }
 
-			table {
-				width: 100%;
-			}
+  #print-section {
+    width: 100%;
+    padding: 0;
+    margin: 0;
+  }
 
+  table {
+    width: 100%;
+    border-collapse: collapse;
+    table-layout: fixed; /* forces equal column distribution */
+  }
 
-			body {
-				margin: 0;
-				padding: 0;
-				font-size: 10pt;
-				font-family: Calibri, sans-serif;
-			}
-		}
+  th, td {
+    padding: 4px; /* tighter cells */
+    word-wrap: break-word;
+  }
+}
+
 
 		table th,
 		table td {
