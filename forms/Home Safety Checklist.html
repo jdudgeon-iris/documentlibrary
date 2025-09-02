@@ -29,10 +29,10 @@
 			touch-action: none;
 		}
 
-		@media print {
+@media print {
   @page {
     size: landscape;
-    margin: 0.25in; /* small margin so nothing gets cut off */
+    margin: 0.25in; /* safe margin */
   }
 
   body {
@@ -42,23 +42,29 @@
     font-family: Calibri, sans-serif;
   }
 
+  /* remove any max-width or centering from wrappers */
+  body * {
+    max-width: none !important;
+  }
+
   #print-section {
-    width: 100%;
-    padding: 0;
-    margin: 0;
+    width: 100% !important;
+    margin: 0 !important;
+    padding: 0 !important;
   }
 
   table {
-    width: 100%;
+    width: 100% !important;
     border-collapse: collapse;
-    table-layout: fixed; /* forces equal column distribution */
+    table-layout: fixed;
   }
 
   th, td {
-    padding: 4px; /* tighter cells */
+    padding: 4px;
     word-wrap: break-word;
   }
 }
+
 
 
 		table th,
