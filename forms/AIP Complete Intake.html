@@ -1,0 +1,2977 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+	<!-- Required meta tags -->
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=612, user-scalable=no">
+
+	<!-- Font Awesome -->
+	<script src="https://kit.fontawesome.com/3842d44a07.js" crossorigin="anonymous"></script>
+
+	<!-- Bootstrap CSS -->
+	<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"
+		integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+	<script src="https://cdn.jsdelivr.net/npm/signature_pad@4.0.0/dist/signature_pad.umd.min.js"></script>
+
+	<title>AIP Intake Checklist</title>
+	<link rel="icon" href="/static/img/favicon.png" type="image/x-icon">
+	<link rel="stylesheet" href="styles.css">
+
+</head>
+
+<body style="background: #7867AE">
+	<div id="print-section" class="container mt-3 mb-3 pb-2 rounded-3 bg-light">
+		<br>
+		<form id="form-container" class="container mt-3 mb-3 pb-2" method="post" action="/submit">
+			<div>
+				<img src="/static/img/Iris Logo.png" alt="Logo" class="img-fluid mx-auto d-block mb-3"
+					style="max-width: 200px;">
+				<hr>
+				<h1 class="text-center">AIP Intake Checklist</h1>
+			</div>
+			<!-- Content -->
+
+			<div class="print-inline-row-3 row h5">
+				<div class="col">
+					Document Name
+				</div>
+				<div class="col">
+					Participant Initials
+				</div>
+				<div class="col">
+					Staff Initials
+				</div>
+			</div>
+			<div class="print-inline-row-3 row mt-2">
+				<div class="col">
+					Iris Family
+					Support
+					Center's Vision, Mission, and Beliefs
+				</div>
+				<div class="col">
+					<input type="text" class="form-control" id="participantInitials1">
+				</div>
+				<div class="col">
+					<input type="text" class="form-control" id="staffInitials1">
+				</div>
+			</div>
+			<div class="print-inline-row-3 row mt-2">
+				<div class="col">
+					Notice of Privacy Practices
+				</div>
+				<div class="col">
+					<input type="text" class="form-control" id="participantInitials1">
+				</div>
+				<div class="col">
+					<input type="text" class="form-control" id="staffInitials1">
+				</div>
+			</div>
+			<div class="print-inline-row-3 row mt-2">
+				<div class="col">
+					Participant
+					Rights and Responsibilities
+				</div>
+				<div class="col">
+					<input type="text" class="form-control" id="participantInitials1">
+				</div>
+				<div class="col">
+					<input type="text" class="form-control" id="staffInitials1">
+				</div>
+			</div>
+			<div class="print-inline-row-3 row mt-2">
+				<div class="col">
+					Grievance Procedures
+				</div>
+				<div class="col">
+					<input type="text" class="form-control" id="participantInitials1">
+				</div>
+				<div class="col">
+					<input type="text" class="form-control" id="staffInitials1">
+				</div>
+			</div>
+			<div class="print-inline-row-3 row mt-2">
+				<div class="col">
+					Consent to Transport
+				</div>
+				<div class="col">
+					<input type="text" class="form-control" id="participantInitials1">
+				</div>
+				<div class="col">
+					<input type="text" class="form-control" id="staffInitials1">
+				</div>
+			</div>
+			<div class="print-inline-row-3 row mt-2">
+				<div class="col">
+					Demographics Form
+				</div>
+				<div class="col">
+					<input type="text" class="form-control" id="participantInitials1">
+				</div>
+				<div class="col">
+					<input type="text" class="form-control" id="staffInitials1">
+				</div>
+			</div>
+
+			<div class="print-inline-row-3 row mt-2">
+				<div class="col">
+					Consent to Release & Request Information
+				</div>
+				<div class="col">
+					<input type="text" class="form-control" id="participantInitials1">
+				</div>
+				<div class="col">
+					<input type="text" class="form-control" id="staffInitials1">
+				</div>
+			</div>
+			<div class="print-inline-row-3 row mt-2">
+				<div class="col">
+					Consent to Communicate
+				</div>
+				<div class="col">
+					<input type="text" class="form-control" id="participantInitials1">
+				</div>
+				<div class="col">
+					<input type="text" class="form-control" id="staffInitials1">
+				</div>
+				<div class="print-inline-row-3 row mt-2">
+					<div class="col">
+						BIP Goal/Treatment Plan
+					</div>
+					<div class="col">
+						<input type="text" class="form-control" id="participantInitials1">
+					</div>
+					<div class="col">
+						<input type="text" class="form-control" id="staffInitials1">
+					</div>
+				</div>
+			</div>
+			<div class="print-inline-row-3 row mt-2">
+				<div class="col">
+					Consent for Service
+				</div>
+				<div class="col">
+					<input type="text" class="form-control" id="participantInitials1">
+				</div>
+				<div class="col">
+					<input type="text" class="form-control" id="staffInitials1">
+				</div>
+			</div>
+			<div class="print-inline-row-3 row mt-2">
+				<div class="col">
+					UNCOPE Screen
+				</div>
+				<div class="col">
+					<input type="text" class="form-control" id="participantInitials1">
+				</div>
+				<div class="col">
+					<input type="text" class="form-control" id="staffInitials1">
+				</div>
+			</div>
+
+
+			<p class="mt-3 text-center">By signing below, I acknowledge that I have received and reviewed the above
+				documents.</p>
+
+			<hr>
+			<!-- Signatures -->
+
+			<div id="signature-section" class="mt-3">
+
+				<div class="row align-items-start print-inline-row-3 container-fluid">
+					<div class="mb-3 col">
+						<input type="text" class="form-control" id="client1name">
+						<label class="form-text" for="client1name">Client Name</label>
+					</div>
+					<div class="mb-3 col">
+						<div class="mb-3 text-center">
+							
+							<button class="btn btn-outline-primary btn-sm"
+									type="button"
+									data-signer="client1"
+									data-target-img="slot_client1_checklist"
+									data-date-target="#date_client1_checklist"
+									onclick="signSlot('client1','slot_client1_checklist')">
+							Sign Here
+							</button>
+
+							<img id="slot_client1_checklist"
+								alt="Client signature"
+								style="display:none; max-width: 280px;">
+
+							<input type="date" id="date_client1_checklist" class="form-control form-control-sm" style="max-width: 180px;">
+
+						</div>
+						<div class="mb-3 row align-items-start">
+							<label class="form-text col" for="client1signature-pad">Client Signature</label>
+							<a href="#" onclick="clearSignatureImage('client1signature-image'); return false;"
+								class="form-text col hide-print">Clear Signature</a>
+						</div>
+					</div>
+					<div class="mb-3 col">
+						<input type="date" class="form-control" id="client1ChecklistSignedDate" style="width: auto;">
+						<label class="form-text" for="client1ChecklistSignedDate">Date Signed</label>
+					</div>
+				</div>
+
+
+
+
+				<div class="row align-items-start print-inline-row-3 container-fluid">
+					<div class=" mb-3 col">
+						<input type="text" class="form-control" id="client2name">
+						<label class="form-text" for="client2name">Client Name</label>
+					</div>
+					<div class=" mb-3 col">
+						<div class="mb-3 text-center">
+							<img id="client2signature-image" src="" alt=""
+								style="border:1px solid #000; width: 300px; height: 55px; display: none;">
+							<button id="client2signbutton" type="button"
+								class="btn btn-outline-primary btn-sm mt-2 hide-print" data-bs-toggle="modal"
+								data-bs-target="#client2signatureModal">Sign Here</button>
+						</div>
+						<div class="mb-3 row align-items-start">
+							<label class="form-text col" for="client2signature-pad">Client Signature</label>
+							<a href="#" onclick="clearSignatureImage('client2signature-image'); return false;"
+								class="form-text col hide-print">Clear Signature</a>
+						</div>
+					</div>
+					<div class="mb-3 col">
+						<input type="date" class="form-control" id="client2ChecklistSignedDate"
+							style="width: auto;">
+						<label class="form-text" for="client2ChecklistSignedDate">Date Signed</label>
+					</div>
+				</div>
+
+
+				<div class="row align-items-start print-inline-row-3 container-fluid">
+					<div class="mb-3 col">
+						<input type="text" class="form-control" id="staffname">
+						<label class="form-text" for="staffname">Staff Name</label>
+					</div>
+					<div class="mb-3 col">
+						<div class="mb-3 text-center">
+							<img id="staffsignature-image" src="" alt=""
+								style="border:1px solid #000; width: 300px; height: 55px; display: none;">
+							<button id="staffsignbutton" type="button" class="btn btn-outline-primary btn-sm mt-2"
+								data-bs-toggle="modal" data-bs-target="#staffsignatureModal">Sign Here</button>
+						</div>
+						<div class="mb-3 row align-items-start">
+							<label class="form-text col" for="staffsignature-pad">Staff Signature</label>
+							<a href="#" onclick="clearSignatureImage('staffsignature-image'); return false;"
+								class="form-text col">Clear Signature</a>
+						</div>
+					</div>
+					<div class="mb-3 col">
+						<input type="date" class="form-control" id="staffChecklistSignedDate" style="width: auto;">
+						<label class="form-text" for="staffChecklistSignedDate">Date Signed</label>
+					</div>
+				</div>
+
+			</div>
+			<hr>
+			<section class="text-center">
+				<h3>We Believe:</h3>
+				<ul class="text-start d-inline-block">
+					<li>
+						All children deserve to be safe, loved, and nurtured.
+					</li>
+					<li>
+						Families want to do their best for their children.
+					</li>
+					<li>
+						Parenting is life’s most challenging job, and we are here to help.
+					</li>
+					<li>
+						Children should be in their family’s home whenever possible.
+					</li>
+					<li>
+						Safe children and strong families create a better community.
+					</li>
+				</ul>
+				<h3>Our Mission:</h3>
+				<p>
+					Iris Family Support Center protects children, prepares parents, strengthens
+					families and educates our community to Stop Child Abuse and Neglect.
+				</p>
+				<h3>Our Vision:</h3>
+				<p>
+					To eliminate child abuse and neglect.
+				</p>
+			</section>
+			<hr>
+			<section class="page-break">
+				<h2>Notice of Privacy Practices</h2>
+
+				<p>
+					This notice describes how protected personal information about you may be used and disclosed and how
+					you can get access to this information. Please review it carefully.
+				</p>
+				<p>
+					As part of providing services to you, we will collect information about your care. We need this
+					information to provide you with quality services and to comply with certain legal requirements. This
+					notice applies to all the records of your care generated at Iris Family Support Center, including
+					those in
+					hard copy form, Web-based Systems and in Electronic Health
+					Record Systems.
+				</p>
+				<h4>We are required by law to:</h4>
+				<p>
+				<ul>
+					<li>
+						Make sure personal information that identifies you is kept private
+					</li>
+					<li>
+						Give you this notice of our legal duties and privacy practices with respect to information about
+						you
+					</li>
+					<li>
+						Follow the terms of the Notice of Privacy Practices that is currently in effect
+					</li>
+				</ul>
+				</p>
+				<p>
+					If you have any questions about this notice, please contact the person who coordinates your
+					services, their supervisor, the program administrator or the CEO.
+				</p>
+				<p>
+					<strong>Main Office:</strong> Iris Family Support Center, 500 West Main Street, Fort Wayne IN 46802
+				</p>
+				<p>
+					The terms of this notice apply to all records containing your identifiable health information that
+					are
+					created or retained by Iris Family Support Center. We reserve the right to revise or amend our
+					notice of
+					privacy practices. Any revision or amendment to this notice will be effective for all your records
+					Iris
+					Family Support Center has created or maintained in the past and for any of your records that we may
+					create or maintain in the future. We will post a copy of our current notice in each of our
+					facilities in a
+					prominent location. You may request a copy of our most current notice during any visit or by phone.
+					The
+					effective date of our notice will be posted in the upper left-hand corner of the notice.
+				</p>
+				<h3>Who Will Follow This Notice:</h3>
+				<p>
+					This notice describes the privacy practices of the entities that are part of Iris Family Support
+					Center,
+					including:
+				<ul>
+					<li>
+						Any professional authorized to enter information into your records
+					</li>
+					<li>
+						Any members of a volunteer group that assists you while you receive services
+					</li>
+					<li>
+						All employees, staff and other personnel
+					</li>
+				</ul>
+				Please realize that other professional not associated with Iris Family Support Center may use different
+				notices or policies regarding protected information created in their offices.
+				</p>
+
+				<h3>How We May Use and Disclose Information About you:</h3>
+				<p>
+					The following categories describe different ways that we use and disclose information. For each
+					category
+					of uses or disclosures we will explain what we mean and try to give some examples. <strong>Not every
+						use or
+						disclosure in a category will be listed.</strong> However, all the ways we are permitted to use
+					and disclose
+					information will fall within one of the categories listed below
+				</p>
+
+				<h4>For Your Care and Services</h4>
+				<p>
+					We may use health information about you to provide, coordinate or manage the services, support, and
+					healthcare you receive from us and other providers. We may disclose health information about you to
+					your medical care providers, your funding agency case manager, your SCAN, Inc. direct support staff,
+					other
+					agency staff or other peoplewho are involved in supporting you or providing care. For example, your
+					direct
+					care staff may need to share information about your services with your psychiatrist or with your
+					case
+					manager.
+				</p>
+				<h4>For Payment</h4>
+				<p>
+					We may use and disclose information about you so that services may be billed to and payment may be
+					collected from you, an insurance company or other entity providing funding for your care. We may
+					also
+					tell your health plan about a treatment you are going to receive to obtain prior approval or to
+					determine
+					whether your plan will cover the treatment. For example, we may need to provide the state funding
+					source
+					with information about the services we provide so that we can be reimbursed for those services.
+				</p>
+				<h4>For Health Care/Service Operations</h4>
+				<p>
+					We may use and disclose information about you to run our program and to make sure you receive
+					quality
+					services, or to decide if we should change or modify our services. For example, we may disclose
+					health
+					information about you to train our staff. We may also use information for accreditation or licensing
+					activities.
+				</p>
+
+
+				<h4>Release of Information to Family/Advocates</h4>
+				<p>
+					We may release your health information to an advocate or family member that is helping you pay for
+					your
+					care or who assists in taking care of you. In addition, we may disclose health information about you
+					to an
+					entity that is assisting in a disaster relief effort so that your family can be notified about your
+					condition,
+					status and location. If you have specific objections or instructions regarding these communications,
+					you
+					may discuss them with us by contacting your service coordinator.
+				</p>
+
+
+				<h4>Research</h4>
+				<p>
+					We may use and disclose health information about you for research purposes in certain limited
+					circumstances. All research projects are subject to a special approval process. Before we use or
+					disclose health information
+					for research, the project will have been approved through the research approval process. However, we
+					may disclose
+					health information about you to people preparing to conduct a research project, for example, to help
+					them
+					look for individuals with specific health needs, so long as the health information they review does
+					not
+					leave our premises. We will always ask for your specific permission if the researcher requests to
+					have
+					access to your name, address or other information that reveals who you are or who will be involved
+					in
+					your care. Your participation in research projects is voluntary
+				</p>
+				<h4>As Required by Law</h4>
+				<p>
+					We will disclose information about you when required to do so by federal, state or local law. For
+					example, we may reveal information about you to the proper authorities to report suspected abuse or
+					neglect.
+				</p>
+				<h4>To Avert a Serious Threat to Health or Safety</h4>
+				<p>
+					We may use and disclose information about you when necessary to prevent a serious threat to your
+					health and safety or the health and safety of the public or of another person. Any disclosure,
+					however,
+					would only be to those able to help prevent the threat.
+				</p>
+				<h4>Military and Veterans</h4>
+				<p>
+					If you are a member of the armed forces, we may release information about you as required by
+					military
+					command authorities.
+				</p>
+				<h4>Workers' Compensation</h4>
+				<p>
+					We may release information about you for workers’ compensation or similar programs. These programs
+					provide benefits for work related injuries or illnesses.
+				</p>
+				<h4>Public Health Activities</h4>
+				<p>
+					We may disclose information about you for public health activities. These activities generally
+					include:
+				<ul>
+					<li>
+						The prevention or control of disease, injury or disability
+					</li>
+					<li>
+						Reports of child abuse or neglect
+					</li>
+					<li>
+						Notification that a person may have been exposed to a disease or may be at risk for contracting
+						or spreading a disease or condition
+					</li>
+					<li>
+						Notifications to the appropriate authorities if we believe that you have been the victim of
+						abuse,
+						neglect or domestic violence
+					</li>
+				</ul>
+				</p>
+				<h4>Health Oversight Activities</h4>
+				<p>
+					We may disclose information to a health oversight agency for activities authorized by law. These
+					oversight activities include, for example, audits, investigations, inspections, and licensure. These
+					activities are necessary for appropriate oversight of the health care system, government programs
+					and
+					compliance with civil rights laws.
+				</p>
+				<h4>Lawsuits and Disputes</h4>
+				<p>
+					If you are involved in a lawsuit or a dispute, or if there is a lawsuit or dispute concerning your
+					services,
+					we may disclose information about you in response to a court or administrative order. We may also
+					disclose information about you in response to a subpoena, discovery request or, other lawful process
+					by
+					someone else involved in the dispute, but only if efforts have been made to tell you about the
+					request or
+					to obtain an order protecting the information requested.
+				</p>
+				<h4>Law Enforcement</h4>
+				<p>
+					If asked to do so by a local, state or federal law enforcement official we may release health
+					information:
+				<ul>
+					<li>
+						In response to a court order, subpoena, warrant, summons or similar process
+					</li>
+					<li>
+						To identify or locate a suspect, fugitive, material witness, or missing person
+					</li>
+					<li>
+						About the victim of a crime in certain limited circumstances, if we are to obtain the person's
+						agreement
+					</li>
+					<li>
+						About a death we believe may be the result of criminal conduct
+					</li>
+					<li>
+						About criminal conduct at any facility where you are receiving treatment
+					</li>
+					<li>
+						In emergency circumstances to report a crime (including the location or victim(s) of the crime,
+						the description, identity or location of the perpetrator)
+					</li>
+				</ul>
+				</p>
+				<h4>Coroners, Medical Examiners and Funeral Directors</h4>
+				<p>
+					We may release information to a coroner or medical examiner. This may be necessary, for example, to
+					identify a deceased person or determine the cause of death. We may also release information to
+					funeral
+					directors as necessary to carry out their duties.
+				</p>
+
+				<h4>National Security and Intelligence, Protective Services for the President and Others</h4>
+				<p>
+					We may release information about you to authorized Federal officials for intelligence,
+					counterintelligence and other national security activities authorized by law.
+				</p>
+				<h4>Correctional Programs</h4>
+				<p>
+					If you are an inmate of a correctional institution or under the custody of a law enforcement
+					official, we
+					may release information about you to the correctional institution or law enforcement official. This
+					release would be necessary:
+				<ul>
+					<li>
+						for the institution to provide you with additional supports
+					</li>
+					<li>
+						to protect your health and safety or the health and safety of others
+					</li>
+					<li>
+						for the safety and security of the correctional institution
+					</li>
+				</ul>
+				</p>
+				<h3>Your Rights Regarding your Protected Personal Information</h3>
+				<p>
+					You have the following rights regarding protected personal information we maintain about you:
+				</p>
+				<h4>Right to Inspect and Copy</h4>
+				<p>
+					You have the right to inspect and receive a copy of your record that may be used to make decisions
+					about your care, including your records and billing records.
+				</p>
+				<p>
+					To inspect and copy information that may be used to make decisions about you, you must submit your
+					request in writing to your program director. If you need assistance, it will be provided to you. We
+					may
+					charge a reasonable, cost-based fee for copying records.
+				</p>
+				<p>
+					We may deny your request to inspect and copy in certain very limited circumstances. If you are
+					denied
+					access to information, you may request that the denial be reviewed. The CEO will review your request
+					and the denial. The person conducting the review will not be the person who denied your request. We
+					will comply with the outcome of the review.
+				</p>
+				<h4>Right to Amend</h4>
+				<p>
+					If you feel that the information we have about you is incorrect or incomplete, you may ask us to
+					amend
+					the information. You must make your request for an amendment in writing and submit it to your
+					program administrator. In addition, you must provide a reason that supports your request. If you
+					need
+					assistance to put your request in writing, it will be provided to you.
+				</p>
+				<p>
+					We may deny your request for an amendment if it is not in writing or does not include a reason to
+					support the request. In addition, we may deny your request if you ask us to amend information that:
+				<ul>
+					<li>
+						Was not created by us, unless the person or entity that created the information is no longer
+						available to make the amendment
+					</li>
+					<li>
+						Is not part of the information kept in your file
+					</li>
+					<li>
+						We believe is accurate and complete
+					</li>
+				</ul>
+				If you disagree with the denial, you may submit a statement of disagreement. If you request an
+				amendment to your record, we will include your request in the record whether the amendment is
+				accepted or not.
+
+				</p>
+				<h4>Right to an Accounting of Disclosures</h4>
+				<p>We will keep a record of disclosures made on or after April 13, 2003, other than disclosures for
+					treatment, billing, services, or health care operations. You have the right to request an
+					“accounting of
+					disclosures.”</p>
+				<h4>Right to Request Restrictions</h4>
+				<p>You have the right to request a restriction or limitation on the information we use or disclose about
+					you
+					for treatment, payment, or health care operations. You also have the right to request a limit on the
+					information we disclose about you to someone who is involved in your care or the payment for your
+					care, like a family member or a friend.</p>
+				<h4>We are not required to agree to your request</h4>
+				<p>
+					If we do agree, we will comply with your request unless the information is needed to provide you
+					with
+					emergency treatment.
+				</p>
+				<p>
+					To request restrictions, we encourage you to make your request in writing to your program
+					administrator. If you need assistance, it will be provided to you. In your request, you must tell
+					us:
+				<ul>
+					<li>
+						What information you want to limit
+					</li>
+					<li>
+						Whether you want to limit our use, disclosure, or both
+					</li>
+					<li>
+						To whom you want the limits to apply
+					</li>
+				</ul>
+				</p>
+				<h4>Right to Request Confidential Communications</h4>
+				<p>
+					You have the right to request that we communicate with you about your services in a certain way or
+					at a
+					certain location. For example, you can ask us to contact you only at work o only by mail. You must
+					make
+					your request to obtain confidential communications in writing to your program administrator. You
+					must
+					specify how or where you wish to be contacted. If you need assistance, it will be provided to you.
+					We will
+					not ask you the reason for your request. We will accommodate all reasonable requests.
+				</p>
+				<h4>Right to a Paper Copy of This Notice</h4>
+				<p>
+					You have the right to a paper copy of this notice. You may ask us to give you a copy of this notice
+					at any
+					time. Even if you have agreed to receive this notice electronically, you are still entitled to a
+					paper copy of
+					this notice.
+				</p>
+				<p>
+					To obtain a paper copy of this notice, contact a member of your service planning team or contact the
+					main office.
+				</p>
+				<h3>Changes to This Notice</h3>
+				<p>
+					We reserve the right to change this notice. We reserve the right to make the revised or changed
+					notice
+					effective for information we already have about you as well as any information we receive in the
+					future.
+					The effective date will appear on the first page.
+				</p>
+				<h3>Complaints</h3>
+				<p>If you believe your privacy rights have been violated, you may file an internal complaint via the
+					grievance
+					process at Iris Family Support Center. (See grievance procedures) which will initiate an Unusual
+					Occurrence Report. </p>
+				<p>You may also file a complaint with the US Department of Health and Human Services Office for Civil
+					Rights by sending a letter to: 200 Independence Ave. SW, Washington, DC 20201.</p>
+				<p>All complaints must be submitted in writing. If you need assistance, it will be provided to you.
+					You will not be penalized or retaliated against for filing a complaint.</p>
+				<h3>Other users of Protected Personal Information</h3>
+				<p>
+					Other uses and disclosures of medical information not covered by this notice or the laws that apply
+					to us will be made <strong><i>only with your written permission.</i></strong>
+				</p>
+				<p>
+					If you provide us permission to use or disclose information about you, you may revoke that
+					permission,
+					in writing, at any time. If you revoke your permission, we will no longer use or disclose
+					information about
+					you for the reasons covered by your written authorization.
+				</p>
+				<p>
+					You understand we are unable to take back any disclosures we have already made with your permission
+					and that we are required to retain our records of that care that we provided to you.
+				</p>
+			</section>
+			<hr>
+			<section class="page-break">
+				<h3>Participant Rights & Responsibilities</h3>
+				<p>
+					Hours of Operations:
+					<br>
+					Monday - Friday 8:00 a.m. to 8:00 p.m.
+					<br>
+					Saturday 10:00 a.m. to 2:00 p.m.
+					<br>
+					Sunday Closed.
+					<br>
+					We are closed for major holidays.
+				</p>
+				<h4>Participant Rights</h4>
+				<p>
+				<ol>
+					<li>
+						Participants have the right to be treated with dignity and respect without discrimination of
+						race, color, gender, sexual orientation, religion, nation origin, veteran status, and/or
+						handicap.
+					</li>
+					<li>
+						Participants have the right to receive services respectful of and responsive to learning,
+						cultural
+						and linguistic difference; Iris Family Support Center will accommodate in writing and oral
+						communication the needs of participants in major service populations. Iris Family Support
+						Center will attempt to do the same for other populations served. Iris Family Support Center will
+						provide or arrange for, bilingual personnel or translators or arranging for the use of
+						communication technology, as needed; providing telephonic amplification, sign language
+						services, or other communication methods for deaf or hearing-impaired persons; providing, or
+						arranging for, communication assistance for person with special needs who have difficulty
+						making their service needs known; and considering the person’s literacy level.
+					</li>
+					<li>
+						Participants have the right to services that respect their personal values and choices
+					</li>
+					<li>
+						Participants have the right to choose to refuse services at any time
+					</li>
+					<li>
+						Participants have the right to participate in all service decisions, receive service in a manner
+						that
+						is non-coercive, and that protect their right to self-determination
+					</li>
+					<li>
+						Participants have the right to see their own records with a written request, a 24-hour notice,
+						and
+						a Iris Family Support Center staff person present. Participants may choose to be accompanied by
+						a person of their choice, comment on the accuracy of the records, and insert their own
+						statement(s) regarding the items in the records
+					</li>
+					<li>
+						Participants have the right to a referral for other services at any time; such a referral will
+						contribute to services of the highest quality
+					</li>
+					<li>
+						Participants are entitled to have their rights explained to them using a language or method of
+						communication they understand upon commencement of services
+					</li>
+					<li>
+						Participants have the right to choose to consent in writing prior to being recorded,
+						photographed, or filmed
+					</li>
+				</ol>
+				</p>
+				<h4>Agency Responsibilities</h4>
+				<p>
+				<ol>
+					<li>
+						Iris Family Support Center promotes a culture of respect, healing and positive behavior for all
+						our staff, children, parent/guardians, and visitors in home or within the agency. Iris Family
+						Support Center will provide support to any individual that displays or identifies that the
+						individual needs support to manage their own emotions and behaviors to prevent the need for
+						crisis intervention in a respectful, healing and positive manner
+					</li>
+					<li>
+						Iris Family Support Center personnel are here to develop positive relationships with all service
+						participants, our staff practice trauma-informed care, our staff build on your strengths of an
+						individual and family unit and reinforce the positive attributes of individuals and family
+						systems
+						and will be responsive to all incidents to create a safe, respectful, healing and positive
+						environment
+					</li>
+					<li>
+						Iris Family Support Center will consistently enforce all program rules and expectation for
+						service
+						recipients, including the video surveillance of its facilities. Video monitoring is used to
+						protect
+						property, maintain quality control, detect theft and misconduct, and discourage or prevent acts
+						of harassment and violence
+					</li>
+					<li>
+						Visits will occur at a time agreed upon between participant and staff
+					</li>
+					<li>
+						Iris Family Support Center will ensure records are kept in a confidential manner according to
+						all
+						Mental Health and Developmental Disabilities Confidentiality Act, Chapter 2 of the Mental
+						Health and Development Disabilities Code, and the Health Insurance Portability and
+						Accountability Act (HIPAA); refer to Notice of Privacy Practices
+					</li>
+				</ol>
+				</p>
+				<h4>Participant’s Responsibilities to Iris Family Support Center</h4>
+				<p>
+				<ol>
+					<li>
+						Participant and/or parent/guardian agree to behave in a respectful, healing and positive manner
+						to staff, children, other participants in the building. Participant agrees to notify staff or
+						any
+						individual need or needs of any individual family member with respect to the need for support
+						to manage their own behaviors to prevent the need for crisis intervention
+					</li>
+					<li>
+						<strong><u>In Office:</u></strong> If I engage in threatening, aggressive (verbally or
+						physically) behavior, I understand that
+						I will be escorted out of the building by staff or police. If this occurs, a conference will be
+						held
+						with my referral source and a safety plan will be created to prevent any future need for crisis
+						intervention
+					</li>
+					<li>
+						<strong><u>In Home/Community:</u></strong> If I engage in threatening, aggressive (verbally or
+						physically) behavior in
+						the home/community setting, I understand that the Iris Family Support Center worker will end
+						the visit and call 911 if applicable. If this occurs, services will be discontinued until a
+						conference
+						is held with the program leadership and the referral source if applicable, and a safety plan
+						will be
+						created to support my emotional/behavioral needs
+					</li>
+					<li>
+						I agree to provide all relevant information as a basis for receiving services and participating
+						in
+						service decisions
+					</li>
+					<li>
+						I agree, that for quality of services and/or training purposes, there may be occasions when
+						additional Iris Family Support Center staff may be present in my visit or other activity with
+						Iris
+						Family Support Center
+					</li>
+					<li>
+						I agree to call 24 hours in advance if I am unable to keep an appointment and give a reason for
+						the cancellation
+					</li>
+					<li>
+						I agree to notify my Iris Family Support Center staff of changes to my contact information
+					</li>
+				</ol>
+				</p>
+				<h4>Financial and Legal Obligations</h4>
+				<p>
+				<ol>
+					<li>
+						Iris Family Support Center will not serve a minor without consent from a parent or legal
+						guardian
+						and provide this information upon request
+					</li>
+					<li>
+						Iris Family Support Center staff are mandated professional reporters and as such, are legally
+						obligate to report alleged child abuse or neglect; per Indiana State Statute IC: 31-33 and Iris
+						Family Support Center Policy
+					</li>
+					<li>
+						Iris Family Support Center staff are required to report any emergency situations involving a
+						serious and/or imminent threat to the health and safety of the participant/others according to
+						the Duty to Warn statute
+					</li>
+				</ol>
+				</p>
+				<h4>Signatures</h4>
+				<p>
+				<ul>
+					<li>
+						I have received a copy of my rights, and I have had these rights explained to me in a language
+						or
+						method of communication that I understand
+					</li>
+					<li>
+						I understand programs of Iris Family Support Center are provided without a direct cost to the
+						participant and family served, other than those participating in Family Connections. Family
+						Connections participants will receive a schedule of any applicable fees and estimated or actual
+						expense prior to service delivery
+					</li>
+				</ul>
+
+				<div id="signature-section" class="mt-3">
+
+					<div class="row align-items-start print-inline-row-3 container-fluid">
+						<div class="mb-3 col">
+							<input type="text" class="form-control" id="client1name">
+							<label class="form-text" for="client1name">Client Name</label>
+						</div>
+						<div class="mb-3 col">
+							<div class="mb-3 text-center">
+								<img id="client1signature-image" src="" alt=""
+									style="border:1px solid #000; width: 300px; height: 55px; display: none;">
+								<button id="client1signbutton" type="button" class="btn btn-outline-primary btn-sm mt-2"
+									data-bs-toggle="modal" data-bs-target="#client1signatureModal">Sign Here</button>
+							</div>
+							<div class="mb-3 row align-items-start">
+								<label class="form-text col" for="client1signature-pad">Client Signature</label>
+								<a href="#" onclick="clearSignatureImage('client1signature-image'); return false;"
+									class="form-text col hide-print">Clear Signature</a>
+							</div>
+						</div>
+						<div class="mb-3 col">
+							<input type="date" class="form-control" id="client1SignedRights" style="width: auto;">
+							<label class="form-text" for="client1SignedRights">Date Signed</label>
+						</div>
+					</div>
+
+
+
+
+					<div class="row align-items-start print-inline-row-3 container-fluid">
+						<div class=" mb-3 col">
+							<input type="text" class="form-control" id="client2name">
+							<label class="form-text" for="client2name">Client Name</label>
+						</div>
+						<div class=" mb-3 col">
+							<div class="mb-3 text-center">
+								<img id="client2signature-image" src="" alt=""
+									style="border:1px solid #000; width: 300px; height: 55px; display: none;">
+								<button id="client2signbutton" type="button"
+									class="btn btn-outline-primary btn-sm mt-2 hide-print" data-bs-toggle="modal"
+									data-bs-target="#client2signatureModal">Sign Here</button>
+							</div>
+							<div class="mb-3 row align-items-start">
+								<label class="form-text col" for="client2signature-pad">Client Signature</label>
+								<a href="#" onclick="clearSignatureImage('client2signature-image'); return false;"
+									class="form-text col hide-print">Clear Signature</a>
+							</div>
+						</div>
+						<div class="mb-3 col">
+							<input type="date" class="form-control" id="client2SignedRights"
+								style="width: auto;">
+							<label class="form-text" for="client2SignedRights">Date Signed</label>
+						</div>
+					</div>
+
+
+					<div class="row align-items-start print-inline-row-3 container-fluid">
+						<div class="mb-3 col">
+							<input type="text" class="form-control" id="staffname">
+							<label class="form-text" for="staffname">Staff Name</label>
+						</div>
+						<div class="mb-3 col">
+							<div class="mb-3 text-center">
+								<img id="staffsignature-image" src="" alt=""
+									style="border:1px solid #000; width: 300px; height: 55px; display: none;">
+								<button id="staffsignbutton" type="button" class="btn btn-outline-primary btn-sm mt-2"
+									data-bs-toggle="modal" data-bs-target="#staffsignatureModal">Sign Here</button>
+							</div>
+							<div class="mb-3 row align-items-start">
+								<label class="form-text col" for="staffsignature-pad">Staff Signature</label>
+								<a href="#" onclick="clearSignatureImage('staffsignature-image'); return false;"
+									class="form-text col">Clear Signature</a>
+							</div>
+						</div>
+						<div class="mb-3 col">
+							<input type="date" class="form-control" id="staffSignedRights" style="width: auto;">
+							<label class="form-text" for="staffSignedRights">Date Signed</label>
+						</div>
+					</div>
+				</div>
+				</p>
+			</section>
+			<hr>
+			<section class="page-break">
+				<h3>Grievance Procedure for Individuals Receiving Services</h3>
+				<p>
+					You have the right to let your concerns (grievances) about how you are being treated be known.
+				</p>
+				<p>
+					You have a right to be told the method you can use to let your concerns (grievances) be known. This
+					written notice is a
+					description of how to report grievances and complaints about services you receive from Iris Family
+					Support Center. This
+					written notice will be given to you and/or your legal guardian before you begin receiving services
+					with
+					Iris Family Support
+					Center.
+				</p>
+				<p>
+					You and/or your legal guardian are not limited to any way in the scope, content or frequency of your
+					grievances.
+				</p>
+				<p>
+					You and/or your legal guardian may begin the grievance process by telling the person who coordinates
+					your services
+					what your complaint is either via phone, in person, in writing or via email.
+				</p>
+				<h4>General Expectations of Communication of Complaints is as Follows:</h4>
+				<p>
+					<strong>Oral Phase:</strong> Direct communication with the individual involved and/or their
+					supervisor
+					is expected, and follow-up will be
+					initiated within the department. If the decision made in this phase is not satisfactory, the next
+					phase
+					can begin.
+				</p>
+				<p>
+					<strong>Written Phase:</strong> You may elevate your complaint in writing directly to the Program
+					Leader. They will review the complaint
+					and respond to you in writing within ten (10) business days. If the decision made in this phase is
+					not
+					satisfactory, the next
+					phase can begin.
+				</p>
+				<p>
+					<strong>Meeting Phase:</strong> If you disagree with what the Program Leader decides, you may take
+					your
+					complaint via phone, in
+					person, in writing or via email to the CEO. The CEO will make the final decision and respond to you
+					and/or your legal
+					guardian in writing within ten (10) business days.
+				</p>
+				<p>
+					If no resolution can be made, you may contact the Department of Child Services at:
+					<strong>dcs.customerservice@dcs.in.gov</strong>
+				</p>
+
+				<div class="row mb-3">
+					<label class="col" for="StaffName">Staff Name:</label>
+					<input class="col" type="text" id="StaffName" name="StaffName">
+					<label class="col" for="Phone">Phone:</label>
+					<input class="col" type="text" id="Phone" name="Phone">
+					<label class="col" for="Email">Email:</label>
+					<input class="col" type="text" id="Email" name="Email">
+				</div>
+				<div class="row mb-3">
+					<label class="col" for="StaffName">Supervisor Contact:</label>
+					<input class="col" type="text" id="StaffName" name="StaffName">
+					<label class="col" for="Phone">Phone:</label>
+					<input class="col" type="text" id="Phone" name="Phone">
+					<label class="col" for="Email">Email:</label>
+					<input class="col" type="text" id="Email" name="Email">
+				</div>
+				<div class="row mb-3">
+					<label class="col" for="StaffName">Program Leader Contact:</label>
+					<input class="col" type="text" id="StaffName" name="StaffName">
+					<label class="col" for="Phone">Phone:</label>
+					<input class="col" type="text" id="Phone" name="Phone">
+					<label class="col" for="Email">Email:</label>
+					<input class="col" type="text" id="Email" name="Email">
+				</div>
+				<div class="row mb-3">
+					<label class="col" for="StaffName">CEO:</label>
+					<lable class="col">Dee Szyndrowski</lable>
+					<label class="col" for="Phone">Phone:</label>
+					<label class="col" for="Phone">(260) 421-5000</label>
+					<label class="col" for="Email">Email:</label>
+					<label class="col" for="Email">dszyndrowski@irisfamily.org</label>
+				</div>
+				<p>
+					<strong>Address:</strong> Iris Family Support Center, 500 West Main Street, Fort Wayne IN 46802
+				</p>
+			</section>
+			<hr>
+			<section class="page-break">
+				<h3>Consent to Transport</h3>
+				<div>
+					<p>
+						I give permission for Iris Family Support Center staff to transport the individuals named
+						below, as needed, for as long as we participate in programming at Iris Family Support Center.
+					</p>
+					<p>
+						I also agree to release Iris Family Support Center and its participating agencies and staff
+						from any liability while transporting the individual named below.
+					</p>
+
+
+					<div id="input-container">
+						<label class="form-text" for="transport-1">Name of Individuals</label>
+						<div class="input-group">
+							<input type="text" class="form-control mb-1" id="transport-1">
+						</div>
+					</div>
+					<br>
+					<button type="button" class="btn btn-primary" onclick="addInput()">Add Row</button>
+					<button type="button" class="btn btn-danger" onclick="removeInput()">Remove Row</button>
+				</div>
+
+				<br>
+				<p>
+					<strong><u>When transporting children in car seats, only car seats provided by Iris Family Support
+							Center may be used, unless the child has a medically required car seat prescribed by a
+							professional.</u></strong>
+				</p>
+
+
+				<hr>
+				<!-- Signatures -->
+
+				<div id="signature section">
+					<div class="container-fluid">
+						<div class="row align-items-start print-inline-row-3">
+							<div class="mb-3 col">
+								<input type="text" class="form-control" id="client1name">
+								<label class="form-text" for="client1name">Client Name</label>
+							</div>
+							<div class="mb-3 col">
+								<div class="mb-3 text-center">
+									<img id="client1signature-image" src="" alt=""
+										style="border:1px solid #000; width: 300px; height: 55px; display: none;">
+									<button id="client1signbutton" type="button"
+										class="btn btn-outline-primary btn-sm mt-2" data-bs-toggle="modal"
+										data-bs-target="#client1signatureModal">Sign Here</button>
+								</div>
+								<div class="mb-3 row align-items-start">
+									<label class="form-text col" for="client1signature-pad">Client Signature</label>
+									<a href="#" onclick="clearSignatureImage('client1signature-image'); return false;"
+										class="form-text col hide-print">Clear Signature</a>
+								</div>
+							</div>
+							<div class="mb-3 col">
+								<input type="date" class="form-control" id="client1Transport" style="width: auto;">
+								<label class="form-text" for="client1Transport">Date Signed</label>
+							</div>
+						</div>
+					</div>
+
+
+					<div class="container-fluid">
+						<div class="row align-items-start print-inline-row-3">
+							<div class=" mb-3 col">
+								<input type="text" class="form-control" id="client2name">
+								<label class="form-text" for="client2name">Client Name</label>
+							</div>
+							<div class=" mb-3 col">
+								<div class="mb-3 text-center">
+									<img id="client2signature-image" src="" alt=""
+										style="border:1px solid #000; width: 300px; height: 55px; display: none;">
+									<button id="client2signbutton" type="button"
+										class="btn btn-outline-primary btn-sm mt-2 hide-print" data-bs-toggle="modal"
+										data-bs-target="#client2signatureModal">Sign Here</button>
+								</div>
+								<div class="mb-3 row align-items-start">
+									<label class="form-text col" for="client2signature-pad">Client Signature</label>
+									<a href="#" onclick="clearSignatureImage('client2signature-image'); return false;"
+										class="form-text col hide-print">Clear Signature</a>
+								</div>
+							</div>
+							<div class="mb-3 col">
+								<input type="date" class="form-control" id="client2Transport"
+									style="width: auto;">
+								<label class="form-text" for="client2Transport">Date Signed</label>
+							</div>
+						</div>
+					</div>
+					<div class="container-fluid">
+						<div class="row align-items-start print-inline-row-3">
+							<div class="mb-3 col">
+								<input type="text" class="form-control" id="staffname">
+								<label class="form-text" for="staffname">Staff Name</label>
+							</div>
+							<div class="mb-3 col">
+								<div class="mb-3 text-center">
+									<img id="staffsignature-image" src="" alt=""
+										style="border:1px solid #000; width: 300px; height: 55px; display: none;">
+									<button id="staffsignbutton" type="button"
+										class="btn btn-outline-primary btn-sm mt-2" data-bs-toggle="modal"
+										data-bs-target="#staffsignatureModal">Sign Here</button>
+								</div>
+								<div class="mb-3 row align-items-start">
+									<label class="form-text col" for="staffsignature-pad">Staff Signature</label>
+									<a href="#" onclick="clearSignatureImage('staffsignature-image'); return false;"
+										class="form-text col">Clear Signature</a>
+								</div>
+							</div>
+							<div class="mb-3 col">
+								<input type="date" class="form-control" id="staffTransport" style="width: auto;">
+								<label class="form-text" for="staffTransport">Date Signed</label>
+							</div>
+						</div>
+					</div>
+				</div>
+			</section>
+			<section class="page-break">
+				<h3>Consent to Communicate</h3>
+				<div>
+					<p>
+						Please check next to all the statements for which you give permission.
+						All or any part of this release may be revoked by the participant at any time by providing
+						written notice to Iris Family Support Center.
+					</p>
+					<p>
+						<input class="form-check-input" id="checkDefault" type="checkbox" value="" />
+						I give permission for Iris Family Support Center staff to leave messages on my home/cell voice
+						mail or answering machine.
+					</p>
+					<p>
+						<input class="form-check-input" id="checkDefault" type="checkbox" value="" />
+						I give permission for Iris Family Support Center staff to email me at the following email
+						address
+					</p>
+					<p>
+						<input class="form-check-input" id="checkDefault" type="checkbox" value="" />
+						I understand that despite allowable contact via Facebook Messenger, Iris Family Support Center
+						staff cannot be followers, friends, or connected with me on social media in any other manner
+						outside of messenger or Iris Family Support Center program specific applications or groups
+					</p>
+					<p>
+						<input class="form-check-input" id="checkDefault" type="checkbox" value="" />
+						I give permission for Iris Family Support Center staff to send texts to my cell phone.
+					</p>
+					<p>
+						<input class="form-check-input" id="checkDefault" type="checkbox" value="" />
+						I give permissions for Iris Family Support Center staff to send messages via Facebook Messenger
+						on an account I provide
+					</p>
+					<p>
+						<input class="form-check-input" id="checkDefault" type="checkbox" value="" />
+						I give permission for technology-based visits in the event that there is a qualifying need and
+						they are approved by Iris Family Support Center and/or the referral agency coordinator.
+					</p>
+					<p>
+						I do have access to the following:
+					<div class="form-check form-check-inline">
+						<input class="form-check-input" id="inlineCheckbox1" type="checkbox" value="option1" />
+						<label class="form-check-label" for="inlineCheckbox1">
+							Zoom
+						</label>
+					</div>
+					<div class="form-check form-check-inline">
+						<input class="form-check-input" id="inlineCheckbox2" type="checkbox" value="option2" />
+						<label class="form-check-label" for="inlineCheckbox2">
+							Facetime
+						</label>
+					</div>
+					<div class="form-check form-check-inline">
+						<input class="form-check-input" id="inlineCheckbox2" type="checkbox" value="option2" />
+						<label class="form-check-label" for="inlineCheckbox2">
+							Internet
+						</label>
+					</div>
+					<div class="form-check form-check-inline">
+						<input class="form-check-input" id="inlineCheckbox2" type="checkbox" value="option2" />
+						<label class="form-check-label" for="inlineCheckbox2">
+							Cellular Data
+						</label>
+					</div>
+					</p>
+					<p>
+						I agree to:
+					<ul>
+						<li>
+							Have my camera on during the visit or meeting
+						</li>
+						<li>
+							Be in a confidential space during the visit or meeting
+						</li>
+						<li>
+							Be stationary during the visit or meeting
+						</li>
+						<li>
+							Follow the same guidelines as an in person visit or meeting
+						</li>
+						<li>
+							Notify staff if my ability to access any of the services changes
+						</li>
+					</ul>
+					</p>
+					<p>
+						I understand:
+					<ul>
+						<li>
+							Iris Family Support Center staff will be the host of the visit or meeting
+						</li>
+						<li>
+							Iris Family Support Center staff may stop the visit or meeting based on my ability to follow
+							the established guidelines for visits or meetings
+						</li>
+					</ul>
+					</p>
+				</div>
+				<p>
+					<input class="form-check-input" id="checkDefault" type="checkbox" value="" />
+					I give permission for Iris Family Support Center staff to call my emergency/alternate contacts at
+					the following numbers:
+				<div id="input-container-com">
+					<div class="input-group">
+						<span class="input-group-text mb-1">
+							Name and Phone #
+						</span>
+						<input class="form-control mb-1" type="text" />
+						<input class="form-control mb-1" type="text" />
+					</div>
+				</div>
+				<div class="text-center">
+					<button class="btn btn-primary" onclick="addNamePhoneRow()" type="button">
+						Add Row
+					</button>
+					<button class="btn btn-danger" onclick="removeNamePhoneRow()" type="button">
+						Remove Row
+					</button>
+				</div>
+				</p>
+				<p>
+					<input class="form-check-input" id="checkDefault" type="checkbox" value="" />
+					I give permission for Iris Family Support Center staff to talk to the following people in my
+					household during my home visitation services
+				<div id="input-container-1">
+					<div class="input-group">
+						<span class="input-group-text mb-1">
+							Name
+						</span>
+						<input class="form-control mb-1" type="text" />
+					</div>
+				</div>
+				<div class="text-center mt-1">
+					<button class="btn btn-primary" onclick="addPermissionRow()" type="button">
+						Add Row
+					</button>
+					<button class="btn btn-danger" onclick="removePermissionRow()" type="button">
+						Remove Row
+					</button>
+				</div>
+				</p>
+
+				<div>
+					<p>
+						Release is valid for no longer than 12 months. Expires on:
+						<strong>
+							<label id="ExpiresOn">
+							</label>
+						</strong>
+					</p>
+				</div>
+				<hr />
+				<!-- Signatures -->
+
+				<div id="signature section">
+					<div class="container-fluid">
+						<div class="row align-items-start print-inline-row-3">
+							<div class="mb-3 col">
+								<input type="text" class="form-control" id="client1name">
+								<label class="form-text" for="client1name">Client Name</label>
+							</div>
+							<div class="mb-3 col">
+								<div class="mb-3 text-center">
+									<img id="client1signature-image" src="" alt=""
+										style="border:1px solid #000; width: 300px; height: 55px; display: none;">
+									<button id="client1signbutton" type="button"
+										class="btn btn-outline-primary btn-sm mt-2" data-bs-toggle="modal"
+										data-bs-target="#client1signatureModal">Sign Here</button>
+								</div>
+								<div class="mb-3 row align-items-start">
+									<label class="form-text col" for="client1signature-pad">Client Signature</label>
+									<a href="#" onclick="clearSignatureImage('client1signature-image'); return false;"
+										class="form-text col hide-print">Clear Signature</a>
+								</div>
+							</div>
+							<div class="mb-3 col">
+								<input type="date" class="form-control" id="client1Communicate" style="width: auto;">
+								<label class="form-text" for="client1Communicate">Date Signed</label>
+							</div>
+						</div>
+					</div>
+
+
+					<div class="container-fluid">
+						<div class="row align-items-start print-inline-row-3">
+							<div class=" mb-3 col">
+								<input type="text" class="form-control" id="client2name">
+								<label class="form-text" for="client2name">Client Name</label>
+							</div>
+							<div class=" mb-3 col">
+								<div class="mb-3 text-center">
+									<img id="client2signature-image" src="" alt=""
+										style="border:1px solid #000; width: 300px; height: 55px; display: none;">
+									<button id="client2signbutton" type="button"
+										class="btn btn-outline-primary btn-sm mt-2 hide-print" data-bs-toggle="modal"
+										data-bs-target="#client2signatureModal">Sign Here</button>
+								</div>
+								<div class="mb-3 row align-items-start">
+									<label class="form-text col" for="client2signature-pad">Client Signature</label>
+									<a href="#" onclick="clearSignatureImage('client2signature-image'); return false;"
+										class="form-text col hide-print">Clear Signature</a>
+								</div>
+							</div>
+							<div class="mb-3 col">
+								<input type="date" class="form-control" id="client2Communicate"
+									style="width: auto;">
+								<label class="form-text" for="client2Communicate">Date Signed</label>
+							</div>
+						</div>
+					</div>
+					<div class="container-fluid">
+						<div class="row align-items-start print-inline-row-3">
+							<div class="mb-3 col">
+								<input type="text" class="form-control" id="staffname">
+								<label class="form-text" for="staffname">Staff Name</label>
+							</div>
+							<div class="mb-3 col">
+								<div class="mb-3 text-center">
+									<img id="staffsignature-image" src="" alt=""
+										style="border:1px solid #000; width: 300px; height: 55px; display: none;">
+									<button id="staffsignbutton" type="button"
+										class="btn btn-outline-primary btn-sm mt-2" data-bs-toggle="modal"
+										data-bs-target="#staffsignatureModal">Sign Here</button>
+								</div>
+								<div class="mb-3 row align-items-start">
+									<label class="form-text col" for="staffsignature-pad">Staff Signature</label>
+									<a href="#" onclick="clearSignatureImage('staffsignature-image'); return false;"
+										class="form-text col">Clear Signature</a>
+								</div>
+							</div>
+							<div class="mb-3 col">
+								<input type="date" class="form-control" id="staffCommunicate" style="width: auto;">
+								<label class="form-text" for="staffCommunicate">Date Signed</label>
+							</div>
+						</div>
+					</div>
+				</div>
+			</section>
+			<hr>
+			<section class="page-break">
+				<h3>Consent for Service</h3>
+				<div>
+					<p>
+						I agree and consent to services ordered to and provided by Iris Family Support Center.
+						I understand that I am consenting and agreeing to only those services that the above provider is
+						qualified to provide within:
+					</p>
+					<p>
+					<ul>
+						<li>
+							The scope of degree, license, certification and/or training
+						</li>
+						<li>
+							The scope of degree, license, certification and/or training of the providers directly
+							supervising the services provided.
+						</li>
+					</ul>
+					</p>
+					<p>
+						I understand and authorize information collected as part of these services to be released to the
+						referral source.
+					</p>
+					<p>
+						I understand that this will include any information regarding family functioning, mental health,
+						substance use, child safety or other areas related to
+						my services.
+					</p>
+					<p>
+						I understand the details of participation in services will be confidential unless I authorize
+						the release of information to other individuals or
+						agencies beyond those detailed above.
+					</p>
+					<p>
+						Limits concerning the confidentiality of services offered and provided are:
+					</p>
+					<p>
+					<ul>
+						<li>
+							We may disclose confidential information when we judge that there is a strong possibility of
+							serious harm being inflicted by you on
+							another person and/or on yourself.
+						</li>
+						<li>
+							Should you disclose information relating to probably child abuse, elder abuse, or abuse of a
+							vulnerable adult (for example, someone who is
+							developmentally disabled or mentally ill, or who has a disabling illness), we may be
+							required to notify state authorities.
+							Also, should you be over the age of 18 and engaging in sexual activities with someone under
+							the age of 18.
+						</li>
+					</ul>
+					</p>
+				</div>
+				<hr>
+				<!-- Signatures -->
+				<div id="signature-section class=" mt-3">
+					<div class="container-fluid">
+						<div class="row align-items-start print-inline-row-3">
+							<div class="mb-3 col">
+								<input type="text" class="form-control" id="client1name">
+								<label class="form-text" for="client1name">Client Name</label>
+							</div>
+							<div class="mb-3 col">
+								<div class="mb-3 text-center">
+									<img id="client1signature-image" src="" alt=""
+										style="border:1px solid #000; width: 300px; height: 55px; display: none;">
+									<button id="client1signbutton" type="button"
+										class="btn btn-outline-primary btn-sm mt-2" data-bs-toggle="modal"
+										data-bs-target="#client1signatureModal">Sign Here</button>
+								</div>
+								<div class="mb-3 row align-items-start">
+									<label class="form-text col" for="client1signature-pad">Client Signature</label>
+									<a href="#" onclick="clearSignatureImage('client1signature-image'); return false;"
+										class="form-text col hide-print">Clear Signature</a>
+								</div>
+							</div>
+							<div class="mb-3 col">
+								<input type="date" class="form-control" id="client1DateSignedConsentService" style="width: auto;">
+								<label class="form-text">Date Signed</label>
+							</div>
+						</div>
+					</div>
+					<div class="container-fluid">
+						<div class="row align-items-start print-inline-row-3">
+							<div class=" mb-3 col">
+								<input type="text" class="form-control" id="client2name">
+								<label class="form-text" for="client2name">Client Name</label>
+							</div>
+							<div class=" mb-3 col">
+								<div class="mb-3 text-center">
+									<img id="client2signature-image" src="" alt=""
+										style="border:1px solid #000; width: 300px; height: 55px; display: none;">
+									<button id="client2signbutton" type="button"
+										class="btn btn-outline-primary btn-sm mt-2 hide-print" data-bs-toggle="modal"
+										data-bs-target="#client2signatureModal">Sign Here</button>
+								</div>
+								<div class="mb-3 row align-items-start">
+									<label class="form-text col" for="client2signature-pad">Client Signature</label>
+									<a href="#" onclick="clearSignatureImage('client2signature-image'); return false;"
+										class="form-text col hide-print">Clear Signature</a>
+								</div>
+							</div>
+							<div class="mb-3 col">
+								<input type="date" class="form-control" id="client2DateSignedConsentService" name="client2Signed"
+									style="width: auto;">
+								<label class="form-text" for="client2Signed">Date Signed</label>
+							</div>
+						</div>
+					</div>
+					<div class="container-fluid">
+						<div class="row align-items-start print-inline-row-3">
+							<div class="mb-3 col">
+								<input type="text" class="form-control" id="staffname">
+								<label class="form-text" for="staffname">Staff Name</label>
+							</div>
+							<div class="mb-3 col">
+								<div class="mb-3 text-center">
+									<img id="staffsignature-image" src="" alt=""
+										style="border:1px solid #000; width: 300px; height: 55px; display: none;">
+									<button id="staffsignbutton" type="button"
+										class="btn btn-outline-primary btn-sm mt-2" data-bs-toggle="modal"
+										data-bs-target="#staffsignatureModal">Sign Here</button>
+								</div>
+								<div class="mb-3 row align-items-start">
+									<label class="form-text col" for="staffsignature-pad">Staff Signature</label>
+									<a href="#" onclick="clearSignatureImage('staffsignature-image'); return false;"
+										class="form-text col">Clear Signature</a>
+								</div>
+							</div>
+							<div class="mb-3 col">
+								<input type="date" class="form-control" id="staffDateSignedConsentService" style="width: auto;">
+								<label class="form-text" for="staffSigned">Date Signed</label>
+							</div>
+						</div>
+					</div>
+				</div>
+			</section>
+			<section class="page-break">
+				<h3>Consent to Release & Request Information</h3>
+				<div>
+					<div>
+						<input type="text" class="form-control" id="clientName">
+						<label class="form-text" for="clientName">Client Name</label>
+					</div>
+					<div>
+						<input type="text" class="form-control" id="clientAddress">
+						<label class="form-text" for="clientAddress">Client Address</label>
+					</div>
+
+					<p>
+						I hereby authorize Iris Family Support Center to release information to and/or request
+						information from:
+						(i.e. DCS, Mustard Seed, GAL, CASA, housing, Township Trustee, Neighborhood Health Clinic, Etc.)
+					</p>
+
+					<div>
+						<input type="text" class="form-control" id="releaseTo">
+						<label class="form-text" for="releaseTo">Name of Agency/Person</label>
+					</div>
+
+					<div>
+						<input type="text" class="form-control" id="address">
+						<label class="form-text" for="address">Address</label>
+					</div>
+					<div>
+						<input type="text" class="form-control" id="phone">
+						<label class="form-text" for="phone">Phone Number</label>
+					</div>
+					<div>
+						<textarea class="form-control" id="infotorelease" rows="3"></textarea>
+						<label class="form-text" for="infotorelease">Specify the information to be released</label>
+					</div>
+					<div>
+						<textarea class="form-control" id="purpose" rows="3"></textarea>
+						<label class="form-text" for="purpose">Purpose of release of information (please be
+							specific)</label>
+					</div>
+
+					<p>
+						I understand that I may revoke this release in writing at any time except when information has
+						already been released because of this release.
+						Unless revoked, this release will remain in effect until the expiration time I have indicated
+						and initialed below.
+						I understand I have a right to privacy as protected under HIPAA regulations except where the
+						laws of the state of Indiana regarding child abuse and neglect
+						and the federal laws supersede this right.
+					</p>
+
+					<div>
+
+						Release is valid for no longer than 12 months. Expires on: <strong><label
+								id="ExpiresOn"></label></strong>
+
+					</div>
+				</div>
+				<hr>
+				<!-- Signatures -->
+
+				<div id="signature-section" class="mt-3">
+					<div class="container-fluid">
+						<div class="row align-items-start print-inline-row-3">
+							<div class="mb-3 col">
+								<input type="text" class="form-control" id="client1name">
+								<label class="form-text" for="client1name">Client Name</label>
+							</div>
+							<div class="mb-3 col">
+								<div class="mb-3 text-center">
+									<img id="client1signature-image" src="" alt=""
+										style="border:1px solid #000; width: 300px; height: 55px; display: none;">
+									<button id="client1signbutton" type="button"
+										class="btn btn-outline-primary btn-sm mt-2" data-bs-toggle="modal"
+										data-bs-target="#client1signatureModal">Sign Here</button>
+								</div>
+								<div class="mb-3 row align-items-start">
+									<label class="form-text col" for="client1signature-pad">Client Signature</label>
+									<a href="#" onclick="clearSignatureImage('client1signature-image'); return false;"
+										class="form-text col hide-print">Clear Signature</a>
+								</div>
+							</div>
+							<div class="mb-3 col">
+								<input type="date" class="form-control" id="client1ReleaseInfo" style="width: auto;">
+								<label class="form-text" for="client1ReleaseInfo">Date Signed</label>
+							</div>
+						</div>
+					</div>
+
+
+					<div class="container-fluid">
+						<div class="row align-items-start print-inline-row-3">
+							<div class=" mb-3 col">
+								<input type="text" class="form-control" id="client2name">
+								<label class="form-text" for="client2name">Client Name</label>
+							</div>
+							<div class=" mb-3 col">
+								<div class="mb-3 text-center">
+									<img id="client2signature-image" src="" alt=""
+										style="border:1px solid #000; width: 300px; height: 55px; display: none;">
+									<button id="client2signbutton" type="button"
+										class="btn btn-outline-primary btn-sm mt-2 hide-print" data-bs-toggle="modal"
+										data-bs-target="#client2signatureModal">Sign Here</button>
+								</div>
+								<div class="mb-3 row align-items-start">
+									<label class="form-text col" for="client2signature-pad">Client Signature</label>
+									<a href="#" onclick="clearSignatureImage('client2signature-image'); return false;"
+										class="form-text col hide-print">Clear Signature</a>
+								</div>
+							</div>
+							<div class="mb-3 col">
+								<input type="date" class="form-control" id="client2ReleaseInfo"
+									style="width: auto;">
+								<label class="form-text" for="client2ReleaseInfo">Date Signed</label>
+							</div>
+						</div>
+					</div>
+					<div class="container-fluid">
+						<div class="row align-items-start print-inline-row-3">
+							<div class="mb-3 col">
+								<input type="text" class="form-control" id="staffname">
+								<label class="form-text" for="staffname">Staff Name</label>
+							</div>
+							<div class="mb-3 col">
+								<div class="mb-3 text-center">
+									<img id="staffsignature-image" src="" alt=""
+										style="border:1px solid #000; width: 300px; height: 55px; display: none;">
+									<button id="staffsignbutton" type="button"
+										class="btn btn-outline-primary btn-sm mt-2" data-bs-toggle="modal"
+										data-bs-target="#staffsignatureModal">Sign Here</button>
+								</div>
+								<div class="mb-3 row align-items-start">
+									<label class="form-text col" for="staffsignature-pad">Staff Signature</label>
+									<a href="#" onclick="clearSignatureImage('staffsignature-image'); return false;"
+										class="form-text col">Clear Signature</a>
+								</div>
+							</div>
+							<div class="mb-3 col">
+								<input type="date" class="form-control" id="staffReleaseInfo" style="width: auto;">
+								<label class="form-text" for="staffReleaseInfo">Date Signed</label>
+							</div>
+						</div>
+					</div>
+				</div>
+			</section>
+			<section class="page-break">
+				<h3>BIP Goal and Treatment Plan</h3>
+				<div>
+					<table class="table table-bordered table-striped mt-2">
+						<h5>General Information</h5>
+						<tbody>
+							<tr>
+								<td class="col-3"><label for="staffName">Staff Name</label></td>
+								<td class="col-9"><input type="text" class="form-control" id="staffName" placeholder="">
+								</td>
+							</tr>
+							<tr>
+								<td class="col-3"><label for="caseName">Case Name, Number and Service Code:</label></td>
+								<td class="col-9"><input type="text" class="form-control" id="caseName" placeholder="">
+								</td>
+							</tr>
+							<tr>
+								<td class="col-3"><label for="refAgency">Referring Agency</label></td>
+								<td class="col-9"><input type="text" class="form-control" id="refAgency" placeholder="">
+								</td>
+							</tr>
+							<tr>
+								<td class="col-3"><label for="refAgencyCoord">Referring Agency Coordinator Name</label>
+								</td>
+								<td class="col-9"><input type="text" class="form-control" id="refAgencyCoord"
+										placeholder=""></td>
+							</tr>
+							<tr>
+								<td class="col-3"><label for="clientName">Client Name(s)</label></td>
+								<td class="col-9"><input type="text" class="form-control" id="clientName"
+										placeholder="">
+								</td>
+							</tr>
+						</tbody>
+					</table>
+				</div>
+
+				<div>
+					<table class="table table-bordered table-striped mt-2">
+						<h5>Objective/Goals/Plans</h5>
+						<tbody>
+							<tr>
+								<td class="col-3"><label for="staffName">Referral Objective/Identified Objective</label>
+								</td>
+								<td class="col-9"><textarea class="form-control" id="referralObjective"
+										placeholder=""></textarea>
+								</td>
+							</tr>
+						</tbody>
+					</table>
+				</div>
+				<div id="goalContainer">
+					<button type="button" class="btn btn-primary mb-3" onclick="addGoalBlock()">Add Goal</button>
+					<table class="table table-bordered table-striped mt-2">
+						<h5>GOAL/Objective</h5>
+						<tbody>
+							<tr>
+								<td class="col-3"><label for="goalObjective">GOAL/Objective</label></td>
+								<td class="col-9"><textarea class="form-control" id="goalObjective"
+										placeholder=""></textarea>
+								</td>
+							</tr>
+							<tr>
+								<td class="col-3"><label for="dateIdentified">Date Identified</label></td>
+								<td class="col-9"><input type="date" class="form-control" id="dateIdentified"></td>
+							</tr>
+							<tr>
+								<td class="col-3"><label for="clientWill">Client will complete by date</label>
+									<input type="date" class="form-control" id="dueDate">
+								</td>
+								</td>
+								<td class="col-9">
+
+									<textarea class="form-control" aria-label="With textarea"></textarea>
+								</td>
+							</tr>
+						</tbody>
+					</table>
+				</div>
+				<hr>
+				<!-- Signatures -->
+
+				<div id="signature section">
+					<div class="container-fluid">
+						<div class="row align-items-start print-inline-row-3">
+							<div class="mb-3 col">
+								<input type="text" class="form-control" id="client1name">
+								<label class="form-text" for="client1name">Client Name</label>
+							</div>
+							<div class="mb-3 col">
+								<div class="mb-3 text-center">
+									<img id="client1signature-image" src="" alt=""
+										style="border:1px solid #000; width: 300px; height: 55px; display: none;">
+									<button id="client1signbutton" type="button"
+										class="btn btn-outline-primary btn-sm mt-2" data-bs-toggle="modal"
+										data-bs-target="#client1signatureModal">Sign Here</button>
+								</div>
+								<div class="mb-3 row align-items-start">
+									<label class="form-text col" for="client1signature-pad">Client Signature</label>
+									<a href="#" onclick="clearSignatureImage('client1signature-image'); return false;"
+										class="form-text col hide-print">Clear Signature</a>
+								</div>
+							</div>
+							<div class="mb-3 col">
+								<input type="date" class="form-control" id="client1TreatmentPlanDate" style="width: auto;">
+								<label class="form-text" for="client1TreatmentPlanDate">Date Signed</label>
+							</div>
+						</div>
+					</div>
+					<div class="container-fluid">
+						<div class="row align-items-start print-inline-row-3">
+							<div class=" mb-3 col">
+								<input type="text" class="form-control" id="client2name">
+								<label class="form-text" for="client2name">Client Name</label>
+							</div>
+							<div class=" mb-3 col">
+								<div class="mb-3 text-center">
+									<img id="client2signature-image" src="" alt=""
+										style="border:1px solid #000; width: 300px; height: 55px; display: none;">
+									<button id="client2signbutton" type="button"
+										class="btn btn-outline-primary btn-sm mt-2 hide-print" data-bs-toggle="modal"
+										data-bs-target="#client2signatureModal">Sign Here</button>
+								</div>
+								<div class="mb-3 row align-items-start">
+									<label class="form-text col" for="client2signature-pad">Client Signature</label>
+									<a href="#" onclick="clearSignatureImage('client2signature-image'); return false;"
+										class="form-text col hide-print">Clear Signature</a>
+								</div>
+							</div>
+							<div class="mb-3 col">
+								<input type="date" class="form-control" id="client2TreatmentPlanDate"
+									style="width: auto;">
+								<label class="form-text" for="client2TreatmentPlanDate">Date Signed</label>
+							</div>
+						</div>
+					</div>
+					<div class="container-fluid">
+						<div class="row align-items-start print-inline-row-3">
+							<div class="mb-3 col">
+								<input type="text" class="form-control" id="staffname">
+								<label class="form-text" for="staffname">Staff Name</label>
+							</div>
+							<div class="mb-3 col">
+								<div class="mb-3 text-center">
+									<img id="staffsignature-image" src="" alt=""
+										style="border:1px solid #000; width: 300px; height: 55px; display: none;">
+									<button id="staffsignbutton" type="button"
+										class="btn btn-outline-primary btn-sm mt-2" data-bs-toggle="modal"
+										data-bs-target="#staffsignatureModal">Sign Here</button>
+								</div>
+								<div class="mb-3 row align-items-start">
+									<label class="form-text col" for="staffsignature-pad">Staff Signature</label>
+									<a href="#" onclick="clearSignatureImage('staffsignature-image'); return false;"
+										class="form-text col">Clear Signature</a>
+								</div>
+							</div>
+							<div class="mb-3 col">
+								<input type="date" class="form-control" id="staffTreatmentPlanDate" style="width: auto;">
+								<label class="form-text" for="staffTreatmentPlanDate">Date Signed</label>
+							</div>
+						</div>
+					</div>
+				</div>
+			</section>
+			<section class="page-break">
+				<h3>UNCOPE</h3>
+				<div class="row print-inline-row-2 mt-2">
+					<div class="col">
+
+						<div class="row">
+							<small class="text-body-secondary">Answer the questions to the right. In the last 12 months,
+								have you:</small>
+						</div>
+						<div class="row">
+							<small class="text-body-secondary">Scoring: <ul>
+									<li>Yes = 1 No = 0</li>
+									<li>2-3 indicates possible substance abuse</li>
+									<li>4 or more strongly indicate substance dependence</li>
+									<li>Scores of 2+ require a follow up</li>
+								</ul></small>
+						</div>
+						<div class="row">
+							<label for="score" class="form-label">Score: <span id="uncopeScore"></span></label>
+						</div>
+					</div>
+					<div class="col">
+						<div class="row">
+							<label for="uncope1" class="form-label">1. In the past year, have you ever drunk or used
+								drugs more than you meant to? Or have you spent more time drinking or using than you
+								intended?</label>
+							<div class="col">
+								<div class="form-check form-check-inline">
+									<input class="form-check-input" type="checkbox" id="uncope1Yes" value="1">
+									<label class="form-check-label" for="inlineCheckbox1">Yes</label>
+								</div>
+								<div class="form-check form-check-inline">
+									<input class="form-check-input" type="checkbox" id="uncope1No" value="0">
+									<label class="form-check-label" for="inlineCheckbox2">No</label>
+								</div>
+							</div>
+						</div>
+						<div class="row">
+							<label for="uncope2" class="form-label">2. Have you ever neglected some of your usual
+								responsibilities because of using last year?</label>
+							<div class="col">
+								<div class="form-check form-check-inline">
+									<input class="form-check-input" type="checkbox" id="uncope2Yes" value="1">
+									<label class="form-check-label" for="inlineCheckbox1">Yes</label>
+								</div>
+								<div class="form-check form-check-inline">
+									<input class="form-check-input" type="checkbox" id="uncope2No" value="0">
+									<label class="form-check-label" for="inlineCheckbox2">No</label>
+								</div>
+							</div>
+
+						</div>
+						<div class="row">
+							<label for="uncope3" class="form-label">3. Have you felt you wanted or needed to cut down on
+								your drinkin or drug use in the last year?</label>
+							<div class="col">
+								<div class="form-check form-check-inline">
+									<input class="form-check-input" type="checkbox" id="uncope3Yes" value="1">
+									<label class="form-check-label" for="inlineCheckbox1">Yes</label>
+								</div>
+								<div class="form-check form-check-inline">
+									<input class="form-check-input" type="checkbox" id="uncope3No" value="0">
+									<label class="form-check-label" for="inlineCheckbox2">No</label>
+								</div>
+							</div>
+
+						</div>
+						<div class="row">
+							<label for="uncope4" class="form-label">4. Has anyone objected to your drinking or drug use?
+								Or has your family, friend, or anyone else told you they objected to your drug or
+								alcohol use?</label>
+							<div class="col">
+								<div class="form-check form-check-inline">
+									<input class="form-check-input" type="checkbox" id="uncope4Yes" value="1">
+									<label class="form-check-label" for="inlineCheckbox1">Yes</label>
+								</div>
+								<div class="form-check form-check-inline">
+									<input class="form-check-input" type="checkbox" id="uncope4No" value="0">
+									<label class="form-check-label" for="inlineCheckbox2">No</label>
+								</div>
+							</div>
+
+						</div>
+						<div class="row">
+							<label for="uncope5" class="form-label">5. Have you ever found yourself preoccupied with
+								wanting to use drugs or alcohol? Or have you found yourself thinking a lot about using
+								or drinking?</label>
+							<div class="col">
+								<div class="form-check form-check-inline">
+									<input class="form-check-input" type="checkbox" id="uncope5Yes" value="1">
+									<label class="form-check-label" for="inlineCheckbox1">Yes</label>
+								</div>
+								<div class="form-check form-check-inline">
+									<input class="form-check-input" type="checkbox" id="uncope5No" value="0">
+									<label class="form-check-label" for="inlineCheckbox2">No</label>
+								</div>
+							</div>
+
+						</div>
+						<div class="row">
+							<label for="uncope6" class="form-label">6. Have you ever used alcohol or drugs to relieve
+								emotional discomfort such as sadness, anger, or boredom?</label>
+							<div class="col">
+								<div class="form-check form-check-inline">
+									<input class="form-check-input" type="checkbox" id="uncope6Yes" value="1">
+									<label class="form-check-label" for="inlineCheckbox1">Yes</label>
+								</div>
+								<div class="form-check form-check-inline">
+									<input class="form-check-input" type="checkbox" id="uncope6No" value="0">
+									<label class="form-check-label" for="inlineCheckbox2">No</label>
+								</div>
+							</div>
+						</div>
+					</div>
+
+					<div class="row print-inline-row-2 mt-5">
+						<div class="col">
+							<label for="completedBy" class="form-label">Completed By</label>
+							<input type="text" class="form-control" id="completedBy" name="completedBy">
+						</div>
+						<div class="col">
+							<label for="date" class="form-label">Date Completed</label>
+							<input type="date" class="form-control" id="date" name="date">
+						</div>
+					</div>
+				</div>
+			</section>
+			<section class="page-break">
+				<h3>Demographics</h3>
+				<div>
+					<table class="table table-bordered table-striped mt-3">
+						<tbody>
+							<tr>
+								<th scope="row" class="col">
+									<label for="name" class="form-label">Name</label>
+								</th>
+								<td>
+									<input type="text" class="form-control" id="name" name="name"
+										placeholder="Name (Last, First MI)">
+								</td>
+							</tr>
+							<tr>
+								<th scope="row" class="col">
+									<label for="dob" class="form-label">Date of Birth</label>
+								</th>
+								<td>
+									<input type="date" class="form-control" id="dob" name="dob">
+								</td>
+							</tr>
+							<tr>
+								<th scope="row" class="col">
+									<label for="SSN" class="form-label">Social Security Number</label>
+								</th>
+								<td>
+									<input type="text" class="form-control" id="SSN" name="SSN"
+										placeholder="Social Security Number (XXX-XX-XXXX)">
+								</td>
+							</tr>
+							<tr>
+								<th scope="row" class="col">
+									<label for="address" class="form-label">Primary Street Address</label>
+								</th>
+								<td>
+									<input type="text" class="form-control" id="address" name="address"
+										placeholder="Address (Street, City, State, Zip)">
+								</td>
+							</tr>
+							<tr>
+								<th scope="row" class="col">
+									<label for="CityStateZip" class="form-label">City, State, Zip</label>
+								</th>
+								<td>
+									<input type="text" class="form-control" id="CityStateZip" name="CityStateZip"
+										placeholder="City, State, Zip">
+								</td>
+							</tr>
+							<tr>
+								<th scope="row" class="col">
+									<label for="county" class="form-label">County</label>
+								</th>
+								<td>
+									<input type="text" class="form-control" id="county" name="county"
+										placeholder="County">
+								</td>
+							</tr>
+							<tr>
+								<th scope="row" class="col">
+									<label for="phone" class="form-label">Phone Number</label>
+								</th>
+								<td>
+									<input type="tel" class="form-control" id="phone" name="phone"
+										placeholder="Phone Number (XXX-XXX-XXXX)">
+								</td>
+							</tr>
+							<tr>
+								<th scope="row" class="col">
+									<label for="email" class="form-label">Email Address</label>
+								</th>
+								<td>
+									<input type="email" class="form-control" id="email" name="email"
+										placeholder="Email Address">
+								</td>
+							</tr>
+							<tr>
+								<th scope="row" class="col">
+									<label for="race" class="form-label">Race</label>
+								</th>
+								<td>
+									<input type="text" class="form-control" id="race" name="race" placeholder="Race">
+								</td>
+							</tr>
+							<tr>
+								<th scope="row" class="col">
+									<label for="ethnicity" class="form-label">Ethnicity</label>
+								</th>
+								<td>
+									<input type="text" class="form-control" id="ethnicity" name="ethnicity"
+										placeholder="Ethnicity">
+								</td>
+							</tr>
+							<tr>
+								<th scope="row" class="col">
+									<label for="sex" class="form-label">Sex</label>
+								</th>
+								<td>
+									<select class="form-select">
+										<option value="">Select</option>
+										<option value="1">Male</option>
+										<option value="2">Female</option>
+										<option value="3">Intersex</option>
+										<option value="4">Prefer not to answer</option>
+									</select>
+								</td>
+							</tr>
+							<tr>
+								<th scope="row" class="col">
+									<label for="genderIdentity" class="form-label">Gender Identity</label>
+								</th>
+								<td>
+									<select class="form-select">
+										<option value="">Select</option>
+										<option value="1">Man</option>
+										<option value="2">Woman</option>
+										<option value="3">Nonconforming</option>
+										<option value="4">Prefer not to answer</option>
+									</select>
+									<div class="input-group mt-2">
+										<span class="input-group-text">Preference:</span>
+										<input type="text" class="form-control" id="floatingInputGroup1">
+									</div>
+								</td>
+							</tr>
+							<tr>
+								<th scope="row" class="col">
+									<label for="RelationshipStatus" class="form-label">Relationship Status</label>
+								</th>
+								<td>
+									<select class="form-select">
+										<option value="">Select</option>
+										<option value="1">Single</option>
+										<option value="2">Married</option>
+										<option value="3">Divorced</option>
+										<option value="4">Widowed</option>
+										<option value="5">Separated</option>
+										<option value="6">Prefer not to answer</option>
+									</select>
+								</td>
+							</tr>
+							<tr>
+								<th scope="row" class="col">
+									<label for="primaryLanguage" class="form-label">Language</label>
+								</th>
+								<td>
+									<select class="form-select">
+										<option value="">Select</option>
+										<option value="1">English</option>
+										<option value="2">Spanish</option>
+										<option value="3">French</option>
+										<option value="4">Other</option>
+									</select>
+									<div class="input-group mt-2">
+										<span class="input-group-text">Other Language:</span>
+										<input type="text" class="form-control" id="floatingInputGroup1">
+									</div>
+									<div class="input-group mt-2">
+										<span class="input-group-text">Dialect (if applicable):</span>
+										<input type="text" class="form-control" id="floatingInputGroup1">
+									</div>
+								</td>
+							</tr>
+							<tr>
+								<th scope="row" class="col">
+									<label for="translatorNeeded" class="form-label">Translator Needed</label>
+								</th>
+								<td>
+									<select class="form-select">
+										<option value="">Select</option>
+										<option value="1">Yes</option>
+										<option value="2">No</option>
+										<option value="3">Provided</option>
+									</select>
+								</td>
+							</tr>
+							<tr>
+								<th scope="row" class="col">
+									<label for="dxDisability" class="form-label">Dx Disability</label>
+								</th>
+								<td>
+									<select class="form-select">
+										<option value="">Select</option>
+										<option value="1">Emotional</option>
+										<option value="2">Intelectual/Developmental</option>
+										<option value="3">Learning/Cognative</option>
+										<option value="4">Physical</option>
+										<option value="5">Sensory</option>
+										<option value="6">Other</option>
+										<option value="7">Prefer not to answer</option>
+									</select>
+									<div class="input-group mt-2">
+										<span class="input-group-text">please specify:</span>
+										<input type="text" class="form-control" id="floatingInputGroup1">
+									</div>
+								</td>
+							</tr>
+							<tr>
+								<th scope="row" class="col">
+									<label for="dxDisability" class="form-label">Dx Mental Illness or Addiction</label>
+								</th>
+								<td>
+									<select class="form-select">
+										<option value="">Select</option>
+										<option value="1">Addiction</option>
+										<option value="2">MI</option>
+										<option value="7">Prefer not to answer</option>
+									</select>
+									<div class="input-group mt-2">
+										<span class="input-group-text">please specify:</span>
+										<input type="text" class="form-control" id="floatingInputGroup1">
+									</div>
+								</td>
+							</tr>
+							<tr>
+								<th scope="row" class="col">
+									<label for="criminalHistory" class="form-label">Criminal History</label>
+								</th>
+								<td>
+									<select class="form-select">
+										<option value="">Select</option>
+										<option value="1">Yes</option>
+										<option value="2">No</option>
+										<option value="3">Prefer not to answer</option>
+									</select>
+									<div class="input-group mt-2">
+										<span class="input-group-text">If yes, please specify:</span>
+										<input type="text" class="form-control" id="floatingInputGroup1">
+									</div>
+								</td>
+							</tr>
+							<tr>
+								<th scope="row" class="col">
+									<label for="employmentStatus" class="form-label">Employment Status</label>
+								</th>
+								<td>
+									<select class="form-select">
+										<option value="">Select</option>
+										<option value="1">Employed</option>
+										<option value="2">Unemployed</option>
+										<option value="3">Student</option>
+										<option value="4">Retired</option>
+										<option value="5">Prefer not to answer</option>
+									</select>
+								</td>
+							</tr>
+							<tr>
+								<th scope="row" class="col">
+									<label for="householdIncome" class="form-label">Household Income</label>
+								</th>
+								<td>
+									<select class="form-select">
+										<option value="">Select</option>
+										<option value="1">Less than $25,000</option>
+										<option value="2">$25,000 - $49,999</option>
+										<option value="3">$50,000 - $74,999</option>
+										<option value="4">$75,000 - $99,999</option>
+										<option value="5">$100,000 or more</option>
+										<option value="6">Prefer not to answer</option>
+									</select>
+								</td>
+							</tr>
+							<tr>
+								<th scope="row" class="col">
+									<label for="peopleInHousehold" class="form-label"># of People in Household</label>
+								</th>
+								<td>
+									<input type="number" class="form-control" id="peopleInHousehold"
+										name="peopleInHousehold" placeholder="Number of People in Household">
+								</td>
+							</tr>
+							<tr>
+								<th scope="row" class="col">
+									<label for="dependentInHousehold" class="form-label"># of Dependent Children</label>
+								</th>
+								<td>
+									<input type="number" class="form-control" id="dependentInHousehold"
+										name="dependentInHousehold" placeholder="Number of Dependent Children">
+								</td>
+							</tr>
+							<tr>
+								<th scope="row" class="col">
+									<label for="childrenInHousehold" class="form-label"># of Children in
+										Household</label>
+								</th>
+								<td>
+									<input type="number" class="form-control" id="childrenInHousehold"
+										name="childrenInHousehold" placeholder="Number of Children in Household">
+								</td>
+							</tr>
+							<tr>
+								<th scope="row" class="col">
+									<label for="otherDependents" class="form-label"># of Other Dependents</label>
+								</th>
+								<td>
+									<input type="number" class="form-control" id="otherDependents"
+										name="otherDependents" placeholder="Number of Other Dependents">
+								</td>
+							</tr>
+							<tr>
+								<th scope="row" class="col">
+									<label for="highestEducation" class="form-label">Highest Level of Education</label>
+								</th>
+								<td>
+									<select class="form-select">
+										<option value="">Select</option>
+										<option value="1">Less than High School</option>
+										<option value="2">High School Graduate</option>
+										<option value="3">Some College</option>
+										<option value="4">Bachelor's Degree</option>
+										<option value="5">Graduate Degree</option>
+										<option value="6">Prefer not to answer</option>
+									</select>
+								</td>
+							</tr>
+							<tr>
+								<th scope="row" class="col">
+									<label for="medicalInsuranceType" class="form-label">Medical Insurance Type</label>
+								</th>
+								<td>
+									<select class="form-select">
+										<option value="">Select</option>
+										<option value="1">Private Insurance</option>
+										<option value="2">Medicaid</option>
+										<option value="3">Medicare</option>
+										<option value="4">Uninsured</option>
+										<option value="5">HIP</option>
+										<option value="6">Military</option>
+										<option value="8">Prefer not to answer</option>
+									</select>
+									<div class="input-group mt-2">
+										<span class="input-group-text">Insurance Provider:</span>
+										<input type="text" class="form-control" id="floatingInputGroup1">
+									</div>
+								</td>
+							</tr>
+							<tr>
+								<th scope="row" class="col">
+									<label for="emergencyContactName" class="form-label">Emergency Contact Name</label>
+								</th>
+								<td>
+									<input type="text" class="form-control" id="emergencyContactName"
+										name="emergencyContactName"
+										placeholder="Emergency Contact Name (Last, First MI)">
+								</td>
+							</tr>
+							<tr>
+								<th scope="row" class="col">
+									<label for="emergencyContactPhone" class="form-label">Emergency Contact
+										Phone</label>
+								</th>
+								<td>
+									<input type="tel" class="form-control" id="emergencyContactPhone"
+										name="emergencyContactPhone"
+										placeholder="Emergency Contact Phone (XXX-XXX-XXXX)">
+								</td>
+							</tr>
+							<tr>
+								<th scope="row" class="col">
+									<label for="priorInvolvement" class="form-label">Prior Involvement with Iris Family
+										Support Center</label>
+								</th>
+								<td>
+									<select class="form-select">
+										<option value="">Select</option>
+										<option value="1">Yes</option>
+										<option value="2">No</option>
+										<option value="3">Prefer not to answer</option>
+									</select>
+									<div class="input-group mt-2">
+										<span class="input-group-text">If yes, please specify:</span>
+										<input type="text" class="form-control" id="floatingInputGroup1">
+									</div>
+								</td>
+							</tr>
+							<tr>
+								<th scope="row" class="col">
+									<label for="otherInformation" class="form-label">Other Information</label>
+								</th>
+								<td>
+									<textarea class="form-control" id="otherInformation" name="otherInformation"
+										placeholder="Other Information" rows="3"></textarea>
+								</td>
+							</tr>
+						</tbody>
+					</table>
+				</div>
+			</section>
+
+		</form>
+	</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+	<!-- Modals -->
+	<div class="modal fade" id="client1signatureModal" tabindex="-1" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered">
+    <div class="modal-content">
+      <div class="modal-header"><h5 class="modal-title">Client Signature</h5></div>
+      <div class="modal-body">
+        <div class="signature-pad-container" style="width:100%; height:200px; border:1px solid #ccc;">
+          <canvas id="client1signature-pad" class="signature-pad" style="width:100%; height:100%; touch-action:none;"></canvas>
+        </div>
+        <div class="text-muted small mt-2">Sign with mouse or finger.</div>
+      </div>
+      <div class="modal-footer">
+        <button class="btn btn-outline-secondary" onclick="clearSavedSignature('client1')">Clear</button>
+        <button class="btn btn-primary" onclick="saveSignatureToImage('client1')">Use Signature</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+	<div class="modal fade" id="client2signatureModal" tabindex="-1" aria-labelledby="client2signatureModalLabel"
+		aria-hidden="true">
+		<div class="modal-dialog modal-dialog-centered">
+			<div class="modal-content">
+				<div class="modal-header">
+					<h5 class="modal-title" id="client2signatureModalLabel">Client Signature</h5>
+					<button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+				</div>
+				<div class="modal-body text-center">
+					<canvas class="signature-pad" id="client2signature-pad"></canvas>
+					<div class="mt-2">
+						<button type="button" class="btn btn-sm btn-secondary"
+							onclick="clearSignature('client2signature-pad')">Clear</button>
+						<button type="button" class="btn btn-sm btn-primary"
+							onclick="saveSignatureToImage('client2')">Save</button>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+	<div class="modal fade" id="staffsignatureModal" tabindex="-1" aria-labelledby="signatureModalLabel"
+		aria-hidden="true">
+		<div class="modal-dialog modal-dialog-centered">
+			<div class="modal-content">
+				<div class="modal-header text-center">
+					<h5 class="modal-title" id="signatureModalLabel">Staff Signature</h5>
+					<button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+				</div>
+				<div class="modal-body text-center">
+					<canvas class="signature-pad" id="staffsignature-pad"></canvas>
+					<div class="mt-2">
+						<button type="button" class="btn btn-sm btn-secondary"
+							onclick="clearSignature('staffsignature-pad')">Clear</button>
+						<button type="button" class="btn btn-sm btn-primary"
+							onclick="saveSignatureToImage('staff')">Save
+							Signature</button>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+	<script>
+		// Utility function to create an input element
+		function createInput(className = 'form-control', placeholder = '') {
+			const input = document.createElement('input');
+			input.type = 'text';
+			input.className = className;
+			input.placeholder = placeholder;
+			return input;
+		}
+
+		// Section 1: Name and Phone #
+		let namePhoneCount = 1;
+		const maxNamePhoneInputs = 10;
+
+		function addNamePhoneRow() {
+			if (namePhoneCount >= maxNamePhoneInputs) {
+				alert("Maximum number of inputs reached.");
+				return;
+			}
+			namePhoneCount++;
+
+			const container = document.getElementById("input-container-com");
+			const group = document.createElement("div");
+			group.className = "input-group";
+
+			const label = document.createElement("span");
+			label.className = "input-group-text mb-1";
+			label.textContent = "Name and Phone #";
+
+			const nameInput = createInput("form-control mb-1");
+			const phoneInput = createInput("form-control mb-1");
+
+			group.appendChild(label);
+			group.appendChild(nameInput);
+			group.appendChild(phoneInput);
+			container.appendChild(group);
+		}
+
+		function removeNamePhoneRow() {
+			if (namePhoneCount <= 1) {
+				alert("At least one input must remain.");
+				return;
+			}
+			const container = document.getElementById("input-container-com");
+			container.removeChild(container.lastElementChild);
+			namePhoneCount--;
+		}
+
+		// Section 2: Permission to Talk To
+		let permissionCount = 1;
+
+		function addPermissionRow() {
+			permissionCount++;
+
+			const container = document.createElement('div');
+			container.className = 'input-container input-group';
+
+			const label = document.createElement('span');
+			label.className = 'input-group-text mb-1';
+			label.textContent = 'Name';
+
+			const input = createInput('form-control mb-1');
+
+			container.appendChild(label);
+			container.appendChild(input);
+
+			document.getElementById('input-container-1').appendChild(container);
+		}
+
+
+		function removePermissionRow() {
+			const containers = document.querySelectorAll('#input-container-1 .input-container');
+			if (containers.length > 0) {
+				containers[containers.length - 1].remove();
+				permissionCount--;
+			} else {
+				alert("At least one input must remain.");
+			}
+		}
+	</script>
+	<script>
+		let inputCount = 1;
+		const maxInputs = 10;
+
+		function addInput() {
+			if (inputCount >= maxInputs) {
+				alert("Maximum number of inputs reached.");
+				return;
+			}
+			inputCount++;
+			const container = document.getElementById("input-container");
+			const newInput = document.createElement("div");
+			newInput.className = "input-group";
+			newInput.innerHTML = `<input type="text" class="form-control mb-1" id="transport-${inputCount}">`;
+			container.appendChild(newInput);
+		}
+
+		function removeInput() {
+			if (inputCount <= 1) {
+				alert("At least one input must remain.");
+				return;
+			}
+			const container = document.getElementById("input-container");
+			container.removeChild(container.lastElementChild);
+			inputCount--;
+		}
+	</script>
+	<script>
+		function addGoalBlock() {
+			const container = document.getElementById('goalContainer');
+
+			const block = document.createElement('div');
+			block.className = 'goal-block';
+
+			block.innerHTML = `
+<button class="btn btn-danger btn-sm remove-btn" onclick="removeBlock(this)">Remove</button>
+<table class="table table-bordered table-striped mt-2">
+<h5>GOAL/Objective</h5>
+<tbody>
+<tr>
+<td class="col-3"><label>GOAL/Objective</label></td>
+<td class="col-9"><textarea class="form-control" placeholder=""></textarea></td>
+</tr>
+<tr>
+<td class="col-3"><label>Date Identified</label></td>
+<td class="col-9"><input type="date" class="form-control"></td>
+</tr>
+<tr>
+<td class="col-3">
+<label>Client will complete by date</label>
+<input type="date" class="form-control">
+</td>
+<td class="col-9">
+<textarea class="form-control" aria-label="With textarea"></textarea>
+</td>
+</tr>
+</tbody>
+</table>
+`;
+
+			container.appendChild(block);
+		}
+
+		function removeBlock(button) {
+			const block = button.closest('.goal-block');
+			block.remove();
+		}
+	</script>
+	<script>
+		document.addEventListener("DOMContentLoaded", function () {
+			const dateOfBirthInput = document.getElementById("dateOfBirth");
+			const ageLabel = document.getElementById("age");
+
+			dateOfBirthInput.addEventListener("change", function () {
+				const dob = new Date(this.value);
+				const today = new Date();
+				let age = today.getFullYear() - dob.getFullYear();
+				const monthDiff = today.getMonth() - dob.getMonth();
+				const dayDiff = today.getDate() - dob.getDate();
+
+				// Adjust age if birthday hasn't occurred yet this year
+				if (monthDiff < 0 || (monthDiff === 0 && dayDiff < 0)) {
+					age--;
+				}
+
+				if (!isNaN(age)) {
+					ageLabel.textContent = `(${age} years old)`;
+				} else {
+					ageLabel.textContent = "(Age)";
+				}
+			});
+		});
+	</script>
+	<script>
+		document.addEventListener("DOMContentLoaded", function () {
+			const totalQuestions = 6;
+			const scoreDisplay = document.getElementById("uncopeScore");
+
+			function calculateScore() {
+				let score = 0;
+				for (let i = 1; i <= totalQuestions; i++) {
+					const yesCheckbox = document.getElementById(`uncope${i}Yes`);
+					if (yesCheckbox && yesCheckbox.checked) {
+						score += 1;
+					}
+				}
+				scoreDisplay.textContent = score;
+			}
+
+			for (let i = 1; i <= totalQuestions; i++) {
+				const yesCheckbox = document.getElementById(`uncope${i}Yes`);
+				const noCheckbox = document.getElementById(`uncope${i}No`);
+
+				if (yesCheckbox && noCheckbox) {
+					yesCheckbox.addEventListener("change", function () {
+						if (this.checked) noCheckbox.checked = false;
+						calculateScore();
+					});
+
+					noCheckbox.addEventListener("change", function () {
+						if (this.checked) yesCheckbox.checked = false;
+						calculateScore();
+					});
+				}
+			}
+		});
+	</script>
+
+	<script>
+		document.addEventListener("DOMContentLoaded", function () {
+			const container = document.getElementById("significantOtherContainer");
+
+			container.addEventListener("click", function (e) {
+				if (e.target.classList.contains("add-btn")) {
+					const entry = e.target.closest(".significant-other-entry");
+					const clone = entry.cloneNode(true);
+
+					// Clear textarea
+					const textarea = clone.querySelector("textarea");
+					if (textarea) textarea.value = "";
+
+					container.appendChild(clone);
+				}
+
+				if (e.target.classList.contains("remove-btn")) {
+					const entries = container.querySelectorAll(".significant-other-entry");
+					if (entries.length > 1) {
+						e.target.closest(".significant-other-entry").remove();
+					} else {
+						alert("At least one entry must remain.");
+					}
+				}
+			});
+		});
+	</script>
+
+	<script>
+		document.addEventListener("DOMContentLoaded", function () {
+			const container = document.getElementById("mentalHealthContainer");
+
+			container.addEventListener("click", function (e) {
+				if (e.target.classList.contains("add-mental-btn")) {
+					const entry = e.target.closest(".mental-health-entry");
+					const clone = entry.cloneNode(true);
+
+					// Clear textarea
+					const textarea = clone.querySelector("textarea");
+					if (textarea) textarea.value = "";
+
+					container.appendChild(clone);
+				}
+
+				if (e.target.classList.contains("remove-mental-btn")) {
+					const entries = container.querySelectorAll(".mental-health-entry");
+					if (entries.length > 1) {
+						e.target.closest(".mental-health-entry").remove();
+					} else {
+						alert("At least one mental health entry must remain.");
+					}
+				}
+			});
+		});
+	</script>
+
+	<script>
+		document.addEventListener("DOMContentLoaded", function () {
+			const container = document.getElementById("familyMemberContainer");
+
+			container.addEventListener("click", function (e) {
+				if (e.target.classList.contains("add-family-btn")) {
+					const entry = e.target.closest(".family-member-entry");
+					const clone = entry.cloneNode(true);
+
+					// Clear textarea
+					const textarea = clone.querySelector("textarea");
+					if (textarea) textarea.value = "";
+
+					container.appendChild(clone);
+				}
+
+				if (e.target.classList.contains("remove-family-btn")) {
+					const entries = container.querySelectorAll(".family-member-entry");
+					if (entries.length > 1) {
+						e.target.closest(".family-member-entry").remove();
+					} else {
+						alert("At least one family member entry must remain.");
+					}
+				}
+			});
+		});
+	</script>
+	<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
+		integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
+		crossorigin="anonymous"></script>
+<script>
+		document.querySelectorAll('.auto-today').forEach(el => {
+  el.value = today;
+});</script>
+
+	<script src="js/setdates.js"></script>
+	<script>
+(function () {
+  // --- Canvas init & sizing --- //
+  function resizeCanvas(canvas) {
+    const rect = canvas.getBoundingClientRect();
+    const dpr  = Math.max(window.devicePixelRatio || 1, 1);
+    canvas.width  = rect.width  * dpr;
+    canvas.height = rect.height * dpr;
+    const ctx = canvas.getContext('2d');
+    ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
+    ctx.lineWidth = 2;
+    ctx.lineCap   = 'round';
+    ctx.lineJoin  = 'round';
+    return ctx;
+  }
+
+  document.querySelectorAll('.signature-pad').forEach((canvas) => {
+    const ctx = resizeCanvas(canvas);
+    let drawing = false;
+
+    const getPos = (evt) => {
+      const rect = canvas.getBoundingClientRect();
+      const clientX = evt.touches ? evt.touches[0].clientX : evt.clientX;
+      const clientY = evt.touches ? evt.touches[0].clientY : evt.clientY;
+      return { x: clientX - rect.left, y: clientY - rect.top };
+    };
+    const start = (e) => { drawing = true; const p = getPos(e); ctx.beginPath(); ctx.moveTo(p.x, p.y); e.preventDefault(); };
+    const move  = (e) => { if (!drawing) return; const p = getPos(e); ctx.lineTo(p.x, p.y); ctx.stroke(); e.preventDefault(); };
+    const stop  = (e) => { drawing = false; e.preventDefault(); };
+
+    // Mouse & touch
+    canvas.addEventListener('mousedown', start);
+    canvas.addEventListener('mousemove', move);
+    canvas.addEventListener('mouseup',   stop);
+    canvas.addEventListener('mouseout',  stop);
+    canvas.addEventListener('touchstart', start, { passive: false });
+    canvas.addEventListener('touchmove',  move,  { passive: false });
+    canvas.addEventListener('touchend',   stop);
+    canvas.addEventListener('touchcancel',stop);
+
+    // Expose helpers
+    canvas.clear   = () => { ctx.clearRect(0,0,canvas.width, canvas.height); ctx.beginPath(); };
+    canvas._resize = () => resizeCanvas(canvas);
+    canvas.ctx     = ctx;
+  });
+
+  // If your canvas lives in a Bootstrap modal, recalc size once visible
+  document.querySelectorAll('.modal[id$="signatureModal"]').forEach(modal => {
+    modal.addEventListener('shown.bs.modal', () => {
+      const canvas = modal.querySelector('canvas.signature-pad');
+      if (canvas && canvas._resize) canvas._resize();
+    });
+  });
+
+  // --- Saved signatures keyed by signer --- //
+  const pendingSlot = {}; // { who: imageId } = which slot to apply after first save
+
+  function openSignerModal(who) {
+    const modalEl = document.getElementById(`${who}signatureModal`);
+    if (!modalEl) return;
+    const instance = window.bootstrap?.Modal.getOrCreateInstance(modalEl);
+    instance?.show();
+  }
+
+  function applyImageToSlot(imageId, dataURL) {
+    // Set the image
+    const img = document.getElementById(imageId);
+    if (img) {
+      img.src = dataURL;
+      img.style.display = 'block';
+    }
+    // Hide the matching button(s)
+    document.querySelectorAll(`[data-target-img="${imageId}"]`).forEach(btn => {
+      btn.style.display = 'none';
+    });
+    // Optional: stamp a date if a date target is specified on the button
+    const btn = document.querySelector(`[data-target-img="${imageId}"]`);
+    const dateTargetSel = btn?.getAttribute('data-date-target');
+    if (dateTargetSel) {
+      const el = document.querySelector(dateTargetSel);
+      if (el) {
+        const today = new Date();
+        const yyyy = today.getFullYear();
+        const mm   = String(today.getMonth() + 1).padStart(2, '0');
+        const dd   = String(today.getDate()).padStart(2, '0');
+        // Write as YYYY-MM-DD for inputs; otherwise plain text
+        if ('value' in el) el.value = `${yyyy}-${mm}-${dd}`; else el.textContent = `${mm}/${dd}/${yyyy}`;
+      }
+    }
+  }
+
+  function persistSignature(who, dataURL) {
+    try { localStorage.setItem(`sig:${who}`, dataURL); } catch {}
+  }
+
+  function getSavedSignature(who) {
+    try { return localStorage.getItem(`sig:${who}`); } catch { return null; }
+  }
+
+  // Public: click handler used by "Sign Here" buttons on each slot
+  window.signSlot = function (who, imageId) {
+    const saved = getSavedSignature(who);
+    if (saved) {
+      applyImageToSlot(imageId, saved);
+    } else {
+      // remember which slot to apply once the first signature is saved
+      pendingSlot[who] = imageId;
+      openSignerModal(who);
+    }
+  };
+
+  // Keep your original name but adapt behavior:
+  // - Saves to localStorage
+  // - Applies to pending slot (if any)
+  // - Closes modal
+  window.saveSignatureToImage = function (who) {
+    const canvas = document.getElementById(`${who}signature-pad`);
+    const modalEl = document.getElementById(`${who}signatureModal`);
+    if (!canvas) return;
+
+    const dataURL = canvas.toDataURL('image/png');
+    persistSignature(who, dataURL);
+
+    // If user clicked a specific slot before signing, apply now
+    if (pendingSlot[who]) {
+      applyImageToSlot(pendingSlot[who], dataURL);
+      delete pendingSlot[who];
+    }
+
+    // Close modal
+    const modal = (window.bootstrap && window.bootstrap.Modal)
+      ? bootstrap.Modal.getInstance(modalEl)
+      : null;
+    modal?.hide();
+  };
+
+  // Clear JUST one slot (not the saved signature)
+  window.clearSignatureSlot = function (imageId) {
+    const img = document.getElementById(imageId);
+    if (img) { img.src = ''; img.style.display = 'none'; }
+    document.querySelectorAll(`[data-target-img="${imageId}"]`).forEach(btn => {
+      btn.style.display = 'inline-block';
+    });
+  };
+
+  // Clear the saved signature for a signer (and optionally all their slots)
+  window.clearSavedSignature = function (who, clearAllSlots = false) {
+    try { localStorage.removeItem(`sig:${who}`); } catch {}
+    if (clearAllSlots) {
+      // Reveal all buttons for this signer; clear images whose IDs are referenced by buttons
+      document.querySelectorAll(`button[data-signer="${who}"][data-target-img]`).forEach(btn => {
+        const imageId = btn.getAttribute('data-target-img');
+        window.clearSignatureSlot(imageId);
+      });
+    }
+    // Also clear the drawing canvas if open
+    const canvas = document.getElementById(`${who}signature-pad`);
+    if (canvas?.clear) canvas.clear();
+  };
+})();
+</script>
+
+</body>
+
+</html>
