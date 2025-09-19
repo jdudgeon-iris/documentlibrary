@@ -20,7 +20,7 @@ body {
 
 @media print {
   @page {
-    size: portrait; 
+    size: landscape; /* landscape orientation */
     margin: 0.25in; /* safe margin */
   }
 

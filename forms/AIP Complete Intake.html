@@ -178,9 +178,7 @@
 
 			<hr>
 			<!-- Signatures -->
-
 			<div id="signature-section" class="mt-3">
-
 				<div class="row align-items-start print-inline-row-3 container-fluid">
 					<div class="mb-3 col">
 						<input type="text" class="form-control" id="client1name">
@@ -188,26 +186,17 @@
 					</div>
 					<div class="mb-3 col">
 						<div class="mb-3 text-center">
-							
-							<button class="btn btn-outline-primary btn-sm"
-									type="button"
-									data-signer="client1"
-									data-target-img="slot_client1_checklist"
-									data-date-target="#date_client1_checklist"
-									onclick="signSlot('client1','slot_client1_checklist')">
-							Sign Here
-							</button>
-
-							<img id="slot_client1_checklist"
-								alt="Client signature"
-								style="display:none; max-width: 280px;">
-
-							<input type="date" id="date_client1_checklist" class="form-control form-control-sm" style="max-width: 180px;">
-
+						<div class="mb-3 text-center">
+							<img id="client1checklistsignature-image" src="" alt=""
+								style="border:1px solid #000; width: 300px; height: 55px; display: none;">
+							<button id="client1signbutton" type="button"
+								class="btn btn-outline-primary btn-sm mt-2 hide-print" data-bs-toggle="modal"
+								data-bs-target="#client1checklistsignatureModal">Sign Here</button>
+						</div>
 						</div>
 						<div class="mb-3 row align-items-start">
 							<label class="form-text col" for="client1signature-pad">Client Signature</label>
-							<a href="#" onclick="clearSignatureImage('client1signature-image'); return false;"
+							<a href="#" onclick="clearSignatureImage('client1checklistsignature-image'); return false;"
 								class="form-text col hide-print">Clear Signature</a>
 						</div>
 					</div>
@@ -216,37 +205,32 @@
 						<label class="form-text" for="client1ChecklistSignedDate">Date Signed</label>
 					</div>
 				</div>
-
-
-
-
 				<div class="row align-items-start print-inline-row-3 container-fluid">
-					<div class=" mb-3 col">
+					<div class="mb-3 col">
 						<input type="text" class="form-control" id="client2name">
 						<label class="form-text" for="client2name">Client Name</label>
 					</div>
-					<div class=" mb-3 col">
+					<div class="mb-3 col">
 						<div class="mb-3 text-center">
-							<img id="client2signature-image" src="" alt=""
+						<div class="mb-3 text-center">
+							<img id="client2checklistsignature-image" src="" alt=""
 								style="border:1px solid #000; width: 300px; height: 55px; display: none;">
 							<button id="client2signbutton" type="button"
 								class="btn btn-outline-primary btn-sm mt-2 hide-print" data-bs-toggle="modal"
-								data-bs-target="#client2signatureModal">Sign Here</button>
+								data-bs-target="#client2checklistsignatureModal">Sign Here</button>
+						</div>
 						</div>
 						<div class="mb-3 row align-items-start">
 							<label class="form-text col" for="client2signature-pad">Client Signature</label>
-							<a href="#" onclick="clearSignatureImage('client2signature-image'); return false;"
+							<a href="#" onclick="clearSignatureImage('client2checklistsignature-image'); return false;"
 								class="form-text col hide-print">Clear Signature</a>
 						</div>
 					</div>
 					<div class="mb-3 col">
-						<input type="date" class="form-control" id="client2ChecklistSignedDate"
-							style="width: auto;">
+						<input type="date" class="form-control" id="client2ChecklistSignedDate" style="width: auto;">
 						<label class="form-text" for="client2ChecklistSignedDate">Date Signed</label>
 					</div>
 				</div>
-
-
 				<div class="row align-items-start print-inline-row-3 container-fluid">
 					<div class="mb-3 col">
 						<input type="text" class="form-control" id="staffname">
@@ -254,15 +238,18 @@
 					</div>
 					<div class="mb-3 col">
 						<div class="mb-3 text-center">
-							<img id="staffsignature-image" src="" alt=""
+						<div class="mb-3 text-center">
+							<img id="staffchecklistsignature-image" src="" alt=""
 								style="border:1px solid #000; width: 300px; height: 55px; display: none;">
-							<button id="staffsignbutton" type="button" class="btn btn-outline-primary btn-sm mt-2"
-								data-bs-toggle="modal" data-bs-target="#staffsignatureModal">Sign Here</button>
+							<button id="staffsignbutton" type="button"
+								class="btn btn-outline-primary btn-sm mt-2 hide-print" data-bs-toggle="modal"
+								data-bs-target="#staffchecklistsignatureModal">Sign Here</button>
+						</div>
 						</div>
 						<div class="mb-3 row align-items-start">
 							<label class="form-text col" for="staffsignature-pad">Staff Signature</label>
-							<a href="#" onclick="clearSignatureImage('staffsignature-image'); return false;"
-								class="form-text col">Clear Signature</a>
+							<a href="#" onclick="clearSignatureImage('staffchecklistsignature-image'); return false;"
+								class="form-text col hide-print">Clear Signature</a>
 						</div>
 					</div>
 					<div class="mb-3 col">
@@ -270,7 +257,6 @@
 						<label class="form-text" for="staffChecklistSignedDate">Date Signed</label>
 					</div>
 				</div>
-
 			</div>
 			<hr>
 			<section class="text-center">
@@ -902,88 +888,89 @@
 						expense prior to service delivery
 					</li>
 				</ul>
-
-				<div id="signature-section" class="mt-3">
-
-					<div class="row align-items-start print-inline-row-3 container-fluid">
-						<div class="mb-3 col">
-							<input type="text" class="form-control" id="client1name">
-							<label class="form-text" for="client1name">Client Name</label>
+				</p>
+				<!-- Signatures -->
+			<div id="signature-section" class="mt-3">
+				<div class="row align-items-start print-inline-row-3 container-fluid">
+					<div class="mb-3 col">
+						<input type="text" class="form-control" id="client1name">
+						<label class="form-text" for="client1name">Client Name</label>
+					</div>
+					<div class="mb-3 col">
+						<div class="mb-3 text-center">
+						<div class="mb-3 text-center">
+							<img id="client1rightssignature-image" src="" alt=""
+								style="border:1px solid #000; width: 300px; height: 55px; display: none;">
+							<button id="client1signbutton" type="button"
+								class="btn btn-outline-primary btn-sm mt-2 hide-print" data-bs-toggle="modal"
+								data-bs-target="#client1rightssignatureModal">Sign Here</button>
 						</div>
-						<div class="mb-3 col">
-							<div class="mb-3 text-center">
-								<img id="client1signature-image" src="" alt=""
-									style="border:1px solid #000; width: 300px; height: 55px; display: none;">
-								<button id="client1signbutton" type="button" class="btn btn-outline-primary btn-sm mt-2"
-									data-bs-toggle="modal" data-bs-target="#client1signatureModal">Sign Here</button>
-							</div>
-							<div class="mb-3 row align-items-start">
-								<label class="form-text col" for="client1signature-pad">Client Signature</label>
-								<a href="#" onclick="clearSignatureImage('client1signature-image'); return false;"
-									class="form-text col hide-print">Clear Signature</a>
-							</div>
 						</div>
-						<div class="mb-3 col">
-							<input type="date" class="form-control" id="client1SignedRights" style="width: auto;">
-							<label class="form-text" for="client1SignedRights">Date Signed</label>
+						<div class="mb-3 row align-items-start">
+							<label class="form-text col" for="client1signature-pad">Client Signature</label>
+							<a href="#" onclick="clearSignatureImage('client1rightssignature-image'); return false;"
+								class="form-text col hide-print">Clear Signature</a>
 						</div>
 					</div>
-
-
-
-
-					<div class="row align-items-start print-inline-row-3 container-fluid">
-						<div class=" mb-3 col">
-							<input type="text" class="form-control" id="client2name">
-							<label class="form-text" for="client2name">Client Name</label>
-						</div>
-						<div class=" mb-3 col">
-							<div class="mb-3 text-center">
-								<img id="client2signature-image" src="" alt=""
-									style="border:1px solid #000; width: 300px; height: 55px; display: none;">
-								<button id="client2signbutton" type="button"
-									class="btn btn-outline-primary btn-sm mt-2 hide-print" data-bs-toggle="modal"
-									data-bs-target="#client2signatureModal">Sign Here</button>
-							</div>
-							<div class="mb-3 row align-items-start">
-								<label class="form-text col" for="client2signature-pad">Client Signature</label>
-								<a href="#" onclick="clearSignatureImage('client2signature-image'); return false;"
-									class="form-text col hide-print">Clear Signature</a>
-							</div>
-						</div>
-						<div class="mb-3 col">
-							<input type="date" class="form-control" id="client2SignedRights"
-								style="width: auto;">
-							<label class="form-text" for="client2SignedRights">Date Signed</label>
-						</div>
-					</div>
-
-
-					<div class="row align-items-start print-inline-row-3 container-fluid">
-						<div class="mb-3 col">
-							<input type="text" class="form-control" id="staffname">
-							<label class="form-text" for="staffname">Staff Name</label>
-						</div>
-						<div class="mb-3 col">
-							<div class="mb-3 text-center">
-								<img id="staffsignature-image" src="" alt=""
-									style="border:1px solid #000; width: 300px; height: 55px; display: none;">
-								<button id="staffsignbutton" type="button" class="btn btn-outline-primary btn-sm mt-2"
-									data-bs-toggle="modal" data-bs-target="#staffsignatureModal">Sign Here</button>
-							</div>
-							<div class="mb-3 row align-items-start">
-								<label class="form-text col" for="staffsignature-pad">Staff Signature</label>
-								<a href="#" onclick="clearSignatureImage('staffsignature-image'); return false;"
-									class="form-text col">Clear Signature</a>
-							</div>
-						</div>
-						<div class="mb-3 col">
-							<input type="date" class="form-control" id="staffSignedRights" style="width: auto;">
-							<label class="form-text" for="staffSignedRights">Date Signed</label>
-						</div>
+					<div class="mb-3 col">
+						<input type="date" class="form-control" id="client1RightsSignedDate" style="width: auto;">
+						<label class="form-text" for="client1RightsSignedDate">Date Signed</label>
 					</div>
 				</div>
-				</p>
+				<div class="row align-items-start print-inline-row-3 container-fluid">
+					<div class="mb-3 col">
+						<input type="text" class="form-control" id="client2name">
+						<label class="form-text" for="client2name">Client Name</label>
+					</div>
+					<div class="mb-3 col">
+						<div class="mb-3 text-center">
+						<div class="mb-3 text-center">
+							<img id="client2rightssignature-image" src="" alt=""
+								style="border:1px solid #000; width: 300px; height: 55px; display: none;">
+							<button id="client2signbutton" type="button"
+								class="btn btn-outline-primary btn-sm mt-2 hide-print" data-bs-toggle="modal"
+								data-bs-target="#client2rightssignatureModal">Sign Here</button>
+						</div>
+						</div>
+						<div class="mb-3 row align-items-start">
+							<label class="form-text col" for="client2signature-pad">Client Signature</label>
+							<a href="#" onclick="clearSignatureImage('client2rightssignature-image'); return false;"
+								class="form-text col hide-print">Clear Signature</a>
+						</div>
+					</div>
+					<div class="mb-3 col">
+						<input type="date" class="form-control" id="client2RightsSignedDate" style="width: auto;">
+						<label class="form-text" for="client2RightsSignedDate">Date Signed</label>
+					</div>
+				</div>
+				<div class="row align-items-start print-inline-row-3 container-fluid">
+					<div class="mb-3 col">
+						<input type="text" class="form-control" id="staffname">
+						<label class="form-text" for="staffname">Staff Name</label>
+					</div>
+					<div class="mb-3 col">
+						<div class="mb-3 text-center">
+						<div class="mb-3 text-center">
+							<img id="staffrightssignature-image" src="" alt=""
+								style="border:1px solid #000; width: 300px; height: 55px; display: none;">
+							<button id="staffsignbutton" type="button"
+								class="btn btn-outline-primary btn-sm mt-2 hide-print" data-bs-toggle="modal"
+								data-bs-target="#staffrightssignatureModal">Sign Here</button>
+						</div>
+						</div>
+						<div class="mb-3 row align-items-start">
+							<label class="form-text col" for="staffsignature-pad">Staff Signature</label>
+							<a href="#" onclick="clearSignatureImage('staffrightssignature-image'); return false;"
+								class="form-text col hide-print">Clear Signature</a>
+						</div>
+					</div>
+					<div class="mb-3 col">
+						<input type="date" class="form-control" id="staffRightsSignedDate" style="width: auto;">
+						<label class="form-text" for="staffRightsSignedDate">Date Signed</label>
+					</div>
+				</div>
+			</div>
+
 			</section>
 			<hr>
 			<section class="page-break">
@@ -1042,27 +1029,27 @@
 
 				<div class="row mb-3">
 					<label class="col" for="StaffName">Staff Name:</label>
-					<input class="col" type="text" id="StaffName" name="StaffName">
+					<input class="col form-control" type="text" id="StaffName" name="StaffName">
 					<label class="col" for="Phone">Phone:</label>
-					<input class="col" type="text" id="Phone" name="Phone">
+					<input class="col form-control" type="text" id="Phone" name="Phone">
 					<label class="col" for="Email">Email:</label>
-					<input class="col" type="text" id="Email" name="Email">
+					<input class="col form-control" type="text" id="Email" name="Email">
 				</div>
 				<div class="row mb-3">
 					<label class="col" for="StaffName">Supervisor Contact:</label>
-					<input class="col" type="text" id="StaffName" name="StaffName">
+					<input class="col form-control" type="text" id="StaffName" name="StaffName">
 					<label class="col" for="Phone">Phone:</label>
-					<input class="col" type="text" id="Phone" name="Phone">
+					<input class="col form-control" type="text" id="Phone" name="Phone">
 					<label class="col" for="Email">Email:</label>
-					<input class="col" type="text" id="Email" name="Email">
+					<input class="col form-control" type="text" id="Email" name="Email">
 				</div>
 				<div class="row mb-3">
 					<label class="col" for="StaffName">Program Leader Contact:</label>
-					<input class="col" type="text" id="StaffName" name="StaffName">
+					<input class="col form-control" type="text" id="StaffName" name="StaffName">
 					<label class="col" for="Phone">Phone:</label>
-					<input class="col" type="text" id="Phone" name="Phone">
+					<input class="col form-control" type="text" id="Phone" name="Phone">
 					<label class="col" for="Email">Email:</label>
-					<input class="col" type="text" id="Email" name="Email">
+					<input class="col form-control" type="text" id="Email" name="Email">
 				</div>
 				<div class="row mb-3">
 					<label class="col" for="StaffName">CEO:</label>
@@ -1110,91 +1097,87 @@
 
 
 				<hr>
-				<!-- Signatures -->
-
-				<div id="signature section">
-					<div class="container-fluid">
-						<div class="row align-items-start print-inline-row-3">
-							<div class="mb-3 col">
-								<input type="text" class="form-control" id="client1name">
-								<label class="form-text" for="client1name">Client Name</label>
-							</div>
-							<div class="mb-3 col">
-								<div class="mb-3 text-center">
-									<img id="client1signature-image" src="" alt=""
-										style="border:1px solid #000; width: 300px; height: 55px; display: none;">
-									<button id="client1signbutton" type="button"
-										class="btn btn-outline-primary btn-sm mt-2" data-bs-toggle="modal"
-										data-bs-target="#client1signatureModal">Sign Here</button>
-								</div>
-								<div class="mb-3 row align-items-start">
-									<label class="form-text col" for="client1signature-pad">Client Signature</label>
-									<a href="#" onclick="clearSignatureImage('client1signature-image'); return false;"
-										class="form-text col hide-print">Clear Signature</a>
-								</div>
-							</div>
-							<div class="mb-3 col">
-								<input type="date" class="form-control" id="client1Transport" style="width: auto;">
-								<label class="form-text" for="client1Transport">Date Signed</label>
-							</div>
+								<!-- Signatures -->
+			<div id="signature-section" class="mt-3">
+				<div class="row align-items-start print-inline-row-3 container-fluid">
+					<div class="mb-3 col">
+						<input type="text" class="form-control" id="client1name">
+						<label class="form-text" for="client1name">Client Name</label>
+					</div>
+					<div class="mb-3 col">
+						<div class="mb-3 text-center">
+						<div class="mb-3 text-center">
+							<img id="client1transportsignature-image" src="" alt=""
+								style="border:1px solid #000; width: 300px; height: 55px; display: none;">
+							<button id="client1signbutton" type="button"
+								class="btn btn-outline-primary btn-sm mt-2 hide-print" data-bs-toggle="modal"
+								data-bs-target="#client1transportsignatureModal">Sign Here</button>
+						</div>
+						</div>
+						<div class="mb-3 row align-items-start">
+							<label class="form-text col" for="client1signature-pad">Client Signature</label>
+							<a href="#" onclick="clearSignatureImage('client1transportsignature-image'); return false;"
+								class="form-text col hide-print">Clear Signature</a>
 						</div>
 					</div>
-
-
-					<div class="container-fluid">
-						<div class="row align-items-start print-inline-row-3">
-							<div class=" mb-3 col">
-								<input type="text" class="form-control" id="client2name">
-								<label class="form-text" for="client2name">Client Name</label>
-							</div>
-							<div class=" mb-3 col">
-								<div class="mb-3 text-center">
-									<img id="client2signature-image" src="" alt=""
-										style="border:1px solid #000; width: 300px; height: 55px; display: none;">
-									<button id="client2signbutton" type="button"
-										class="btn btn-outline-primary btn-sm mt-2 hide-print" data-bs-toggle="modal"
-										data-bs-target="#client2signatureModal">Sign Here</button>
-								</div>
-								<div class="mb-3 row align-items-start">
-									<label class="form-text col" for="client2signature-pad">Client Signature</label>
-									<a href="#" onclick="clearSignatureImage('client2signature-image'); return false;"
-										class="form-text col hide-print">Clear Signature</a>
-								</div>
-							</div>
-							<div class="mb-3 col">
-								<input type="date" class="form-control" id="client2Transport"
-									style="width: auto;">
-								<label class="form-text" for="client2Transport">Date Signed</label>
-							</div>
-						</div>
-					</div>
-					<div class="container-fluid">
-						<div class="row align-items-start print-inline-row-3">
-							<div class="mb-3 col">
-								<input type="text" class="form-control" id="staffname">
-								<label class="form-text" for="staffname">Staff Name</label>
-							</div>
-							<div class="mb-3 col">
-								<div class="mb-3 text-center">
-									<img id="staffsignature-image" src="" alt=""
-										style="border:1px solid #000; width: 300px; height: 55px; display: none;">
-									<button id="staffsignbutton" type="button"
-										class="btn btn-outline-primary btn-sm mt-2" data-bs-toggle="modal"
-										data-bs-target="#staffsignatureModal">Sign Here</button>
-								</div>
-								<div class="mb-3 row align-items-start">
-									<label class="form-text col" for="staffsignature-pad">Staff Signature</label>
-									<a href="#" onclick="clearSignatureImage('staffsignature-image'); return false;"
-										class="form-text col">Clear Signature</a>
-								</div>
-							</div>
-							<div class="mb-3 col">
-								<input type="date" class="form-control" id="staffTransport" style="width: auto;">
-								<label class="form-text" for="staffTransport">Date Signed</label>
-							</div>
-						</div>
+					<div class="mb-3 col">
+						<input type="date" class="form-control" id="client1TransportSignedDate" style="width: auto;">
+						<label class="form-text" for="client1TransportSignedDate">Date Signed</label>
 					</div>
 				</div>
+				<div class="row align-items-start print-inline-row-3 container-fluid">
+					<div class="mb-3 col">
+						<input type="text" class="form-control" id="client2name">
+						<label class="form-text" for="client2name">Client Name</label>
+					</div>
+					<div class="mb-3 col">
+						<div class="mb-3 text-center">
+						<div class="mb-3 text-center">
+							<img id="client2transportsignature-image" src="" alt=""
+								style="border:1px solid #000; width: 300px; height: 55px; display: none;">
+							<button id="client2signbutton" type="button"
+								class="btn btn-outline-primary btn-sm mt-2 hide-print" data-bs-toggle="modal"
+								data-bs-target="#client2transportsignatureModal">Sign Here</button>
+						</div>
+						</div>
+						<div class="mb-3 row align-items-start">
+							<label class="form-text col" for="client2signature-pad">Client Signature</label>
+							<a href="#" onclick="clearSignatureImage('client2transportsignature-image'); return false;"
+								class="form-text col hide-print">Clear Signature</a>
+						</div>
+					</div>
+					<div class="mb-3 col">
+						<input type="date" class="form-control" id="client2TransportSignedDate" style="width: auto;">
+						<label class="form-text" for="client2TransportSignedDate">Date Signed</label>
+					</div>
+				</div>
+				<div class="row align-items-start print-inline-row-3 container-fluid">
+					<div class="mb-3 col">
+						<input type="text" class="form-control" id="staffname">
+						<label class="form-text" for="staffname">Staff Name</label>
+					</div>
+					<div class="mb-3 col">
+						<div class="mb-3 text-center">
+						<div class="mb-3 text-center">
+							<img id="stafftransportsignature-image" src="" alt=""
+								style="border:1px solid #000; width: 300px; height: 55px; display: none;">
+							<button id="staffsignbutton" type="button"
+								class="btn btn-outline-primary btn-sm mt-2 hide-print" data-bs-toggle="modal"
+								data-bs-target="#stafftransportsignatureModal">Sign Here</button>
+						</div>
+						</div>
+						<div class="mb-3 row align-items-start">
+							<label class="form-text col" for="staffsignature-pad">Staff Signature</label>
+							<a href="#" onclick="clearSignatureImage('stafftransportsignature-image'); return false;"
+								class="form-text col hide-print">Clear Signature</a>
+						</div>
+					</div>
+					<div class="mb-3 col">
+						<input type="date" class="form-control" id="staffTransportSignedDate" style="width: auto;">
+						<label class="form-text" for="staffTransportSignedDate">Date Signed</label>
+					</div>
+				</div>
+			</div>
 			</section>
 			<section class="page-break">
 				<h3>Consent to Communicate</h3>
@@ -1349,90 +1332,86 @@
 				</div>
 				<hr />
 				<!-- Signatures -->
-
-				<div id="signature section">
-					<div class="container-fluid">
-						<div class="row align-items-start print-inline-row-3">
-							<div class="mb-3 col">
-								<input type="text" class="form-control" id="client1name">
-								<label class="form-text" for="client1name">Client Name</label>
-							</div>
-							<div class="mb-3 col">
-								<div class="mb-3 text-center">
-									<img id="client1signature-image" src="" alt=""
-										style="border:1px solid #000; width: 300px; height: 55px; display: none;">
-									<button id="client1signbutton" type="button"
-										class="btn btn-outline-primary btn-sm mt-2" data-bs-toggle="modal"
-										data-bs-target="#client1signatureModal">Sign Here</button>
-								</div>
-								<div class="mb-3 row align-items-start">
-									<label class="form-text col" for="client1signature-pad">Client Signature</label>
-									<a href="#" onclick="clearSignatureImage('client1signature-image'); return false;"
-										class="form-text col hide-print">Clear Signature</a>
-								</div>
-							</div>
-							<div class="mb-3 col">
-								<input type="date" class="form-control" id="client1Communicate" style="width: auto;">
-								<label class="form-text" for="client1Communicate">Date Signed</label>
-							</div>
+			<div id="signature-section" class="mt-3">
+				<div class="row align-items-start print-inline-row-3 container-fluid">
+					<div class="mb-3 col">
+						<input type="text" class="form-control" id="client1name">
+						<label class="form-text" for="client1name">Client Name</label>
+					</div>
+					<div class="mb-3 col">
+						<div class="mb-3 text-center">
+						<div class="mb-3 text-center">
+							<img id="client1communicationsignature-image" src="" alt=""
+								style="border:1px solid #000; width: 300px; height: 55px; display: none;">
+							<button id="client1signbutton" type="button"
+								class="btn btn-outline-primary btn-sm mt-2 hide-print" data-bs-toggle="modal"
+								data-bs-target="#client1communicationsignatureModal">Sign Here</button>
+						</div>
+						</div>
+						<div class="mb-3 row align-items-start">
+							<label class="form-text col" for="client1signature-pad">Client Signature</label>
+							<a href="#" onclick="clearSignatureImage('client1communicationsignature-image'); return false;"
+								class="form-text col hide-print">Clear Signature</a>
 						</div>
 					</div>
-
-
-					<div class="container-fluid">
-						<div class="row align-items-start print-inline-row-3">
-							<div class=" mb-3 col">
-								<input type="text" class="form-control" id="client2name">
-								<label class="form-text" for="client2name">Client Name</label>
-							</div>
-							<div class=" mb-3 col">
-								<div class="mb-3 text-center">
-									<img id="client2signature-image" src="" alt=""
-										style="border:1px solid #000; width: 300px; height: 55px; display: none;">
-									<button id="client2signbutton" type="button"
-										class="btn btn-outline-primary btn-sm mt-2 hide-print" data-bs-toggle="modal"
-										data-bs-target="#client2signatureModal">Sign Here</button>
-								</div>
-								<div class="mb-3 row align-items-start">
-									<label class="form-text col" for="client2signature-pad">Client Signature</label>
-									<a href="#" onclick="clearSignatureImage('client2signature-image'); return false;"
-										class="form-text col hide-print">Clear Signature</a>
-								</div>
-							</div>
-							<div class="mb-3 col">
-								<input type="date" class="form-control" id="client2Communicate"
-									style="width: auto;">
-								<label class="form-text" for="client2Communicate">Date Signed</label>
-							</div>
-						</div>
-					</div>
-					<div class="container-fluid">
-						<div class="row align-items-start print-inline-row-3">
-							<div class="mb-3 col">
-								<input type="text" class="form-control" id="staffname">
-								<label class="form-text" for="staffname">Staff Name</label>
-							</div>
-							<div class="mb-3 col">
-								<div class="mb-3 text-center">
-									<img id="staffsignature-image" src="" alt=""
-										style="border:1px solid #000; width: 300px; height: 55px; display: none;">
-									<button id="staffsignbutton" type="button"
-										class="btn btn-outline-primary btn-sm mt-2" data-bs-toggle="modal"
-										data-bs-target="#staffsignatureModal">Sign Here</button>
-								</div>
-								<div class="mb-3 row align-items-start">
-									<label class="form-text col" for="staffsignature-pad">Staff Signature</label>
-									<a href="#" onclick="clearSignatureImage('staffsignature-image'); return false;"
-										class="form-text col">Clear Signature</a>
-								</div>
-							</div>
-							<div class="mb-3 col">
-								<input type="date" class="form-control" id="staffCommunicate" style="width: auto;">
-								<label class="form-text" for="staffCommunicate">Date Signed</label>
-							</div>
-						</div>
+					<div class="mb-3 col">
+						<input type="date" class="form-control" id="client1CommunicationSignedDate" style="width: auto;">
+						<label class="form-text" for="client1CommunicationSignedDate">Date Signed</label>
 					</div>
 				</div>
+				<div class="row align-items-start print-inline-row-3 container-fluid">
+					<div class="mb-3 col">
+						<input type="text" class="form-control" id="client2name">
+						<label class="form-text" for="client2name">Client Name</label>
+					</div>
+					<div class="mb-3 col">
+						<div class="mb-3 text-center">
+						<div class="mb-3 text-center">
+							<img id="client2communicationsignature-image" src="" alt=""
+								style="border:1px solid #000; width: 300px; height: 55px; display: none;">
+							<button id="client2signbutton" type="button"
+								class="btn btn-outline-primary btn-sm mt-2 hide-print" data-bs-toggle="modal"
+								data-bs-target="#client2communicationsignatureModal">Sign Here</button>
+						</div>
+						</div>
+						<div class="mb-3 row align-items-start">
+							<label class="form-text col" for="client2signature-pad">Client Signature</label>
+							<a href="#" onclick="clearSignatureImage('client2communicationsignature-image'); return false;"
+								class="form-text col hide-print">Clear Signature</a>
+						</div>
+					</div>
+					<div class="mb-3 col">
+						<input type="date" class="form-control" id="client2CommunicationSignedDate" style="width: auto;">
+						<label class="form-text" for="client2CommunicationSignedDate">Date Signed</label>
+					</div>
+				</div>
+				<div class="row align-items-start print-inline-row-3 container-fluid">
+					<div class="mb-3 col">
+						<input type="text" class="form-control" id="staffname">
+						<label class="form-text" for="staffname">Staff Name</label>
+					</div>
+					<div class="mb-3 col">
+						<div class="mb-3 text-center">
+						<div class="mb-3 text-center">
+							<img id="staffcommunicationsignature-image" src="" alt=""
+								style="border:1px solid #000; width: 300px; height: 55px; display: none;">
+							<button id="staffsignbutton" type="button"
+								class="btn btn-outline-primary btn-sm mt-2 hide-print" data-bs-toggle="modal"
+								data-bs-target="#staffcommunicationsignatureModal">Sign Here</button>
+						</div>
+						</div>
+						<div class="mb-3 row align-items-start">
+							<label class="form-text col" for="staffsignature-pad">Staff Signature</label>
+							<a href="#" onclick="clearSignatureImage('staffcommunicationsignature-image'); return false;"
+								class="form-text col hide-print">Clear Signature</a>
+						</div>
+					</div>
+					<div class="mb-3 col">
+						<input type="date" class="form-control" id="staffCommunicationSignedDate" style="width: auto;">
+						<label class="form-text" for="staffCommunicationSignedDate">Date Signed</label>
+					</div>
+				</div>
+			</div>
 			</section>
 			<hr>
 			<section class="page-break">
@@ -1491,87 +1470,86 @@
 				</div>
 				<hr>
 				<!-- Signatures -->
-				<div id="signature-section class=" mt-3">
-					<div class="container-fluid">
-						<div class="row align-items-start print-inline-row-3">
-							<div class="mb-3 col">
-								<input type="text" class="form-control" id="client1name">
-								<label class="form-text" for="client1name">Client Name</label>
-							</div>
-							<div class="mb-3 col">
-								<div class="mb-3 text-center">
-									<img id="client1signature-image" src="" alt=""
-										style="border:1px solid #000; width: 300px; height: 55px; display: none;">
-									<button id="client1signbutton" type="button"
-										class="btn btn-outline-primary btn-sm mt-2" data-bs-toggle="modal"
-										data-bs-target="#client1signatureModal">Sign Here</button>
-								</div>
-								<div class="mb-3 row align-items-start">
-									<label class="form-text col" for="client1signature-pad">Client Signature</label>
-									<a href="#" onclick="clearSignatureImage('client1signature-image'); return false;"
-										class="form-text col hide-print">Clear Signature</a>
-								</div>
-							</div>
-							<div class="mb-3 col">
-								<input type="date" class="form-control" id="client1DateSignedConsentService" style="width: auto;">
-								<label class="form-text">Date Signed</label>
-							</div>
+			<div id="signature-section" class="mt-3">
+				<div class="row align-items-start print-inline-row-3 container-fluid">
+					<div class="mb-3 col">
+						<input type="text" class="form-control" id="client1name">
+						<label class="form-text" for="client1name">Client Name</label>
+					</div>
+					<div class="mb-3 col">
+						<div class="mb-3 text-center">
+						<div class="mb-3 text-center">
+							<img id="client1servicesignature-image" src="" alt=""
+								style="border:1px solid #000; width: 300px; height: 55px; display: none;">
+							<button id="client1signbutton" type="button"
+								class="btn btn-outline-primary btn-sm mt-2 hide-print" data-bs-toggle="modal"
+								data-bs-target="#client1servicesignatureModal">Sign Here</button>
+						</div>
+						</div>
+						<div class="mb-3 row align-items-start">
+							<label class="form-text col" for="client1signature-pad">Client Signature</label>
+							<a href="#" onclick="clearSignatureImage('client1servicesignature-image'); return false;"
+								class="form-text col hide-print">Clear Signature</a>
 						</div>
 					</div>
-					<div class="container-fluid">
-						<div class="row align-items-start print-inline-row-3">
-							<div class=" mb-3 col">
-								<input type="text" class="form-control" id="client2name">
-								<label class="form-text" for="client2name">Client Name</label>
-							</div>
-							<div class=" mb-3 col">
-								<div class="mb-3 text-center">
-									<img id="client2signature-image" src="" alt=""
-										style="border:1px solid #000; width: 300px; height: 55px; display: none;">
-									<button id="client2signbutton" type="button"
-										class="btn btn-outline-primary btn-sm mt-2 hide-print" data-bs-toggle="modal"
-										data-bs-target="#client2signatureModal">Sign Here</button>
-								</div>
-								<div class="mb-3 row align-items-start">
-									<label class="form-text col" for="client2signature-pad">Client Signature</label>
-									<a href="#" onclick="clearSignatureImage('client2signature-image'); return false;"
-										class="form-text col hide-print">Clear Signature</a>
-								</div>
-							</div>
-							<div class="mb-3 col">
-								<input type="date" class="form-control" id="client2DateSignedConsentService" name="client2Signed"
-									style="width: auto;">
-								<label class="form-text" for="client2Signed">Date Signed</label>
-							</div>
-						</div>
-					</div>
-					<div class="container-fluid">
-						<div class="row align-items-start print-inline-row-3">
-							<div class="mb-3 col">
-								<input type="text" class="form-control" id="staffname">
-								<label class="form-text" for="staffname">Staff Name</label>
-							</div>
-							<div class="mb-3 col">
-								<div class="mb-3 text-center">
-									<img id="staffsignature-image" src="" alt=""
-										style="border:1px solid #000; width: 300px; height: 55px; display: none;">
-									<button id="staffsignbutton" type="button"
-										class="btn btn-outline-primary btn-sm mt-2" data-bs-toggle="modal"
-										data-bs-target="#staffsignatureModal">Sign Here</button>
-								</div>
-								<div class="mb-3 row align-items-start">
-									<label class="form-text col" for="staffsignature-pad">Staff Signature</label>
-									<a href="#" onclick="clearSignatureImage('staffsignature-image'); return false;"
-										class="form-text col">Clear Signature</a>
-								</div>
-							</div>
-							<div class="mb-3 col">
-								<input type="date" class="form-control" id="staffDateSignedConsentService" style="width: auto;">
-								<label class="form-text" for="staffSigned">Date Signed</label>
-							</div>
-						</div>
+					<div class="mb-3 col">
+						<input type="date" class="form-control" id="client1ServiceSignedDate" style="width: auto;">
+						<label class="form-text" for="client1ServiceSignedDate">Date Signed</label>
 					</div>
 				</div>
+				<div class="row align-items-start print-inline-row-3 container-fluid">
+					<div class="mb-3 col">
+						<input type="text" class="form-control" id="client2name">
+						<label class="form-text" for="client2name">Client Name</label>
+					</div>
+					<div class="mb-3 col">
+						<div class="mb-3 text-center">
+						<div class="mb-3 text-center">
+							<img id="client2servicesignature-image" src="" alt=""
+								style="border:1px solid #000; width: 300px; height: 55px; display: none;">
+							<button id="client2signbutton" type="button"
+								class="btn btn-outline-primary btn-sm mt-2 hide-print" data-bs-toggle="modal"
+								data-bs-target="#client2servicesignatureModal">Sign Here</button>
+						</div>
+						</div>
+						<div class="mb-3 row align-items-start">
+							<label class="form-text col" for="client2signature-pad">Client Signature</label>
+							<a href="#" onclick="clearSignatureImage('client2servicesignature-image'); return false;"
+								class="form-text col hide-print">Clear Signature</a>
+						</div>
+					</div>
+					<div class="mb-3 col">
+						<input type="date" class="form-control" id="client2ServiceSignedDate" style="width: auto;">
+						<label class="form-text" for="client2ServiceSignedDate">Date Signed</label>
+					</div>
+				</div>
+				<div class="row align-items-start print-inline-row-3 container-fluid">
+					<div class="mb-3 col">
+						<input type="text" class="form-control" id="staffname">
+						<label class="form-text" for="staffname">Staff Name</label>
+					</div>
+					<div class="mb-3 col">
+						<div class="mb-3 text-center">
+						<div class="mb-3 text-center">
+							<img id="staffservicesignature-image" src="" alt=""
+								style="border:1px solid #000; width: 300px; height: 55px; display: none;">
+							<button id="staffsignbutton" type="button"
+								class="btn btn-outline-primary btn-sm mt-2 hide-print" data-bs-toggle="modal"
+								data-bs-target="#staffservicesignatureModal">Sign Here</button>
+						</div>
+						</div>
+						<div class="mb-3 row align-items-start">
+							<label class="form-text col" for="staffsignature-pad">Staff Signature</label>
+							<a href="#" onclick="clearSignatureImage('staffservicesignature-image'); return false;"
+								class="form-text col hide-print">Clear Signature</a>
+						</div>
+					</div>
+					<div class="mb-3 col">
+						<input type="date" class="form-control" id="staffServiceSignedDate" style="width: auto;">
+						<label class="form-text" for="staffServiceSignedDate">Date Signed</label>
+					</div>
+				</div>
+			</div>
 			</section>
 			<section class="page-break">
 				<h3>Consent to Release & Request Information</h3>
@@ -1633,90 +1611,86 @@
 				</div>
 				<hr>
 				<!-- Signatures -->
-
-				<div id="signature-section" class="mt-3">
-					<div class="container-fluid">
-						<div class="row align-items-start print-inline-row-3">
-							<div class="mb-3 col">
-								<input type="text" class="form-control" id="client1name">
-								<label class="form-text" for="client1name">Client Name</label>
-							</div>
-							<div class="mb-3 col">
-								<div class="mb-3 text-center">
-									<img id="client1signature-image" src="" alt=""
-										style="border:1px solid #000; width: 300px; height: 55px; display: none;">
-									<button id="client1signbutton" type="button"
-										class="btn btn-outline-primary btn-sm mt-2" data-bs-toggle="modal"
-										data-bs-target="#client1signatureModal">Sign Here</button>
-								</div>
-								<div class="mb-3 row align-items-start">
-									<label class="form-text col" for="client1signature-pad">Client Signature</label>
-									<a href="#" onclick="clearSignatureImage('client1signature-image'); return false;"
-										class="form-text col hide-print">Clear Signature</a>
-								</div>
-							</div>
-							<div class="mb-3 col">
-								<input type="date" class="form-control" id="client1ReleaseInfo" style="width: auto;">
-								<label class="form-text" for="client1ReleaseInfo">Date Signed</label>
-							</div>
+			<div id="signature-section" class="mt-3">
+				<div class="row align-items-start print-inline-row-3 container-fluid">
+					<div class="mb-3 col">
+						<input type="text" class="form-control" id="client1name">
+						<label class="form-text" for="client1name">Client Name</label>
+					</div>
+					<div class="mb-3 col">
+						<div class="mb-3 text-center">
+						<div class="mb-3 text-center">
+							<img id="client1releasessignature-image" src="" alt=""
+								style="border:1px solid #000; width: 300px; height: 55px; display: none;">
+							<button id="client1signbutton" type="button"
+								class="btn btn-outline-primary btn-sm mt-2 hide-print" data-bs-toggle="modal"
+								data-bs-target="#client1releasessignatureModal">Sign Here</button>
+						</div>
+						</div>
+						<div class="mb-3 row align-items-start">
+							<label class="form-text col" for="client1signature-pad">Client Signature</label>
+							<a href="#" onclick="clearSignatureImage('client1releasessignature-image'); return false;"
+								class="form-text col hide-print">Clear Signature</a>
 						</div>
 					</div>
-
-
-					<div class="container-fluid">
-						<div class="row align-items-start print-inline-row-3">
-							<div class=" mb-3 col">
-								<input type="text" class="form-control" id="client2name">
-								<label class="form-text" for="client2name">Client Name</label>
-							</div>
-							<div class=" mb-3 col">
-								<div class="mb-3 text-center">
-									<img id="client2signature-image" src="" alt=""
-										style="border:1px solid #000; width: 300px; height: 55px; display: none;">
-									<button id="client2signbutton" type="button"
-										class="btn btn-outline-primary btn-sm mt-2 hide-print" data-bs-toggle="modal"
-										data-bs-target="#client2signatureModal">Sign Here</button>
-								</div>
-								<div class="mb-3 row align-items-start">
-									<label class="form-text col" for="client2signature-pad">Client Signature</label>
-									<a href="#" onclick="clearSignatureImage('client2signature-image'); return false;"
-										class="form-text col hide-print">Clear Signature</a>
-								</div>
-							</div>
-							<div class="mb-3 col">
-								<input type="date" class="form-control" id="client2ReleaseInfo"
-									style="width: auto;">
-								<label class="form-text" for="client2ReleaseInfo">Date Signed</label>
-							</div>
-						</div>
-					</div>
-					<div class="container-fluid">
-						<div class="row align-items-start print-inline-row-3">
-							<div class="mb-3 col">
-								<input type="text" class="form-control" id="staffname">
-								<label class="form-text" for="staffname">Staff Name</label>
-							</div>
-							<div class="mb-3 col">
-								<div class="mb-3 text-center">
-									<img id="staffsignature-image" src="" alt=""
-										style="border:1px solid #000; width: 300px; height: 55px; display: none;">
-									<button id="staffsignbutton" type="button"
-										class="btn btn-outline-primary btn-sm mt-2" data-bs-toggle="modal"
-										data-bs-target="#staffsignatureModal">Sign Here</button>
-								</div>
-								<div class="mb-3 row align-items-start">
-									<label class="form-text col" for="staffsignature-pad">Staff Signature</label>
-									<a href="#" onclick="clearSignatureImage('staffsignature-image'); return false;"
-										class="form-text col">Clear Signature</a>
-								</div>
-							</div>
-							<div class="mb-3 col">
-								<input type="date" class="form-control" id="staffReleaseInfo" style="width: auto;">
-								<label class="form-text" for="staffReleaseInfo">Date Signed</label>
-							</div>
-						</div>
+					<div class="mb-3 col">
+						<input type="date" class="form-control" id="client1ReleasesSignedDate" style="width: auto;">
+						<label class="form-text" for="client1ReleasesSignedDate">Date Signed</label>
 					</div>
 				</div>
+				<div class="row align-items-start print-inline-row-3 container-fluid">
+					<div class="mb-3 col">
+						<input type="text" class="form-control" id="client2name">
+						<label class="form-text" for="client2name">Client Name</label>
+					</div>
+					<div class="mb-3 col">
+						<div class="mb-3 text-center">
+						<div class="mb-3 text-center">
+							<img id="client2releasessignature-image" src="" alt=""
+								style="border:1px solid #000; width: 300px; height: 55px; display: none;">
+							<button id="client2signbutton" type="button"
+								class="btn btn-outline-primary btn-sm mt-2 hide-print" data-bs-toggle="modal"
+								data-bs-target="#client2releasessignatureModal">Sign Here</button>
+						</div>
+						</div>
+						<div class="mb-3 row align-items-start">
+							<label class="form-text col" for="client2signature-pad">Client Signature</label>
+							<a href="#" onclick="clearSignatureImage('client2releasessignature-image'); return false;"
+								class="form-text col hide-print">Clear Signature</a>
+						</div>
+					</div>
+					<div class="mb-3 col">
+						<input type="date" class="form-control" id="client2ReleasesSignedDate" style="width: auto;">
+						<label class="form-text" for="client2ReleasesSignedDate">Date Signed</label>
+					</div>
+				</div>
+				<div class="row align-items-start print-inline-row-3 container-fluid">
+					<div class="mb-3 col">
+						<input type="text" class="form-control" id="staffname">
+						<label class="form-text" for="staffname">Staff Name</label>
+					</div>
+					<div class="mb-3 col">
+						<div class="mb-3 text-center">
+						<div class="mb-3 text-center">
+							<img id="staffreleasessignature-image" src="" alt=""
+								style="border:1px solid #000; width: 300px; height: 55px; display: none;">
+							<button id="staffsignbutton" type="button"
+								class="btn btn-outline-primary btn-sm mt-2 hide-print" data-bs-toggle="modal"
+								data-bs-target="#staffreleasessignatureModal">Sign Here</button>
+						</div>
+						</div>
+						<div class="mb-3 row align-items-start">
+							<label class="form-text col" for="staffsignature-pad">Staff Signature</label>
+							<a href="#" onclick="clearSignatureImage('staffreleasessignature-image'); return false;"
+								class="form-text col hide-print">Clear Signature</a>
+						</div>
+					</div>
+					<div class="mb-3 col">
+						<input type="date" class="form-control" id="staffReleasesSignedDate" style="width: auto;">
+						<label class="form-text" for="staffReleasesSignedDate">Date Signed</label>
+					</div>
+				</div>
+			</div>
 			</section>
 			<section class="page-break">
 				<h3>BIP Goal and Treatment Plan</h3>
@@ -1798,89 +1772,87 @@
 					</table>
 				</div>
 				<hr>
-				<!-- Signatures -->
-
-				<div id="signature section">
-					<div class="container-fluid">
-						<div class="row align-items-start print-inline-row-3">
-							<div class="mb-3 col">
-								<input type="text" class="form-control" id="client1name">
-								<label class="form-text" for="client1name">Client Name</label>
-							</div>
-							<div class="mb-3 col">
-								<div class="mb-3 text-center">
-									<img id="client1signature-image" src="" alt=""
-										style="border:1px solid #000; width: 300px; height: 55px; display: none;">
-									<button id="client1signbutton" type="button"
-										class="btn btn-outline-primary btn-sm mt-2" data-bs-toggle="modal"
-										data-bs-target="#client1signatureModal">Sign Here</button>
-								</div>
-								<div class="mb-3 row align-items-start">
-									<label class="form-text col" for="client1signature-pad">Client Signature</label>
-									<a href="#" onclick="clearSignatureImage('client1signature-image'); return false;"
-										class="form-text col hide-print">Clear Signature</a>
-								</div>
-							</div>
-							<div class="mb-3 col">
-								<input type="date" class="form-control" id="client1TreatmentPlanDate" style="width: auto;">
-								<label class="form-text" for="client1TreatmentPlanDate">Date Signed</label>
-							</div>
+								<!-- Signatures -->
+			<div id="signature-section" class="mt-3">
+				<div class="row align-items-start print-inline-row-3 container-fluid">
+					<div class="mb-3 col">
+						<input type="text" class="form-control" id="client1name">
+						<label class="form-text" for="client1name">Client Name</label>
+					</div>
+					<div class="mb-3 col">
+						<div class="mb-3 text-center">
+						<div class="mb-3 text-center">
+							<img id="client1goalsignature-image" src="" alt=""
+								style="border:1px solid #000; width: 300px; height: 55px; display: none;">
+							<button id="client1signbutton" type="button"
+								class="btn btn-outline-primary btn-sm mt-2 hide-print" data-bs-toggle="modal"
+								data-bs-target="#client1goalsignatureModal">Sign Here</button>
+						</div>
+						</div>
+						<div class="mb-3 row align-items-start">
+							<label class="form-text col" for="client1signature-pad">Client Signature</label>
+							<a href="#" onclick="clearSignatureImage('client1goalsignature-image'); return false;"
+								class="form-text col hide-print">Clear Signature</a>
 						</div>
 					</div>
-					<div class="container-fluid">
-						<div class="row align-items-start print-inline-row-3">
-							<div class=" mb-3 col">
-								<input type="text" class="form-control" id="client2name">
-								<label class="form-text" for="client2name">Client Name</label>
-							</div>
-							<div class=" mb-3 col">
-								<div class="mb-3 text-center">
-									<img id="client2signature-image" src="" alt=""
-										style="border:1px solid #000; width: 300px; height: 55px; display: none;">
-									<button id="client2signbutton" type="button"
-										class="btn btn-outline-primary btn-sm mt-2 hide-print" data-bs-toggle="modal"
-										data-bs-target="#client2signatureModal">Sign Here</button>
-								</div>
-								<div class="mb-3 row align-items-start">
-									<label class="form-text col" for="client2signature-pad">Client Signature</label>
-									<a href="#" onclick="clearSignatureImage('client2signature-image'); return false;"
-										class="form-text col hide-print">Clear Signature</a>
-								</div>
-							</div>
-							<div class="mb-3 col">
-								<input type="date" class="form-control" id="client2TreatmentPlanDate"
-									style="width: auto;">
-								<label class="form-text" for="client2TreatmentPlanDate">Date Signed</label>
-							</div>
-						</div>
-					</div>
-					<div class="container-fluid">
-						<div class="row align-items-start print-inline-row-3">
-							<div class="mb-3 col">
-								<input type="text" class="form-control" id="staffname">
-								<label class="form-text" for="staffname">Staff Name</label>
-							</div>
-							<div class="mb-3 col">
-								<div class="mb-3 text-center">
-									<img id="staffsignature-image" src="" alt=""
-										style="border:1px solid #000; width: 300px; height: 55px; display: none;">
-									<button id="staffsignbutton" type="button"
-										class="btn btn-outline-primary btn-sm mt-2" data-bs-toggle="modal"
-										data-bs-target="#staffsignatureModal">Sign Here</button>
-								</div>
-								<div class="mb-3 row align-items-start">
-									<label class="form-text col" for="staffsignature-pad">Staff Signature</label>
-									<a href="#" onclick="clearSignatureImage('staffsignature-image'); return false;"
-										class="form-text col">Clear Signature</a>
-								</div>
-							</div>
-							<div class="mb-3 col">
-								<input type="date" class="form-control" id="staffTreatmentPlanDate" style="width: auto;">
-								<label class="form-text" for="staffTreatmentPlanDate">Date Signed</label>
-							</div>
-						</div>
+					<div class="mb-3 col">
+						<input type="date" class="form-control" id="client1GoalSignedDate" style="width: auto;">
+						<label class="form-text" for="client1GoalSignedDate">Date Signed</label>
 					</div>
 				</div>
+				<div class="row align-items-start print-inline-row-3 container-fluid">
+					<div class="mb-3 col">
+						<input type="text" class="form-control" id="client2name">
+						<label class="form-text" for="client2name">Client Name</label>
+					</div>
+					<div class="mb-3 col">
+						<div class="mb-3 text-center">
+						<div class="mb-3 text-center">
+							<img id="client2goalsignature-image" src="" alt=""
+								style="border:1px solid #000; width: 300px; height: 55px; display: none;">
+							<button id="client2signbutton" type="button"
+								class="btn btn-outline-primary btn-sm mt-2 hide-print" data-bs-toggle="modal"
+								data-bs-target="#client2goalsignatureModal">Sign Here</button>
+						</div>
+						</div>
+						<div class="mb-3 row align-items-start">
+							<label class="form-text col" for="client2signature-pad">Client Signature</label>
+							<a href="#" onclick="clearSignatureImage('client2goalsignature-image'); return false;"
+								class="form-text col hide-print">Clear Signature</a>
+						</div>
+					</div>
+					<div class="mb-3 col">
+						<input type="date" class="form-control" id="client2GoalSignedDate" style="width: auto;">
+						<label class="form-text" for="client2GoalSignedDate">Date Signed</label>
+					</div>
+				</div>
+				<div class="row align-items-start print-inline-row-3 container-fluid">
+					<div class="mb-3 col">
+						<input type="text" class="form-control" id="staffname">
+						<label class="form-text" for="staffname">Staff Name</label>
+					</div>
+					<div class="mb-3 col">
+						<div class="mb-3 text-center">
+						<div class="mb-3 text-center">
+							<img id="staffgoalsignature-image" src="" alt=""
+								style="border:1px solid #000; width: 300px; height: 55px; display: none;">
+							<button id="staffsignbutton" type="button"
+								class="btn btn-outline-primary btn-sm mt-2 hide-print" data-bs-toggle="modal"
+								data-bs-target="#staffgoalsignatureModal">Sign Here</button>
+						</div>
+						</div>
+						<div class="mb-3 row align-items-start">
+							<label class="form-text col" for="staffsignature-pad">Staff Signature</label>
+							<a href="#" onclick="clearSignatureImage('staffgoalsignature-image'); return false;"
+								class="form-text col hide-print">Clear Signature</a>
+						</div>
+					</div>
+					<div class="mb-3 col">
+						<input type="date" class="form-control" id="staffGoalSignedDate" style="width: auto;">
+						<label class="form-text" for="staffGoalSignedDate">Date Signed</label>
+					</div>
+				</div>
+			</div>
 			</section>
 			<section class="page-break">
 				<h3>UNCOPE</h3>
@@ -2451,65 +2423,395 @@
 
 
 	<!-- Modals -->
-	<div class="modal fade" id="client1signatureModal" tabindex="-1" aria-hidden="true">
-  <div class="modal-dialog modal-dialog-centered">
-    <div class="modal-content">
-      <div class="modal-header"><h5 class="modal-title">Client Signature</h5></div>
-      <div class="modal-body">
-        <div class="signature-pad-container" style="width:100%; height:200px; border:1px solid #ccc;">
-          <canvas id="client1signature-pad" class="signature-pad" style="width:100%; height:100%; touch-action:none;"></canvas>
-        </div>
-        <div class="text-muted small mt-2">Sign with mouse or finger.</div>
-      </div>
-      <div class="modal-footer">
-        <button class="btn btn-outline-secondary" onclick="clearSavedSignature('client1')">Clear</button>
-        <button class="btn btn-primary" onclick="saveSignatureToImage('client1')">Use Signature</button>
-      </div>
-    </div>
-  </div>
-</div>
+	<div class="modal fade" id="client1checklistsignatureModal" tabindex="-1" aria-hidden="true">
+		<div class="modal-dialog modal-dialog-centered">
+			<div class="modal-content">
+				<div class="modal-header"><h5 class="modal-title">Client Signature</h5></div>
+				<div class="modal-body">
+					<div class="signature-pad-container" >
+						<canvas id="client1checklistsignature-pad" class="signature-pad"></canvas>
+					</div>
+					<div class="text-muted small mt-2">Sign with mouse or finger.</div>
+				</div>
+				<div class="modal-footer">
+					<button class="btn btn-outline-secondary" onclick="clearSignature('client1checklistsignature-pad')">Clear</button>
+					<button class="btn btn-primary" onclick="saveSignatureToImage('client1checklist')">Use Signature</button>
+				</div>
+			</div>
+		</div>
+	</div>
 
-	<div class="modal fade" id="client2signatureModal" tabindex="-1" aria-labelledby="client2signatureModalLabel"
-		aria-hidden="true">
+	<div class="modal fade" id="client2checklistsignatureModal" tabindex="-1" aria-hidden="true">
 		<div class="modal-dialog modal-dialog-centered">
 			<div class="modal-content">
-				<div class="modal-header">
-					<h5 class="modal-title" id="client2signatureModalLabel">Client Signature</h5>
-					<button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-				</div>
-				<div class="modal-body text-center">
-					<canvas class="signature-pad" id="client2signature-pad"></canvas>
-					<div class="mt-2">
-						<button type="button" class="btn btn-sm btn-secondary"
-							onclick="clearSignature('client2signature-pad')">Clear</button>
-						<button type="button" class="btn btn-sm btn-primary"
-							onclick="saveSignatureToImage('client2')">Save</button>
+				<div class="modal-header"><h5 class="modal-title">Client Signature</h5></div>
+				<div class="modal-body">
+					<div class="signature-pad-container" >
+						<canvas id="client2checklistsignature-pad" class="signature-pad"></canvas>
 					</div>
+					<div class="text-muted small mt-2">Sign with mouse or finger.</div>
+				</div>
+				<div class="modal-footer">
+					<button class="btn btn-outline-secondary" onclick="clearSignature('client2checklistsignature-pad')">Clear</button>
+					<button class="btn btn-primary" onclick="saveSignatureToImage('client2checklist')">Use Signature</button>
 				</div>
 			</div>
 		</div>
 	</div>
-	<div class="modal fade" id="staffsignatureModal" tabindex="-1" aria-labelledby="signatureModalLabel"
-		aria-hidden="true">
+
+	<div class="modal fade" id="staffchecklistsignatureModal" tabindex="-1" aria-hidden="true">
 		<div class="modal-dialog modal-dialog-centered">
 			<div class="modal-content">
-				<div class="modal-header text-center">
-					<h5 class="modal-title" id="signatureModalLabel">Staff Signature</h5>
-					<button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-				</div>
-				<div class="modal-body text-center">
-					<canvas class="signature-pad" id="staffsignature-pad"></canvas>
-					<div class="mt-2">
-						<button type="button" class="btn btn-sm btn-secondary"
-							onclick="clearSignature('staffsignature-pad')">Clear</button>
-						<button type="button" class="btn btn-sm btn-primary"
-							onclick="saveSignatureToImage('staff')">Save
-							Signature</button>
+				<div class="modal-header"><h5 class="modal-title">Staff Signature</h5></div>
+				<div class="modal-body">
+					<div class="signature-pad-container" >
+						<canvas id="staffchecklistsignature-pad" class="signature-pad"></canvas>
 					</div>
+					<div class="text-muted small mt-2">Sign with mouse or finger.</div>
+				</div>
+				<div class="modal-footer">
+					<button class="btn btn-outline-secondary" onclick="clearSignature('staffchecklistsignature-pad')">Clear</button>
+					<button class="btn btn-primary" onclick="saveSignatureToImage('staffchecklist')">Use Signature</button>
 				</div>
 			</div>
 		</div>
 	</div>
+<div class="modal fade" id="client1rightssignatureModal" tabindex="-1" aria-hidden="true">
+		<div class="modal-dialog modal-dialog-centered">
+			<div class="modal-content">
+				<div class="modal-header"><h5 class="modal-title">Client Signature</h5></div>
+				<div class="modal-body">
+					<div class="signature-pad-container" >
+						<canvas id="client1rightssignature-pad" class="signature-pad"></canvas>
+					</div>
+					<div class="text-muted small mt-2">Sign with mouse or finger.</div>
+				</div>
+				<div class="modal-footer">
+					<button class="btn btn-outline-secondary" onclick="clearSignature('client1rightssignature-pad')">Clear</button>
+					<button class="btn btn-primary" onclick="saveSignatureToImage('client1rights')">Use Signature</button>
+				</div>
+			</div>
+		</div>
+	</div>
+
+	<div class="modal fade" id="client2rightssignatureModal" tabindex="-1" aria-hidden="true">
+		<div class="modal-dialog modal-dialog-centered">
+			<div class="modal-content">
+				<div class="modal-header"><h5 class="modal-title">Client Signature</h5></div>
+				<div class="modal-body">
+					<div class="signature-pad-container" >
+						<canvas id="client2rightssignature-pad" class="signature-pad"></canvas>
+					</div>
+					<div class="text-muted small mt-2">Sign with mouse or finger.</div>
+				</div>
+				<div class="modal-footer">
+					<button class="btn btn-outline-secondary" onclick="clearSignature('client2rightssignature-pad')">Clear</button>
+					<button class="btn btn-primary" onclick="saveSignatureToImage('client2rights')">Use Signature</button>
+				</div>
+			</div>
+		</div>
+	</div>
+
+	<div class="modal fade" id="staffrightssignatureModal" tabindex="-1" aria-hidden="true">
+		<div class="modal-dialog modal-dialog-centered">
+			<div class="modal-content">
+				<div class="modal-header"><h5 class="modal-title">Staff Signature</h5></div>
+				<div class="modal-body">
+					<div class="signature-pad-container" >
+						<canvas id="staffrightssignature-pad" class="signature-pad"></canvas>
+					</div>
+					<div class="text-muted small mt-2">Sign with mouse or finger.</div>
+				</div>
+				<div class="modal-footer">
+					<button class="btn btn-outline-secondary" onclick="clearSignature('staffrightssignature-pad')">Clear</button>
+					<button class="btn btn-primary" onclick="saveSignatureToImage('staffrights')">Use Signature</button>
+				</div>
+			</div>
+		</div>
+	</div>
+<div class="modal fade" id="client1transportsignatureModal" tabindex="-1" aria-hidden="true">
+		<div class="modal-dialog modal-dialog-centered">
+			<div class="modal-content">
+				<div class="modal-header"><h5 class="modal-title">Client Signature</h5></div>
+				<div class="modal-body">
+					<div class="signature-pad-container" >
+						<canvas id="client1transportsignature-pad" class="signature-pad"></canvas>
+					</div>
+					<div class="text-muted small mt-2">Sign with mouse or finger.</div>
+				</div>
+				<div class="modal-footer">
+					<button class="btn btn-outline-secondary" onclick="clearSignature('client1transportsignature-pad')">Clear</button>
+					<button class="btn btn-primary" onclick="saveSignatureToImage('client1transport')">Use Signature</button>
+				</div>
+			</div>
+		</div>
+	</div>
+
+	<div class="modal fade" id="client2transportsignatureModal" tabindex="-1" aria-hidden="true">
+		<div class="modal-dialog modal-dialog-centered">
+			<div class="modal-content">
+				<div class="modal-header"><h5 class="modal-title">Client Signature</h5></div>
+				<div class="modal-body">
+					<div class="signature-pad-container" >
+						<canvas id="client2transportsignature-pad" class="signature-pad"></canvas>
+					</div>
+					<div class="text-muted small mt-2">Sign with mouse or finger.</div>
+				</div>
+				<div class="modal-footer">
+					<button class="btn btn-outline-secondary" onclick="clearSignature('client2transportsignature-pad')">Clear</button>
+					<button class="btn btn-primary" onclick="saveSignatureToImage('client2transport')">Use Signature</button>
+				</div>
+			</div>
+		</div>
+	</div>
+
+	<div class="modal fade" id="stafftransportsignatureModal" tabindex="-1" aria-hidden="true">
+		<div class="modal-dialog modal-dialog-centered">
+			<div class="modal-content">
+				<div class="modal-header"><h5 class="modal-title">Staff Signature</h5></div>
+				<div class="modal-body">
+					<div class="signature-pad-container" >
+						<canvas id="stafftransportsignature-pad" class="signature-pad"></canvas>
+					</div>
+					<div class="text-muted small mt-2">Sign with mouse or finger.</div>
+				</div>
+				<div class="modal-footer">
+					<button class="btn btn-outline-secondary" onclick="clearSignature('stafftransportsignature-pad')">Clear</button>
+					<button class="btn btn-primary" onclick="saveSignatureToImage('stafftransport')">Use Signature</button>
+				</div>
+			</div>
+		</div>
+	</div>
+
+<div class="modal fade" id="client1communicationsignatureModal" tabindex="-1" aria-hidden="true">
+		<div class="modal-dialog modal-dialog-centered">
+			<div class="modal-content">
+				<div class="modal-header"><h5 class="modal-title">Client Signature</h5></div>
+				<div class="modal-body">
+					<div class="signature-pad-container" >
+						<canvas id="client1communicationsignature-pad" class="signature-pad"></canvas>
+					</div>
+					<div class="text-muted small mt-2">Sign with mouse or finger.</div>
+				</div>
+				<div class="modal-footer">
+					<button class="btn btn-outline-secondary" onclick="clearSignature('client1communicationsignature-pad')">Clear</button>
+					<button class="btn btn-primary" onclick="saveSignatureToImage('client1communication')">Use Signature</button>
+				</div>
+			</div>
+		</div>
+	</div>
+
+	<div class="modal fade" id="client2communicationsignatureModal" tabindex="-1" aria-hidden="true">
+		<div class="modal-dialog modal-dialog-centered">
+			<div class="modal-content">
+				<div class="modal-header"><h5 class="modal-title">Client Signature</h5></div>
+				<div class="modal-body">
+					<div class="signature-pad-container" >
+						<canvas id="client2communicationsignature-pad" class="signature-pad"></canvas>
+					</div>
+					<div class="text-muted small mt-2">Sign with mouse or finger.</div>
+				</div>
+				<div class="modal-footer">
+					<button class="btn btn-outline-secondary" onclick="clearSignature('client2communicationsignature-pad')">Clear</button>
+					<button class="btn btn-primary" onclick="saveSignatureToImage('client2communication')">Use Signature</button>
+				</div>
+			</div>
+		</div>
+	</div>
+
+	<div class="modal fade" id="staffcommunicationsignatureModal" tabindex="-1" aria-hidden="true">
+		<div class="modal-dialog modal-dialog-centered">
+			<div class="modal-content">
+				<div class="modal-header"><h5 class="modal-title">Staff Signature</h5></div>
+				<div class="modal-body">
+					<div class="signature-pad-container" >
+						<canvas id="staffcommunicationsignature-pad" class="signature-pad"></canvas>
+					</div>
+					<div class="text-muted small mt-2">Sign with mouse or finger.</div>
+				</div>
+				<div class="modal-footer">
+					<button class="btn btn-outline-secondary" onclick="clearSignature('staffcommunicationsignature-pad')">Clear</button>
+					<button class="btn btn-primary" onclick="saveSignatureToImage('staffcommunication')">Use Signature</button>
+				</div>
+			</div>
+		</div>
+	</div>
+
+<div class="modal fade" id="client1servicesignatureModal" tabindex="-1" aria-hidden="true">
+		<div class="modal-dialog modal-dialog-centered">
+			<div class="modal-content">
+				<div class="modal-header"><h5 class="modal-title">Client Signature</h5></div>
+				<div class="modal-body">
+					<div class="signature-pad-container" >
+						<canvas id="client1servicesignature-pad" class="signature-pad"></canvas>
+					</div>
+					<div class="text-muted small mt-2">Sign with mouse or finger.</div>
+				</div>
+				<div class="modal-footer">
+					<button class="btn btn-outline-secondary" onclick="clearSignature('client1servicesignature-pad')">Clear</button>
+					<button class="btn btn-primary" onclick="saveSignatureToImage('client1service')">Use Signature</button>
+				</div>
+			</div>
+		</div>
+	</div>
+
+	<div class="modal fade" id="client2servicesignatureModal" tabindex="-1" aria-hidden="true">
+		<div class="modal-dialog modal-dialog-centered">
+			<div class="modal-content">
+				<div class="modal-header"><h5 class="modal-title">Client Signature</h5></div>
+				<div class="modal-body">
+					<div class="signature-pad-container" >
+						<canvas id="client2servicesignature-pad" class="signature-pad"></canvas>
+					</div>
+					<div class="text-muted small mt-2">Sign with mouse or finger.</div>
+				</div>
+				<div class="modal-footer">
+					<button class="btn btn-outline-secondary" onclick="clearSignature('client2servicesignature-pad')">Clear</button>
+					<button class="btn btn-primary" onclick="saveSignatureToImage('client2service')">Use Signature</button>
+				</div>
+			</div>
+		</div>
+	</div>
+
+	<div class="modal fade" id="staffservicesignatureModal" tabindex="-1" aria-hidden="true">
+		<div class="modal-dialog modal-dialog-centered">
+			<div class="modal-content">
+				<div class="modal-header"><h5 class="modal-title">Staff Signature</h5></div>
+				<div class="modal-body">
+					<div class="signature-pad-container" >
+						<canvas id="staffservicesignature-pad" class="signature-pad"></canvas>
+					</div>
+					<div class="text-muted small mt-2">Sign with mouse or finger.</div>
+				</div>
+				<div class="modal-footer">
+					<button class="btn btn-outline-secondary" onclick="clearSignature('staffservicesignature-pad')">Clear</button>
+					<button class="btn btn-primary" onclick="saveSignatureToImage('staffservice')">Use Signature</button>
+				</div>
+			</div>
+		</div>
+	</div>
+
+<div class="modal fade" id="client1releasessignatureModal" tabindex="-1" aria-hidden="true">
+		<div class="modal-dialog modal-dialog-centered">
+			<div class="modal-content">
+				<div class="modal-header"><h5 class="modal-title">Client Signature</h5></div>
+				<div class="modal-body">
+					<div class="signature-pad-container" >
+						<canvas id="client1releasessignature-pad" class="signature-pad"></canvas>
+					</div>
+					<div class="text-muted small mt-2">Sign with mouse or finger.</div>
+				</div>
+				<div class="modal-footer">
+					<button class="btn btn-outline-secondary" onclick="clearSignature('client1releasessignature-pad')">Clear</button>
+					<button class="btn btn-primary" onclick="saveSignatureToImage('client1releases')">Use Signature</button>
+				</div>
+			</div>
+		</div>
+	</div>
+
+	<div class="modal fade" id="client2releasessignatureModal" tabindex="-1" aria-hidden="true">
+		<div class="modal-dialog modal-dialog-centered">
+			<div class="modal-content">
+				<div class="modal-header"><h5 class="modal-title">Client Signature</h5></div>
+				<div class="modal-body">
+					<div class="signature-pad-container" >
+						<canvas id="client2releasessignature-pad" class="signature-pad"></canvas>
+					</div>
+					<div class="text-muted small mt-2">Sign with mouse or finger.</div>
+				</div>
+				<div class="modal-footer">
+					<button class="btn btn-outline-secondary" onclick="clearSignature('client2releasessignature-pad')">Clear</button>
+					<button class="btn btn-primary" onclick="saveSignatureToImage('client2releases')">Use Signature</button>
+				</div>
+			</div>
+		</div>
+	</div>
+
+	<div class="modal fade" id="staffreleasessignatureModal" tabindex="-1" aria-hidden="true">
+		<div class="modal-dialog modal-dialog-centered">
+			<div class="modal-content">
+				<div class="modal-header"><h5 class="modal-title">Staff Signature</h5></div>
+				<div class="modal-body">
+					<div class="signature-pad-container" >
+						<canvas id="staffreleasessignature-pad" class="signature-pad"></canvas>
+					</div>
+					<div class="text-muted small mt-2">Sign with mouse or finger.</div>
+				</div>
+				<div class="modal-footer">
+					<button class="btn btn-outline-secondary" onclick="clearSignature('staffreleasessignature-pad')">Clear</button>
+					<button class="btn btn-primary" onclick="saveSignatureToImage('staffreleases')">Use Signature</button>
+				</div>
+			</div>
+		</div>
+	</div>
+<div class="modal fade" id="client1goalsignatureModal" tabindex="-1" aria-hidden="true">
+		<div class="modal-dialog modal-dialog-centered">
+			<div class="modal-content">
+				<div class="modal-header"><h5 class="modal-title">Client Signature</h5></div>
+				<div class="modal-body">
+					<div class="signature-pad-container" >
+						<canvas id="client1goalsignature-pad" class="signature-pad"></canvas>
+					</div>
+					<div class="text-muted small mt-2">Sign with mouse or finger.</div>
+				</div>
+				<div class="modal-footer">
+					<button class="btn btn-outline-secondary" onclick="clearSignature('client1goalsignature-pad')">Clear</button>
+					<button class="btn btn-primary" onclick="saveSignatureToImage('client1goal')">Use Signature</button>
+				</div>
+			</div>
+		</div>
+	</div>
+
+	<div class="modal fade" id="client2goalsignatureModal" tabindex="-1" aria-hidden="true">
+		<div class="modal-dialog modal-dialog-centered">
+			<div class="modal-content">
+				<div class="modal-header"><h5 class="modal-title">Client Signature</h5></div>
+				<div class="modal-body">
+					<div class="signature-pad-container" >
+						<canvas id="client2goalsignature-pad" class="signature-pad"></canvas>
+					</div>
+					<div class="text-muted small mt-2">Sign with mouse or finger.</div>
+				</div>
+				<div class="modal-footer">
+					<button class="btn btn-outline-secondary" onclick="clearSignature('client2goalsignature-pad')">Clear</button>
+					<button class="btn btn-primary" onclick="saveSignatureToImage('client2goal')">Use Signature</button>
+				</div>
+			</div>
+		</div>
+	</div>
+
+	<div class="modal fade" id="staffgoalsignatureModal" tabindex="-1" aria-hidden="true">
+		<div class="modal-dialog modal-dialog-centered">
+			<div class="modal-content">
+				<div class="modal-header"><h5 class="modal-title">Staff Signature</h5></div>
+				<div class="modal-body">
+					<div class="signature-pad-container" >
+						<canvas id="staffgoalsignature-pad" class="signature-pad"></canvas>
+					</div>
+					<div class="text-muted small mt-2">Sign with mouse or finger.</div>
+				</div>
+				<div class="modal-footer">
+					<button class="btn btn-outline-secondary" onclick="clearSignature('staffgoalsignature-pad')">Clear</button>
+					<button class="btn btn-primary" onclick="saveSignatureToImage('staffgoal')">Use Signature</button>
+				</div>
+			</div>
+		</div>
+	</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 	<script>
 		// Utility function to create an input element
 		function createInput(className = 'form-control', placeholder = '') {
@@ -2810,166 +3112,7 @@
 });</script>
 
 	<script src="js/setdates.js"></script>
-	<script>
-(function () {
-  // --- Canvas init & sizing --- //
-  function resizeCanvas(canvas) {
-    const rect = canvas.getBoundingClientRect();
-    const dpr  = Math.max(window.devicePixelRatio || 1, 1);
-    canvas.width  = rect.width  * dpr;
-    canvas.height = rect.height * dpr;
-    const ctx = canvas.getContext('2d');
-    ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
-    ctx.lineWidth = 2;
-    ctx.lineCap   = 'round';
-    ctx.lineJoin  = 'round';
-    return ctx;
-  }
-
-  document.querySelectorAll('.signature-pad').forEach((canvas) => {
-    const ctx = resizeCanvas(canvas);
-    let drawing = false;
-
-    const getPos = (evt) => {
-      const rect = canvas.getBoundingClientRect();
-      const clientX = evt.touches ? evt.touches[0].clientX : evt.clientX;
-      const clientY = evt.touches ? evt.touches[0].clientY : evt.clientY;
-      return { x: clientX - rect.left, y: clientY - rect.top };
-    };
-    const start = (e) => { drawing = true; const p = getPos(e); ctx.beginPath(); ctx.moveTo(p.x, p.y); e.preventDefault(); };
-    const move  = (e) => { if (!drawing) return; const p = getPos(e); ctx.lineTo(p.x, p.y); ctx.stroke(); e.preventDefault(); };
-    const stop  = (e) => { drawing = false; e.preventDefault(); };
-
-    // Mouse & touch
-    canvas.addEventListener('mousedown', start);
-    canvas.addEventListener('mousemove', move);
-    canvas.addEventListener('mouseup',   stop);
-    canvas.addEventListener('mouseout',  stop);
-    canvas.addEventListener('touchstart', start, { passive: false });
-    canvas.addEventListener('touchmove',  move,  { passive: false });
-    canvas.addEventListener('touchend',   stop);
-    canvas.addEventListener('touchcancel',stop);
-
-    // Expose helpers
-    canvas.clear   = () => { ctx.clearRect(0,0,canvas.width, canvas.height); ctx.beginPath(); };
-    canvas._resize = () => resizeCanvas(canvas);
-    canvas.ctx     = ctx;
-  });
-
-  // If your canvas lives in a Bootstrap modal, recalc size once visible
-  document.querySelectorAll('.modal[id$="signatureModal"]').forEach(modal => {
-    modal.addEventListener('shown.bs.modal', () => {
-      const canvas = modal.querySelector('canvas.signature-pad');
-      if (canvas && canvas._resize) canvas._resize();
-    });
-  });
-
-  // --- Saved signatures keyed by signer --- //
-  const pendingSlot = {}; // { who: imageId } = which slot to apply after first save
-
-  function openSignerModal(who) {
-    const modalEl = document.getElementById(`${who}signatureModal`);
-    if (!modalEl) return;
-    const instance = window.bootstrap?.Modal.getOrCreateInstance(modalEl);
-    instance?.show();
-  }
-
-  function applyImageToSlot(imageId, dataURL) {
-    // Set the image
-    const img = document.getElementById(imageId);
-    if (img) {
-      img.src = dataURL;
-      img.style.display = 'block';
-    }
-    // Hide the matching button(s)
-    document.querySelectorAll(`[data-target-img="${imageId}"]`).forEach(btn => {
-      btn.style.display = 'none';
-    });
-    // Optional: stamp a date if a date target is specified on the button
-    const btn = document.querySelector(`[data-target-img="${imageId}"]`);
-    const dateTargetSel = btn?.getAttribute('data-date-target');
-    if (dateTargetSel) {
-      const el = document.querySelector(dateTargetSel);
-      if (el) {
-        const today = new Date();
-        const yyyy = today.getFullYear();
-        const mm   = String(today.getMonth() + 1).padStart(2, '0');
-        const dd   = String(today.getDate()).padStart(2, '0');
-        // Write as YYYY-MM-DD for inputs; otherwise plain text
-        if ('value' in el) el.value = `${yyyy}-${mm}-${dd}`; else el.textContent = `${mm}/${dd}/${yyyy}`;
-      }
-    }
-  }
-
-  function persistSignature(who, dataURL) {
-    try { localStorage.setItem(`sig:${who}`, dataURL); } catch {}
-  }
-
-  function getSavedSignature(who) {
-    try { return localStorage.getItem(`sig:${who}`); } catch { return null; }
-  }
-
-  // Public: click handler used by "Sign Here" buttons on each slot
-  window.signSlot = function (who, imageId) {
-    const saved = getSavedSignature(who);
-    if (saved) {
-      applyImageToSlot(imageId, saved);
-    } else {
-      // remember which slot to apply once the first signature is saved
-      pendingSlot[who] = imageId;
-      openSignerModal(who);
-    }
-  };
-
-  // Keep your original name but adapt behavior:
-  // - Saves to localStorage
-  // - Applies to pending slot (if any)
-  // - Closes modal
-  window.saveSignatureToImage = function (who) {
-    const canvas = document.getElementById(`${who}signature-pad`);
-    const modalEl = document.getElementById(`${who}signatureModal`);
-    if (!canvas) return;
-
-    const dataURL = canvas.toDataURL('image/png');
-    persistSignature(who, dataURL);
-
-    // If user clicked a specific slot before signing, apply now
-    if (pendingSlot[who]) {
-      applyImageToSlot(pendingSlot[who], dataURL);
-      delete pendingSlot[who];
-    }
-
-    // Close modal
-    const modal = (window.bootstrap && window.bootstrap.Modal)
-      ? bootstrap.Modal.getInstance(modalEl)
-      : null;
-    modal?.hide();
-  };
-
-  // Clear JUST one slot (not the saved signature)
-  window.clearSignatureSlot = function (imageId) {
-    const img = document.getElementById(imageId);
-    if (img) { img.src = ''; img.style.display = 'none'; }
-    document.querySelectorAll(`[data-target-img="${imageId}"]`).forEach(btn => {
-      btn.style.display = 'inline-block';
-    });
-  };
-
-  // Clear the saved signature for a signer (and optionally all their slots)
-  window.clearSavedSignature = function (who, clearAllSlots = false) {
-    try { localStorage.removeItem(`sig:${who}`); } catch {}
-    if (clearAllSlots) {
-      // Reveal all buttons for this signer; clear images whose IDs are referenced by buttons
-      document.querySelectorAll(`button[data-signer="${who}"][data-target-img]`).forEach(btn => {
-        const imageId = btn.getAttribute('data-target-img');
-        window.clearSignatureSlot(imageId);
-      });
-    }
-    // Also clear the drawing canvas if open
-    const canvas = document.getElementById(`${who}signature-pad`);
-    if (canvas?.clear) canvas.clear();
-  };
-})();
+	<script src="js/signature-pad.js"></script>
 </script>
 
 </body>
