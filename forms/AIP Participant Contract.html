@@ -1,0 +1,260 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+	<!-- Required meta tags -->
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=612, user-scalable=no">
+
+	<!-- Font Awesome -->
+	<script src="https://kit.fontawesome.com/3842d44a07.js" crossorigin="anonymous"></script>
+
+	<!-- Bootstrap CSS -->
+	<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"
+		integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+	<script src="https://cdn.jsdelivr.net/npm/signature_pad@4.0.0/dist/signature_pad.umd.min.js"></script>
+
+	<title>AIP Participant Contract</title>
+	<link rel="icon" href="/static/img/favicon.png" type="image/x-icon">
+	<link rel="stylesheet" href="styles.css">
+</head>
+
+<body>
+	<div id="print-section" class="container mt-3 mb-3 pb-2 rounded-3 bg-light">
+		<form id="form-container" class="container mt-3 mb-3 pb-2">
+			<div>
+				<img src="/static/img/Iris Logo.png" alt="Logo" id="logo" class="img-fluid mx-auto d-block mb-3 pt-1"
+					style="max-width: 200px;">
+				<hr>
+				<h1 class="text-center">AIP Participant Contract</h1>
+			</div>
+
+			<div>
+
+				<div class="container-fluid mt-2">
+
+					<p>
+						I, <input type="text" class="form-control d-inline-block w-auto" id="participantName">,
+						acknowledge that I have used violence (emotional,
+						physical, and/or sexual) that has hurt or made another person feel powerless.
+					</p>
+					<ol>
+						<li>I will not abuse anyone else or myself as long as I am in this program. This includes
+							verbal,
+							emotional, sexual, financial, and psychological abuse; threats of suicide; and threats of
+							violence. If I
+							commit an act of abuse towards another person or myself, I will inform the program staff of
+							what
+							happened. I will openly talk about the situation and accept the consequences for my
+							behavior.</li>
+						<li>I agree that the reason I am in the program is to learn not to be violent or abusive. I will
+							not be
+							violent or abusive in this group or in my personal life.</li>
+						<li>I will participate openly, honestly, and actively in educational group discussions, and I
+							will abide
+							by all program group rules. If personal problems arise (e.g., drug abuse, mental health
+							issues) I
+							will seek appropriate treatment as a condition of my participation in the program. I will
+							voluntarily
+							cooperate if program staff requests that I obtain an assessment.</li>
+						<li>I will provide the correct address and phone number of the victim of my violence and will
+							notify program staff of any changes.</li>
+						<li>I understand that the safety of others and me is priority and will be enforced by the
+							program staff.</li>
+						<li>I understand that all suspected child abuse and neglect will be reported as defined by
+							Indiana law.</li>
+						<li>I understand that all suspected battery, neglect, or exploitation of an endangered adult
+							will
+							be reported as required by Indiana law.</li>
+						<li>I understand that there may be visitors attending my group, including, but not limited to
+							shadowing staff, guest speakers, or substitute leaders.</li>
+						<li>
+							My weekly fee will be
+							<span class="input-group input-group-sm align-baseline"
+								style="display:inline-flex; width:auto; vertical-align:baseline;">
+								<span class="input-group-text">$</span>
+								<input type="text" class="form-control" aria-label="Amount (to the nearest dollar)"
+									inputmode="numeric" pattern="[0-9]*" style="width:10ch;">
+
+							</span>.
+							If I should become two weeks delinquent in fees, I may be expelled from the group.
+						</li>
+						<li>I will attend group on <input type="text" class="form-control d-inline-block w-auto"
+								id="Date"> at <input type="text" class="form-control d-inline-block w-auto" id="Time">.
+							Any changes
+							to the day and time of attendance will need to be approved by the group facilitator.</li>
+
+
+					</ol>
+
+
+
+
+				</div>
+				<hr>
+				<!-- Signatures -->
+
+				<div id="signature section">
+					<div class="container-fluid">
+						<div class="row align-items-start print-inline-row-3">
+							<div class="mb-3 col">
+								<input type="text" class="form-control" id="client1name">
+								<label class="form-text" for="client1name">Client Name</label>
+							</div>
+							<div class="mb-3 col">
+								<div class="mb-3 text-center">
+									<img id="client1signature-image" src="" alt=""
+										style="border:1px solid #000; width: 300px; height: 55px; display: none;">
+									<button id="client1signbutton" type="button"
+										class="btn btn-outline-primary btn-sm mt-2" data-bs-toggle="modal"
+										data-bs-target="#client1signatureModal">Sign Here</button>
+								</div>
+								<div class="mb-3 row align-items-start">
+									<label class="form-text col" for="client1signature-pad">Client Signature</label>
+									<a href="#" onclick="clearSignatureImage('client1signature-image'); return false;"
+										class="form-text col hide-print">Clear Signature</a>
+								</div>
+							</div>
+							<div class="mb-3 col">
+								<input type="date" class="form-control" id="client1Signed" style="width: auto;">
+								<label class="form-text" for="client1Signed">Date Signed</label>
+							</div>
+						</div>
+					</div>
+
+
+					<div class="container-fluid">
+						<div class="row align-items-start print-inline-row-3">
+							<div class=" mb-3 col">
+								<input type="text" class="form-control" id="client2name">
+								<label class="form-text" for="client2name">Client Name</label>
+							</div>
+							<div class=" mb-3 col">
+								<div class="mb-3 text-center">
+									<img id="client2signature-image" src="" alt=""
+										style="border:1px solid #000; width: 300px; height: 55px; display: none;">
+									<button id="client2signbutton" type="button"
+										class="btn btn-outline-primary btn-sm mt-2 hide-print" data-bs-toggle="modal"
+										data-bs-target="#client2signatureModal">Sign Here</button>
+								</div>
+								<div class="mb-3 row align-items-start">
+									<label class="form-text col" for="client2signature-pad">Client Signature</label>
+									<a href="#" onclick="clearSignatureImage('client2signature-image'); return false;"
+										class="form-text col hide-print">Clear Signature</a>
+								</div>
+							</div>
+							<div class="mb-3 col">
+								<input type="date" class="form-control" id="client2Signed" name="client2Signed"
+									style="width: auto;">
+								<label class="form-text" for="client2Signed">Date Signed</label>
+							</div>
+						</div>
+					</div>
+					<div class="container-fluid">
+						<div class="row align-items-start print-inline-row-3">
+							<div class="mb-3 col">
+								<input type="text" class="form-control" id="staffname">
+								<label class="form-text" for="staffname">Staff Name</label>
+							</div>
+							<div class="mb-3 col">
+								<div class="mb-3 text-center">
+									<img id="staffsignature-image" src="" alt=""
+										style="border:1px solid #000; width: 300px; height: 55px; display: none;">
+									<button id="staffsignbutton" type="button"
+										class="btn btn-outline-primary btn-sm mt-2" data-bs-toggle="modal"
+										data-bs-target="#staffsignatureModal">Sign Here</button>
+								</div>
+								<div class="mb-3 row align-items-start">
+									<label class="form-text col" for="staffsignature-pad">Staff Signature</label>
+									<a href="#" onclick="clearSignatureImage('staffsignature-image'); return false;"
+										class="form-text col">Clear Signature</a>
+								</div>
+							</div>
+							<div class="mb-3 col">
+								<input type="date" class="form-control" id="staffSigned" style="width: auto;">
+								<label class="form-text" for="staffSigned">Date Signed</label>
+							</div>
+						</div>
+					</div>
+				</div>
+
+				<!-- Modals -->
+
+				<div class="modal fade" id="client1signatureModal" tabindex="-1"
+					aria-labelledby="client1signatureModalLabel" aria-hidden="true">
+					<div class="modal-dialog modal-dialog-centered">
+						<div class="modal-content">
+							<div class="modal-header">
+								<h5 class="modal-title" id="client1signatureModalLabel">Client Signature</h5>
+								<button type="button" class="btn-close" data-bs-dismiss="modal"
+									aria-label="Close"></button>
+							</div>
+							<div class="modal-body text-center">
+								<canvas class="signature-pad" id="client1signature-pad"></canvas>
+								<div class="mt-2">
+									<button type="button" class="btn btn-sm btn-secondary"
+										onclick="clearSignature('client1signature-pad')">Clear</button>
+									<button type="button" class="btn btn-sm btn-primary"
+										onclick="saveSignatureToImage('client1')">Save</button>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+				<div class="modal fade" id="client2signatureModal" tabindex="-1"
+					aria-labelledby="client2signatureModalLabel" aria-hidden="true">
+					<div class="modal-dialog modal-dialog-centered">
+						<div class="modal-content">
+							<div class="modal-header">
+								<h5 class="modal-title" id="client2signatureModalLabel">Client Signature</h5>
+								<button type="button" class="btn-close" data-bs-dismiss="modal"
+									aria-label="Close"></button>
+							</div>
+							<div class="modal-body text-center">
+								<canvas class="signature-pad" id="client2signature-pad"></canvas>
+								<div class="mt-2">
+									<button type="button" class="btn btn-sm btn-secondary"
+										onclick="clearSignature('client2signature-pad')">Clear</button>
+									<button type="button" class="btn btn-sm btn-primary"
+										onclick="saveSignatureToImage('client2')">Save</button>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+				<div class="modal fade" id="staffsignatureModal" tabindex="-1" aria-labelledby="signatureModalLabel"
+					aria-hidden="true">
+					<div class="modal-dialog modal-dialog-centered">
+						<div class="modal-content">
+							<div class="modal-header text-center">
+								<h5 class="modal-title" id="signatureModalLabel">Staff Signature</h5>
+								<button type="button" class="btn-close" data-bs-dismiss="modal"
+									aria-label="Close"></button>
+							</div>
+							<div class="modal-body text-center">
+								<canvas class="signature-pad" id="staffsignature-pad"></canvas>
+								<div class="mt-2">
+									<button type="button" class="btn btn-sm btn-secondary"
+										onclick="clearSignature('staffsignature-pad')">Clear</button>
+									<button type="button" class="btn btn-sm btn-primary"
+										onclick="saveSignatureToImage('staff')">Save
+										Signature</button>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+
+				<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
+					integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
+					crossorigin="anonymous"></script>
+				<script src="js/setdates.js"></script>
+				<script src="js/signature-pad.js"></script>
+
+
+</body>
+
+</html>

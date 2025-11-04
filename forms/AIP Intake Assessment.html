@@ -1,0 +1,727 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+	<!-- Required meta tags -->
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=612, user-scalable=no">
+
+	<!-- Font Awesome -->
+	<script src="https://kit.fontawesome.com/3842d44a07.js" crossorigin="anonymous"></script>
+
+	<!-- Bootstrap CSS -->
+	<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"
+		integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+	<script src="https://cdn.jsdelivr.net/npm/signature_pad@4.0.0/dist/signature_pad.umd.min.js"></script>
+
+	<title>AIP Intake Assessment</title>
+	<link rel="icon" href="/static/img/favicon.png" type="image/x-icon">
+	<link rel="stylesheet" href="styles.css">
+</head>
+
+<body style="background: #7867AE">
+	<div id="print-section" class="container mt-3 mb-3 pb-2 rounded-3 bg-light">
+		<br>
+		<form id="form-container" class="container mt-3 mb-3 pb-2" method="post" action="/submit">
+			<div>
+				<img src="/static/img/Iris Logo.png" alt="Logo" id="logo" class="img-fluid mx-auto d-block mb-3"
+					style="max-width: 200px;">
+				<hr>
+				<h1 class="text-center mb-4">AIP Intake Assessment</h1>
+			</div>
+			<!-- Content -->
+			<h3>Please list your:</h3>
+			<div class="row print-inline-row-2 mt-2">
+				<div class="col">
+					<label for="clientName" class="form-label">Name</label>
+				</div>
+				<div class="col">
+					<input type="text" class="form-control" id="clientName" name="clientName">
+				</div>
+			</div>
+			<div class="row print-inline-row-2 mt-2">
+				<div class="col">
+					<label for="dateOfBirth" class="form-label">Date of Birth <strong><label
+								id="age">(Age)</label></strong></label>
+				</div>
+				<div class="col">
+					<input type="date" class="form-control" id="dateOfBirth" name="dateOfBirth">
+				</div>
+			</div>
+			<div class="row print-inline-row-2 mt-2">
+				<div class="col">
+					<label for="gender" class="form-label">Gender</label>
+				</div>
+				<div class="col">
+					<input type="text" class="form-control" id="gender" name="gender">
+				</div>
+			</div>
+			<div class="row print-inline-row-2 mt-2">
+				<div class="col">
+					<label for="pronouns" class="form-label">Preferred Pronouns</label>
+				</div>
+				<div class="col">
+					<input type="text" class="form-control" id="pronouns" name="pronouns">
+				</div>
+			</div>
+			<div class="row print-inline-row-2 mt-2">
+				<div class="col">
+					<label for="maritalStatus" class="form-label">Marital Status</label>
+				</div>
+				<div class="col">
+					<input type="text" class="form-control" id="maritalStatus" name="maritalStatus">
+				</div>
+			</div>
+			<div class="row print-inline-row-2 mt-2">
+				<div class="col">
+					<label for="race" class="form-label">Race/Ethnicity</label>
+				</div>
+				<div class="col">
+					<input type="text" class="form-control" id="race" name="race">
+				</div>
+			</div>
+			<div class="row print-inline-row-2 mt-2">
+				<div class="col">
+					<label for="address" class="form-label">Address</label>
+				</div>
+				<div class="col">
+					<input type="text" class="form-control" id="address" name="address">
+				</div>
+			</div>
+			<div class="row print-inline-row-2 mt-2">
+				<div class="col">
+					<label for="phoneNumber" class="form-label">Phone Number</label>
+				</div>
+				<div class="col">
+					<input type="tel" class="form-control" id="phoneNumber" name="phoneNumber">
+				</div>
+			</div>
+			<div class="row print-inline-row-2 mt-2">
+				<div class="col">
+					<label for="email" class="form-label">Email Address</label>
+				</div>
+				<div class="col">
+					<input type="text" class="form-control" id="email" name="email">
+				</div>
+			</div>
+			<div class="row print-inline-row-2 mt-2">
+				<div class="col">
+					<label for="military" class="form-label">History in the Military</label>
+				</div>
+				<div class="col">
+					<input type="text" class="form-control" id="military" name="military">
+				</div>
+			</div>
+			<hr class="mt-4 mb-4">
+			<h3>Please list your partner's:</h3>
+			<div class="row print-inline-row-2 mt-2">
+				<div class="col">
+					<label for="clientName" class="form-label">Name</label>
+				</div>
+				<div class="col">
+					<input type="text" class="form-control" id="clientName" name="clientName">
+				</div>
+			</div>
+			<div class="row print-inline-row-2 mt-2">
+				<div class="col">
+					<label for="dateOfBirth" class="form-label">Date of Birth <strong><label
+								id="age">(Age)</label></strong></label>
+				</div>
+				<div class="col">
+					<input type="date" class="form-control" id="dateOfBirth" name="dateOfBirth">
+				</div>
+			</div>
+			<div class="row print-inline-row-2 mt-2">
+				<div class="col">
+					<label for="address" class="form-label">Address</label>
+				</div>
+				<div class="col">
+					<input type="text" class="form-control" id="address" name="address">
+				</div>
+			</div>
+			<div class="row print-inline-row-2 mt-2">
+				<div class="col">
+					<label for="phoneNumber" class="form-label">Phone Number</label>
+				</div>
+				<div class="col">
+					<input type="tel" class="form-control" id="phoneNumber" name="phoneNumber">
+				</div>
+			</div>
+			<div class="row print-inline-row-2 mt-2">
+				<div class="col">
+					<label for="email" class="form-label">Email Address</label>
+				</div>
+				<div class="col">
+					<input type="text" class="form-control" id="email" name="email">
+				</div>
+			</div>
+
+			<div class="row print-inline-row-2 mt-2">
+				<div class="col">
+					<label for="email" class="form-label">Do you have children with your partner?</label>
+				</div>
+				<div class="col">
+					<div class="form-check form-check-inline">
+						<input class="form-check-input" type="checkbox" id="childrenYes" value="Yes">
+						<label class="form-check-label" for="childrenYes">Yes</label>
+					</div>
+					<div class="form-check form-check-inline">
+						<input class="form-check-input" type="checkbox" id="childrenNo" value="No">
+						<label class="form-check-label" for="childrenNo">No</label>
+					</div>
+				</div>
+			</div>
+			<div class="row print-inline-row-2 mt-2">
+				<div class="col">
+					<label for="email" class="form-label">If yes, please list how many and their names and ages.</label>
+				</div>
+				<div class="col">
+					<div class="form">
+						<textarea class="form-control" id="floatingTextarea"></textarea>
+					</div>
+				</div>
+			</div>
+
+
+			<div class="row print-inline-row-2 mt-2">
+				<div class="col">
+					<label for="email" class="form-label">Have you been previously involved with an AIP or Anger
+						Management Program?</label>
+				</div>
+				<div class="col">
+					<div class="form-check form-check-inline">
+						<input class="form-check-input" type="checkbox" id="priorYes" value="Yes">
+						<label class="form-check-label" for="priorYes">Yes</label>
+					</div>
+					<div class="form-check form-check-inline">
+						<input class="form-check-input" type="checkbox" id="priorNo" value="No">
+						<label class="form-check-label" for="priorNo">No</label>
+					</div>
+				</div>
+			</div>
+			<div class="row print-inline-row-2 mt-2">
+				<div class="col">
+					<label for="email" class="form-label">Please Describe why you have been referred to AIP at Iris
+						Family Support</label>
+				</div>
+				<div class="col">
+					<div class="form">
+						<textarea class="form-control" id="floatingTextarea"></textarea>
+					</div>
+				</div>
+			</div>
+
+			<hr class="mt-4 mb-4">
+
+			<h2 class="text-center mb-4">Criminal & Legal History Assessment</h2>
+
+			<div class="row print-inline-row-2 mt-2">
+				<div class="col">
+					<label for="email" class="form-label">Is there a protective order in place?</label>
+				</div>
+				<div class="col">
+					<div class="form-check form-check-inline">
+						<input class="form-check-input" type="checkbox" id="priorYes" value="Yes">
+						<label class="form-check-label" for="priorYes">Yes</label>
+					</div>
+					<div class="form-check form-check-inline">
+						<input class="form-check-input" type="checkbox" id="priorNo" value="No">
+						<label class="form-check-label" for="priorNo">No</label>
+					</div>
+				</div>
+			</div>
+			<div class="row print-inline-row-2 mt-2">
+				<div class="col">
+					<label for="email" class="form-label">Have police been called to your house due to a violent
+						incident?</label>
+				</div>
+				<div class="col">
+					<div class="form-check form-check-inline">
+						<input class="form-check-input" type="checkbox" id="priorYes" value="Yes">
+						<label class="form-check-label" for="priorYes">Yes</label>
+					</div>
+					<div class="form-check form-check-inline">
+						<input class="form-check-input" type="checkbox" id="priorNo" value="No">
+						<label class="form-check-label" for="priorNo">No</label>
+					</div>
+				</div>
+			</div>
+			<div class="row print-inline-row-2 mt-2">
+				<div class="col">
+					<label for="email" class="form-label">Have you been arrested for a violent crime?</label>
+				</div>
+				<div class="col">
+					<div class="form-check form-check-inline">
+						<input class="form-check-input" type="checkbox" id="priorYes" value="Yes">
+						<label class="form-check-label" for="priorYes">Yes</label>
+					</div>
+					<div class="form-check form-check-inline">
+						<input class="form-check-input" type="checkbox" id="priorNo" value="No">
+						<label class="form-check-label" for="priorNo">No</label>
+					</div>
+				</div>
+			</div>
+			<div class="row print-inline-row-2 mt-2">
+				<div class="col">
+					<label for="email" class="form-label">Is there a NCO in place?</label>
+				</div>
+				<div class="col">
+					<div class="form-check form-check-inline">
+						<input class="form-check-input" type="checkbox" id="priorYes" value="Yes">
+						<label class="form-check-label" for="priorYes">Yes</label>
+					</div>
+					<div class="form-check form-check-inline">
+						<input class="form-check-input" type="checkbox" id="priorNo" value="No">
+						<label class="form-check-label" for="priorNo">No</label>
+					</div>
+				</div>
+			</div>
+			<div class="row print-inline-row-2 mt-2">
+				<div class="col">
+					<label for="email" class="form-label">Did you serve any jail/prison time?</label>
+				</div>
+				<div class="col">
+					<div class="form-check form-check-inline">
+						<input class="form-check-input" type="checkbox" id="priorYes" value="Yes">
+						<label class="form-check-label" for="priorYes">Yes</label>
+					</div>
+					<div class="form-check form-check-inline">
+						<input class="form-check-input" type="checkbox" id="priorNo" value="No">
+						<label class="form-check-label" for="priorNo">No</label>
+					</div>
+				</div>
+			</div>
+			<div class="row print-inline-row-2 mt-2">
+				<div class="col">
+					<label for="email" class="form-label">Have you ever been to counseling for abusive behavior?</label>
+				</div>
+				<div class="col">
+					<div class="form-check form-check-inline">
+						<input class="form-check-input" type="checkbox" id="priorYes" value="Yes">
+						<label class="form-check-label" for="priorYes">Yes</label>
+					</div>
+					<div class="form-check form-check-inline">
+						<input class="form-check-input" type="checkbox" id="priorNo" value="No">
+						<label class="form-check-label" for="priorNo">No</label>
+					</div>
+				</div>
+			</div>
+			<div class="row print-inline-row-2 mt-2">
+				<div class="col">
+					<label for="email" class="form-label">Are you currently on probation or parole?</label>
+				</div>
+				<div class="col">
+					<div class="form-check form-check-inline">
+						<input class="form-check-input" type="checkbox" id="priorYes" value="Yes">
+						<label class="form-check-label" for="priorYes">Yes</label>
+					</div>
+					<div class="form-check form-check-inline">
+						<input class="form-check-input" type="checkbox" id="priorNo" value="No">
+						<label class="form-check-label" for="priorNo">No</label>
+					</div>
+				</div>
+			</div>
+			<hr class="mt-4 mb-4">
+
+			<h2 class="text-center mb-4">Domestic Violence Assessment</h2>
+
+			<div class="row print-inline-row-2 mt-2">
+				<div class="col">
+					<label for="email" class="form-label">When you were growing up, did you hear or witness violence at
+						home, school, or in your community?</label>
+				</div>
+				<div class="col">
+					<div class="form-check form-check-inline">
+						<input class="form-check-input" type="checkbox" id="priorYes" value="Yes">
+						<label class="form-check-label" for="priorYes">Yes</label>
+					</div>
+					<div class="form-check form-check-inline">
+						<input class="form-check-input" type="checkbox" id="priorNo" value="No">
+						<label class="form-check-label" for="priorNo">No</label>
+					</div>
+				</div>
+			</div>
+			<div class="row print-inline-row-2 mt-2">
+				<div class="col">
+					<label for="email" class="form-label">When you were growing up, did you use violence against
+						friends, family, or others?</label>
+				</div>
+				<div class="col">
+					<div class="form-check form-check-inline">
+						<input class="form-check-input" type="checkbox" id="priorYes" value="Yes">
+						<label class="form-check-label" for="priorYes">Yes</label>
+					</div>
+					<div class="form-check form-check-inline">
+						<input class="form-check-input" type="checkbox" id="priorNo" value="No">
+						<label class="form-check-label" for="priorNo">No</label>
+					</div>
+				</div>
+			</div>
+			<div class="row print-inline-row-2 mt-2">
+				<div class="col">
+					<label for="email" class="form-label">Have you been in more than one relationship involving domestic
+						violence?</label>
+				</div>
+				<div class="col">
+					<div class="form-check form-check-inline">
+						<input class="form-check-input" type="checkbox" id="priorYes" value="Yes">
+						<label class="form-check-label" for="priorYes">Yes</label>
+					</div>
+					<div class="form-check form-check-inline">
+						<input class="form-check-input" type="checkbox" id="priorNo" value="No">
+						<label class="form-check-label" for="priorNo">No</label>
+					</div>
+				</div>
+			</div>
+			<div class="row print-inline-row-2 mt-2">
+				<div class="col">
+					<label for="email" class="form-label">Do you consider yourself a violent person?</label>
+				</div>
+				<div class="col">
+					<div class="form-check form-check-inline">
+						<input class="form-check-input" type="checkbox" id="priorYes" value="Yes">
+						<label class="form-check-label" for="priorYes">Yes</label>
+					</div>
+					<div class="form-check form-check-inline">
+						<input class="form-check-input" type="checkbox" id="priorNo" value="No">
+						<label class="form-check-label" for="priorNo">No</label>
+					</div>
+				</div>
+			</div>
+			<div class="row print-inline-row-2 mt-2">
+				<div class="col">
+					<label for="email" class="form-label">What might happen if you do not stop using violence against
+						others?</label>
+				</div>
+				<div class="col">
+					<div class="form">
+						<textarea class="form-control" id="floatingTextarea"></textarea>
+					</div>
+				</div>
+			</div>
+			<div class="row print-inline-row-2 mt-2">
+				<div class="col">
+					<label for="email" class="form-label">When you were an adolescent, did you witness any violence in
+						your home?</label>
+				</div>
+				<div class="col">
+					<div class="form-check form-check-inline">
+						<input class="form-check-input" type="checkbox" id="priorYes" value="Yes">
+						<label class="form-check-label" for="priorYes">Yes</label>
+					</div>
+					<div class="form-check form-check-inline">
+						<input class="form-check-input" type="checkbox" id="priorNo" value="No">
+						<label class="form-check-label" for="priorNo">No</label>
+					</div>
+				</div>
+			</div>
+			<div class="row print-inline-row-2 mt-2">
+				<div class="col">
+					<label for="email" class="form-label">If yes, please explain.</label>
+				</div>
+				<div class="col">
+					<div class="form">
+						<textarea class="form-control" id="floatingTextarea"></textarea>
+					</div>
+				</div>
+			</div>
+
+			<hr class="mt-4 mb-4">
+
+			<h2 class="text-center mb-4">Relationship History Assessment</h2>
+
+			<p>The following are some behaviors that many people admit to using or to being victim of in their
+				relationships. Please mark all of the behavior's you have used in your relationships.</p>
+
+
+			
+			<div class="row print-inline-row-2 mt-2">
+				<div class="col">
+					<label for="email" class="form-label">Have you used any of the following physical behaviors?</label>
+				</div>
+				<div class="col">
+					<div class="form-check form-check-inline">
+						<input class="form-check-input" type="checkbox" id="priorYes" value="Yes">
+						<label class="form-check-label" for="priorYes">slapped</label>
+					</div>
+					<div class="form-check form-check-inline">
+						<input class="form-check-input" type="checkbox" id="priorNo" value="No">
+						<label class="form-check-label" for="priorNo">Punched</label>
+					</div>
+										<div class="form-check form-check-inline">
+						<input class="form-check-input" type="checkbox" id="priorNo" value="No">
+						<label class="form-check-label" for="priorNo">Kicked</label>
+					</div>
+										<div class="form-check form-check-inline">
+						<input class="form-check-input" type="checkbox" id="priorNo" value="No">
+						<label class="form-check-label" for="priorNo">Strangled</label>
+					</div>
+										<div class="form-check form-check-inline">
+						<input class="form-check-input" type="checkbox" id="priorNo" value="No">
+						<label class="form-check-label" for="priorNo">Spit On</label>
+					</div>
+										<div class="form-check form-check-inline">
+						<input class="form-check-input" type="checkbox" id="priorNo" value="No">
+						<label class="form-check-label" for="priorNo">Restrained</label>
+					</div>
+										<div class="form-check form-check-inline">
+						<input class="form-check-input" type="checkbox" id="priorNo" value="No">
+						<label class="form-check-label" for="priorNo">Torn clothes of someone</label>
+					</div>
+										<div class="form-check form-check-inline">
+						<input class="form-check-input" type="checkbox" id="priorNo" value="No">
+						<label class="form-check-label" for="priorNo">Grabbed around the neck</label>
+					</div>
+										<div class="form-check form-check-inline">
+						<input class="form-check-input" type="checkbox" id="priorNo" value="No">
+						<label class="form-check-label" for="priorNo">Pulled hair</label>
+					</div>
+										<div class="form-check form-check-inline">
+						<input class="form-check-input" type="checkbox" id="priorNo" value="No">
+						<label class="form-check-label" for="priorNo">None of these</label>
+					</div>
+				</div>
+			</div>
+
+<div class="row print-inline-row-2 mt-2">
+				<div class="col">
+					<label for="email" class="form-label">Have you used any of the following intimidating behaviors?</label>
+				</div>
+				<div class="col">
+					<div class="form-check form-check-inline">
+						<input class="form-check-input" type="checkbox" id="priorYes" value="Yes">
+						<label class="form-check-label" for="priorYes">Frightened your partner by giving them certain looks, gestures, or actions</label>
+					</div>
+					<div class="form-check form-check-inline">
+						<input class="form-check-input" type="checkbox" id="priorNo" value="No">
+						<label class="form-check-label" for="priorNo">Screamed at them</label>
+					</div>
+										<div class="form-check form-check-inline">
+						<input class="form-check-input" type="checkbox" id="priorNo" value="No">
+						<label class="form-check-label" for="priorNo">Have they ever said that they are afraid of you (emotionally/financially/physically/sexually)</label>
+					</div>
+										<div class="form-check form-check-inline">
+						<input class="form-check-input" type="checkbox" id="priorNo" value="No">
+						<label class="form-check-label" for="priorNo">Followed/Stalked them</label>
+					</div>
+										<div class="form-check form-check-inline">
+						<input class="form-check-input" type="checkbox" id="priorNo" value="No">
+						<label class="form-check-label" for="priorNo">None of these</label>
+					</div>
+										
+				</div>
+			</div>
+
+<div class="row print-inline-row-2 mt-2">
+				<div class="col">
+					<label for="email" class="form-label">Have you ever used any of the following emotionally abusive behaviors?</label>
+				</div>
+				<div class="col">
+					<div class="form-check form-check-inline">
+						<input class="form-check-input" type="checkbox" id="priorYes" value="Yes">
+						<label class="form-check-label" for="priorYes">Made them feel bad about themselves</label>
+					</div>
+					<div class="form-check form-check-inline">
+						<input class="form-check-input" type="checkbox" id="priorNo" value="No">
+						<label class="form-check-label" for="priorNo">Humiliate them</label>
+					</div>
+										<div class="form-check form-check-inline">
+						<input class="form-check-input" type="checkbox" id="priorNo" value="No">
+						<label class="form-check-label" for="priorNo">Made them feel guilty</label>
+					</div>
+										<div class="form-check form-check-inline">
+						<input class="form-check-input" type="checkbox" id="priorNo" value="No">
+						<label class="form-check-label" for="priorNo">Called them names</label>
+					</div>
+					<div class="form-check form-check-inline">
+						<input class="form-check-input" type="checkbox" id="priorNo" value="No">
+						<label class="form-check-label" for="priorNo">Accused them of flirting and/or cheating</label>
+					</div>
+										<div class="form-check form-check-inline">
+						<input class="form-check-input" type="checkbox" id="priorNo" value="No">
+						<label class="form-check-label" for="priorNo">None of these</label>
+					</div>
+										
+				</div>
+			</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+			<div class="row print-inline-row-2 mt-5">
+				<div class="col">
+					<label for="completedBy" class="form-label">Completed By</label>
+					<input type="text" class="form-control" id="completedBy" name="completedBy">
+				</div>
+				<div class="col">
+					<label for="date" class="form-label">Date Completed</label>
+					<input type="date" class="form-control" id="date" name="date">
+				</div>
+			</div>
+			<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
+				integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
+				crossorigin="anonymous"></script>
+
+
+			<script>
+				document.addEventListener("DOMContentLoaded", function () {
+					const dateOfBirthInput = document.getElementById("dateOfBirth");
+					const ageLabel = document.getElementById("age");
+
+					dateOfBirthInput.addEventListener("change", function () {
+						const dob = new Date(this.value);
+						const today = new Date();
+						let age = today.getFullYear() - dob.getFullYear();
+						const monthDiff = today.getMonth() - dob.getMonth();
+						const dayDiff = today.getDate() - dob.getDate();
+
+						// Adjust age if birthday hasn't occurred yet this year
+						if (monthDiff < 0 || (monthDiff === 0 && dayDiff < 0)) {
+							age--;
+						}
+
+						if (!isNaN(age)) {
+							ageLabel.textContent = `(${age} years old)`;
+						} else {
+							ageLabel.textContent = "(Age)";
+						}
+					});
+				});
+			</script>
+			<script>
+				document.addEventListener("DOMContentLoaded", function () {
+					const totalQuestions = 6;
+					const scoreDisplay = document.getElementById("uncopeScore");
+
+					function calculateScore() {
+						let score = 0;
+						for (let i = 1; i <= totalQuestions; i++) {
+							const yesCheckbox = document.getElementById(`uncope${i}Yes`);
+							if (yesCheckbox && yesCheckbox.checked) {
+								score += 1;
+							}
+						}
+						scoreDisplay.textContent = score;
+					}
+
+					for (let i = 1; i <= totalQuestions; i++) {
+						const yesCheckbox = document.getElementById(`uncope${i}Yes`);
+						const noCheckbox = document.getElementById(`uncope${i}No`);
+
+						if (yesCheckbox && noCheckbox) {
+							yesCheckbox.addEventListener("change", function () {
+								if (this.checked) noCheckbox.checked = false;
+								calculateScore();
+							});
+
+							noCheckbox.addEventListener("change", function () {
+								if (this.checked) yesCheckbox.checked = false;
+								calculateScore();
+							});
+						}
+					}
+				});
+			</script>
+
+			<script>
+				document.addEventListener("DOMContentLoaded", function () {
+					const container = document.getElementById("significantOtherContainer");
+
+					container.addEventListener("click", function (e) {
+						if (e.target.classList.contains("add-btn")) {
+							const entry = e.target.closest(".significant-other-entry");
+							const clone = entry.cloneNode(true);
+
+							// Clear textarea
+							const textarea = clone.querySelector("textarea");
+							if (textarea) textarea.value = "";
+
+							container.appendChild(clone);
+						}
+
+						if (e.target.classList.contains("remove-btn")) {
+							const entries = container.querySelectorAll(".significant-other-entry");
+							if (entries.length > 1) {
+								e.target.closest(".significant-other-entry").remove();
+							} else {
+								alert("At least one entry must remain.");
+							}
+						}
+					});
+				});
+			</script>
+
+			<script>
+				document.addEventListener("DOMContentLoaded", function () {
+					const container = document.getElementById("mentalHealthContainer");
+
+					container.addEventListener("click", function (e) {
+						if (e.target.classList.contains("add-mental-btn")) {
+							const entry = e.target.closest(".mental-health-entry");
+							const clone = entry.cloneNode(true);
+
+							// Clear textarea
+							const textarea = clone.querySelector("textarea");
+							if (textarea) textarea.value = "";
+
+							container.appendChild(clone);
+						}
+
+						if (e.target.classList.contains("remove-mental-btn")) {
+							const entries = container.querySelectorAll(".mental-health-entry");
+							if (entries.length > 1) {
+								e.target.closest(".mental-health-entry").remove();
+							} else {
+								alert("At least one mental health entry must remain.");
+							}
+						}
+					});
+				});
+			</script>
+
+			<script>
+				document.addEventListener("DOMContentLoaded", function () {
+					const container = document.getElementById("familyMemberContainer");
+
+					container.addEventListener("click", function (e) {
+						if (e.target.classList.contains("add-family-btn")) {
+							const entry = e.target.closest(".family-member-entry");
+							const clone = entry.cloneNode(true);
+
+							// Clear textarea
+							const textarea = clone.querySelector("textarea");
+							if (textarea) textarea.value = "";
+
+							container.appendChild(clone);
+						}
+
+						if (e.target.classList.contains("remove-family-btn")) {
+							const entries = container.querySelectorAll(".family-member-entry");
+							if (entries.length > 1) {
+								e.target.closest(".family-member-entry").remove();
+							} else {
+								alert("At least one family member entry must remain.");
+							}
+						}
+					});
+				});
+			</script>
+
+
+			<script src="js/setdates.js"></script>
+
+</body>
+
+</html>
