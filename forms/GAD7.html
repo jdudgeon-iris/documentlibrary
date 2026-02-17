@@ -1,0 +1,264 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>GAD-7 Anxiety</title>
+
+<style>
+  body{
+    font-family: Arial, Helvetica, sans-serif;
+    background:#f4f4f4;
+    padding:20px;
+  }
+
+  .container{
+    max-width:900px;
+    margin:auto;
+    background:#fff;
+    border:1px solid #ccc;
+    padding:25px;
+  }
+
+  .title{
+    text-align:center;
+    font-size:22px;
+    font-weight:700;
+    margin-bottom:12px;
+  }
+
+  .instructions{
+    font-size:14px;
+    margin: 0 0 12px 0;
+  }
+
+  table{
+    width:100%;
+    border-collapse:collapse;
+    margin-top:8px;
+  }
+
+  th, td{
+    border:1px solid #444;
+    padding:10px;
+    vertical-align:top;
+  }
+
+  th{
+    font-size:13px;
+    text-align:center;
+    background:#f7f7f7;
+  }
+
+  td.question{
+    width:55%;
+    font-size:14px;
+  }
+
+  td.opt{
+    text-align:center;
+    width:11.25%;
+  }
+
+  .totals{
+    display:flex;
+    justify-content:flex-end;
+    gap:12px;
+    align-items:center;
+    margin-top:10px;
+    font-size:14px;
+  }
+
+  .scorebox{
+    border:1px solid #ccc;
+    padding:10px 12px;
+    border-radius:8px;
+    background:#fafafa;
+    font-weight:700;
+  }
+
+  .difficulty{
+    margin-top:22px;
+    border:1px solid #444;
+    padding:12px;
+  }
+
+  .difficulty p{
+    margin:0 0 10px 0;
+    font-size:14px;
+  }
+
+  .difficulty .choices{
+    display:flex;
+    justify-content:space-between;
+    gap:10px;
+    flex-wrap:wrap;
+    font-size:14px;
+  }
+
+  .severity{
+    margin-top:22px;
+  }
+
+  .severity h2{
+    font-size:18px;
+    margin:0 0 8px 0;
+    text-align:center;
+  }
+
+  .severity p{
+    margin: 0 0 10px 0;
+    font-size:14px;
+  }
+
+  .severity ul{
+    margin: 0 0 0 18px;
+    font-size:14px;
+    line-height:1.45;
+  }
+
+  .note{
+    margin-top:14px;
+    font-size:12px;
+    color:#555;
+  }
+
+  .btns{
+    display:flex;
+    gap:10px;
+    justify-content:flex-end;
+    margin-top:12px;
+  }
+
+  button{
+    border:1px solid #ccc;
+    background:#fff;
+    padding:10px 12px;
+    border-radius:8px;
+    cursor:pointer;
+  }
+  button:hover{ background:#f4f4f4; }
+
+  @media print{
+    body{ background:#fff; padding:0; }
+    .container{ border:none; }
+    .btns{ display:none; }
+  }
+</style>
+</head>
+
+<body>
+<div class="container">
+
+  <div class="title">GAD-7 Anxiety</div>
+
+  <div class="instructions">
+    Over the <strong>last two weeks</strong>, how often have you been bothered by the following problems?
+  </div>
+
+  <table aria-label="GAD-7 questions and response options">
+    <tr>
+      <th></th>
+      <th>Not at all</th>
+      <th>Several days</th>
+      <th>More than half<br>the days</th>
+      <th>Nearly every<br>day</th>
+    </tr>
+
+    <tbody id="gad7-body"></tbody>
+  </table>
+
+  <div class="totals">
+    <div>Column totals</div>
+    <div class="scorebox">Total score: <span id="score">0</span> / 21</div>
+  </div>
+
+  <div class="btns">
+    <button type="button" onclick="clearForm()">Clear</button>
+    <button type="button" onclick="window.print()">Print</button>
+  </div>
+
+  <div class="difficulty" aria-label="Functional difficulty question">
+    <p>
+      If you checked off any problems, how difficult have they made it for you to do your work,
+      take care of things at home, or get along with other people?
+    </p>
+
+    <div class="choices">
+      <label><input type="radio" name="difficulty"> Not difficult at all</label>
+      <label><input type="radio" name="difficulty"> Somewhat difficult</label>
+      <label><input type="radio" name="difficulty"> Very difficult</label>
+      <label><input type="radio" name="difficulty"> Extremely difficult</label>
+    </div>
+  </div>
+
+  <div class="severity" aria-label="Scoring GAD-7 anxiety severity">
+    <h2>Scoring GAD-7 Anxiety Severity</h2>
+    <p>
+      This is calculated by assigning scores of 0, 1, 2, and 3 to the response categories, respectively,
+      of “not at all,” “several days,” “more than half the days,” and “nearly every day.”
+      GAD-7 total score for the seven items ranges from 0 to 21.
+    </p>
+
+    <ul>
+      <li><strong>0–4:</strong> minimal anxiety</li>
+      <li><strong>5–9:</strong> mild anxiety</li>
+      <li><strong>10–14:</strong> moderate anxiety</li>
+      <li><strong>15–21:</strong> severe anxiety</li>
+    </ul>
+
+    <p class="note">
+      Reminder: This is a screening tool and should be interpreted by a qualified professional in clinical context.
+    </p>
+  </div>
+
+</div>
+
+<script>
+  const questions = [
+    "Feeling nervous, anxious, or on edge",
+    "Not being able to stop or control worrying",
+    "Worrying too much about different things",
+    "Trouble relaxing",
+    "Being so restless that it is hard to sit still",
+    "Becoming easily annoyed or irritable",
+    "Feeling afraid, as if something awful might happen"
+  ];
+
+  const tbody = document.getElementById("gad7-body");
+
+  function makeRow(i, text){
+    const name = `q${i+1}`;
+    return `
+      <tr>
+        <td class="question"><strong>${i+1}.</strong> ${text}</td>
+        ${[0,1,2,3].map(v => `
+          <td class="opt">
+            <input type="radio" name="${name}" value="${v}" onchange="calcScore()">
+          </td>
+        `).join("")}
+      </tr>
+    `;
+  }
+
+  tbody.innerHTML = questions.map((q, i) => makeRow(i, q)).join("");
+
+  function calcScore(){
+    let total = 0;
+    for(let i=1; i<=7; i++){
+      const picked = document.querySelector(`input[name="q${i}"]:checked`);
+      if(picked) total += Number(picked.value);
+    }
+    document.getElementById("score").textContent = total;
+  }
+
+  function clearForm(){
+    document.querySelectorAll('input[type="radio"]').forEach(r => r.checked = false);
+    calcScore();
+  }
+
+  calcScore();
+</script>
+
+</body>
+</html>
