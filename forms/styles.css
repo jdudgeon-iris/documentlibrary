@@ -64,4 +64,20 @@ body {
     break-before: page;        /* Modern standard */
   }
 
+
+
+  /* Auto-grow textareas as user types */
+textarea.autogrow {
+  resize: none;
+  overflow: hidden;
+  min-height: 38px; /* matches Bootstrap input height */
+}
+
+/* Print friendliness */
+@media print {
+  textarea.autogrow {
+    overflow: visible !important;
+  }
+}
+
 }

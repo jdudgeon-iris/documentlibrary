@@ -1359,92 +1359,138 @@
 						});
 					</script>
 
-					<script>
-						document.addEventListener("DOMContentLoaded", function () {
-							const container = document.getElementById("significantOtherContainer");
+<script>
+  document.addEventListener("DOMContentLoaded", function () {
+    const container = document.getElementById("significantOtherContainer");
 
-							container.addEventListener("click", function (e) {
-								if (e.target.classList.contains("add-btn")) {
-									const entry = e.target.closest(".significant-other-entry");
-									const clone = entry.cloneNode(true);
+    container.addEventListener("click", function (e) {
+      if (e.target.classList.contains("add-btn")) {
+        const entry = e.target.closest(".significant-other-entry");
+        const clone = entry.cloneNode(true);
 
-									// Clear textarea
-									const textarea = clone.querySelector("textarea");
-									if (textarea) textarea.value = "";
+        // Clear textarea
+        const textarea = clone.querySelector("textarea");
+        if (textarea) textarea.value = "";
 
-									container.appendChild(clone);
-								}
+        container.appendChild(clone);
 
-								if (e.target.classList.contains("remove-btn")) {
-									const entries = container.querySelectorAll(".significant-other-entry");
-									if (entries.length > 1) {
-										e.target.closest(".significant-other-entry").remove();
-									} else {
-										alert("At least one entry must remain.");
-									}
-								}
-							});
-						});
-					</script>
+        // NEW: initialize autogrow on the clone
+        if (window.__initAutoGrow) window.__initAutoGrow(clone);
+      }
 
-					<script>
-						document.addEventListener("DOMContentLoaded", function () {
-							const container = document.getElementById("mentalHealthContainer");
+      if (e.target.classList.contains("remove-btn")) {
+        const entries = container.querySelectorAll(".significant-other-entry");
+        if (entries.length > 1) {
+          e.target.closest(".significant-other-entry").remove();
+        } else {
+          alert("At least one entry must remain.");
+        }
+      }
+    });
+  });
+</script>
 
-							container.addEventListener("click", function (e) {
-								if (e.target.classList.contains("add-mental-btn")) {
-									const entry = e.target.closest(".mental-health-entry");
-									const clone = entry.cloneNode(true);
-
-									// Clear textarea
-									const textarea = clone.querySelector("textarea");
-									if (textarea) textarea.value = "";
-
-									container.appendChild(clone);
-								}
-
-								if (e.target.classList.contains("remove-mental-btn")) {
-									const entries = container.querySelectorAll(".mental-health-entry");
-									if (entries.length > 1) {
-										e.target.closest(".mental-health-entry").remove();
-									} else {
-										alert("At least one mental health entry must remain.");
-									}
-								}
-							});
-						});
-					</script>
 
 					<script>
-						document.addEventListener("DOMContentLoaded", function () {
-							const container = document.getElementById("familyMemberContainer");
+  document.addEventListener("DOMContentLoaded", function () {
+    const container = document.getElementById("mentalHealthContainer");
 
-							container.addEventListener("click", function (e) {
-								if (e.target.classList.contains("add-family-btn")) {
-									const entry = e.target.closest(".family-member-entry");
-									const clone = entry.cloneNode(true);
+    container.addEventListener("click", function (e) {
+      if (e.target.classList.contains("add-mental-btn")) {
+        const entry = e.target.closest(".mental-health-entry");
+        const clone = entry.cloneNode(true);
 
-									// Clear textarea
-									const textarea = clone.querySelector("textarea");
-									if (textarea) textarea.value = "";
+        // Clear textarea
+        const textarea = clone.querySelector("textarea");
+        if (textarea) textarea.value = "";
 
-									container.appendChild(clone);
-								}
+        container.appendChild(clone);
 
-								if (e.target.classList.contains("remove-family-btn")) {
-									const entries = container.querySelectorAll(".family-member-entry");
-									if (entries.length > 1) {
-										e.target.closest(".family-member-entry").remove();
-									} else {
-										alert("At least one family member entry must remain.");
-									}
-								}
-							});
-						});
-					</script>
+        // NEW: initialize autogrow on the clone
+        if (window.__initAutoGrow) window.__initAutoGrow(clone);
+      }
+
+      if (e.target.classList.contains("remove-mental-btn")) {
+        const entries = container.querySelectorAll(".mental-health-entry");
+        if (entries.length > 1) {
+          e.target.closest(".mental-health-entry").remove();
+        } else {
+          alert("At least one mental health entry must remain.");
+        }
+      }
+    });
+  });
+</script>
+
+
+					<script>
+  document.addEventListener("DOMContentLoaded", function () {
+    const container = document.getElementById("familyMemberContainer");
+
+    container.addEventListener("click", function (e) {
+      if (e.target.classList.contains("add-family-btn")) {
+        const entry = e.target.closest(".family-member-entry");
+        const clone = entry.cloneNode(true);
+
+        // Clear textarea
+        const textarea = clone.querySelector("textarea");
+        if (textarea) textarea.value = "";
+
+        container.appendChild(clone);
+
+        // NEW: initialize autogrow on the clone
+        if (window.__initAutoGrow) window.__initAutoGrow(clone);
+      }
+
+      if (e.target.classList.contains("remove-family-btn")) {
+        const entries = container.querySelectorAll(".family-member-entry");
+        if (entries.length > 1) {
+          e.target.closest(".family-member-entry").remove();
+        } else {
+          alert("At least one family member entry must remain.");
+        }
+      }
+    });
+  });
+</script>
+
 
 
 					<script src="js/setdates.js"></script>
+					<script>
+  (function () {
+    function autoGrow(el) {
+      if (!el) return;
+      el.style.height = "auto";
+      el.style.height = el.scrollHeight + "px";
+    }
+
+    function initAutoGrow(root = document) {
+      const textareas = root.querySelectorAll("textarea");
+      textareas.forEach(t => {
+        t.classList.add("autogrow");
+        autoGrow(t);
+      });
+    }
+
+    // Works for ALL current + future textareas
+    document.addEventListener("input", function (e) {
+      if (e.target && e.target.tagName === "TEXTAREA") autoGrow(e.target);
+    });
+
+    document.addEventListener("change", function (e) {
+      if (e.target && e.target.tagName === "TEXTAREA") autoGrow(e.target);
+    });
+
+    document.addEventListener("DOMContentLoaded", function () {
+      initAutoGrow();
+    });
+
+    // expose so clone scripts can call it
+    window.__initAutoGrow = initAutoGrow;
+  })();
+</script>
+
 
 </body>
 
