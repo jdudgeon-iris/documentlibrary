@@ -1,0 +1,437 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Child Depression Inventory (CDI)</title>
+
+<style>
+  body{
+    font-family: Arial, Helvetica, sans-serif;
+    background:#f4f4f4;
+    padding:20px;
+  }
+
+  .page{
+    max-width: 950px;
+    margin: 0 auto;
+    background:#fff;
+    border:1px solid #cfcfcf;
+    padding: 22px;
+  }
+
+  h1{
+    text-align:center;
+    margin: 0 0 14px 0;
+    font-size: 26px;
+  }
+
+  .top-fields{
+    display:flex;
+    gap:14px;
+    flex-wrap:wrap;
+    margin-bottom: 12px;
+    align-items:flex-end;
+  }
+
+  .field{
+    display:flex;
+    gap:8px;
+    align-items:center;
+    flex: 1 1 260px;
+  }
+  .field label{ font-weight:700; }
+  .field input{
+    flex:1;
+    border:1px solid #111;
+    padding:6px 8px;
+    border-radius: 2px;
+  }
+
+  .instructions{
+    font-size:14px;
+    line-height:1.35;
+    margin-bottom: 14px;
+  }
+
+  .example{
+    margin: 10px 0 14px 0;
+  }
+
+  .example-title{
+    font-weight:700;
+    margin-bottom: 6px;
+  }
+
+  .example-box{
+    border:1px solid #111;
+    display:grid;
+    grid-template-columns: 44px 1fr;
+  }
+
+  .ex-row{
+    display:contents;
+  }
+
+  .chk, .txt{
+    border-top:1px solid #111;
+    padding:8px;
+  }
+
+  .example-box .chk, .example-box .txt{
+    border-top:none;
+  }
+
+  .chk{
+    display:flex;
+    justify-content:center;
+    align-items:center;
+  }
+
+  input[type="radio"]{
+    width:18px;
+    height:18px;
+  }
+
+  .section-title{
+    font-weight:700;
+    margin: 10px 0 10px 0;
+    font-size: 14px;
+  }
+
+  /* Two-column layout like the PDF */
+  .grid{
+    display:grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 12px;
+  }
+
+  .item{
+    border:1px solid #111;
+  }
+
+  .item .row{
+    display:grid;
+    grid-template-columns: 44px 1fr;
+    border-top:1px solid #111;
+  }
+
+  .item .row:first-child{
+    border-top:none;
+  }
+
+  .item .chk{ border-right:1px solid #111; }
+
+  .item .txt{
+    padding:10px;
+    font-size:14px;
+  }
+
+  .footer{
+    margin-top: 16px;
+    display:flex;
+    justify-content:space-between;
+    align-items:flex-start;
+    gap:12px;
+    flex-wrap:wrap;
+  }
+
+  .scorebox{
+    border:1px solid #ccc;
+    background:#fafafa;
+    padding:10px 12px;
+    border-radius: 8px;
+    font-weight:700;
+  }
+
+  .btns{
+    display:flex;
+    gap:10px;
+  }
+  button{
+    border:1px solid #ccc;
+    background:#fff;
+    padding:10px 12px;
+    border-radius:8px;
+    cursor:pointer;
+  }
+  button:hover{ background:#f0f0f0; }
+
+  .note{
+    font-size:12px;
+    color:#555;
+    margin-top: 10px;
+    line-height:1.35;
+  }
+
+  @media (max-width: 780px){
+    .grid{ grid-template-columns: 1fr; }
+  }
+
+  @media print{
+    body{ background:#fff; padding:0; }
+    .page{ border:none; }
+    .btns{ display:none; }
+  }
+</style>
+</head>
+
+<body>
+<div class="page">
+
+  <h1>Child Depression Inventory (CDI)</h1>
+
+  <div class="top-fields">
+    <div class="field">
+      <label for="name">Name:</label>
+      <input id="name" type="text" />
+    </div>
+    <div class="field" style="flex:0 1 260px;">
+      <label for="dob">Date of Birth:</label>
+      <input id="dob" type="date" />
+    </div>
+    <div class="field" style="flex:0 1 260px;">
+      <label for="dateCompleted">Date Completed:</label>
+      <input id="dateCompleted" type="date" />
+    </div>
+  </div>
+
+  <div class="instructions">
+    <strong>Kids sometimes have different feelings and ideas.</strong><br>
+    This form lists the feelings and ideas in groups. From each group, pick <strong>one</strong> sentence that
+    describes you best for the past two weeks; there are no right or wrong answers. Just pick the sentence that
+    best describes the way you have been feeling recently.
+  </div>
+
+  <div class="example">
+    <div class="example-title">Here is an example of how this works: <span style="font-weight:400;">select the one that describes you best</span></div>
+    <div class="example-box">
+      <div class="ex-row">
+        <div class="chk"><input type="radio" name="example" /></div>
+        <div class="txt">I read books all the time.</div>
+      </div>
+      <div class="ex-row">
+        <div class="chk"><input type="radio" name="example" /></div>
+        <div class="txt">I read books once in a while.</div>
+      </div>
+      <div class="ex-row">
+        <div class="chk"><input type="radio" name="example" /></div>
+        <div class="txt">I never read books.</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="section-title">
+    Remember to pick the sentence that best describes your feelings and ideas in the past two weeks:
+  </div>
+
+  <!-- Items rendered here -->
+  <div class="grid" id="cdiGrid"></div>
+
+  <div class="footer">
+    <div class="scorebox">
+      Total Score: <span id="score">0</span>
+    </div>
+    <div class="btns">
+      <button type="button" onclick="clearCDI()">Clear</button>
+      <button type="button" onclick="window.print()">Print</button>
+    </div>
+  </div>
+
+  <div class="note">
+    This HTML is a layout recreation of the CDI document you provided (2 pages) for internal use/printing. :contentReference[oaicite:1]{index=1}
+  </div>
+
+</div>
+
+<script>
+  /*
+    CDI groups copied from the uploaded form (2 pages).
+    Each group has 3 statements. You pick ONE statement per group.
+    Scoring: first = 0, second = 1, third = 2 (common CDI style).
+  */
+
+  const groups = [
+    // Page 1 blocks (two-column pairs)
+    [
+      "I am sad sometimes.",
+      "I am sad most times.",
+      "I am sad all of the time."
+    ],
+    [
+      "Nothing will ever work out for me.",
+      "I am not sure if things will work out for me.",
+      "Things will work out for me."
+    ],
+    [
+      "I do most things ok.",
+      "I do many things wrong.",
+      "I do everything wrong."
+    ],
+    [
+      "I have fun most of the time.",
+      "I have fun sometimes.",
+      "Nothing is fun at all."
+    ],
+    [
+      "I am bad all of the time.",
+      "I am bad many times.",
+      "I am bad once in a while."
+    ],
+    [
+      "I think about bad things happening to me.",
+      "I worry that bad things will happen to me.",
+      "I am sure that bad things will happen to me."
+    ],
+    [
+      "I hate myself.",
+      "I do not like myself.",
+      "I like myself."
+    ],
+    [
+      "All bad things are my fault.",
+      "Many bad things are my fault.",
+      "Bad things are not usually my fault."
+    ],
+    [
+      "Things bother me all the time.",
+      "Things bother me many times.",
+      "Things bother me once in a while."
+    ],
+    [
+      "I like being with people.",
+      "I do not like being with people many times.",
+      "I do not want to be with people at all."
+    ],
+    [
+      "I cannot make up my mind about things.",
+      "It is hard to make up my mind about things.",
+      "I make up my mind easily."
+    ],
+    [
+      "I look ok.",
+      "There are some bad things about my looks.",
+      "I look ugly."
+    ],
+
+    // Page 2 blocks
+    [
+      "I do not think about killing myself.",
+      "I think about killing myself, but I would not do it.",
+      "I want to kill myself."
+    ],
+    [
+      "I feel like crying every day.",
+      "I feel like crying many days.",
+      "I feel like crying once in a while."
+    ],
+    [
+      "I always have to push myself to do my schoolwork.",
+      "I sometimes have to push myself to do my schoolwork.",
+      "Doing schoolwork is not a big problem."
+    ],
+    [
+      "I have trouble sleeping every night.",
+      "I have trouble sleeping some nights.",
+      "I sleep pretty well."
+    ],
+    [
+      "I am tired once in a while.",
+      "I am tired many days.",
+      "I am tired all the time."
+    ],
+    [
+      "Most days I do not feel like eating.",
+      "Some days I do not feel like eating.",
+      "I eat pretty well."
+    ],
+    [
+      "I do not worry about aches and pains.",
+      "I sometimes worry about aches and pains.",
+      "I worry about aches and pains all the time."
+    ],
+    [
+      "I do not feel alone.",
+      "I feel alone sometimes.",
+      "I feel alone all the time."
+    ],
+    [
+      "I never have fun at school.",
+      "I have fun at school sometimes.",
+      "I have fun at school all the time."
+    ],
+    [
+      "I have plenty of friends.",
+      "I have some friends, but wish I had more.",
+      "I do not have any friends."
+    ],
+    [
+      "My schoolwork is all right.",
+      "My schoolwork is not as good as before.",
+      "I do badly in subjects I used to be good in."
+    ],
+    [
+      "I can never be as good as other kids.",
+      "I can be as good as other kids if I want to.",
+      "I am just as good as other kids."
+    ],
+    [
+      "Nobody really loves me.",
+      "I am not sure if anybody loves me.",
+      "I am sure that somebody loves me."
+    ],
+    [
+      "I usually do what I am told.",
+      "I do not do what I am told sometimes.",
+      "I never do what I am told."
+    ],
+    [
+      "I get along with other people.",
+      "I get into fights sometimes.",
+      "I get into fights all the time."
+    ]
+  ];
+
+  const grid = document.getElementById("cdiGrid");
+
+  function render(){
+    grid.innerHTML = groups.map((statements, idx) => {
+      const name = `g${idx+1}`;
+      return `
+        <div class="item" role="group" aria-label="CDI group ${idx+1}">
+          ${statements.map((s, sIdx) => `
+            <div class="row">
+              <div class="chk">
+                <input type="radio" name="${name}" value="${sIdx}" onchange="calcCDI()" />
+              </div>
+              <div class="txt">${s}</div>
+            </div>
+          `).join("")}
+        </div>
+      `;
+    }).join("");
+  }
+
+  function calcCDI(){
+    let total = 0;
+    for(let i=1; i<=groups.length; i++){
+      const picked = document.querySelector(`input[name="g${i}"]:checked`);
+      if(picked) total += Number(picked.value);
+    }
+    document.getElementById("score").textContent = total;
+  }
+
+  function clearCDI(){
+    document.querySelectorAll('input[type="radio"]').forEach(r => r.checked = false);
+    document.getElementById("name").value = "";
+    document.getElementById("dob").value = "";
+    document.getElementById("dateCompleted").value = "";
+    document.getElementById("score").textContent = "0";
+  }
+
+  render();
+  calcCDI();
+</script>
+
+</body>
+</html>
