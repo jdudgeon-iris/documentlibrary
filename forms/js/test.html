@@ -1,0 +1,281 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Dragon Follows Cursor (Stable, No Body Spin)</title>
+  <style>
+    html, body { margin: 0; height: 100%; overflow: hidden; background: #0b0f14; }
+    canvas { display: block; width: 100vw; height: 100vh; }
+  </style>
+</head>
+<body>
+<canvas id="c"></canvas>
+
+<script>
+(() => {
+  "use strict";
+
+  // -----------------------------
+  // Canvas (HiDPI safe)
+  // -----------------------------
+  const canvas = document.getElementById("c");
+  const ctx = canvas.getContext("2d");
+
+  function resize() {
+    const dpr = Math.max(1, Math.min(2.5, window.devicePixelRatio || 1));
+    canvas.width = Math.floor(window.innerWidth * dpr);
+    canvas.height = Math.floor(window.innerHeight * dpr);
+    ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
+  }
+  window.addEventListener("resize", resize);
+  resize();
+
+  // -----------------------------
+  // Pointer
+  // -----------------------------
+  const pointer = { x: window.innerWidth / 2, y: window.innerHeight / 2 };
+  window.addEventListener("pointermove", (e) => {
+    pointer.x = e.clientX;
+    pointer.y = e.clientY;
+  });
+
+  // -----------------------------
+  // Helpers
+  // -----------------------------
+  const TAU = Math.PI * 2;
+
+  function hypot(dx, dy) { return Math.hypot(dx, dy); }
+
+  function normalize(dx, dy, fallbackX = 1, fallbackY = 0) {
+    const d = hypot(dx, dy);
+    if (d < 1e-6) return { x: fallbackX, y: fallbackY, d: 0 };
+    return { x: dx / d, y: dy / d, d };
+  }
+
+  function angleLerp(a, b, t) {
+    let d = ((b - a + Math.PI) % TAU) - Math.PI;
+    return a + d * t;
+  }
+
+  // -----------------------------
+  // Dragon config
+  // -----------------------------
+  const N = 34;                // segments
+  const SEG_LEN = 12;          // spacing between segments
+  const HEAD_ACCEL = 0.25;     // how strongly head chases cursor
+  const HEAD_DAMP = 0.82;      // head velocity damping
+  const MAX_SPEED = 24;        // clamp head speed
+  const POS_SMOOTH = 0.35;     // how quickly segments move to their target behind leader
+  const ANG_SMOOTH = 0.20;     // smoothing for head rotation
+
+  // -----------------------------
+  // State
+  // Each segment stores a stable "forward" direction (fx, fy)
+  // forward = direction the segment is facing (toward movement / toward head)
+  // -----------------------------
+  const segs = Array.from({ length: N }, () => ({
+    x: pointer.x,
+    y: pointer.y,
+    vx: 0,
+    vy: 0,
+    fx: 1,   // stable forward direction
+    fy: 0
+  }));
+
+  let headAng = 0;
+
+  // -----------------------------
+  // Simulation
+  // Key idea: place each segment behind the previous segment using leader forward dir
+  // -----------------------------
+  function step() {
+    const head = segs[0];
+
+    // Head physics toward cursor
+    head.vx += (pointer.x - head.x) * HEAD_ACCEL;
+    head.vy += (pointer.y - head.y) * HEAD_ACCEL;
+
+    head.vx *= HEAD_DAMP;
+    head.vy *= HEAD_DAMP;
+
+    // Clamp speed
+    const sp = hypot(head.vx, head.vy);
+    if (sp > MAX_SPEED) {
+      head.vx = (head.vx / sp) * MAX_SPEED;
+      head.vy = (head.vy / sp) * MAX_SPEED;
+    }
+
+    head.x += head.vx;
+    head.y += head.vy;
+
+    // Update head forward direction from velocity (stable)
+    const vdir = normalize(head.vx, head.vy, head.fx, head.fy);
+    head.fx = vdir.x;
+    head.fy = vdir.y;
+
+    // Smoothed head angle (prevents snap flips)
+    const targetAng = sp > 0.15 ? Math.atan2(head.fy, head.fx) : headAng;
+    headAng = angleLerp(headAng, targetAng, ANG_SMOOTH);
+
+    // Follow chain:
+    // Segment i wants to sit exactly SEG_LEN behind segment i-1 along leader's forward direction.
+    for (let i = 1; i < N; i++) {
+      const leader = segs[i - 1];
+      const s = segs[i];
+
+      // Desired position: behind leader
+      const tx = leader.x - leader.fx * SEG_LEN;
+      const ty = leader.y - leader.fy * SEG_LEN;
+
+      // Smoothly move toward target (critically: avoids choosing "front/back" randomly)
+      s.x += (tx - s.x) * POS_SMOOTH;
+      s.y += (ty - s.y) * POS_SMOOTH;
+
+      // Update this segment's forward dir so the next segment has a stable basis
+      const f = normalize(leader.x - s.x, leader.y - s.y, s.fx, s.fy);
+      s.fx = f.x;
+      s.fy = f.y;
+    }
+  }
+
+  // -----------------------------
+  // Drawing
+  // -----------------------------
+  function bodyWidth(i) {
+    const t = i / (N - 1); // 0=head, 1=tail
+    return 18 * (1 - t) + 3;
+  }
+
+  function drawFin(idx, size) {
+    if (idx < 2 || idx > N - 3) return;
+
+    const p = segs[idx];
+
+    // perpendicular to forward
+    const px = -p.fy;
+    const py =  p.fx;
+
+    ctx.fillStyle = "rgba(90, 190, 150, 0.42)";
+
+    // left
+    ctx.beginPath();
+    ctx.moveTo(p.x, p.y);
+    ctx.lineTo(p.x + px * size, p.y + py * size);
+    ctx.lineTo(p.x + p.fx * (size * 0.95), p.y + p.fy * (size * 0.95));
+    ctx.closePath();
+    ctx.fill();
+
+    // right
+    ctx.beginPath();
+    ctx.moveTo(p.x, p.y);
+    ctx.lineTo(p.x - px * size, p.y - py * size);
+    ctx.lineTo(p.x + p.fx * (size * 0.95), p.y + p.fy * (size * 0.95));
+    ctx.closePath();
+    ctx.fill();
+  }
+
+  function drawSpikes() {
+    ctx.fillStyle = "rgba(60, 140, 110, 0.70)";
+    for (let i = 3; i < N; i += 2) {
+      const p = segs[i];
+      const size = Math.max(3, 10 - i * 0.22);
+
+      ctx.save();
+      ctx.translate(p.x, p.y);
+      ctx.rotate(Math.atan2(p.fy, p.fx));
+
+      ctx.beginPath();
+      ctx.moveTo(0, 0);
+      ctx.lineTo(-size, -size * 0.7);
+      ctx.lineTo(-size * 0.45, 0);
+      ctx.closePath();
+      ctx.fill();
+
+      ctx.restore();
+    }
+  }
+
+  function drawHead() {
+    const h = segs[0];
+
+    ctx.save();
+    ctx.translate(h.x, h.y);
+    ctx.rotate(headAng);
+
+    ctx.shadowColor = "rgba(120, 255, 210, 0.20)";
+    ctx.shadowBlur = 18;
+
+    // head shape
+    ctx.fillStyle = "rgba(170, 255, 210, 0.95)";
+    ctx.beginPath();
+    ctx.moveTo(20, 0);
+    ctx.quadraticCurveTo(8, -13, -14, -8);
+    ctx.quadraticCurveTo(-10, 0, -14, 8);
+    ctx.quadraticCurveTo(8, 13, 20, 0);
+    ctx.fill();
+
+    ctx.shadowBlur = 0;
+
+    // horns
+    ctx.fillStyle = "rgba(60, 140, 110, 0.75)";
+    ctx.beginPath();
+    ctx.moveTo(6, -10);
+    ctx.lineTo(-2, -20);
+    ctx.lineTo(2, -8);
+    ctx.closePath();
+    ctx.fill();
+
+    ctx.beginPath();
+    ctx.moveTo(6, 10);
+    ctx.lineTo(-2, 20);
+    ctx.lineTo(2, 8);
+    ctx.closePath();
+    ctx.fill();
+
+    // eye
+    ctx.fillStyle = "rgba(10, 20, 15, 0.9)";
+    ctx.beginPath();
+    ctx.arc(7, -4, 2.2, 0, TAU);
+    ctx.fill();
+
+    ctx.restore();
+  }
+
+  function drawBody() {
+    ctx.clearRect(0, 0, window.innerWidth, window.innerHeight);
+
+    // body stroke (tail -> head)
+    ctx.lineCap = "round";
+    ctx.lineJoin = "round";
+    ctx.strokeStyle = "rgba(120, 200, 160, 0.85)";
+
+    for (let i = N - 1; i >= 1; i--) {
+      const a = segs[i];
+      const b = segs[i - 1];
+      ctx.lineWidth = bodyWidth(i - 1);
+      ctx.beginPath();
+      ctx.moveTo(a.x, a.y);
+      ctx.lineTo(b.x, b.y);
+      ctx.stroke();
+    }
+
+    // fins
+    drawFin(8, 22);
+    drawFin(14, 16);
+
+    // spikes + head
+    drawSpikes();
+    drawHead();
+  }
+
+  function loop() {
+    step();
+    drawBody();
+    requestAnimationFrame(loop);
+  }
+  loop();
+})();
+</script>
+</body>
+</html>
