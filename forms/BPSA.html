@@ -20,6 +20,400 @@
 	<title>Biopsychosocial Assessment</title>
 	<link rel="icon" href="/static/img/favicon.png" type="image/x-icon">
 	<link rel="stylesheet" href="styles.css">
+	<style>
+	/* =========================================================
+   GLOBAL
+========================================================= */
+
+*{
+  box-sizing:border-box;
+}
+
+body{
+  font-family: Arial, Helvetica, sans-serif;
+  background:#f4f4f4;
+  padding:20px;
+  margin:0;
+  color:#222;
+  line-height:1.4;
+}
+
+/* =========================================================
+   MAIN PAGE CONTAINERS
+========================================================= */
+
+.page,
+.container{
+  max-width:950px;
+  margin:0 auto 24px auto;
+  background:#fff;
+  border:1px solid #d6d6d6;
+  border-radius:10px;
+  padding:24px;
+  box-shadow:0 1px 4px rgba(0,0,0,.05);
+}
+
+/* =========================================================
+   TYPOGRAPHY
+========================================================= */
+
+h1{
+  text-align:center;
+  font-size:28px;
+  margin:0 0 18px 0;
+  color:#222;
+}
+
+h2{
+  font-size:20px;
+  margin:0 0 12px 0;
+}
+
+.title{
+  text-align:center;
+  font-size:24px;
+  font-weight:700;
+  margin-bottom:16px;
+}
+
+.header{
+  background:#5b4b8a;
+  color:#fff;
+  text-align:center;
+  padding:14px;
+  font-weight:700;
+  font-size:20px;
+  border-radius:8px;
+  margin-bottom:18px;
+}
+
+.instructions{
+  font-size:14px;
+  margin:0 0 18px 0;
+  line-height:1.5;
+}
+
+.section-title{
+  font-size:15px;
+  font-weight:700;
+  margin:16px 0 10px 0;
+}
+
+/* =========================================================
+   FORM LAYOUT
+========================================================= */
+
+.top-fields{
+  display:flex;
+  gap:14px;
+  flex-wrap:wrap;
+  margin-bottom:18px;
+  align-items:flex-end;
+}
+
+.field{
+  display:flex;
+  align-items:center;
+  gap:10px;
+  flex:1 1 260px;
+}
+
+.field label{
+  font-weight:700;
+  white-space:nowrap;
+}
+
+/* =========================================================
+   INPUTS
+========================================================= */
+
+input,
+textarea,
+select{
+  width:100%;
+  border:1px solid #c9c9c9;
+  border-radius:6px;
+  padding:10px 12px;
+  font-size:14px;
+  background:#fff;
+  transition:border-color .15s ease;
+}
+
+input:focus,
+textarea:focus,
+select:focus{
+  outline:none;
+  border-color:#7867AE;
+  box-shadow:0 0 0 3px rgba(120,103,174,.15);
+}
+
+textarea{
+  min-height:90px;
+  resize:vertical;
+}
+
+/* =========================================================
+   TABLES
+========================================================= */
+
+table{
+  width:100%;
+  border-collapse:collapse;
+  margin-top:12px;
+}
+
+th,
+td{
+  border:1px solid #d7d7d7;
+  padding:12px;
+  vertical-align:top;
+}
+
+th{
+  background:#f5f5f5;
+  text-align:center;
+  font-size:13px;
+  font-weight:700;
+}
+
+.question{
+  width:55%;
+  font-size:14px;
+}
+
+.opt,
+.options{
+  text-align:center;
+  width:11%;
+}
+
+/* =========================================================
+   GRID ITEMS (CDI)
+========================================================= */
+
+.grid{
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:14px;
+}
+
+.item{
+  border:1px solid #cfcfcf;
+  border-radius:8px;
+  overflow:hidden;
+  background:#fff;
+}
+
+.item .row{
+  display:grid;
+  grid-template-columns:50px 1fr;
+  border-top:1px solid #d9d9d9;
+}
+
+.item .row:first-child{
+  border-top:none;
+}
+
+.chk{
+  display:flex;
+  justify-content:center;
+  align-items:center;
+  border-right:1px solid #d9d9d9;
+  padding:10px;
+}
+
+.txt{
+  padding:12px;
+  font-size:14px;
+}
+
+/* =========================================================
+   RADIO / CHECKBOX
+========================================================= */
+
+input[type="radio"],
+input[type="checkbox"]{
+  width:18px;
+  height:18px;
+  cursor:pointer;
+}
+
+/* =========================================================
+   SCORE / TOTALS
+========================================================= */
+
+.totals,
+.footer{
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  gap:14px;
+  flex-wrap:wrap;
+  margin-top:18px;
+}
+
+.score,
+.scorebox{
+  border:1px solid #d2d2d2;
+  background:#fafafa;
+  padding:12px 16px;
+  border-radius:10px;
+  font-weight:700;
+  font-size:15px;
+}
+
+/* =========================================================
+   BUTTONS
+========================================================= */
+
+.btns{
+  display:flex;
+  gap:10px;
+  flex-wrap:wrap;
+}
+
+button{
+  border:none;
+  background:#7867AE;
+  color:#fff;
+  padding:10px 16px;
+  border-radius:8px;
+  cursor:pointer;
+  font-size:14px;
+  font-weight:600;
+  transition:background .15s ease;
+}
+
+button:hover{
+  background:#67559b;
+}
+
+button.btn-danger{
+  background:#c94a4a;
+}
+
+button.btn-danger:hover{
+  background:#b13e3e;
+}
+
+/* =========================================================
+   DIFFICULTY / SEVERITY SECTIONS
+========================================================= */
+
+.difficulty,
+.difficulty-section{
+  margin-top:24px;
+  border:1px solid #d4d4d4;
+  border-radius:10px;
+  padding:18px;
+  background:#fafafa;
+}
+
+.difficulty .choices{
+  display:flex;
+  flex-wrap:wrap;
+  gap:14px;
+  margin-top:12px;
+}
+
+.severity{
+  margin-top:26px;
+}
+
+.severity h2{
+  text-align:center;
+  margin-bottom:12px;
+}
+
+.severity ul{
+  margin-left:20px;
+  line-height:1.6;
+}
+
+/* =========================================================
+   NOTES
+========================================================= */
+
+.note{
+  margin-top:16px;
+  font-size:12px;
+  color:#666;
+  line-height:1.5;
+}
+
+/* =========================================================
+   AUTOGROW
+========================================================= */
+
+textarea.autogrow{
+  overflow:hidden;
+}
+
+/* =========================================================
+   RESPONSIVE
+========================================================= */
+
+@media (max-width:768px){
+
+  .grid{
+    grid-template-columns:1fr;
+  }
+
+  .top-fields{
+    flex-direction:column;
+  }
+
+  .field{
+    width:100%;
+  }
+
+  .totals,
+  .footer{
+    flex-direction:column;
+    align-items:flex-start;
+  }
+
+  th,
+  td{
+    padding:8px;
+    font-size:13px;
+  }
+
+  .question{
+    width:auto;
+  }
+}
+
+/* =========================================================
+   PRINT
+========================================================= */
+
+@media print{
+
+  body{
+    background:#fff;
+    padding:0;
+  }
+
+  .page,
+  .container{
+    border:none;
+    box-shadow:none;
+    padding:0;
+    max-width:100%;
+  }
+
+  .btns,
+  button{
+    display:none !important;
+  }
+
+  input,
+  textarea{
+    border:1px solid #999;
+  }
+}
+</style>
 </head>
 
 <body style="background: #7867AE">
@@ -1284,211 +1678,443 @@
 							<textarea class="form-control" id="summaryFamilyComp" name="summaryFamilyComp"></textarea>
 						</div>
 					</div>
-					<div class="row print-inline-row-2 mt-5">
-						<div class="col">
-							<label for="completedBy" class="form-label">Completed By</label>
-							<input type="text" class="form-control" id="completedBy" name="completedBy">
-						</div>
-						<div class="col">
-							<label for="date" class="form-label">Date Completed</label>
-							<input type="date" class="form-control" id="date" name="date">
-						</div>
-					</div>
-					<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
-						integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
-						crossorigin="anonymous"></script>
+<!-- ===================================================== -->
+<!-- GAD-7 -->
+<!-- ===================================================== -->
 
+<div class="container">
 
-					<script>
-						document.addEventListener("DOMContentLoaded", function () {
-							const dateOfBirthInput = document.getElementById("dateOfBirth");
-							const ageLabel = document.getElementById("age");
+  <div class="title">GAD-7 Anxiety</div>
 
-							dateOfBirthInput.addEventListener("change", function () {
-								const dob = new Date(this.value);
-								const today = new Date();
-								let age = today.getFullYear() - dob.getFullYear();
-								const monthDiff = today.getMonth() - dob.getMonth();
-								const dayDiff = today.getDate() - dob.getDate();
+  <div class="instructions">
+    Over the <strong>last two weeks</strong>, how often have you been bothered by the following problems?
+  </div>
 
-								// Adjust age if birthday hasn't occurred yet this year
-								if (monthDiff < 0 || (monthDiff === 0 && dayDiff < 0)) {
-									age--;
-								}
+  <table>
+    <thead>
+      <tr>
+        <th></th>
+        <th>Not at all</th>
+        <th>Several days</th>
+        <th>More than half the days</th>
+        <th>Nearly every day</th>
+      </tr>
+    </thead>
 
-								if (!isNaN(age)) {
-									ageLabel.textContent = `(${age} years old)`;
-								} else {
-									ageLabel.textContent = "(Age)";
-								}
-							});
-						});
-					</script>
-					<script>
-						document.addEventListener("DOMContentLoaded", function () {
-							const totalQuestions = 6;
-							const scoreDisplay = document.getElementById("uncopeScore");
+    <tbody id="gad7-body"></tbody>
+  </table>
 
-							function calculateScore() {
-								let score = 0;
-								for (let i = 1; i <= totalQuestions; i++) {
-									const yesCheckbox = document.getElementById(`uncope${i}Yes`);
-									if (yesCheckbox && yesCheckbox.checked) {
-										score += 1;
-									}
-								}
-								scoreDisplay.textContent = score;
-							}
+  <div class="totals">
+    <div class="scorebox">
+      Total score:
+      <span id="gad7Score">0</span> / 21
+    </div>
+  </div>
 
-							for (let i = 1; i <= totalQuestions; i++) {
-								const yesCheckbox = document.getElementById(`uncope${i}Yes`);
-								const noCheckbox = document.getElementById(`uncope${i}No`);
+</div>
 
-								if (yesCheckbox && noCheckbox) {
-									yesCheckbox.addEventListener("change", function () {
-										if (this.checked) noCheckbox.checked = false;
-										calculateScore();
-									});
+<!-- ===================================================== -->
+<!-- PHQ-9 -->
+<!-- ===================================================== -->
 
-									noCheckbox.addEventListener("change", function () {
-										if (this.checked) yesCheckbox.checked = false;
-										calculateScore();
-									});
-								}
-							}
-						});
-					</script>
+<div class="container">
+
+  <div class="header">
+    PATIENT HEALTH QUESTIONNAIRE-9 (PHQ-9)
+  </div>
+
+  <div class="instructions">
+    Over the <strong>last 2 weeks</strong>, how often have you been bothered by any of the following problems?
+  </div>
+
+  <table>
+    <thead>
+      <tr>
+        <th></th>
+        <th>Not at all (0)</th>
+        <th>Several days (1)</th>
+        <th>More than half the days (2)</th>
+        <th>Nearly every day (3)</th>
+      </tr>
+    </thead>
+
+    <tbody id="phq9-body"></tbody>
+
+  </table>
+
+  <div class="score">
+    Total Score:
+    <span id="phq9Score">0</span>
+  </div>
+
+</div>
+
+<!-- ===================================================== -->
+<!-- CDI -->
+<!-- ===================================================== -->
+
+<div class="container">
+
+  <h1>Child Depression Inventory (CDI)</h1>
+
+  <div class="grid" id="cdiGrid"></div>
+
+  <div class="footer">
+    <div class="scorebox">
+      Total Score:
+      <span id="cdiScore">0</span>
+    </div>
+  </div>
+
+</div>
+
+<!-- ===================================================== -->
+<!-- ALL ASSESSMENT SCRIPTS -->
+<!-- ===================================================== -->
 
 <script>
-  document.addEventListener("DOMContentLoaded", function () {
-    const container = document.getElementById("significantOtherContainer");
 
-    container.addEventListener("click", function (e) {
-      if (e.target.classList.contains("add-btn")) {
-        const entry = e.target.closest(".significant-other-entry");
-        const clone = entry.cloneNode(true);
+document.addEventListener("DOMContentLoaded", () => {
 
-        // Clear textarea
-        const textarea = clone.querySelector("textarea");
-        if (textarea) textarea.value = "";
+  renderGAD7();
+  renderPHQ9();
+  renderCDI();
 
-        container.appendChild(clone);
+  initUNCOPEScore();
+  initDynamicSections();
+  initAutoGrow();
 
-        // NEW: initialize autogrow on the clone
-        if (window.__initAutoGrow) window.__initAutoGrow(clone);
-      }
+});
 
-      if (e.target.classList.contains("remove-btn")) {
-        const entries = container.querySelectorAll(".significant-other-entry");
-        if (entries.length > 1) {
-          e.target.closest(".significant-other-entry").remove();
-        } else {
-          alert("At least one entry must remain.");
-        }
-      }
-    });
+/* ===================================================== */
+/* GAD7 */
+/* ===================================================== */
+
+function renderGAD7() {
+
+  const questions = [
+    "Feeling nervous, anxious, or on edge",
+    "Not being able to stop or control worrying",
+    "Worrying too much about different things",
+    "Trouble relaxing",
+    "Being so restless that it is hard to sit still",
+    "Becoming easily annoyed or irritable",
+    "Feeling afraid, as if something awful might happen"
+  ];
+
+  const tbody = document.getElementById("gad7-body");
+
+  tbody.innerHTML = questions.map((q, i) => `
+    <tr>
+      <td class="question">
+        <strong>${i + 1}.</strong> ${q}
+      </td>
+
+      ${[0,1,2,3].map(v => `
+        <td class="opt">
+          <input
+            type="radio"
+            name="gad7_q${i}"
+            value="${v}"
+            onchange="calcGAD7Score()"
+          >
+        </td>
+      `).join("")}
+    </tr>
+  `).join("");
+}
+
+function calcGAD7Score() {
+
+  let total = 0;
+
+  document.querySelectorAll(
+    'input[name^="gad7_q"]:checked'
+  ).forEach(el => {
+    total += Number(el.value);
   });
-</script>
 
+  document.getElementById("gad7Score").textContent = total;
+}
 
-					<script>
-  document.addEventListener("DOMContentLoaded", function () {
-    const container = document.getElementById("mentalHealthContainer");
+/* ===================================================== */
+/* PHQ9 */
+/* ===================================================== */
 
-    container.addEventListener("click", function (e) {
-      if (e.target.classList.contains("add-mental-btn")) {
-        const entry = e.target.closest(".mental-health-entry");
-        const clone = entry.cloneNode(true);
+function renderPHQ9() {
 
-        // Clear textarea
-        const textarea = clone.querySelector("textarea");
-        if (textarea) textarea.value = "";
+  const questions = [
+    "Little interest or pleasure in doing things",
+    "Feeling down, depressed, or hopeless",
+    "Trouble falling or staying asleep, or sleeping too much",
+    "Feeling tired or having little energy",
+    "Poor appetite or overeating",
+    "Feeling bad about yourself",
+    "Trouble concentrating on things",
+    "Moving or speaking slowly or being restless",
+    "Thoughts of self-harm"
+  ];
 
-        container.appendChild(clone);
+  const tbody = document.getElementById("phq9-body");
 
-        // NEW: initialize autogrow on the clone
-        if (window.__initAutoGrow) window.__initAutoGrow(clone);
-      }
+  tbody.innerHTML = questions.map((q, i) => `
+    <tr>
+      <td class="question">
+        ${i + 1}. ${q}
+      </td>
 
-      if (e.target.classList.contains("remove-mental-btn")) {
-        const entries = container.querySelectorAll(".mental-health-entry");
-        if (entries.length > 1) {
-          e.target.closest(".mental-health-entry").remove();
-        } else {
-          alert("At least one mental health entry must remain.");
-        }
-      }
-    });
+      ${[0,1,2,3].map(v => `
+        <td class="options">
+          <input
+            type="radio"
+            name="phq9_q${i}"
+            value="${v}"
+            onchange="calcPHQ9Score()"
+          >
+        </td>
+      `).join("")}
+    </tr>
+  `).join("");
+}
+
+function calcPHQ9Score() {
+
+  let total = 0;
+
+  document.querySelectorAll(
+    'input[name^="phq9_q"]:checked'
+  ).forEach(el => {
+    total += Number(el.value);
   });
-</script>
 
+  document.getElementById("phq9Score").textContent = total;
+}
 
-					<script>
-  document.addEventListener("DOMContentLoaded", function () {
-    const container = document.getElementById("familyMemberContainer");
+/* ===================================================== */
+/* CDI */
+/* ===================================================== */
 
-    container.addEventListener("click", function (e) {
-      if (e.target.classList.contains("add-family-btn")) {
-        const entry = e.target.closest(".family-member-entry");
-        const clone = entry.cloneNode(true);
+const cdiGroups = [
 
-        // Clear textarea
-        const textarea = clone.querySelector("textarea");
-        if (textarea) textarea.value = "";
+  [
+    "I am sad sometimes.",
+    "I am sad most times.",
+    "I am sad all the time."
+  ],
 
-        container.appendChild(clone);
+  [
+    "Nothing will ever work out for me.",
+    "I am not sure if things will work out.",
+    "Things will work out for me."
+  ],
 
-        // NEW: initialize autogrow on the clone
-        if (window.__initAutoGrow) window.__initAutoGrow(clone);
-      }
+  [
+    "I do most things okay.",
+    "I do many things wrong.",
+    "I do everything wrong."
+  ]
 
-      if (e.target.classList.contains("remove-family-btn")) {
-        const entries = container.querySelectorAll(".family-member-entry");
-        if (entries.length > 1) {
-          e.target.closest(".family-member-entry").remove();
-        } else {
-          alert("At least one family member entry must remain.");
-        }
-      }
-    });
+];
+
+function renderCDI() {
+
+  const grid = document.getElementById("cdiGrid");
+
+  grid.innerHTML = cdiGroups.map((group, idx) => `
+
+    <div class="item">
+
+      ${group.map((text, sIdx) => `
+
+        <div class="row">
+
+          <div class="chk">
+            <input
+              type="radio"
+              name="cdi_g${idx}"
+              value="${sIdx}"
+              onchange="calcCDIScore()"
+            >
+          </div>
+
+          <div class="txt">
+            ${text}
+          </div>
+
+        </div>
+
+      `).join("")}
+
+    </div>
+
+  `).join("");
+}
+
+function calcCDIScore() {
+
+  let total = 0;
+
+  document.querySelectorAll(
+    'input[name^="cdi_g"]:checked'
+  ).forEach(el => {
+    total += Number(el.value);
   });
-</script>
+
+  document.getElementById("cdiScore").textContent = total;
+}
 
 
 
-					<script src="js/setdates.js"></script>
-					<script>
-  (function () {
-    function autoGrow(el) {
-      if (!el) return;
-      el.style.height = "auto";
-      el.style.height = el.scrollHeight + "px";
+/* =========================================================
+   UNCOPE
+========================================================= */
+
+function initUNCOPEScore() {
+
+  for (let i = 1; i <= 6; i++) {
+
+    const yes =
+      document.getElementById(`uncope${i}Yes`);
+
+    const no =
+      document.getElementById(`uncope${i}No`);
+
+    if (!yes || !no) continue;
+
+    yes.addEventListener("change", () => {
+      no.checked = false;
+      calculateUNCOPEScore();
+    });
+
+    no.addEventListener("change", () => {
+      yes.checked = false;
+      calculateUNCOPEScore();
+    });
+  }
+}
+
+function calculateUNCOPEScore() {
+
+  let total = 0;
+
+  for (let i = 1; i <= 6; i++) {
+
+    const yes =
+      document.getElementById(`uncope${i}Yes`);
+
+    if (yes && yes.checked) {
+      total++;
     }
+  }
 
-    function initAutoGrow(root = document) {
-      const textareas = root.querySelectorAll("textarea");
-      textareas.forEach(t => {
-        t.classList.add("autogrow");
-        autoGrow(t);
+  const score =
+    document.getElementById("uncopeScore");
+
+  if (score) {
+    score.textContent = total;
+  }
+}
+
+
+/* =========================================================
+   DYNAMIC SECTIONS
+========================================================= */
+
+function initDynamicSections() {
+
+  setupDynamicSection({
+    containerId: "significantOtherContainer",
+    addClass: "add-btn",
+    removeClass: "remove-btn",
+    entryClass: "significant-other-entry"
+  });
+
+  setupDynamicSection({
+    containerId: "mentalHealthContainer",
+    addClass: "add-mental-btn",
+    removeClass: "remove-mental-btn",
+    entryClass: "mental-health-entry"
+  });
+
+  setupDynamicSection({
+    containerId: "familyMemberContainer",
+    addClass: "add-family-btn",
+    removeClass: "remove-family-btn",
+    entryClass: "family-member-entry"
+  });
+}
+
+function setupDynamicSection(config) {
+
+  const container =
+    document.getElementById(config.containerId);
+
+  if (!container) return;
+
+  container.addEventListener("click", function (e) {
+
+    if (e.target.classList.contains(config.addClass)) {
+
+      const entry =
+        e.target.closest(`.${config.entryClass}`);
+
+      const clone =
+        entry.cloneNode(true);
+
+      clone.querySelectorAll("textarea").forEach(t => {
+        t.value = "";
       });
+
+      clone.querySelectorAll("input").forEach(i => {
+        i.value = "";
+      });
+
+      container.appendChild(clone);
+
+      initAutoGrow();
     }
 
-    // Works for ALL current + future textareas
-    document.addEventListener("input", function (e) {
-      if (e.target && e.target.tagName === "TEXTAREA") autoGrow(e.target);
-    });
+    if (e.target.classList.contains(config.removeClass)) {
 
-    document.addEventListener("change", function (e) {
-      if (e.target && e.target.tagName === "TEXTAREA") autoGrow(e.target);
-    });
+      const entries =
+        container.querySelectorAll(`.${config.entryClass}`);
 
-    document.addEventListener("DOMContentLoaded", function () {
-      initAutoGrow();
-    });
+      if (entries.length > 1) {
+        e.target.closest(`.${config.entryClass}`).remove();
+      }
+    }
+  });
+}
 
-    // expose so clone scripts can call it
-    window.__initAutoGrow = initAutoGrow;
-  })();
+
+/* =========================================================
+   AUTOGROW
+========================================================= */
+
+function initAutoGrow() {
+
+  document
+    .querySelectorAll("textarea")
+    .forEach(textarea => {
+
+      autoGrow(textarea);
+
+      textarea.removeEventListener("input", autoGrowHandler);
+
+      textarea.addEventListener("input", autoGrowHandler);
+    });
+}
+
+function autoGrowHandler(e) {
+  autoGrow(e.target);
+}
+
+function autoGrow(el) {
+
+  el.style.height = "auto";
+  el.style.height = el.scrollHeight + "px";
+}
+
 </script>
 
 
